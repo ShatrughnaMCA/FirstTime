@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Litigation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+
+
+<div class="litigation">
+    <div class="col-md-12" style="padding:0 10px 0px;">
+        <div class="col-md-12 divPropertyDetailHeader" style="margin-bottom:5px;">
+            <h4 class="inline">Litigation</h4>
+            <span class="pull-right RID-txt"></span>
+        </div>
+    </div>
+    <div class="col-md-12 hr-div"></div>
+
+    <div class="col-md-12 tabbable" id="divLegalProperties">
+        <ul class="nav nav-tabs" id="ulLegalProperties">
+            <li class="active"><a href="#one" data-toggle="tab">Session Court</a></li>
+            <li><a href="#two" data-toggle="tab">Upper Court</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="one">
+                <div id="propertiesSessionCourt">
+                </div>
+            </div>
+            <div class="tab-pane" id="two">
+                <div id="propertiesHighCourt">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(function () {
+
+        var requestUrl = "/Administration/Property/GetLegalPropertiesByCourt/2" + location.search;
+        $("div#propertiesSessionCourt").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: requestUrl
+                },
+                pageSize: 10
+            },
+            filterable: true,
+            groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+               //{ title: 'SLNO', field: 'SLNO'}, //template: '<a href="/Property/PropertyDetail/#=RegistrationId#">#=RegistrationId#</a>', width: 130 },
+                        { title: 'Registration No', type: 'number', field: 'Rid_no', template: '<a href="/Administration/Property/PropertyDetail/#=Rid_no#">#=Rid_no#</a>' },// template: '<a href="/Property/PropertyDetail/#=RegistrationId#">#=PropertyNo#</a>', width: 130 },
+                        { title: 'Case No.', field: 'CASENO' },
+                        { title: 'Year', type: 'number', field: 'YEAR', width: 90 },
+                        { title: 'Court', field: 'COURT', width: 90 },
+                        { title: 'Parties', field: 'PARTIES', },
+                       // { title: 'DEPTT', field: 'DEPTT', width: 130, format: "{0:#,2}" },
+                        //{ title: 'Address', field: 'Address' },
+                        { title: 'Advocate Name', field: 'ADVOCATEDETAILS' },
+                         { title: 'Address', field: 'DESCRIPTION' },
+                        //{ title: 'Stay', field: 'STAY' },
+                        { title: 'Status', field: 'FiledFlag' },
+                        //{ title: 'DATE', field: 'DATE' },
+                        //{ title: 'NARRATIVEYES_NO', field: 'NARRATIVEYES_NO' },
+            ]
+        });
+
+        var requestUrl = "/Administration/Property/GetLegalPropertiesByCourt/1" + location.search;
+        $("div#propertiesHighCourt").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: requestUrl
+                },
+                pageSize: 10
+            },
+            filterable: true,
+            groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        //{ title: 'SLNO', field: 'SLNO'}, //template: '<a href="/Property/PropertyDetail/#=RegistrationId#">#=RegistrationId#</a>', width: 130 },
+                        //{ title: 'Rid No', field: 'Rid_no'},// template: '<a href="/Property/PropertyDetail/#=RegistrationId#">#=PropertyNo#</a>', width: 130 },
+                        { title: 'Case No.', field: 'CASENO' },
+                        { title: 'Year', type: 'number', field: 'YEAR', width: 90 },
+                        //{ title: 'COURT', field: 'COURT', width: 90 },
+                        { title: 'Parties', field: 'PARTIES', },
+                        { title: 'Department', field: 'DEPTT', width: 130, format: "{0:#,2}" },
+                        //{ title: 'Address', field: 'Address' },
+                        { title: 'Advocate Name', field: 'ADVOCATEDETAILS' },
+                        { title: 'Khasra No', field: 'DESCRIPTION' },
+                       // { title: 'Stay', field: 'STAY' },
+                        { title: 'Status', field: 'FiledFlag' },
+                        //{ title: 'DATE', field: 'DATE' },
+                        //{ title: 'NARRATIVEYES_NO', field: 'NARRATIVEYES_NO' },
+            ]
+        });
+
+    });
+    $(document).ready(function () {
+        //$(".noidaauth-left-nav ul li").removeClass("active");
+        setCurrentTab('liti')
+        //$(".noidaauth-left-nav ul li").removeClass("active");
+        //$("#fina").addClass("active");
+
+    });
+</script>
+
+
+

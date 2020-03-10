@@ -1,0 +1,72 @@
+﻿@using NoidaAuthority.PMS.Entity;
+@using Kendo.Mvc.UI;
+@{
+    ViewBag.Title = "Service Requests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<script src="~/Scripts/kendo/2014.2.716/kendo.aspnetmvc.min.js"></script>
+<script src="~/Scripts/kendo.aspnetmvc.min.js"></script>
+
+<div style="width: 100%">
+
+    <table style="width: 100%; float: left">
+        <tr>
+            <td colspan="2">
+                <div class="k-grid-content">
+                    @(Html.Kendo().Grid<ServiceRequestsModel>()
+                   .Name("FeedbackGrid")
+                  .Columns(columns =>
+                  {
+                      columns.Bound(p => p.id).Visible(false);
+                      columns.Bound(p => p.regNo).Width(150).Title("Registration No.").ClientTemplate("#{#<a href='/Property/PropertyDetail/#=regNo#'>#=regNo#</a>#}#");
+                      columns.Bound(p => p.custName).Width(150).Title("Customer Name");
+                      columns.Bound(p => p.dept).Width(150).Title("Department");
+                      columns.Bound(p => p.service).Width(150).Title("Service");
+                      columns.Bound(p => p.description).Width(150).Title("Description");
+                      columns.Bound(p => p.date).Width(150).Title("Date").Format("{0:dd/MM/yyyy}");
+                  })
+                           .Pageable(pageable =>
+                                        {
+                                            pageable.Refresh(true);
+                                            pageable.PageSizes(new int[] { 20, 50, 100 });
+                                            pageable.Messages(messages => messages.Empty("No Records found"));
+                                        }).Groupable()
+                                   .Filterable(f => f.Operators(o => o.ForString(fs =>
+                                                  {
+                                                      fs.Clear().Contains("Contains");
+                                                      fs.DoesNotContain("Does not contain");
+                                                      fs.IsEqualTo("Equal to");
+                                                      fs.IsNotEqualTo("Not equal to");
+                                                      fs.StartsWith("Starts with");
+                                                      fs.EndsWith("Ends with");
+                                                  })))
+                                             .Sortable()
+                                      .DataSource(dataSource => dataSource
+                                         .Ajax()
+                                        .ServerOperation(true) // paging, sorting, filtering and grouping will be applied client-side
+                                       .Read("SR_Read", "Customer")
+                                                .Model(m =>
+                                                        {
+                                                            m.Field("regNo", typeof(System.Int32));
+                                                        })
+                            //.Events(events => events.Error("error_handler"))
+                                      )
+                    )
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        setCurrentTab('serv')
+
+    });
+</script>
+

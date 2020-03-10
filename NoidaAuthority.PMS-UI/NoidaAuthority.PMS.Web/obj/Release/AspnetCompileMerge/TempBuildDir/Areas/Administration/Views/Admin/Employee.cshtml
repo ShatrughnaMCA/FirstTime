@@ -1,0 +1,385 @@
+﻿@using System.Web.Optimization
+@using Kendo.Mvc.UI
+@using NoidaAuthority.PMS.Web.Controllers.Common
+@using NoidaAuthority.PMS.Common
+@model NoidaAuthority.PMS.Entity.UserViewModel
+
+
+@{
+    ViewBag.Title = "Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .k-textbox {
+        width: 100%;        
+    }
+
+    .lbl-pad-left {
+        padding-left: 30px;
+    }
+    #div-register{
+        width:94%;
+        margin-left:3%;
+        margin-right:3%;
+    }
+</style>
+
+@using (Html.BeginForm("RegisterNAEmployee", "Admin", new { area = "Administration" }, FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "adminForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="col-md-12">
+        <div class="row divPropertyDetailHeader" style="margin-bottom:20px;">
+            <div class="col-md-12">
+                <h4 class="inline">Register Employee</h4>
+                <span class="pull-right RID-txt">
+                    @*<input type="button" title="AddCustomer" class="btn btn-default btn-bg" value="Add Back Office" onclick="location.href='@Url.Action("AddEditCustomer", "Admin", new { uid = "00000000-0000-0000-0000-000000000000", area = "Administration" })'" />*@
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 " id="div-register">
+
+
+        <div class="row form-group">
+            <div class="col-md-3">
+                <label class="required">UserName</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.UserName, htmlAttributes: new { @class = "k-textbox", @maxlength = "12" })
+            </div>
+            <div class="col-md-3">
+                <label class="required lbl-pad-left">Role Type</label>
+            </div>
+            <div class="col-md-3">
+                @(Html.Kendo().DropDownListFor(model => model.RoleId)
+                    .DataTextField("Text")
+                    .DataValueField("Id")
+                    .OptionLabel("---select---")
+                    .DataSource(dataSource => dataSource.Read(read => read.Action("GetRoleTypeList", "Admin", new { area = "Administration" })))
+                    .HtmlAttributes(new { style = "width:100%;" })
+                )
+            </div>            
+        </div>
+
+        <div class="row form-group ">
+            <div class="col-md-3">
+                <label class="required">First Name</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.FirstName, htmlAttributes: new { @class = "k-textbox", @maxlength = "50" })
+            </div>
+            <div class="col-md-3">
+                <label class="lbl-pad-left">Last Name</label>
+            </div>
+            <div class="col-md-3 ">
+                @Html.TextBoxFor(model => model.LastName, htmlAttributes: new { @class = "k-textbox ", @maxlength = "50" })
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-3">
+                <label class="required">Mobile No</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.MobileNo, htmlAttributes: new { @class = "k-textbox", @maxlength = "10" })
+            </div>
+            <div class="col-md-3">
+                <label class="lbl-pad-left">Email Id</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "k-textbox", @maxlength = "30" })
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-3">
+                <label class="required">Department</label>
+            </div>
+            <div class="col-md-3">
+                @(Html.Kendo().DropDownListFor(model => model.DepartmentId)
+                    .DataTextField("Text")
+                    .DataValueField("Id")
+                    .OptionLabel("---select---")
+                    .DataSource(dataSource => dataSource.Read(read => read.Action("GetDepartmentList", "Admin", new { area = "Administration" })))
+                    .HtmlAttributes(new { style = "width:100%;" })
+                )
+            </div>
+            <div class="col-md-3">
+                <label class="lbl-pad-left">Address</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.CorrespondingAddress, htmlAttributes: new { @class = "k-textbox", @maxlength = "12" })
+            </div>
+        </div>
+
+        
+        <div class="row form-group">
+            <div class="col-md-3">
+                <label class="required">Password</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.Password, htmlAttributes: new { @class = "k-textbox", @maxlength = "12" })
+            </div>
+            <div class="col-md-3">
+                <label class="lbl-pad-left required">Confirm Password</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "k-textbox", @maxlength = "12" })
+            </div>
+        </div>
+
+        
+
+        <div class="row form-group">
+            <div class="col-md-12 " style="text-align:right;">
+                <button type="button" class="btn btn-success btn-sm" id="btnSubmit">Submit</button>
+                <button type="reset" class="btn-blue btn" onclick="location.href='@Url.Action("Index", "Home")'">Cancel</button>
+            </div>
+        </div>
+
+        @*<div class="row form-group">
+                <div class="btn-group srch-btn-inline" data-value="0" id="propertyTypeDropdown">
+                    <a class="btn btn-default dropdown-toggle btn-select2 select-bx" data-toggle="dropdown" href="#">Select<span class="caret"></span></a>
+                    <ul class="dropdown-menu scrollable-menu">
+                        <li><span id="0">Select</span></li>
+                    </ul>
+                </div>
+            </div>*@
+    </div>
+
+
+}
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        //var form = $('#adminForm');
+        //form.data('validator').settings.ignore = ''; // default is ":hidden".   for role type
+        GetDropdownData("/api/common/List?name=pt", function (data) {
+            PopulateDDLValues(data, 'div#propertyTypeDropdown');
+            AttachDDLOnClick('div#propertyTypeDropdown')
+            //SetFilterDefaultValueOnLoad('pt', 'div#propertyTypeDropdown');
+            $("div#propertyTypeDropdown ul.dropdown-menu li span").click(function () {
+                var selectedVal = $(this).attr("id");
+                $("#DeptId").val(selectedVal);
+                var optionString = "<li><span id=\"0\">Select</span></li>";
+            });
+        });
+        $('#ddlRole').change(function () {
+            var value = $(this).val();
+            var div = document.getElementById('propertyTypeDropdown');
+            var trDept = document.getElementById('trDept');
+            if (value == '1' || value == '') {
+                $("#trDept").addClass('displayNone');
+                $("#trPropertyTypeDdl").addClass('displayNone');
+
+            } else {
+                $("#trPropertyTypeDdl").removeClass('displayNone');
+                $("#trDept").removeClass('displayNone');
+            }
+        });
+
+        //Make sure hidden fields are not ignored
+        //var form = $('#adminForm');
+        //form.data('validator').settings.ignore = ''; // default is ":hidden".
+
+        $("div#propertyTypeDropdown ul.dropdown-menu li span").click(function () {
+            alert("");
+            var propertyType = $("#propertyTypeDropdown").data("value");
+            alert(propertyType);
+        });
+
+        $('#UserName').blur(function () {
+            var userName = $('#UserName').val();
+            $.ajax({
+                //async: false,
+                //crossDomain: true,
+                url: '/Administration/Admin/IsUserNameExist',
+                data: { userName: userName },
+                contentType: 'application/json',
+                type: 'GET',
+                success: function (result) {
+                    if (result == '@ReturnType.Exist') {
+                        toastr.error('UserName is duplicate!');
+                        $('#UserName').val('');
+                        result = false;
+                    } else {
+                        result = true;
+                    }                    
+                },
+                error: function () {
+                    alertify.error("Some error occured. Please try again later.");
+                }
+            });
+        })
+    });
+
+
+    function GetDropdownData(requestUrl, successFuntion) {
+        jQuery.support.cors = true;
+        $.ajax({
+            url: requestUrl,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                successFuntion(data);
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+
+    function PopulateDDLValues(options, divSelector) {
+        var optionString = "<li><span id=\"0\">Select</span></li>";
+
+        $.each(options, function (i, item) {
+            optionString += '<li><span id="' + $.trim(item.value) + '">' + item.label + '</span></li>'
+        });
+        $(divSelector + " ul.dropdown-menu").html(optionString);
+
+        $(divSelector).data("value", 0);
+        $(divSelector).find('.dropdown-toggle').html('Select' + ' <span class="caret"></span>');
+    }
+
+    function AttachDDLOnClick(divSelector) {
+        $(divSelector + " .dropdown-menu li span").click(function () {
+            var selText = $(this).text();
+            $(this).parents('.btn-group').data("value", $(this).attr("id"));
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+    }
+
+    var tempCountryId = '';
+
+    function VerifyEmail() {
+        var result = false;
+
+        var isEmail = $('#Email').val();
+
+
+        $.ajax({
+            async: false,
+            crossDomain: true,
+            url: '@Url.Action("VerifyEmail", "ManageUsers")',
+            data: { email: isEmail },
+            contentType: 'application/json',
+            type: 'GET',
+            success: function (response) {
+                if (response) {
+                    toastr.error('Email is duplicate!');
+                    result = false;
+                } else {
+                    result = true;
+                }
+
+            },
+
+        });
+
+        return result;
+    }
+
+    function isValidEmailAddress(emailAddress) {
+        var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        return pattern.test(emailAddress);
+    };
+
+    $('#btnSubmit').click(function () {
+        debugger;
+        var firstName = $("#FirstName").val();
+        var password = $("#Password").val();
+        var userName = $("#UserName").val();
+        var mobileNo = $("#MobileNo").val();
+        var role = $("#RoleId").val();
+        var department = $("#DepartmentId").val();
+        var confirmPassword = $("#ConfirmPassword").val();
+
+        if (firstName == '') {
+            alert("Please enter First Name");
+            return false;
+        }
+
+        if (mobileNo == '') {
+            alert("Please enter Mobile Number");
+            return false;
+        }
+        if (mobileNo.length != 10) {
+            alert("Please enter a valid mobile number");
+            return false;
+        }
+        if ($("#Email").val() != "") {
+            if (!isValidEmailAddress($("#Email").val())) {
+                alert("Invalid Email Format.");
+                return false;
+            }
+        }
+        if (role == '') {
+            alert("Please enter Role");
+            return false;
+        }
+        if (department == '') {
+            alert("Please select Department");
+            return false;
+        }
+        if (userName == '') {
+            alert("Please enter UserName");
+            return false;
+        }
+        if (password == '') {
+            alert("Please enter Password");
+            return false;
+        }
+        if (password.length < 8) {
+            alert("Password can't be smaller than 8 characters ");
+            return false;
+        }
+        if (confirmPassword == '') {
+            alert("Please enter Confirm Password");
+            return false;
+        }
+        if (confirmPassword != password) {
+            alert("Confirm Password should be same as password");
+            return false;
+        }
+        SaveEmployeeRegistrationForm();
+    })
+    function SaveEmployeeRegistrationForm() {
+        var formData = new FormData($('form').get(0));
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            data: formData,
+            url: '/Administration/Admin/RegisterNAEmployee',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                if (result == '@ReturnType.Saved') {
+                    alertify.success("Employee registered successfully.");
+                    window.location.href = '@Url.Action("ManageEmployee", "Admin", new { area = "Administration" })';
+                    return false;
+                }
+                else {
+                    alertify.error("Employee registration failed");
+                }
+            },
+            error: function () {
+                alertify.error("Some error occured. Please try again later.");
+            }
+        });
+    }
+
+
+</script>
+
+
+
+
+

@@ -1,0 +1,369 @@
+2018-08-02 00:21:48,297 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:21:48,667 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:21:56,929 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 00:21:57,051 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 00:22:03,804 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:22:03,806 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:22:04,351 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:22:05,458 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:22:05,484 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : prem@gmail.com.
+2018-08-02 00:22:05,486 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : prem@gmail.com.
+2018-08-02 00:28:03,380 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Feedbacks on Controller: ManageUsers For User : prem@gmail.com.
+2018-08-02 00:28:03,382 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Feedbacks on Controller: ManageUsers For User : prem@gmail.com.
+2018-08-02 00:28:09,466 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ManageUsers on Controller: ManageUsers For User : prem@gmail.com.
+2018-08-02 00:28:09,468 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ManageUsers on Controller: ManageUsers For User : prem@gmail.com.
+2018-08-02 00:28:10,922 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ManageCustomersAjax on Controller: ManageUsers For User : prem@gmail.com.
+2018-08-02 00:28:11,322 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ManageCustomersAjax on Controller: ManageUsers For User : prem@gmail.com.
+2018-08-02 00:29:54,313 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ManageUsers on Controller: ManageUsers For User : prem@gmail.com.
+2018-08-02 00:29:54,315 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ManageUsers on Controller: ManageUsers For User : prem@gmail.com.
+2018-08-02 00:29:59,450 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Feedbacks on Controller: ManageUsers For User : prem@gmail.com.
+2018-08-02 00:29:59,451 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Feedbacks on Controller: ManageUsers For User : prem@gmail.com.
+2018-08-02 00:30:24,744 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.InvalidOperationException: The view 'AddEditCustomer' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Areas/Administration/Views/Admin/AddEditCustomer.cshtml
+~/Areas/Administration/Views/Admin/AddEditCustomer.vbhtml
+~/Areas/Administration/Views/Shared/AddEditCustomer.cshtml
+~/Areas/Administration/Views/Shared/AddEditCustomer.vbhtml
+~/Views/Admin/AddEditCustomer.cshtml
+~/Views/Admin/AddEditCustomer.vbhtml
+~/Views/Shared/AddEditCustomer.cshtml
+~/Views/Shared/AddEditCustomer.vbhtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-02 00:30:55,145 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.InvalidOperationException: The view 'AddEditAdmin' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Areas/Administration/Views/Admin/AddEditAdmin.cshtml
+~/Areas/Administration/Views/Admin/AddEditAdmin.vbhtml
+~/Areas/Administration/Views/Shared/AddEditAdmin.cshtml
+~/Areas/Administration/Views/Shared/AddEditAdmin.vbhtml
+~/Views/Admin/AddEditAdmin.cshtml
+~/Views/Admin/AddEditAdmin.vbhtml
+~/Views/Shared/AddEditAdmin.cshtml
+~/Views/Shared/AddEditAdmin.vbhtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-02 00:36:49,582 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:36:49,968 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:36:56,444 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 00:36:56,596 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 00:37:03,252 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:37:03,252 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:37:03,912 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:37:05,357 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:37:05,386 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : prem@gmail.com.
+2018-08-02 00:37:05,389 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : prem@gmail.com.
+2018-08-02 00:40:21,531 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Logout on Controller: Account For User : prem@gmail.com.
+2018-08-02 00:40:21,534 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Logout on Controller: Account For User : prem@gmail.com.
+2018-08-02 00:40:21,585 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:40:21,765 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:40:45,273 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:40:45,276 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:40:50,513 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:40:50,516 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:41:05,817 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: AddEditNACustomer on Controller: ManageUsers For User : .
+2018-08-02 00:41:06,008 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: AddEditNACustomer on Controller: ManageUsers For User : .
+2018-08-02 00:41:19,725 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:41:19,726 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:41:35,714 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:41:35,715 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:41:39,422 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 00:41:39,550 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 00:41:48,239 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:41:48,240 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:41:48,829 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:41:49,643 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:58:28,546 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:58:28,944 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:58:36,950 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 00:58:37,112 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 00:58:45,343 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:58:45,344 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 00:58:45,985 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 00:58:47,027 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 07:08:56,473 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 07:08:57,001 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:20:44,632 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:20:45,241 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:21:06,706 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 14:21:36,843 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Error in CheckEmailAddress
+System.Data.Entity.Core.ProviderIncompatibleException: An error occurred accessing the database. This usually means that the connection to the database failed. Check that the connection string is correct and that the appropriate DbContext constructor is being used to specify it or find it in the application's config file. See http://go.microsoft.com/fwlink/?LinkId=386386 for information on DbContext and connections. See the inner exception for details of the failure. ---> System.Data.Entity.Core.ProviderIncompatibleException: The provider did not return a ProviderManifestToken string. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network path was not found
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass31.<UsingConnection>b__2f()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.GetDbProviderManifestToken(DbConnection connection)
+   at System.Data.Entity.Core.Common.DbProviderServices.GetProviderManifestToken(DbConnection connection)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Common.DbProviderServices.GetProviderManifestToken(DbConnection connection)
+   at System.Data.Entity.Utilities.DbProviderServicesExtensions.GetProviderManifestTokenChecked(DbProviderServices providerServices, DbConnection connection)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Utilities.DbProviderServicesExtensions.GetProviderManifestTokenChecked(DbProviderServices providerServices, DbConnection connection)
+   at System.Data.Entity.Infrastructure.DefaultManifestTokenResolver.<>c__DisplayClass1.<ResolveManifestToken>b__0(Tuple`3 k)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DefaultManifestTokenResolver.ResolveManifestToken(DbConnection connection)
+   at System.Data.Entity.Utilities.DbConnectionExtensions.GetProviderInfo(DbConnection connection, DbProviderManifest& providerManifest)
+   at System.Data.Entity.DbModelBuilder.Build(DbConnection providerConnection)
+   at System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   at System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.CheckEmailAddressExists(String emailAddress) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 94
+   at NoidaAuthority.PMS.Service.Login.LoginService.CheckEmailAddressExists(String emailAddress) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 34
+   at NoidaAuthority.PMS.Web.Controllers.Common.CustomMemberShip.CheckEmailAddressExists(String emailAddress) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\Common\CustomMemberShip.cs:line 215
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.CheckEmailAddress(String Email) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 144
+2018-08-02 14:21:36,866 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 14:21:37,338 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:21:37,573 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:21:47,771 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:21:47,772 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:25:01,644 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 14:25:07,588 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 14:25:07,605 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:25:07,607 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:25:08,238 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:25:09,054 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:25:09,128 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : smangla@svam.com.
+2018-08-02 14:25:09,131 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : smangla@svam.com.
+2018-08-02 14:25:23,427 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:25:23,912 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:25:31,734 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:25:32,132 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:29:57,837 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:29:58,226 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:30:04,617 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 14:30:04,832 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 14:30:10,842 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:30:10,843 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:30:11,439 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:30:12,263 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:30:12,284 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : smangla@svam.com.
+2018-08-02 14:30:12,286 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : smangla@svam.com.
+2018-08-02 14:30:22,383 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ServiceReport on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:30:22,384 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ServiceReport on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:30:25,270 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDepartmentList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:30:27,573 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDepartmentList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:30:27,633 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetServiceRequestForUnRegisteredProperty on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:30:28,159 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetServiceRequestForUnRegisteredProperty on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:30:28,453 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetServiceRequestReportAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:30:29,465 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetServiceRequestReportAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:31:10,773 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetServiceRequestForUnRegisteredProperty on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:31:11,131 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetServiceRequestForUnRegisteredProperty on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:31:45,324 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetServiceListByDepartment on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:31:45,434 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetServiceListByDepartment on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:31:45,838 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetServiceRequestReportAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:31:46,323 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetServiceRequestReportAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:31:58,232 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetServiceListByDepartment on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:31:58,320 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetServiceListByDepartment on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:31:58,744 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetServiceRequestReportAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:31:59,218 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetServiceRequestReportAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:02,276 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetServiceRequestReportAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:02,762 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetServiceRequestReportAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:27,092 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ServiceRequest on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:27,096 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ServiceRequest on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,329 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDepartmentList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,414 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDepartmentList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,418 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetCompanyMemberTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,513 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetCompanyMemberTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,627 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetFirmStatusList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,722 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetFirmStatusList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,738 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMortgageTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,741 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMortgageTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,870 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,954 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,976 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDirectorShareholderDetails on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:34,981 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDirectorShareholderDetails on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:35,408 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetGenderList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:35,409 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetGenderList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:35,423 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetCICRequestTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:35,555 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetCICRequestTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:35,924 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetOccupationList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:36,017 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetOccupationList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:39,163 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Litigation on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:39,355 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Litigation on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:40,200 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetLegalPropertiesByCourt on Controller: Property  For User : smangla@svam.com Given Route: 2.
+2018-08-02 14:32:40,570 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetLegalPropertiesByCourt on Controller: Property For User : smangla@svam.com Given Route: 2.
+2018-08-02 14:32:40,743 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetLegalPropertiesByCourt on Controller: Property  For User : smangla@svam.com Given Route: 1.
+2018-08-02 14:32:40,863 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetLegalPropertiesByCourt on Controller: Property For User : smangla@svam.com Given Route: 1.
+2018-08-02 14:32:55,098 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ServiceRequest on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:32:55,100 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ServiceRequest on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:00,771 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDepartmentList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:00,845 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDepartmentList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:01,128 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDirectorShareholderDetails on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:01,131 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDirectorShareholderDetails on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:01,160 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetFirmStatusList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:01,240 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetFirmStatusList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:01,255 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMortgageTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:01,256 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMortgageTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:01,332 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetCICRequestTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:01,405 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetCICRequestTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:01,801 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:01,885 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:02,316 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetGenderList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:02,316 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetGenderList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:02,347 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetOccupationList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:02,425 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetOccupationList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:02,875 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetCompanyMemberTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:02,945 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetCompanyMemberTypeList on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:48,577 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Litigation on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:48,578 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Litigation on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:33:49,601 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetLegalPropertiesByCourt on Controller: Property  For User : smangla@svam.com Given Route: 2.
+2018-08-02 14:33:49,671 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetLegalPropertiesByCourt on Controller: Property For User : smangla@svam.com Given Route: 2.
+2018-08-02 14:33:50,160 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetLegalPropertiesByCourt on Controller: Property  For User : smangla@svam.com Given Route: 1.
+2018-08-02 14:33:50,225 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetLegalPropertiesByCourt on Controller: Property For User : smangla@svam.com Given Route: 1.
+2018-08-02 14:37:38,764 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:37:39,208 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:37:48,151 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 14:37:48,253 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 14:37:53,076 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:37:53,078 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:37:53,591 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:37:54,463 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 14:37:54,585 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : smangla@svam.com.
+2018-08-02 14:37:54,588 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : smangla@svam.com.
+2018-08-02 14:38:10,968 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Litigation on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:38:11,152 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Litigation on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:38:19,965 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetLegalPropertiesByCourt on Controller: Property  For User : smangla@svam.com Given Route: 2.
+2018-08-02 14:38:20,044 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetLegalPropertiesByCourt on Controller: Property For User : smangla@svam.com Given Route: 2.
+2018-08-02 14:38:20,521 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetLegalPropertiesByCourt on Controller: Property  For User : smangla@svam.com Given Route: 1.
+2018-08-02 14:38:20,592 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetLegalPropertiesByCourt on Controller: Property For User : smangla@svam.com Given Route: 1.
+2018-08-02 14:39:16,103 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:39:16,389 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:39:24,464 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:39:25,078 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:44:20,776 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ChangePassword on Controller: Account For User : smangla@svam.com.
+2018-08-02 14:44:20,779 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ChangePassword on Controller: Account For User : smangla@svam.com.
+2018-08-02 14:48:49,888 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: AdvanceSearch on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:48:49,891 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: AdvanceSearch on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:49:06,246 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ServiceRequest on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:49:06,249 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ServiceRequest on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:49:13,215 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Services on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:49:13,216 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Services on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:49:14,635 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetServiceRequestDataAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-02 14:53:06,714 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 14:53:07,054 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 21:56:00,769 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: login on Controller: Account For User : .
+2018-08-02 21:56:01,031 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: login on Controller: Account For User : .
+2018-08-02 21:56:18,268 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 21:56:25,161 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 21:56:25,312 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 21:56:25,313 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 21:56:25,995 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 21:56:27,428 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 21:56:27,512 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : prem@gmail.com.
+2018-08-02 21:56:27,517 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : prem@gmail.com.
+2018-08-02 21:59:34,903 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 21:59:35,322 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 21:59:41,752 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 21:59:41,937 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-02 21:59:47,982 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 21:59:47,983 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 21:59:48,615 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-02 21:59:50,101 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-02 21:59:50,160 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : prem@gmail.com.
+2018-08-02 21:59:50,163 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : prem@gmail.com.
+2018-08-02 22:00:07,111 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:00:09,248 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:10:33,026 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:10:33,515 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:11:26,801 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:11:26,887 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:12:49,095 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:12:49,212 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:13:39,926 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:13:40,045 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:15:00,236 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:15:00,711 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:16:21,511 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:16:21,613 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:16:49,773 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.
+2018-08-02 22:16:49,910 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetDepartmentList on Controller: Property For User : prem@gmail.com.

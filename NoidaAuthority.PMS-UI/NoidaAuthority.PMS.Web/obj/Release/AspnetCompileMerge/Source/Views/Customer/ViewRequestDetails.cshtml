@@ -1,0 +1,165 @@
+﻿@using Kendo.Mvc.UI
+@model NoidaAuthority.PMS.Entity.RequestDetails
+
+@{
+    ViewBag.Title = "ViewRequestDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/kendo.aspnetmvc.min.js"></script>
+<h2>ViewRequestDetails</h2>
+
+<div class="row">
+    @Html.Label("Request Number")
+    @Html.TextBoxFor(rd => rd.Id)
+    @Html.Label("Registration ID")
+    @Html.TextBoxFor(rd => rd.RId)
+</div>
+<div class="row">
+    @Html.Label("Service Name")
+    @Html.TextBoxFor(rd => rd.ServiceName)
+    @Html.Label("Request Status")
+    @Html.TextBoxFor(rd => rd.ReqStatus)
+</div>
+<div class="row">
+    @Html.Label("Description")
+    @Html.TextAreaFor(rd => rd.Description)
+    @Html.Label("Service Fee")
+    @Html.TextBoxFor(rd => rd.ServiceFee, new { @Value = "" })
+</div>
+<div class="row">
+    @Html.Label("Dues Amount")
+    @Html.TextBoxFor(rd => rd.DuesAmnt, new { @Value = "" })
+    @Html.Label("Comment")
+    @Html.TextAreaFor(rd => rd.Comment)
+</div>
+<div class="row">
+    @Html.Label("Payment Status")
+    @Html.TextBoxFor(rd => rd.PaymentStatus)
+</div>
+
+<input type="button" id="btnSave" value="Save" />
+<input type="button" id="btnReject" value="Reject" />
+<table>
+    <tr>
+        <td colspan="2">
+
+    <div class=" k-grid-content">
+            @(Html.Kendo().Grid<NoidaAuthority.PMS.Entity.CitizenPropertyDocument>()
+                       .Name("gridDocuments")
+              .Columns(columns =>
+              {
+                  columns.Bound(c => c.DocumentName).Title("DocumentName").Width(80);
+                  columns.Bound(c => c.DocumentPath).Hidden(true);
+                  columns.Bound(c => c.DocumentPath).Width(150).ClientTemplate("<a style = 'cursor:pointer;' onclick=javascript:OpenFile(this);>View</a>").Width(80).Filterable(false);
+              })
+              .Sortable()
+              .Filterable()
+              .Resizable(resize => resize.Columns(true))
+              .Pageable
+              (
+                       pageable => pageable
+                      .Enabled(true)
+                      .Refresh(true)
+                      .PageSizes(true)
+              )
+              .DataSource
+              (
+                  dataSource => dataSource
+                      .Ajax()
+                      .Model(model => model.Id(p => p.RID))
+                      .ServerOperation(true)
+                             .Read(read => read.Action("GetDocumentDetails", "Customer").Data("AdditionalData"))
+                      .PageSize(10)
+              )
+            )
+            </div>
+        </td>
+    </tr>
+</table>
+@(Html.Kendo().Window().Visible(false)
+                   .Name("IDWindow").Width(920)
+           .Title("Document")
+           .Modal(true)
+           .Content(@<text>
+            <div style="width:100%" id="windowDiv">
+                <iframe id="ifrmViewPdf" style="width:900px; height:500px;"></iframe>
+            </div>
+        </text>).Actions(actions => actions.Close())
+)
+
+<script type="text/javascript">
+    function OpenFile(row) {
+        $("#windowDiv").empty();
+        var tr = $(row).parent().parent();
+        var link = $(tr).children("td:eq(1)").text();
+        $("#windowDiv").append($('<iframe src=' + link + ' style="width:900px; height:500px;"></iframe>'));
+        $("#IDWindow").data("kendoWindow").center();
+        $("#IDWindow").data("kendoWindow").open();
+    }
+
+    $(document).ready(function () {
+        alert("");
+        alert($('#RId').val());
+        $("#btnSave").click(function () {
+            var serviceFee = $("#ServiceFee").val();
+            var duesAmnt = $("#DuesAmnt").val();
+            var comment = $("#Comment").val();
+            var id = $("#Id").val();
+            var tempVar = 1;
+            $.ajax({
+                dataType: 'json',
+                type: 'Post',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ id: id, serviceFee: serviceFee, duesAmnt: duesAmnt, comment: comment, temp: tempVar }),
+                url: '/PropertyRegistration/SaveRequestDetails',
+                @*url: @Url.Action("SaveRequestDetails", "PropertyRegistration"),*@
+                success: function (result) {
+                    if (result == true) {
+                        alertify.success("Data saved successfully!");
+
+                    }
+                    else {
+                        alertify.error("Some error occured. Please try again after some time");
+                    }
+                },
+                error: function (obj) {
+                    alertify.error("Some error occured. Please try again after some time");
+                }
+            });
+        });
+
+        $("#btnReject").click(function () {
+            var id = $("#Id").val();
+            var tempVar = 0;
+            $.ajax({
+                dataType: 'json',
+                type: 'Post',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ id: id, temp: tempVar }),
+                url: '/PropertyRegistration/SaveRequestDetails',
+                @*url: @Url.Action("SaveRequestDetails", "PropertyRegistration"),*@
+                success: function (result) {
+                    if (result == true) {
+                        alertify.success("Data saved successfully!");
+
+                    }
+                    else {
+                        alertify.error("Some error occured. Please try again after some time");
+                    }
+                },
+                error: function (obj) {
+                    alertify.error("Some error occured. Please try again after some time");
+                }
+            });
+        });
+
+        function AdditionalData() {
+            alert($('#RId').val());
+            alert($("#Id").val());
+            //return {
+            //    rid: $('#RId').val(),
+            //    id: $("#Id").val()
+            //};
+        }
+    });
+</script>

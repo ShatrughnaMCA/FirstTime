@@ -1,0 +1,399 @@
+﻿@model NoidaAuthority.PMS.Entity.UserViewModel
+@using Kendo.Mvc.UI
+@using NoidaAuthority.PMS.Common
+@using System.Web.Optimization
+
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .k-textbox {
+        width: 100%;
+    }
+
+    .lbl-pad-left {
+        padding-left: 30px;
+    }
+
+    #div-register {
+        width: 94%;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    .col-md-4 {
+        margin-top: 0;
+    }
+</style>
+
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+@using (Html.BeginForm("RegisterNAcustomer", "Admin", FormMethod.Post, new { area = "Administration", @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="col-md-12">
+        <div class="row divPropertyDetailHeader" style="margin-bottom:20px;">
+            <div class="col-md-12">
+                <h4 class="inline">Register New Customer</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 " id="div-register">
+        <div class="row form-group ">
+            <div class="col-md-2">
+                <label class="required">Registration Id</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.RegistrationId, htmlAttributes: new { @class = "k-textbox", @maxlength = "8", @minlength = "8", onkeypress = "return IsNumeric(event);" })
+            </div>
+            <div class="col-md-2">
+                <label class="lbl-pad-left required">User Name</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.UserName, htmlAttributes: new { @class = "k-textbox ", @readonly = "true" })
+            </div>
+
+        </div>
+        <div class="row form-group ">
+            <div class="col-md-2">
+                <label class="required">First Name</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.FirstName, htmlAttributes: new { @class = "k-textbox ", @maxlength = "50" })
+            </div>
+            <div class="col-md-2">
+                <label class="lbl-pad-left">Last Name</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.LastName, htmlAttributes: new { @class = "k-textbox", @maxlength = "50" })
+            </div>
+
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label class="">Email Id</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "k-textbox " })
+            </div>
+            <div class="col-md-2">
+                <label class="lbl-pad-left required">Mobile No</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.MobileNo, htmlAttributes: new { @class = "k-textbox ", @maxlength = "10", @minlength = "10", onkeypress = "return IsNumeric(event);" })
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-md-2">
+                <label class="required">Sector/Block/PlotNo</label>
+            </div>
+            <div class="col-md-1" style="padding-right:0;">
+                @(Html.Kendo().DropDownListFor(model => model.Sector)
+                    .Filter("contains")
+                    .DataTextField("Text")
+                    .DataValueField("Value")
+                    .OptionLabel("Sector")
+                    .DataSource(dataSource => dataSource.Read(read => read.Action("GetSectorList", "Admin", new { area = "Administration" })))
+                    .HtmlAttributes(new { style = "width:100%;" })                    
+                )
+            </div>
+            <div class="col-md-1" style="padding-right:0;">
+                @(Html.Kendo().DropDownListFor(model => model.Block)
+                    .Filter("contains")
+                    .DataTextField("Text")
+                    .DataValueField("Value")
+                    .OptionLabel("Block")
+                    .DataSource(dataSource => dataSource.Read(read => read.Action("GetBlockList", "Admin", new { area = "Administration" })))
+                    .HtmlAttributes(new { style = "width:100%;" })
+                )
+            </div>
+            <div class="col-md-2">
+                @Html.TextBoxFor(model => model.PlotNo, htmlAttributes: new { @class = "k-textbox ", @maxlength="12", @placeholder="Plot No"})
+            </div>
+            <div class="col-md-2">
+                <label class="lbl-pad-left">Aadhar Number</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.AadharNo, new { @class = "k-textbox" })
+            </div>
+
+        </div>
+
+        <div class="row form-group ">
+            <div class="col-md-2">
+                <label class="required">Security Question</label>
+            </div>
+            <div class="col-md-4">
+                @(Html.Kendo().DropDownListFor(model => model.SecurityQuestion)
+                .DataTextField("Value")
+                .DataValueField("Text")
+                .Filter("contains")
+                .OptionLabel("--Select Security Question--")
+                .DataSource(source => source.Read(read => read.Action("GetSecurityQuestionList", "Admin", new { area = "Administration" })))
+                .HtmlAttributes(new { style = "width:100%" })
+                )
+            </div>
+            <div class="col-md-2">
+                <label class="lbl-pad-left required">Security Answer</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.SecurityAnswer, new { @class = "k-textbox", @maxlength="100" ,style = "" })
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-md-2">
+                <label>Customer Id</label>
+            </div>
+            <div class="col-md-4">
+                @(Html.Kendo().DropDownListFor(model => model.CustomerIdType)
+                    .DataTextField("Value")
+                    .DataValueField("Text")
+                    .Filter("contains")
+                    .OptionLabel("--Select Id Type--")
+                    .DataSource(source => source.Read(read => read.Action("GetCustomerIdList", "Admin", new { area = "Administration" })))
+                    .HtmlAttributes(new { style = "width:100%" })
+                )
+            </div>
+            <div class="col-md-2">
+                <label class="lbl-pad-left">Customer Id File</label>
+            </div>
+            <div class="col-md-4">
+                <input type="file" onchange="UploadFileSelection()" id="CustomerIdFile" name="fileI" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>Property Letter Type</label>
+            </div>
+            <div class="col-md-4">
+                @(Html.Kendo().DropDownListFor(model => model.NALetterType)
+                .DataTextField("Value")
+                .DataValueField("Text")
+                .Filter("contains")
+                .OptionLabel("--Select Letter Type--")
+                .DataSource(source => source.Read(read => read.Action("GetLetterTypeList", "Admin", new { area = "Administration" })))
+                .HtmlAttributes(new { style = "width:100%;", @class = "" })
+                )               
+            </div>
+            <div class="col-md-2">
+                <label class="lbl-pad-left">Letter File</label>
+            </div>
+            <div class="col-md-4">
+                <input type="file" id="AuthorityLetter" onchange="AuthorityLetterSelection()" name="fileII" />
+            </div>
+        </div>
+        <div class="row form-group" id="next_button">
+            <div class="col-sm-12 text-right">
+                <input type="button" style="display:inline-block; width:auto; padding:7px 35px;" class="btn btn-primary btn-block" id="btn-submit" value="Submit" />
+            </div>
+        </div>
+    </div>
+ 
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#RegistrationId').blur(function () {
+            ValidateRegistrationId();
+        });
+
+        $('#btn-submit').click(function () {
+            if (ValidateInputFields()) {
+                SaveCustomerRegistrationForm();
+            }
+        });
+    });
+
+
+    var specialKeys = new Array();
+    specialKeys.push(8); //Backspace
+    function IsNumeric(e) {
+        var keyCode = e.which ? e.which : e.keyCode
+        var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+        if (ret == false)
+            return false;
+    }
+
+    function AuthorityLetterSelection() {
+        var imgTypeAuthorityLetter = $("#AuthorityLetter").val();
+        var arrayImageTypeAuthorityLetter = imgTypeAuthorityLetter.split('.');
+        if (arrayImageTypeAuthorityLetter[1] == "jpg" || arrayImageTypeAuthorityLetter[1] == "png" || arrayImageTypeAuthorityLetter[1] == "gif" || arrayImageTypeAuthorityLetter[1] == "jpeg") {
+            if ($("#NALetterType").val() == "") {
+                alert("Please select Letter Type");
+                return false;
+            }
+        }
+        else {
+            alert("Only jpg, png and gif files are allowed");
+            $('#AuthorityLetter').val('');
+            return false;
+        }
+    }
+
+    function IsValidEmailAddress(emailAddress) {
+        var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        return pattern.test(emailAddress);
+    };
+
+    function ValidateRegistrationId() {
+        var RegistrationId = $("#RegistrationId").val();
+        $.ajax({
+            url: "/Administration/Admin/ValidateRegistrationId",
+            type: 'POST',
+            dataType: 'json',
+            data: { RegistrationId: RegistrationId },
+            success: function (result) {
+                if (result.ActionTypeId == '@ReturnType.Exist') {
+                    alert("Registration Id: " + RegistrationId + " already registered.");
+                    $("#RegistrationId").val('');
+                }
+                else if (result.ActionTypeId == '@ReturnType.NotAllotted') {
+                    alert("Registration Id not exist.");
+                }
+                else if (result.ActionTypeId == '@ReturnType.Allotted') {
+                    $('#UserName').val(RegistrationId);
+                    $('#Sector').data("kendoDropDownList").value(result.SectorName);
+                    $('#Block').data("kendoDropDownList").value(result.BlockName);
+                    $('#PlotNo').val(result.PlotNo);
+                }
+            }
+        });
+        //$('#UserName').val(RegistrationId);
+    }
+
+    function ValidateInputFields() {
+        var flag = true;
+        var RegistrationId = $("#RegistrationId").val();
+        if (RegistrationId == null || RegistrationId == '') {
+            alert("Please enter Registration Id");
+            return flag = false;
+        }
+        if (RegistrationId.length > 8) {
+            alert("Registration id can't be more than 8 digits.");
+            return flag = false;
+        }
+        if ($('#FirstName').val().trim() == '') {
+            alert("Please enter First Name");
+            return flag = false;
+        }
+        if ($("#Email").val() != "") {
+            if (!IsValidEmailAddress($("#Email").val())) {
+                alert("Invalid Email Format.");
+                return flag = false;
+            }
+        }
+        if ($('#MobileNo').val() == '') {
+            alert("Please enter Mobile No");
+            return flag = false;
+        }
+        if ($('#Sector').val() == '') {
+            alert("Please select Sector");
+            return flag = false;
+        }
+        if ($('#Block').val() == '') {
+            alert("Please select Block");
+            return flag = false;
+        }
+        if ($('#PlotNo').val().trim() == '') {
+            alert("Please enter Plot/Shop/Flat No.");
+            return flag = false;
+        }
+        if ($("#SecurityQuestion").val() == '') {
+            alert("Please select Security Question.");
+            return flag = false;
+        }
+        if ($("#SecurityAnswer").val() == "") {
+            alert("Please enter Answer");
+            return flag = false;
+        }
+        //if ($("#CustomerIdType").val() == "") {
+        //    alert("Please select Upload File Type - File-Customer ID");
+        //    return false;
+        //}
+        //if ($("#CustomerIdFile").val() == '') {
+        //    alert("Please select customer ID file");
+        //    return false;
+        //}
+
+        if ($("#CustomerIdFile").val() != '') {
+            var IDFile = document.getElementById('CustomerIdFile');
+            var FileSizeI = IDFile.files[0].size;
+            var SizeInKBI = FileSizeI / 1024
+            if (SizeInKBI > 50) {
+                alert("Please select Customer Id File of 50 KB");
+                return flag = false;
+            }
+        }
+
+        //if ($("#NALetterType").val() == "") {
+        //    alert("Please select property Letter Type");
+        //    return false;
+        //}
+        //if ($("#AuthorityLetter").val() == '') {
+        //    alert("Please select property file");
+        //    return false;
+        //}
+
+        if ($("#AuthorityLetter").val() != '') {
+            var PropertyLetter = document.getElementById('AuthorityLetter');
+            var FileSizeII = PropertyLetter.files[0].size;
+            var SizeInKBII = FileSizeII / 1024
+
+            if (SizeInKBII > 50) {
+                alert("Please select Authority Letter File of 50 KB");
+                return flag = false;
+            }
+        }
+        return flag;
+    }
+
+    function UploadFileSelection() {
+
+        var imgTypeCustomerId = $("#CustomerIdFile").val();
+        var arrayImageTypeCustomerId = imgTypeCustomerId.split('.');
+        if (arrayImageTypeCustomerId[1] == "jpg" || arrayImageTypeCustomerId[1] == "png" || arrayImageTypeCustomerId[1] == "gif" || arrayImageTypeCustomerId[1] == "jpeg") {
+            if ($("#CustomerIdType").val() == "") {
+                alert("Please select upload file");
+                return false;
+            }
+        }
+        else {
+            alert("Only jpg, png and gif files are allowed");
+            $('#CustomerIdFile').val('');
+            return false;
+        }
+    }
+
+    function SaveCustomerRegistrationForm() {
+        var formData = new FormData($('form').get(0));
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            data: formData,
+            //data: configOptions,
+            url: '/Administration/Admin/RegisterCustomer',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                if (result == '@ReturnType.Saved') {
+                    alertify.success("Customer has been registered successfully.");
+                    window.location.href = '@Url.Action("ManageCustomer", "Admin", new { area = "Administration" })';
+                    return false;
+                }
+                if (result == '@ReturnType.None') {
+                    alertify.error("Provider failed to save information");
+                }
+            },
+            error: function () {
+                alertify.error("Network Error. Please try again later.");
+            }
+        });
+    }
+</script>
+

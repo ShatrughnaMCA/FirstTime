@@ -1,0 +1,761 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE58DD35-D7A5-4BC8-AD93-5BF2A57FC87E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NoidaAuthority.PMS.Repository</RootNamespace>
+    <AssemblyName>NoidaAuthority.PMS.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.38\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.AWT.WinForms, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.AWT.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Beans, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Beans.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Charsets, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Charsets.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Corba, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Corba.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Jdbc, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Jdbc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Management, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Media, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Misc, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Misc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Naming, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Naming.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Remoting, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Security, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.SwingAWT, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.SwingAWT.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Text, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Util, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.API, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.OpenJDK.XML.API.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime.JNI, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\IKVM.Runtime.JNI.dll</HintPath>
+    </Reference>
+    <Reference Include="ipaypipe, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BankOfBaroda\ipaypipe.dll</HintPath>
+    </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\packages\KendoUI\Kendo.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler">
+      <HintPath>..\packages\MiniProfiler.3.0.10\lib\net40\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\IManageRoleRepository.cs" />
+    <Compile Include="Admin\IMenuMappingRepository.cs" />
+    <Compile Include="Admin\ManageRoleRepository.cs" />
+    <Compile Include="Admin\MenuMappingRepository.cs" />
+    <Compile Include="Common\NADbConnection.cs" />
+    <Compile Include="Context\AccountData.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AccountHeadMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AccountLedgerBook.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AccountSubHeadMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AlloteeListMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AllotmentMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ApplicationDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ApplicationPaymentDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Audit.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Auto_Schedule.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\BankMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\BlockMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\BranchMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Building_Plan_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Building_Plan_Trans.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Challan_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Challan_Trans.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ChecklistMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ChecklistTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ChecklistTypeMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\CircleRateMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\CitizenService_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Common_Config.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Completion_Details.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\CustomerMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Customer_ServiceRequest.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Customer_ServiceRequestCharges.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Customer_ServiceRequestDocument.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Customer_ServiceStatusTrans.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\DemandNoteDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\DepartmentMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\DepartmentSubMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Director_Request_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Document_Mst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ExcessAreaDetailMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Extension_Details.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Firm_Director_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Firm_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Firm_Type_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\FloorMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\FunctionalDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\GPA.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\GroupHousingProjectMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\HEAD_MASTER.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\HEAD_SUB_MASTER.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\InstallmentDuesPayment.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\InstallmentDuesPaymentTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\InterestMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Interview_Details.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\KYADetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\LeaseRentPayment.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\LeaseRentPaymentTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Letter_History.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Letter_Signing_Authority.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\LitigationMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\LocationMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\MediaTypeMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Merge_Property_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Merge_Property_Trans.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\MortgageDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\NDCDetailMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\NICsingalwindowSystem.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\NiveshMitraEntr_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Nominee_Details.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\NotificationMediaTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\NotificationPaymentModeTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Noting_File_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Noting_File_Trans.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OccupationMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineApplicationDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineApplicationDetails_trans.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineApplicationProcessDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineAreawithRegisandProcfee.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineCheckListMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineCheckLisTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineExtensionDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineFirmDirectorMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineFirmRequestMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineFunctionalDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineGPA.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineMortgageDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlinePropertyCancellationDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineRentPermissionDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineSchemeDraw.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineTransferMutation.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\online_Director_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PaymentDetailMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PaymentDetailTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PaymentLeaseRentMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PaymentLeaseRentTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PaymentModeMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PaymentScheduleMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PaymentScheduleTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PaymentSubTypeMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PaymentTypeMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PIMS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PIMS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PIMS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PIMS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PIMS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PossessionDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PRE_FULL_PAYMENT_NDC.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PRE_PROP_HIRE_PURCHASE.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Process_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Product_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Project_report.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PropertyCompensationMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PropertyLocationChargesTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PropertyRateMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PropertyTransaction.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\PropertyTypeMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Property_Cancellation_Details.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Property_Ledger.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\QuotaMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\RebateMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\RECEIPTBEFORE2009.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\RECEIPT_AMOUNT_TRAN.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\RECEIPT_AMOUNT_TRANS.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\RECEIPT_DETAIL_MASTER.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\RECEIPT_SUB_HEAD.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\RECIEPT_HEAD.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\RegistryDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ReligionMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\RentPermissionDetail.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SchemeBankTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SchemeCostTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SchemeDepartmentTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SchemeMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SchemeNotifTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SchemePropTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SchemeQuotaTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SchemeRebateTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SchemeRefundTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SchemeTypeMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SectorMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Service.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ServiceCheckList_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ServiceRequest_Documents.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ServiceStatu.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ServiceStatusTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ServiceTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SigningOfficerMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SMSServicesMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SpAccountLedger_Result.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\StampDutyMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\StatusMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SubDepartmentMst.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Succ_Mut_Trans.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\TemplateMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Transfer_Type.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\UmApplicationMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\UmDepartmentMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\UmMenuMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\UmRoleAppTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\UmRoleMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\UmRoleMasterTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\UmUserDepartmentTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\UmUserMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\UmUserMasterRole.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\UmUserSubDepartmentTran.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\UnsuccessfulApplicantListMaster.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Village_Master.cs">
+      <DependentUpon>PIMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerRepository.cs" />
+    <Compile Include="Customer\ICustomerRepository.cs" />
+    <Compile Include="Entities\CitizenService_Master.cs">
+      <DependentUpon>NAPmsAuth.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Customer_Feedback.cs">
+      <DependentUpon>NAPmsAuth.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Customer_ServiceRequest.cs">
+      <DependentUpon>NAPmsAuth.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LookupDepartment.cs">
+      <DependentUpon>NAPmsAuth.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\NAcustomer.cs">
+      <DependentUpon>NAPmsAuth.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\NAPmsAuth.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NAPmsAuth.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\NAPmsAuth.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NAPmsAuth.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\NAPmsAuth.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NAPmsAuth.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CommonRepository.cs" />
+    <Compile Include="Common\ICommonRepository.cs" />
+    <Compile Include="Entities\Property_Remarks.cs">
+      <DependentUpon>NAPmsAuth.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sp_GetPropertyPaymentHistoryByRegistrationId_Result.cs">
+      <DependentUpon>NAPmsAuth.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\view_property.cs">
+      <DependentUpon>NAPmsAuth.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Graph\GraphRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graph\IGraphRepository.cs" />
+    <Compile Include="Login\ILoginRepository.cs" />
+    <Compile Include="Login\LoginRepository.cs" />
+    <Compile Include="ManageCitizen\CitizenRepository.cs" />
+    <Compile Include="ManageCitizen\ICitizenRepository.cs" />
+    <Compile Include="ManageUsers\IManageUsersRepository.cs" />
+    <Compile Include="ManageUsers\ManageUsersRepository.cs" />
+    <Compile Include="Payment\IPaymentRepository.cs" />
+    <Compile Include="Payment\PaymentRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Property\IPropertyRepository.cs" />
+    <Compile Include="Property\PropertyRepository.cs" />
+    <Compile Include="Services\IServiceRepository.cs" />
+    <Compile Include="Services\ServiceRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NoidaAuthority.PMS.Common\NoidaAuthority.PMS.Common.csproj">
+      <Project>{95b2a921-929a-4b7d-a9c1-39006be91ffd}</Project>
+      <Name>NoidaAuthority.PMS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NoidaAuthority.PMS.Entity\NoidaAuthority.PMS.Entity.csproj">
+      <Project>{d664ed8d-dbb2-4f25-ab29-d402ee64e495}</Project>
+      <Name>NoidaAuthority.PMS.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Entities\NAPmsAuth.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NAPmsAuth.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Context\PIMS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PIMS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Context\PIMS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PIMS.edmx</DependentUpon>
+      <LastGenOutput>PIMS.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Context\PIMS.edmx.diagram">
+      <DependentUpon>PIMS.edmx</DependentUpon>
+    </None>
+    <None Include="Context\PIMS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PIMS.edmx</DependentUpon>
+      <LastGenOutput>PIMS.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\NAPmsAuth.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NAPmsAuth.edmx</DependentUpon>
+      <LastGenOutput>NAPmsAuth.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\NAPmsAuth.edmx.diagram">
+      <DependentUpon>NAPmsAuth.edmx</DependentUpon>
+    </None>
+    <None Include="Entities\NAPmsAuth.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NAPmsAuth.edmx</DependentUpon>
+      <LastGenOutput>NAPmsAuth.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,193 @@
+﻿@model NoidaAuthority.PMS.Entity.CICModel
+@using Kendo.Mvc.UI;
+
+<div id="changeInDirector">
+    <div class="row">
+        <div class="col-md-6 no-padding">
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.Label("Name Of Director", htmlAttributes: new { @class = "nw-lbl-lft required" })
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.Director_Name, htmlAttributes: new { @class = "nw-lbl-rht nw-txt-bx-spce", @maxlength = "100" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.Label("Share (In %)", htmlAttributes: new { @class = "nw-lbl-lft required" })
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.Director_Share, htmlAttributes: new { @class = "nw-lbl-rht nw-txt-bx-spce", @maxlength = "5" })
+                </div>
+            </div>            
+        </div>
+        <div class="col-md-6 no-padding">
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Type, htmlAttributes: new { @class = "nw-lbl-lft required" })
+                </div>
+                <div class="col-md-6">
+                    @(Html.Kendo().DropDownListFor(model => model.Type)
+                      .DataTextField("text")
+                      .DataValueField("id")
+                      .OptionLabel("Select")
+                      .DataSource(source =>
+                      {
+                          source.Read(read =>
+                          {
+                              read.Action("GetType", "Customer");
+                          });
+                      })
+                        .HtmlAttributes(new { style = "width:100%;" })
+                    )
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right btn-add-service" style="padding-top:15px;">
+                <button type="button" class="btn btn-upload-doc" style="padding:10px 20px" value="Submit" id="btnAdd">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 no-padding" style="padding: 10px 10px 20px;">
+            <div class="k-grid-content">
+                @(Html.Kendo().Grid<NoidaAuthority.PMS.Entity.CICModel>()
+               .Name("gridCIC")
+              .Columns(columns =>
+              {
+                  columns.Bound(c => c.SNo).Width(50);
+                  columns.Bound(c => c.Director_Name).Title("Director Name").Width(80);
+                  columns.Bound(c => c.TypeName).Width(50);
+                  columns.Bound(c => c.Director_Share).Title("Share (In %)").Width(80);
+                  columns.Bound(c => c.Director_Id).Hidden(true).Title("Action");
+                  columns.Bound(c => c.Director_Id).Title("Action").ClientTemplate("<a href='##' onclick='javascript: return RemoveRecord(this);' id='RemoveTag'>Remove</a>").Width(50).Filterable(false).Sortable(false);
+              })
+              .Sortable()
+              .Filterable()
+              .Resizable(resize => resize.Columns(true))
+              .Pageable
+              (
+                pageable => pageable
+                .Enabled(true)
+                .Refresh(true)
+                .PageSizes(true)
+              ).AutoBind(false)
+              .DataSource
+              (
+                 dataSource => dataSource
+                .Ajax().Model(model => model.Id(p => p.Director_Id))
+            .ServerOperation(true)
+                            .Read(read => read.Action("GetDirectorDetails", "Customer").Data("additionalInfo"))
+                .PageSize(10)
+              )
+                )
+            </div>
+        </div>
+    </div>
+    
+    @*<div class="row">
+        <div class="col-md-12 text-right btn-add-service" style="padding-top:15px;">
+            <input type="button" class="btn btn-upload-doc" style="padding:10px 20px" value="Next >>" id="btnAdd1" />
+        </div>
+    </div>*@
+</div>
+
+
+    <div id="changeInFirmName">
+        <div class="row">
+            <div class="col-md-6 no-padding">
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.NewFirmStatus, htmlAttributes: new { @class = "nw-lbl-lft required" })
+                        @*@Html.LabelFor(m => m.OldFirmStatus, htmlAttributes: new { @class = "nw-lbl-lft" })*@
+                    </div>
+                    <div class="col-md-6">
+                        @(Html.Kendo().DropDownListFor(model => model.NewFirmStatus)
+                      .DataTextField("text")
+                      .DataValueField("id")
+                      .OptionLabel("Select")
+                      .DataSource(source =>
+                      {
+                          source.Read(read =>
+                          {
+                              read.Action("GetFirmStatus", "Customer");
+                          });
+                      })
+                    .HtmlAttributes(new { style = "width:100%;" })
+                        )
+                        @*@Html.TextBoxFor(m => m.OldFirmStatusName, new { @class = "nw-lbl-rht nw-txt-bx-spce", @readonly = "readonly" })*@
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                       
+                    </div>
+                    <div class="col-md-6">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 no-padding">
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.NewFirmName, htmlAttributes: new { @class = "nw-lbl-lft required" })
+                        @*@Html.LabelFor(m => m.OldFirmName, htmlAttributes: new { @class = "nw-lbl-lft" })*@
+                    </div>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.NewFirmName, htmlAttributes: new { @class = "nw-lbl-rht nw-txt-bx-spce" })
+                        @*@Html.TextBoxFor(m => m.OldFirmName, new { @class = "nw-lbl-rht nw-txt-bx-spce", @readonly = "readonly" })*@
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                       
+                    </div>
+                    <div class="col-md-6">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        @*<div class="row">
+            <div class="col-md-12 text-right btn-add-service" style="padding-top:15px;">
+                <input type="button" class="btn btn-upload-doc" style="padding:10px 20px" value="Next >>" id="btnAddFirmName" />
+            </div>
+        </div>*@
+    </div>
+
+    <div id="changeInProduct">
+        <div class="row">
+            <div class="col-md-6 no-padding">
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.NewFirmProduct, htmlAttributes: new { @class = "nw-lbl-lft required" })
+                        @*@Html.LabelFor(m => m.OldFirmProduct, htmlAttributes: new { @class = "nw-lbl-lft" })*@
+                    </div>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.NewFirmProduct, htmlAttributes: new { @class = "nw-lbl-rht nw-txt-bx-spce" })
+                        @*@Html.TextBoxFor(m => m.OldFirmProduct, new { @class = "nw-lbl-rht nw-txt-bx-spce", @readonly = "readonly" })*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 no-padding">
+                <div class="row">
+                    <div class="col-md-6">
+                        
+                    </div>
+                    <div class="col-md-6">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>                        
+        @*<div class="row">
+            <div class="col-md-12 text-right btn-add-service" style="padding-top:15px;">
+                <input type="button" class="btn btn-upload-doc" style="padding:10px 20px" value="Next >>" id="btnAddFirmProduct" />
+            </div>
+        </div>*@
+    </div>
+

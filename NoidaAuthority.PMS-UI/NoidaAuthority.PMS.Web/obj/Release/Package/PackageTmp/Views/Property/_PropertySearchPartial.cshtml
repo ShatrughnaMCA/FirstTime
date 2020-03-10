@@ -1,0 +1,203 @@
+﻿
+<script src="~/Scripts/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+<div id="ContentHeader">
+
+    <div class="row no-margin" style="padding-left:10px;">
+        <div class="select-bx-col">
+            <label>Department</label><br />
+            <div class="btn-group srch-btn-inline" data-value="0" id="propertyTypeDropdown">
+                <a class="btn btn-default dropdown-toggle btn-select2 select-bx" data-toggle="dropdown" href="#">Select<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><span id="0">Select</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="select-bx-col">
+            <label>
+                Sector
+            </label><br />
+            <div class="btn-group srch-btn-inline" id="propertySectorDropdown" data-value="0">
+                <a class="btn btn-default dropdown-toggle btn-select2 select-bx" data-toggle="dropdown" href="#">Select<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><span id="0">Select</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="select-bx-col">
+            <label>
+                Block
+            </label><br />
+            <div class="btn-group srch-btn-inline" id="propertyBlockDropdown" data-value="0">
+                <a class="btn btn-default dropdown-toggle btn-select2 select-bx" data-toggle="dropdown" href="#">Select<span class="caret"></span></a>
+
+                <ul class="dropdown-menu" id="location">
+                    <li><span id="0">Select</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="select-bx-col">
+            <label>
+                Plot Number
+            </label><br />
+            <input type="text" id="txtPropNumbr" class="form-control select-bx" name="txtPropNumbr" />
+        </div>
+        <div class="select-bx-col">
+            <label>
+                &nbsp;
+            </label><br />
+            <input type="button" name="Search" id="propertySearchBtn" class="btn btn-success" value="Search" />
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    @*<input type="button" name="Clear" id="propertyClearBtn" class="btn btn-default" value="Clear" />*@
+
+</div>
+
+@{
+    Html.RenderPartial("_SearchCommonPartial");
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var deptId = '@Session["DeptId"]';
+        var deptName = '@Session["DeptName"]';
+        $("#propertySearchBtn").click(function () {
+
+            var propertyType = $("#propertyTypeDropdown").data("value");
+            var sect = $("#propertySectorDropdown").data("value");
+            var block = $("#propertyBlockDropdown").data("value");
+            var propNumber = $("#txtPropNumbr").val();
+            if (propertyType == "0" &&
+                sect == "0" &&
+                block == "0" &&
+                $.trim(propNumber) == ""
+                && deptId == 0
+                ) {
+                alert("Please enter atleast one value");
+            }
+            else {
+                //alert('AAA');
+                var url = '/Property?';
+                var qs = GetFilterQueryForSearch();
+                if ($.trim(propNumber) != "") {
+                    if (qs.length > 0)
+                        qs = qs + "&pn=" + propNumber;
+                    else
+                        qs = qs + "pn=" + propNumber;
+                }
+                   // alert(url + qs);
+                window.location = (url + qs);
+            }
+        });
+
+        $("#txtPropNumbr").autocomplete({
+            source: function (request, response) {
+                var qs = GetFilterQueryForSearch();
+                if (qs.length > 0)
+                    qs = qs + "&name=pn&pn=" + request.term;
+                else
+                    qs = qs + "name=pn&pn=" + request.term;
+                $.ajax({
+                    url: "/api/common/List?" + qs,
+                    type: 'GET',
+                    dataType: "json",
+                    success: function (data) {
+                        response(data);
+                    },
+                    error: function (x, y, z) {
+                        response([]);
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $(this).val(ui.item.label);
+                return false;
+            },
+            select: function (event, ui) {
+                $('#hidCidade').val(ui.item.value);
+                $(this).val(ui.item.label);
+                return false;
+            },
+            minLength: 3,
+        });
+        //var propertyNo = $.trim(getQueryStringByName('pn'));
+        //if (propertyNo != "") {
+        //    $("#txtPropNumbr").val(propertyNo);
+        //}
+
+        setTimeout(function () {
+
+            if (deptId != 0) {
+                $('#propertyTypeDropdown a').text(deptName);
+                $('#propertyTypeDropdown *').prop('disabled', true);
+                GetDropdownData("/api/common/List?name=sc&id=" + deptId, function (data) {
+                    PopulateDDLValues(data, 'div#propertySectorDropdown');
+                    AttachDDLOnClick('div#propertySectorDropdown')
+                    $("div#propertySectorDropdown ul.dropdown-menu li span").on("click", function () {
+                        var selectedVal = $(this).attr("id");
+                        var optionString = "<li><span id=\"0\">Select</span></li>";
+                        if (selectedVal != "0") {
+                            GetDropdownData("/api/common/List?name=bk&id=" + selectedVal, function (data) {
+                                PopulateDDLValues(data, 'div#propertyBlockDropdown');
+                                AttachDDLOnClick('div#propertyBlockDropdown')
+                                SetFilterDefaultValueOnLoad('0', 'div#propertyBlockDropdown');
+                            });
+                        }
+                        else {
+                            PopulateDDLValues([], 'div#propertyBlockDropdown');
+                        }
+                    });
+
+                });
+            }
+            else {
+                GetDropdownData("/api/common/List?name=pt", function (data) {
+                    PopulateDDLValues(data, 'div#propertyTypeDropdown');
+                    AttachDDLOnClick('div#propertyTypeDropdown')
+                    $("div#propertyTypeDropdown ul.dropdown-menu li span").click(function () {
+                        var selectedVal = $(this).attr("id");
+                        var optionString = "<li><span id=\"0\">Select</span></li>";
+                        if (selectedVal != "0") {
+                            GetDropdownData("/api/common/List?name=sc&id=" + selectedVal, function (data) {
+                                PopulateDDLValues(data, 'div#propertySectorDropdown');
+                                PopulateDDLValues([], 'div#propertyBlockDropdown');
+                                AttachDDLOnClick('div#propertySectorDropdown')
+                                $("div#propertySectorDropdown ul.dropdown-menu li span").on("click", function () {
+                                    var selectedVal = $(this).attr("id");
+                                    var optionString = "<li><span id=\"0\">Select</span></li>";
+                                    if (selectedVal != "0") {
+                                        GetDropdownData("/api/common/List?name=bk&id=" + selectedVal, function (data) {
+                                            PopulateDDLValues(data, 'div#propertyBlockDropdown');
+                                            AttachDDLOnClick('div#propertyBlockDropdown')
+                                            SetFilterDefaultValueOnLoad('0', 'div#propertyBlockDropdown');
+                                        });
+                                    }
+                                    else {
+                                        PopulateDDLValues([], 'div#propertyBlockDropdown');
+                                    }
+                                });
+
+                            });
+                        }
+                        else {
+                            PopulateDDLValues([], 'div#propertySectorDropdown');
+                        }
+                    });
+                });
+            }
+        }, 1000); // How long do you want the delay to be (in milliseconds)?
+        //setTimeout();
+
+    });
+
+</script>

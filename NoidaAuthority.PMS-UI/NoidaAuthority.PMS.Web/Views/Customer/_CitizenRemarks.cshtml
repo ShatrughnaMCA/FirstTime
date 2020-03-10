@@ -1,0 +1,70 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<script src="~/Scripts/jquery.ba-hashchange.js"></script>
+
+<div class="row" id="PropertyDetailContainerDiv" data-registrationid="@Model.RegistrationId">
+    <div class="col-md-12">
+        <div class="row" style="padding:0 10px 20px;">
+            <div class="col-md-12 divPropertyDetailHeader">
+                <h4 class="inline">Remarks</h4>
+                <span class="pull-right RID-txt">(Registration No: @Model.RegistrationNo)</span>
+                <input type="hidden" id="hdnRegNo" value="@Model.RegistrationNo" />
+                <input type="hidden" id="hdnPropType" value="@Model.PropertyCategory" />
+            </div>
+        </div>
+        <div class="row">
+            @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+                <div id="RemarksGrid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var RegistrationID = $('#hdnRegistrationID').val();
+        $("div#RemarksGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/Remarks_Read/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                //DisplayNoResultsFound($('#RemarksGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Registration No.', field: 'regNo' },
+                        //{ title: 'Year', field: 'YEAR', width: 50 },
+                        { title: 'Remarks', field: 'remarks' },
+                        //{ title: 'Parties', field: 'PARTIES' },
+                        //{ title: 'Department', field: 'DEPTT' },
+                        //{ title: 'Description', field: 'DESCRIPTION' },
+                        //{ title: 'Advocate Details', field: 'ADVOCATEDETAILS' },
+                        //{ title: 'Stay', field: 'STAY', width: 50 },
+                        //{ title: 'Filed', field: 'filedFlag', width: 60 },
+                        { title: 'Date', field: 'date', type: "date", format: "{0:dd-MMM-yyyy}", width: 100 },
+                        //{ title: 'Narrative', field: 'NARRATIVEYES_NO', width: 70 }
+            ]
+        });
+    });
+</script>

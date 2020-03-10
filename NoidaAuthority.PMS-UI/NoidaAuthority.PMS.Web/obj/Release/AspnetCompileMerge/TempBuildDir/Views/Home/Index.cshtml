@@ -1,0 +1,335 @@
+﻿@using System.Web.Optimization;
+
+@{
+    ViewBag.Title = "Home";
+}
+<style type="text/css">
+    .dashboard-img img {
+        /*width: 100px;
+        height: 100px;*/
+        height:180px;
+    }
+
+    .dashboard-img nav {
+        /*height: 100px;
+        width: 100px;*/
+    }
+
+        .dashboard-img nav ul {
+            min-width: 600px;
+            position: relative;
+            display: table;
+            /*margin: 50px auto;*/
+             margin: 2px auto;
+            clear: both;
+        }
+
+            .dashboard-img nav ul li {
+                list-style: none;
+                float: left;
+            }
+
+                .dashboard-img nav ul li a {
+                    /*width: 100px;*/
+                    height: 190px;
+                    float: left;
+                    margin: 0 10px;
+                    -webkit-perspective: 600px;
+                    -moz-perspective: 600px;
+                    -ms-perspective: 600px;
+                    perspective: 600px;
+                }
+
+                .dashboard-img nav ul li .front {
+                    text-align: center;
+                    -webkit-transform: rotateX(0deg) rotateY(0deg);
+                    -moz-transform: rotateX(0deg) rotateY(0deg);
+                    -ms-transform: rotateX(0deg) rotateY(0deg);
+                    -o-transform: rotateX(0deg) rotateY(0deg);
+                    -webkit-transition: all 0.5s ease-in-out;
+                    -moz-transition: all 0.5s ease-in-out;
+                    -ms-transition: all 0.5s ease-in-out;
+                    -o-transition: all 0.5s ease-in-out;
+                    transition: all 0.5s ease-in-out;
+                    -webkit-backface-visibility: hidden;
+                    -moz-backface-visibility: hidden;
+                    -ms-backface-visibility: hidden;
+                    -o-backface-visibility: hidden;
+                    backface-visibility: hidden;
+                    -webkit-transform-style: preserve-3d;
+                    -moz-transform-style: preserve-3d;
+                    -o-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+                }
+
+                .dashboard-img nav ul li:hover .front {
+                    -webkit-transform: rotateX(0deg) rotateY(180deg);
+                    -moz-transform: rotateX(0deg) rotateY(180deg);
+                    -ms-transform: rotateX(0deg) rotateY(180deg);
+                    -o-transform: rotateX(0deg) rotateY(180deg);
+                }
+
+                .dashboard-img nav ul li .back {
+                    position: absolute;
+                    top: 0;
+                    width: inherit;
+                    height: inherit;
+                    text-align: center;
+                    z-index: -1;
+                    -webkit-transform: rotateX(0deg) rotateY(-180deg);
+                    -moz-transform: rotateX(0deg) rotateY(-180deg);
+                    -ms-transform: rotateX(0deg) rotateY(-180deg);
+                    -o-transform: rotateX(0deg) rotateY(-180deg);
+                    -webkit-transition: all 0.5s ease-in-out;
+                    -moz-transition: all 0.5s ease-in-out;
+                    -ms-transition: all 0.5s ease-in-out;
+                    -o-transition: all 0.5s ease-in-out;
+                    transition: all 0.5s ease-in-out;
+                    -webkit-backface-visibility: hidden;
+                    -moz-backface-visibility: hidden;
+                    -ms-backface-visibility: hidden;
+                    -o-backface-visibility: hidden;
+                    backface-visibility: hidden;
+                    -webkit-transform-style: preserve-3d;
+                    -moz-transform-style: preserve-3d;
+                    -o-transform-style: preserve-3d;
+                    transform-style: preserve-3d;
+                }
+
+                .dashboard-img nav ul li:hover .back {
+                    z-index: 1;
+                    -webkit-transform: rotateX(0deg) rotateY(0deg);
+                    -moz-transform: rotateX(0deg) rotateY(0deg);
+                    -ms-transform: rotateX(0deg) rotateY(0deg);
+                    -o-transform: rotateX(0deg) rotateY(0deg);
+                }
+
+                .dashboard-img nav ul li i {
+                    line-height: 200px !important;
+                    color: white;
+                    vertical-align: middle !important;
+                    height: 100px !important;
+                }
+</style>
+
+<div class=" row dashboard-img" style="height:auto">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-3 col-sm-4">
+
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/Home/dashboard">
+                                <div class="front">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/dashboard-icon.png" />
+                                    </i>
+                                </div>
+                                <div class="back">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/dashboard-icon.png" />
+                                    </i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                
+            </div>
+
+            <div class="col-lg-4 col-md-3 col-sm-4">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/Property?sc=11">
+                                <div class="front">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/properties-icon.png" />
+                                    </i>
+                                </div>
+                                <div class="back">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/properties-icon.png" />
+                                    </i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+           
+
+            <div class="col-lg-4 col-md-3 col-sm-4">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/Property/Payments?sc=11&pts=2">
+                                <div class="front">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/finance-icon.png" />                                        
+                                    </i>
+                                </div>
+                                <div class="back">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/finance-icon.png" />                                        
+                                    </i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-3 col-sm-4">
+                <nav>
+                    
+
+
+                    <ul>
+                        <li>
+                            <a href="/Property/LegalProperties?sc=11">
+                                <div class="front">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/litigation-icon.png" />
+                                    </i>
+                                </div>
+                                <div class="back">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/litigation-icon.png" />
+                                    </i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-lg-4 col-md-3 col-sm-4">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="http://www.noidaforcitizens.com/" target="_blank">
+                                <div class="front">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/citizen-icon.png" />
+                                    </i>
+                                </div>
+                                <div class="back">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/citizen-icon.png" />
+                                    </i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <div class="col-lg-4 col-md-3 col-sm-4">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="http://www.noidaauthorityonline.com/" target="_blank">
+                                <div class="front">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/news-icon.png" />
+                                    </i>
+                                </div>
+                                <div class="back">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/news-icon.png" />
+                                    </i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+           
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-3 col-sm-4">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div class="front">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/project-icon.png" />
+                                    </i>
+                                </div>
+                                <div class="back">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/project-icon.png" />
+                                    </i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-3 col-sm-4">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div class="front">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/planning-icon.png" />
+                                    </i>
+                                </div>
+                                <div class="back">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/planning-icon.png" />
+                                    </i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <div class="col-lg-4 col-md-3 col-sm-4">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div class="front">
+                                    <i class="fa  fa-4x">
+                                        <img src="~/Content/Images/Home/smartcity-icon.png" />                                        
+                                    </i>
+                                </div>
+                                <div class="back">
+                                    <i class="fa  fa-4x">
+                                       <img src="~/content/images/home/smartcity-icon.png" />                                        
+                                    </i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-1"></div>
+</div>

@@ -1,0 +1,580 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+@{
+    ViewBag.Title = "Payments";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}   
+<style>
+    .modal-dialog {
+        padding-top: 15%;
+    }
+
+    .view-docs {
+        color: blue;
+        text-decoration: underline;
+    }
+
+        .view-docs:hover {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+    body {
+        /*overflow: hidden;*/
+    }
+
+    .resp-vtabs li.resp-tab-active {
+        border: 1px solid #DFEFCC !important;
+        border-left: 4px solid #DFEFCC !important;
+    }
+
+    div#divPropertyDetailHeader {
+        background: rgb(0, 192, 151) none repeat scroll 0 0;
+        /*border-radius: 6px;*/
+        padding: 1px 5px 1px 10px;
+        color: white;
+    }
+
+    #PaymentScheduleGrid .k-link .k-icon, #PaymentScheduleGrid .k-pager-sizes .k-icon {
+        vertical-align: inherit !important;
+    }
+</style>
+
+@*<link href="~/Content/CSS/TabStyle.css" rel="stylesheet" />*@
+<link href="~/Content/CSS/easy-responsive-tabs.css" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<script src="~/Scripts/jquery.ba-hashchange.js"></script>
+
+<style>
+    ul.remarks li {
+        color: #444; /* set color of list item to a dark gray */
+        list-style: none; /* if you’re not already using a reset */
+    }
+
+        ul.remarks li:before {
+            color: #53a529; /*#ed0000; set color to red */
+            content: "\2022"; /* /2022 is the numerical unicode for &bull; */
+            font-size: 2.5em; /* set the font-size of the bullet if necessary. Make sure to use em or %*/
+            padding-right: .25em; /* give the bullet some padding from the text Make sure to use em*/
+            position: relative;
+            top: .2em; /* set the vertical position of the bullet if necessary. Make sure to use em or % */
+        }
+</style>
+<input type="hidden" id="hdnRegistrationID" value="@Model.RegistrationId" />
+<input type="hidden" id="hdnPropertyCategory" value="@Model.PropertyCategory" />
+<input type="hidden" id="hdnregID" value=@Request.QueryString["flag"] />
+<input type="hidden" id="hdnflag" value=@Request.QueryString["Pflag"] />
+
+<div id="ContentHeader" style="display:none">
+    <div id="divCustomerDetailHeader">
+        <label>Welcome! @Session["UserName"]</label>
+        <label id="lblLogout"><a href="/Account/Logout" tabindex="7">Logout</a></label>
+    </div>
+</div>
+
+<div id="parentVerticalTab" class="wrapper">
+
+    <div class="resp-tabs-container hor_1 no-bg" style="display:block">
+ 
+        @*<div  id="remarks">
+            @{Html.RenderPartial("_CitizenRemarks", @Model);}
+        </div>*@
+        <div id="notices">
+            @{Html.RenderPartial("_CitizenNotices", @Model);}
+        </div>
+        <div>
+            @*<button type="submit" id="feedbkbtn" style="float:right; margin:10px auto 0" class="btn btn-success">Submit Feedback</button>*@
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+<div id="myModalTransferHistory" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:85%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Property Transfer History</h4>
+            </div>
+            <div class="modal-body">
+                Registration No: <label> @Model.RegistrationNo</label><br />
+                <div id="TransferHistoryGrid">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="myModalPaymentData" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" style="width:40%">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>*@
+                <h3 class="modal-title">Please wait your payment is in process...</h3>
+            </div>
+            <div class="modal-body">
+                <table style="width:100%">
+                    <tr>
+                        <td></td>
+                        <td>
+                            <img src="~/Content/Images/Payment/Processing.gif" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            @*<div class="modal-footer">
+
+                    <button type="button" class="btn btn-primary">Pay Now</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>*@
+        </div>
+    </div>
+
+</div>
+
+
+@*<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:550px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Customer Feedback</h4>
+            </div>
+            <div class="modal-body">
+
+                Consumer Name: <label>@Model.Name</label><br />
+                Registration No: <label> @Model.RegistrationNo</label><br />
+                <span style="vertical-align:top">Comments:</span><div style="display:inline-block">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message-text" style="width:300px; height:100px"></textarea>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="fdsubmit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<div id="myModalTransferHistory" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:85%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Property Transfer History</h4>
+            </div>
+            <div class="modal-body">
+                Registration No: <label> @Model.RegistrationNo</label><br />
+                <div id="TransferHistoryGrid">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    var pymntSchduleId;
+    function getParameterByName(name, url) {
+        if (!url) {
+            url = window.location.href;
+        }
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    $(document).ready(function () {
+        //var dt = $('#hdnflag').val();
+        
+        var det = getParameterByName('Pflag');
+        
+        if (det == "N") {
+            $('#remarks').hide();
+            $("#notices").show();
+            $("#notices").css("display", "block");
+        }
+        if (det == "R"){ 
+            $('#remarks').show();
+            $("#notices").hide();
+            //$("#notices").css("display", "block");
+        }
+        $("#btnSubmitRequest").click(function () {
+            $(this).hide();
+        });
+
+        //$("#btnSubmit").click(function () {
+        //    var deptVal = $("#ddlDepartment").val();
+        //    //alert(deptVal);
+        //    var serviceVal = $("#ddlService").val();
+        //    //alert(serviceVal);
+        //    var description = $.trim($("#txtServiceDescription").val());
+        //    if (deptVal == '' || deptVal == null) {
+        //        alert("Please select Department");
+        //        return false;
+        //    }
+        //    if (serviceVal == '' || serviceVal == null) {
+        //        alert("Please select Service");
+        //        return false;
+        //    }
+        //    if (description == '') {
+        //        alert("Please enter Description");
+        //        return false;
+        //    }
+        //    //Ajax call to save Service Request
+        //    $.ajax({
+        //        dataType: 'json',
+        //        type: 'Post',
+        //        contentType: 'application/json; charset=utf-8',
+        //        data: JSON.stringify({ deptVal: deptVal, serviceVal: serviceVal, description: description, regNo: $("#hdnRegNo").val() }),
+        //        url: '/Customer/SaveServiceReq',
+        //        success: function (result) {
+        //            if (result == true)
+        //                alert("Service Request added succssfully");
+        //            $("#ddlDepartment").val('');
+        //            $("#ddlService").val('');
+        //            $("#txtServiceDescription").val('');
+        //            $("#ddlService").empty();
+        //        },
+        //        error: function (obj) {
+        //        }
+        //    });
+
+        //});
+
+        $("#btnCloseRequest").click(function () {
+            //$("#divCitizenCharter").hide();
+            //$("#ComplainHistoryGrid").show();
+            //$("#btnSubmitRequest").show();
+        });
+
+        var RegistrationID = $("div#PropertyDetailContainerDiv").data("registrationid");
+        // Pay Now button click
+        $("div#myModalPaymentData button.btn-primary").click(function () {
+
+            $.get("/Customer/SetScheduledPayment/" + pymntSchduleId);
+            $("#myModalPaymentData").modal('hide');
+            //BindPaymentSchedule();
+            //BindPaymentHistory();
+            //window.location = '/';
+        });
+
+        $("#TransferHistory").click(function () {
+            $("#myModalTransferHistory").modal('show');
+        });
+
+        
+
+        //BindPaymentHistory();
+
+        $('li#firstLI').addClass('current');
+
+        
+    });
+
+    function OpenFile(row) {
+        $("#windowDiv").empty();
+        var tr = $(row).parent().parent();
+        var link = $(tr).children("td:eq(1)").text();
+        $("#windowDiv").append($('<iframe src=' + link + ' style="width:800px; height:500px;"></iframe>'));
+        $("#IDWindow").data("kendoWindow").center();
+        $("#IDWindow").data("kendoWindow").open();
+    }
+
+   
+
+    function onDataBound(arg) {
+        //alert("Grid data bound:" + $(".payNowLink").length);;
+        //$(".payNowLink").click(function () {
+        //    var SchduleId = $(this).data('abc');
+        //    pymntSchduleId = $(this).data('abc');
+        //    $(".scheduleID").text(SchduleId);
+        //    //alert($(".scheduleID").text());
+        //    var ID = $(this).data('date');
+        //    var ID = $.datepicker.formatDate('dd-M-yy', new Date(ID));
+        //    $(".date").text(ID);
+        //    var IDY = $(this).data('amount');
+        //    $(".payMent").text(IDY);
+        //    //alert($(".payMent").text());
+
+        //    $("#myModalPaymentData").modal('show');
+
+        //});
+    }
+    //$("#feedbkbtn").click(function () {
+
+    //    $("#feedbackModal").modal('show');
+    //    $("#message-text").val("");
+    //});
+    $("#TransferHistory").click(function () {
+        $("#myModalTransferHistory").modal('show');
+    });
+
+    $("#fdsubmit").click(function () {
+        var feedback = $.trim($("#message-text").val());
+        if (feedback == '') {
+            alert("Please enter Feedback");
+            return false;
+        }
+        $("#feedbackModal").modal('hide');
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ feedback: $("#message-text").val(), regNo: $("#hdnRegNo").val() }),
+            url: '/Customer/SaveFeedback',
+            success: function (result) {
+                if (result == true)
+                    alert("Thank you for your feedback");
+            },
+            error: function (obj) {
+            }
+    });
+        });
+
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        if ($('#hdnregID').val() == 1) {
+            $(".myPropBx").hide();
+            $("#notice").show();
+            $("#complaint").hide();
+        }
+        else if ($('#hdnregID').val() == 2) {
+            var PropertyCategory = $('#hdnPropertyCategory').val();
+            var DepartmentValue = 0;
+            if (PropertyCategory == "Institutional") {
+                DepartmentValue = 1;
+            }
+            else if (PropertyCategory == "Commercial") {
+                DepartmentValue = 2;
+            }
+            else if (PropertyCategory == "Residential") {
+                DepartmentValue = 3;
+            }
+            else if (PropertyCategory == "Industrial") {
+                DepartmentValue = 4;
+            }
+            else if (PropertyCategory == "Housing") {
+                DepartmentValue = 5;
+            }
+            else if (PropertyCategory == "Group Housing") {
+                DepartmentValue = 6;
+            }
+
+            $(".myPropBx").hide();
+            $("#notice").hide();
+            $("#complaint").show();
+            $("#ddlDepartment").prop('selectedIndex', DepartmentValue);
+            GetAllServices(ddlDepartment);
+            $("#ddlDepartment").prop("disabled", true);
+        }
+
+        $(".myProperty").on("click", function () {
+            //alert("hi");
+            $(".myPropBx").show();
+            $("#notice").hide();
+            $("#complaint").hide();
+        });
+        $(".serviceRequest").on("click", function () {
+            var PropertyCategory = $('#hdnPropertyCategory').val();
+            var DepartmentValue = 0;
+            if (PropertyCategory == "Institutional") {
+                DepartmentValue = 1;
+            }
+            else if (PropertyCategory == "Commercial") {
+                DepartmentValue = 2;
+            }
+            else if (PropertyCategory == "Residential") {
+                DepartmentValue = 3;
+            }
+            else if (PropertyCategory == "Industrial") {
+                DepartmentValue = 4;
+            }
+            else if (PropertyCategory == "Housing") {
+                DepartmentValue = 5;
+            }
+            else if (PropertyCategory == "Group Housing") {
+                DepartmentValue = 6;
+            }
+
+            $(".myPropBx").hide();
+            $("#notice").hide();
+            $("#complaint").show();
+            $("#ddlDepartment").prop('selectedIndex', DepartmentValue);
+            GetAllServices(ddlDepartment);
+            $("#ddlDepartment").prop("disabled", true);
+        });
+
+    });
+    function ChallanViewPrint(RegistrationID, Amount) {
+        $.ajax({
+            url: '@(Url.Action("ChallanPrint", "Property"))',
+            type: 'POST',
+            data: { RegistrationID: RegistrationID, Amount: Amount },
+            contenttype: "application/json; charset=utf-8",
+            success: function () {
+                alert("Yes");
+            },
+            error: function () {
+                alert("No");
+            }
+        });
+    }
+
+    function GetDropdownData(requestUrl, successFuntion) {
+        jQuery.support.cors = true;
+        $.ajax({
+            url: requestUrl,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                successFuntion(data);
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+
+    function PopulateDDLValues(options, divSelector) {
+        var optionString = "<li><span id=\"\">Select</span></li>";
+        //var optionString;
+        $.each(options, function (i, item) {
+            optionString += '<li><span id="' + item.value + '">' + item.label + '</span></li>'
+        });
+        $(divSelector + " ul.dropdown-menu").html(optionString);
+        $(divSelector).find('.dropdown-toggle').html($("#hdnPropType").val() + ' <span class="caret"></span>');
+        $('select[name=selValue]').val(1);
+        $('select[name=selValue]').change();
+    }
+
+    function AttachDDLOnClick(divSelector) {
+        $(divSelector + " .dropdown-menu li span").click(function () {
+            var selText = $(this).text();
+            $(this).parents('.btn-group').data("value", $(this).attr("id"));
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+    }
+
+    function GetAllServices(a) {
+        if ($(a).val() == "") {
+            alert("Please Select a Department");
+            $("#ddlService").empty();
+            return false;
+        }
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ deptt: $(a).val() }),
+            url: '/Property/GetAllServiceData',
+            success: function (result) {
+                //debugger;
+                $("#ddlService").empty();
+                $.each(result, function (i, v) {
+                    ($("#ddlService").append($('<option>', {
+                        value: v.value,
+                        text: v.label
+                    })));
+                    //options[options.length] = new Option(v, val);
+                });
+            },
+            error: function (objAjaxRequest, strError) {
+                var respText = objAjaxRequest.responseText;
+                //alert(respText);
+            }
+        });
+    }
+
+
+    $('#btnGoOffline').click(function () { 
+        var partialAmountOffline = $("#txtAmountOffline").val();
+        var ddlPaymentTypeOffline = $('#ddlPaymentTypeOffline').val();
+            if (ddlPaymentTypeOffline == 0) {
+                $('#myModalOffline').modal('hide');
+                window.open('../../Property/ChallanPrint?RegistrationId=' + @Model.RegistrationId.ToString() + '&flag=' + 1 + '&partAmount=' + 0, '_blank');
+                ResetValues();
+            }
+            else {
+                if (partialAmountOffline == "") {
+                    alert("Please enter Amount.");
+                    return false;
+                }
+                else if (isNaN(partialAmountOffline)) {
+                    alert("Please enter digits only.");
+                    $("#txtAmountOffline").val('')
+                    return false;
+                }
+                else {
+                    if (partialAmountOffline <= 0) {
+                        alert("Please enter amount greater than zero(0).");
+                        $("#txtAmountOffline").val('')
+                        return false;
+                    }
+                    $('#myModalOffline').modal('hide');
+                    window.open('../../Property/ChallanPrintFullOrPartial?RegistrationId=' + @Model.RegistrationId.ToString() + '&flag=' + 0 + '&partAmount=' + partialAmountOffline, '_blank');
+                    ResetValues();
+                }
+        }
+    })
+    function GetAllAmountOffline() {
+        $('#myModalOffline').modal('show'); 
+    }
+    
+    function PaymentTypeSelectionOffline(a) {
+        if ($(a).val() == 0) {
+            $('#dvAmountOffline').css('display', 'none');
+        }
+        else {
+            $('#dvAmountOffline').css('display', 'block');
+        }
+
+    }
+    $('#btnCloseOffline').click(function () {
+        $("#txtAmountOffline").val('')
+        $("#ddlPaymentTypeOffline").prop('selectedIndex', 0);
+        $('#dvAmountOffline').css('display', 'none');
+    });
+    @*function GetAllAmount() {
+        var r = confirm("Do you want to make full payment?");
+        if (r == true) {
+            var src = "@Html.Raw(Url.Action("ChallanPrint", "Property", new { RegistrationId = @Model.RegistrationId.ToString(), flag = 1 }))";
+            $("#runReport").attr("href", src);
+        } else {
+            var src = "@Html.Raw(Url.Action("ChallanPrint", "Property", new { RegistrationId = @Model.RegistrationId.ToString(), flag = 0 }))";
+            $("#runReport").attr("href", src);
+        }
+    }*@
+</script>
+
+

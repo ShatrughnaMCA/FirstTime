@@ -1,0 +1,75 @@
+﻿@model NoidaAuthority.PMS.Entity.OtherRequests
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.Extensions;
+@{
+    Layout = null;
+}
+<div class="row">
+    <div class="col-md-6 no-padding">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Description", new { @class = "nw-lbl-lft" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextAreaFor(m => m.Description, htmlAttributes: new { @class = "nw-lbl-rht nw-txt-bx", @maxlength = "1900", style = "width:100%;max-height:48px;max-width:280px;" })
+            </div>
+
+            @*@if (Model.ServiceId > 9 || Model.ServiceId == 5)
+            {
+                <div class="col-md-6">
+                    @Html.Label("Description", new { @class = "nw-lbl-lft required" })
+                </div>
+                <div class="col-md-6">
+                    @Html.TextAreaFor(m => m.Description, htmlAttributes: new { @id = "txtAreaDescription", @class = "nw-lbl-rht nw-txt-bx", @maxlength = "1900", style = "width:100%;max-height:48px;max-width:280px;" })
+                </div>
+            }
+            else
+            {
+                <div class="col-md-6">
+                    @Html.Label("Description", new { @class = "nw-lbl-lft" })
+                </div>
+                <div class="col-md-6">
+                    @Html.TextAreaFor(m => m.Description, htmlAttributes: new {@class = "nw-lbl-rht nw-txt-bx", @maxlength = "1900", style = "width:100%;max-height:48px;max-width:280px;" })
+                </div>
+            }*@
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnOthersRequestSubmit").click(function () {          
+            var desc = $("#Description").val();
+            //var desc = $("#txtAreaDescription").val();
+            var reqID = $("#ServiceRequestId").val();
+            //alert("desc="+desc+":reqid="+reqID);
+            if (desc == '') {
+                alert("Please enter Description");
+                return false;
+            }
+            if (CheckFileUpload() && CheckFileSize()) {
+                //$('#lblDescription').html($('#txtAreaDescription').val());
+                $('#lblDescription').html(desc);
+                $.ajax({
+                    dataType: 'json',
+                    type: 'Post',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({
+                        desc: desc, reqID: reqID
+                    }),
+                    url: '/Customer/SaveOtherRequest',
+                    success: function (result) {
+                        if (result == true) {
+                            $('#divAcknowledgementModal').modal('show');
+                        }
+                    },
+                    error: function (objAjaxRequest, strError) {
+                        var respText = objAjaxRequest.responseText;
+                        //alert(respText);
+                    }
+                });
+
+            }
+        });
+    });
+</script>

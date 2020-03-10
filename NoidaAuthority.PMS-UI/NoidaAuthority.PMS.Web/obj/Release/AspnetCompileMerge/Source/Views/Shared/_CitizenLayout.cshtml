@@ -1,0 +1,140 @@
+﻿@using System.Web.Optimization;
+@using NoidaAuthority.PMS.Common.Helpers;
+@using StackExchange.Profiling;
+@{
+    var displayMiniProfiler = SettingsHelper.IsMiniProfilerEnabled;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/others")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/others")
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/jquery.ba-hashchange.js"></script>
+    <script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+    <link href="~/Content/CSS/easy-responsive-tabs.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
+    <link href="~/Content/CSS/template-style.css" rel="stylesheet">
+    <link href="~/Scripts/toastr.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,400italic,700italic|Abril+Fatface|Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="~/Scripts/slider.js"></script>
+</head>
+<body>
+    <div id="Maindiv">
+        <div class="header_new">
+            <div class="logo_new"><img src="@Url.Content("~/Content/Images/logo-noida-small.png")"></div>
+            <div class="user_bx_new">
+                @{
+                    if (Session["UserName"] != null && Session["RoleName"] != null)
+                    {
+                        <ul class="nav navbar-nav navbar-right nw-wlcm-usr-bx">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff; min-height:60px;">
+                                    <span class="glyphicon glyphicon-user" style="font-size:30px; float:left; margin-right:15px;"></span>
+                                    <strong style="float:left; margin-top:6px;">@Session["UserName"]</strong>
+                                    <span class="glyphicon glyphicon-chevron-down" style="float:left; margin-top:10px; margin-left:10px;"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="navbar-login">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <p class="text-center">
+                                                        <span class="glyphicon glyphicon-user icon-size" style="font-size:90px; padding-left:10px;"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <p class="text-left"><strong>Welcome @Session["UserName"] @*@Session["RoleName"]*@</strong></p>
+                                                    <p class="text-left small">correoElectronico@email.com</p>
+                                                    <p class="text-left" style="padding-right:10px;">
+                                                        <a href="#" class="btn btn-primary btn-block btn-sm changePassword">Change Password </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <div class="navbar-login navbar-login-session">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <p style="padding:0 10px;">
+                                                        <a href="/Account/Logout" class="btn btn-danger btn-block">Logout</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        Response.Redirect("~/account/login");
+                    }
+                }
+            </div>
+            <div class="navbar-login navbar-login-session hidden-xs hidden-sm hidden-md hidden-lg">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p style="padding:0 10px;">
+                            <a href="/Account/Logout" class="btn btn-danger btn-block">Logout</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrap">
+            <div class="row" style="margin:10px 0 0">
+                <div class="col-md-12" style="overflow-x:hidden">
+                    @RenderBody()
+
+                    <!-- Sliding div starts here -->
+                    <div id="slider" style="right:-269px;margin-top:60px">
+                        <div id="sidebar" onclick="open_panel()">
+                            <img src="~/Content/Images/service-details.png" />
+                        </div>
+                        <div id="header">
+                            <ul>
+                                <li><a href="#">Transfer</a></li>
+                                <li><a href="#">Surrender</a></li>
+                                <li><a href="#">Permission to Mortgage</a></li>
+                                <li><a href="#">Lease Deed</a></li>
+                                <li><a href="#">Calculation for Deposits & Payments</a></li>
+                                <li><a href="#">Mutation</a></li>
+                                <li><a href="#">Functional Certificate</a></li>
+                                <li><a href="#">Time Extension</a></li>
+                                <li><a href="#">No Dues Certificate (NDC)</a></li>
+                                <li><a href="#">Change in Constitution</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Sliding div ends here -->
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer_bx">
+            Copyright © 2016 <b>Noida Authority</b>. Developed and Maintained by <a href="http://www.svam.com">North Shore Technologies</a>
+        </footer>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $('#myPropertyDetail').click(function () {
+        var id = '@Session["RegistrationID"]';
+        window.location.href = "/Customer/index?id=" + id;
+    });
+    $('.changePassword').click(function () {
+        window.location.href = "/Account/ChangePassword";
+    });
+</script>

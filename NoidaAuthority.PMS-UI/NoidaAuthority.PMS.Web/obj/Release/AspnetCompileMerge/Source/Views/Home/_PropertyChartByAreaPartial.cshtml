@@ -1,0 +1,174 @@
+﻿@using NoidaAuthority.PMS.Common;
+
+<div id="propertychartByAreaDiv" class="chartContainer" data-areaqs="@Contants.QueryString.PropertyArea" data-propertytypeqs="@Contants.QueryString.PropertyType" style="border-left: 5px solid #fff; border-top: 1px solid #fff; border-bottom: 5px solid #fff;">
+
+    <img src="@Url.Content("~/Content/Images/loading_green.gif")" class="loading" />
+
+</div>
+
+<script type="text/javascript">
+
+    chartAreaData = [];
+    chartAreaPropertyTypeData = [];
+    AreaColors = {};
+    var AreaChartObject = null;
+    // var AreaChartOptions = null;
+    function CreateAreaChart(chartData, drilldownSeriesData) {
+        var AreaChartOptions = {
+            chart: {
+                renderTo: 'propertychartByAreaDiv',
+                type: 'pie',
+                height: 330,
+                options3d: {
+                    enabled: false,
+                    alpha: 20,
+                    beta: 0
+                }
+            },
+            title: {
+                text: 'Property by Area',
+                verticalAlign: 'top',
+                align: 'center',
+                x: -62,
+                y:4,
+                style: {
+                    fontSize: '11px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                }
+            },
+            exporting: {
+                enabled: false
+            },
+            legend: {
+                align: 'right',
+                verticalAlign: 'top',
+                layout: 'vertical',
+                y: 50,
+                itemStyle: {
+                    fontSize: '11px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: 'normal',
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:13px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.name}: <b>{point.percentage:.1f}%</b> of total<br/><span style="color:{point.color}">\u25CF</span> Property Count: <b>{point.y:,.0f}</b> of <b>{point.total:,.0f}<b>'
+            },
+            plotOptions: {
+                pie: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function () {
+                                location.href = this.options.url;
+                            }
+                        }
+                    },
+                    depth: 70,
+                    dataLabels: {
+                        distance: -30,
+                        color: 'black',
+                        enabled: true,
+                        format: '{point.percentage:.1f}%'
+                    },
+                    showInLegend: true
+
+                },
+
+            },
+            series: [{
+                type: 'pie',
+                name: 'Area Types',
+                data: chartData,
+
+            }],
+            drilldown: {
+                series: drilldownSeriesData,
+                activeDataLabelStyle: {
+                    textDecoration: 'none',
+                    fontSize: '11px',
+                    color: 'white',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: 'normal',
+                },
+                drillUpButton: {
+                    relativeTo: 'spacingBox',
+                    position: {
+                        y: 0,
+                        x: 0
+                    },
+                }
+            },
+          
+        }
+        AreaChartObject = new Highcharts.Chart(AreaChartOptions);
+    };
+    function GetAreaChartData(sector, onComplete) {
+
+        chartAreaData = [];
+        chartAreaPropertyTypeData = [];
+        var colors = Highcharts.getOptions().colors;
+        jQuery.support.cors = true;
+        $.ajax({
+            url: '/API/Graph/PropertyArea?sc=' + sector,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $.each(data, function (i, item) {
+                    chartAreaData.push({
+                        name: item.Area,
+                        y: item.AreaCount,
+                        url: '/Property?' + GetDataItem("propertychartByAreaDiv", "areaqs") + '=' + item.ID + "&sc=" + GetSeletedSector(),
+                        drilldown: item.ID
+                    })
+                    AreaColors[item.Area] = item.ID;
+                });
+
+                GetAreaPropertyTypeChartData(sector, onComplete);
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+    function GetAreaPropertyTypeChartData(sector, onComplete) {
+        chartData = [];
+        jQuery.support.cors = true;
+        $.ajax({
+            url: '/API/Graph/AreaPropertyType?sc=' + sector,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                var currentArea = "";
+                var newObj = null;
+                $.each(data, function (i, item) {
+                    if (currentArea != item.Areasqm) {
+                        newObj = {
+                            name: item.Areasqm,
+                            id: AreaColors[item.Areasqm],
+                            data: []
+                        }
+                        chartAreaPropertyTypeData.push(newObj);
+                    }
+                    newObj.data.push({
+                        name: item.PropertyType,
+                        y: item.PropertyAreaTypeCount,
+                        url: '/Property?' + GetDataItem("propertychartByAreaDiv", "areaqs") + '=' + newObj.id + '&' + GetDataItem("propertychartByAreaDiv", "propertytypeqs") + '=' + item.ID + "&sc=" + GetSeletedSector(),
+                    });
+                    currentArea = item.Areasqm;
+                });
+                onComplete();
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+    $(document).ready(function () {
+        GetAreaChartData("", function () {
+            CreateAreaChart(chartAreaData, chartAreaPropertyTypeData);
+        });
+    });
+</script>

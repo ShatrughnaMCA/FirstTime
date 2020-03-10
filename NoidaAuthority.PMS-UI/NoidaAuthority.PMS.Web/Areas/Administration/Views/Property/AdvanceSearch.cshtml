@@ -1,0 +1,507 @@
+﻿
+@{
+    ViewBag.Title = "Advance Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Search";
+}
+<style>
+    .form-control {
+        display: inline;
+        width: 100%;
+    }
+
+    label {
+        font-weight: 600 !important;
+    }
+
+    #propertyAdvSearchDiv .btn.btn-default.dropdown-toggle.btn-select2 {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+    }
+
+    .logo-gda {
+        background: #00c097 /*url("../../Content/Images/logo-gda.png") no-repeat scroll 20px center*/;
+        font-size: 20px;
+        height: 56px;
+        line-height: 56px;
+        padding-left: 10px;
+        width: 100%;
+        color: #fff;
+    }
+
+    label {
+        font-weight: 500 !important;
+        font-size: 14px;
+    }
+
+    td div.btn-group {
+        float: left;
+        width: 100%;
+    }
+</style>
+<div style="/*min-height:850px*/">
+    <div id="propertyAdvSearchDiv">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+
+                    <form role="form">
+                        <table class="advn-srch-tbl">
+                            <tr>
+
+                                <td class="logo-gda">Advance Search</td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <div id="divRoleAssignment" style="display:none;">
+                                        <label>Role Assignment: </label> <span>Customer</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style=" padding:10px 8px 0"><label>Search Type</label></td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px">
+                                    <div class="btn-group" data-value="1" id="searchType" style="font-size:13px; margin-bottom:15px;">
+                                        <input type="radio" value="1" name="SearchType" checked="checked" /><span class="spanRadio">Property</span>
+                                        <input type="radio" value="2" name="SearchType" /><span class="spanRadio">Payment </span>
+                                        <input type="radio" value="3" name="SearchType" /><span class="spanRadio">Legal </span>
+                                        <input type="radio" value="4" name="SearchType" /><span class="spanRadio">Defaulter</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px"><b>   <a href='@Url.Action("Location","Property")' style="color:#275593;">Search by location</a> </b></td>
+                            </tr>
+                            <tr>
+                                <td style="height:10px"></td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px"><label>Department</label></td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px">
+                                    <div class="btn-group" data-value="0" id="propertyTypeDropdown">
+                                        <a class="form-control btn btn-default dropdown-toggle btn-select2 select-bx" data-toggle="dropdown" href="#">Select<span class="caret"></span></a>
+
+                                        <ul class="dropdown-menu">
+                                            <li><span id="0">Select</span></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:10px"></td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px">
+                                    <label>
+                                        Sector
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px">
+                                    <div class="btn-group" id="propertySectorDropdown" data-value="0">
+                                        <a class="btn btn-default dropdown-toggle btn-select2  select-bx" data-toggle="dropdown" href="#">Select<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><span id="0">Select</span></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:10px"></td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px">
+                                    <label>
+                                        Block
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px">
+                                    <div class="btn-group" id="propertyBlockDropdown" data-value="0">
+                                        <a class="btn btn-default dropdown-toggle btn-select2  select-bx" data-toggle="dropdown" href="#">Select<span class="caret"></span></a>
+
+                                        <ul class="dropdown-menu" id="location">
+                                            <li><span id="0">Select</span></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="height:10px"></td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px">
+                                    <label>
+                                        Plot Number
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px"><input type="text" id="txtPlotNumber" class="form-control" name="txtPlotNumber" /></td>
+                            </tr>
+                            <tr>
+                                <td style="height:10px"></td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px">
+                                    <label>
+                                        Allottee Name
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px"><input type="text" id="txtAllotteeName" class="form-control" name="txtAllotteeName" /></td>
+                            </tr>
+                            <tr>
+                                <td style="height:10px"></td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px"><label>Property Number </label></td>
+                            </tr>
+                            <tr>
+                                <td style=" padding:0 8px"><input type="text" id="txtPropNumber" class="form-control" name="txtPropNumber" /></td>
+                            </tr>
+                            <tr>
+                                <td style="height:10px"></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center; padding-bottom:20px;">
+
+                                    <input type="button" name="Search" id="propertySearchBtn" class="btn btn-success btn-sm" value="Search" />
+                                    <button type="reset" class="btn-blue btn">Cancel</button>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        setCurrentTab('adva')
+        var deptId = '@Session["DeptId"]';
+        var deptName = '@Session["DeptName"]';
+        jQuery.support.cors = true;
+        $(".dropdown-menu li span").click(function () {
+            var selText = $(this).text();
+            $(this).parents('.btn-group').data("value", $(this).attr("id"));
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+
+        $("#propertySearchBtn").click(function () {
+            var searchType = $("input[name='SearchType']:checked").val();
+            var propertyType = $("#propertyTypeDropdown").data("value");
+            var sect = $("#propertySectorDropdown").data("value");
+            var block = $("#propertyBlockDropdown").data("value");
+            var propNumber = $("#txtPropNumber").val();
+            var plotNumber = $("#txtPlotNumber").val();
+            var allotteeName = $("#txtAllotteeName").val();
+            if (searchType == 0 &&
+                propertyType == "0" &&
+                sect == "0" &&
+                block == "0" &&
+                $.trim(propNumber) == "" &&
+                $.trim(plotNumber) == "" &&
+                $.trim(allotteeName) == "") {
+                alert("Please enter atleast one value");
+            }
+            else {
+                var url = "";// '/Property?';
+                if (searchType == 1) {
+                    url = '/Administration/Property/?';
+                }
+                else if (searchType == 2) {
+                    url = '/Administration/Property/Payments?';
+                }
+                else if (searchType == 3) {
+                    url = '/Administration/Property/Litigation?';
+                }
+                else if (searchType == 4) {
+                    url = '/Administration/Property/Payments?';
+                }
+
+                var qs = GetFilterQueryForSearch();
+                if (searchType != 1 && searchType != 2 && searchType != 3) {
+                    if (qs.length > 0)
+                        qs = qs + "&st=" + $.trim(searchType);
+                    else
+                        qs = qs + "st=" + $.trim(searchType);
+                }
+                if ($.trim(propNumber) != "") {
+                    if (qs.length > 0)
+                        qs = qs + "&pn=" + $.trim(propNumber);
+                    else
+                        qs = qs + "pn=" + $.trim(propNumber);
+                }
+                if ($.trim(plotNumber) != "") {
+                    if (qs.length > 0)
+                        qs = qs + "&pln=" + $.trim(plotNumber);
+                    else
+                        qs = qs + "pln=" + $.trim(plotNumber);
+                }
+                if ($.trim(allotteeName) != "") {
+                    if (qs.length > 0)
+                        qs = qs + "&an=" + encodeURIComponent($.trim(allotteeName));
+                    else
+                        qs = qs + "an=" + encodeURIComponent($.trim(allotteeName));
+                }
+                //    alert(url + qs);
+                window.location = (url + qs);
+            }
+        });
+        function GetFilterQueryForSearch() {
+            var propertyType = $("#propertyTypeDropdown").data("value");
+            var sect = $("#propertySectorDropdown").data("value");
+            var block = $("#propertyBlockDropdown").data("value");
+            var qs = "";
+            if (propertyType != 0) {
+                qs += "pt=" + $.trim(propertyType);
+            }
+            if (sect != 0) {
+                if (qs.length > 0)
+                    qs = qs + "&sc=" + $.trim(sect);
+                else
+                    qs = qs + "sc=" + $.trim(sect);
+            }
+
+            if (block != 0) {
+                if (qs.length > 0)
+                    qs = qs + "&bk=" + $.trim(block);
+                else
+                    qs = qs + "bk=" + $.trim(block);
+            }
+            return qs;
+        }
+        //GetDropdownData("/api/common/List?name=pt", function (data) {
+        //    //alert("KK");
+        //    PopulateDDLValues(data, 'div#propertyTypeDropdown');
+        //    AttachDDLOnClick('div#propertyTypeDropdown')
+        //});
+        GetDropdownData("/api/common/List?name=pt", function (data) {
+            PopulateDDLValues(data, 'div#propertyTypeDropdown');
+            AttachDDLOnClick('div#propertyTypeDropdown')
+            SetFilterDefaultValueOnLoad('pt', 'div#propertyTypeDropdown');
+            $("div#propertyTypeDropdown ul.dropdown-menu li span").click(function () {
+                var selectedVal = $(this).attr("id");
+                var optionString = "<li><span id=\"0\">Select</span></li>";
+                if (selectedVal != "0") {
+                    GetDropdownData("/api/common/List?name=sc&id=" + selectedVal, function (data) {
+                        PopulateDDLValues(data, 'div#propertySectorDropdown');
+                        AttachDDLOnClick('div#propertySectorDropdown')
+                        $("div#propertySectorDropdown ul.dropdown-menu li span").click(function () {
+                            var selectedVal = $(this).attr("id");
+                            var optionString = "<li><span id=\"0\">Select</span></li>";
+                            if (selectedVal != "0") {
+                                GetDropdownData("/api/common/List?name=bk&id=" + selectedVal, function (data) {
+                                    PopulateDDLValues(data, 'div#propertyBlockDropdown');
+                                    AttachDDLOnClick('div#propertyBlockDropdown')
+                                });
+                            }
+                            else {
+                                PopulateDDLValues([], 'div#propertyBlockDropdown');
+                            }
+                        });
+                    });
+                }
+                else {
+                    PopulateDDLValues([], 'div#propertySectorDropdown');
+                }
+            });
+        });
+
+        function SetFilterDefaultValueOnLoad(qsName, divSelector) {
+            var qsValue = getQueryStringByName(qsName);
+            if (qsValue != "")
+                SetDropdownValue(qsValue, divSelector)
+        }
+        function getQueryStringByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        setTimeout(function () {
+            if (deptId != 0) {
+                $('#propertyTypeDropdown a').text(deptName);
+                $('#propertyTypeDropdown *').prop('disabled', true);
+                GetDropdownData("/api/common/List?name=sc&id=" + deptId, function (data) {
+                    PopulateDDLValues(data, 'div#propertySectorDropdown');
+                    //PopulateDDLValues([], 'div#propertyBlockDropdown');
+                    AttachDDLOnClick('div#propertySectorDropdown')
+                    //SetFilterDefaultValueOnLoad('sc', 'div#propertySectorDropdown');
+                    //SetFilterDefaultValueOnLoad('bk', 'div#propertyBlockDropdown');
+                    $("div#propertySectorDropdown ul.dropdown-menu li span").on("click", function () {
+                        var selectedVal = $(this).attr("id");
+                        var optionString = "<li><span id=\"0\">Select</span></li>";
+                        if (selectedVal != "0") {
+                            GetDropdownData("/api/common/List?name=bk&id=" + selectedVal, function (data) {
+                                PopulateDDLValues(data, 'div#propertyBlockDropdown');
+                                AttachDDLOnClick('div#propertyBlockDropdown')
+                                //SetFilterDefaultValueOnLoad('0', 'div#propertyBlockDropdown');
+                            });
+                        }
+                        else {
+                            PopulateDDLValues([], 'div#propertyBlockDropdown');
+                        }
+                    });
+
+                });
+
+            }
+        }, 1000);
+
+
+        $("#txtPropNumber").autocomplete({
+            source: function (request, response) {
+                var qs = GetFilterQueryForSearch();
+                if (qs.length > 0)
+                    qs = qs + "&name=pn&pn=" + request.term;
+                else
+                    qs = qs + "name=pn&pn=" + request.term;
+                //alert(qs);
+                $.ajax({
+                    url: "/api/common/List?" + qs,
+                    type: 'GET',
+                    dataType: "json",
+                    success: function (data) {
+                        response(data);
+                    },
+                    error: function (x, y, z) {
+                        response([]);
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $(this).val(ui.item.label);
+                return false;
+            },
+            select: function (event, ui) {
+                $('#hidCidade').val(ui.item.value);
+                $(this).val(ui.item.label);
+                return false;
+            },
+            minLength: 3,
+        });
+
+        $("#txtPlotNumber").autocomplete({
+            source: function (request, response) {
+                var qs = GetFilterQueryForSearch();
+                if (qs.length > 0)
+                    qs = qs + "&name=pln&pln=" + request.term;
+                else
+                    qs = qs + "name=pln&pln=" + request.term;
+                //alert(qs);
+                $.ajax({
+                    url: "/api/common/List?" + qs,
+                    type: 'GET',
+                    dataType: "json",
+                    success: function (data) {
+                        response(data);
+                    },
+                    error: function (x, y, z) {
+                        response([]);
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $(this).val(ui.item.label);
+                return false;
+            },
+            select: function (event, ui) {
+                $('#hidCidade').val(ui.item.value);
+                $(this).val(ui.item.label);
+                return false;
+            },
+            minLength: 2,
+        });
+
+        // Auto Complete for AllotteeName
+        $("#txtAllotteeName").autocomplete({
+            source: function (request, response) {
+                var qs = GetFilterQueryForSearch();
+                if (qs.length > 0)
+                    qs = qs + "&name=an&an=" + request.term;
+                else
+                    qs = qs + "name=an&an=" + request.term;
+                //alert(qs);
+                $.ajax({
+                    url: "/api/common/List?" + qs,
+                    type: 'GET',
+                    dataType: "json",
+                    success: function (data) {
+                        response(data);
+                    },
+                    error: function (x, y, z) {
+                        response([]);
+                    }
+                });
+            },
+            focus: function (event, ui) {
+                $(this).val(ui.item.label);
+                return false;
+            },
+            select: function (event, ui) {
+                $('#hidCidade').val(ui.item.value);
+                $(this).val(ui.item.label);
+                return false;
+            },
+            minLength: 3,
+        });
+
+    });
+
+    function GetDropdownData(requestUrl, successFuntion) {
+        jQuery.support.cors = true;
+        $.ajax({
+            url: requestUrl,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                successFuntion(data);
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+    function PopulateDDLValues(options, divSelector) {
+        var optionString = "<li><span id=\"0\">Select</span></li>";
+
+        $.each(options, function (i, item) {
+            optionString += '<li><span id="' + item.value + '">' + item.label + '</span></li>'
+        });
+        $(divSelector + " ul.dropdown-menu").html(optionString);
+
+        $(divSelector).data("value", 0);
+        $(divSelector).find('.dropdown-toggle').html('Select' + ' <span class="caret"></span>');
+    }
+    function AttachDDLOnClick(divSelector) {
+        $(divSelector + " .dropdown-menu li span").click(function () {
+            var selText = $(this).text();
+            $(this).parents('.btn-group').data("value", $(this).attr("id"));
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+    }
+</script>
+

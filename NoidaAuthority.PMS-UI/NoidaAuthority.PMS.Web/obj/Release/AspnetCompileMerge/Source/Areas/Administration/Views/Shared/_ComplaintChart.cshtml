@@ -1,0 +1,234 @@
+﻿@using NoidaAuthority.PMS.Common;
+
+<div id="propertychartByComplaintStatusDiv" class="chartContainer" style="border-left: 5px solid #fff; border-top: 1px solid #fff; border-bottom: 5px solid #fff; border-right: 5px solid #fff;">
+
+    <img src="@Url.Content("~/Content/Images/loading_green.gif")" class="loading" />
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="propertychartByComplaintStatusDivModal" style="padding-top:5%; z-index:99999;" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" style="min-height:800px;">
+        <div class="modal-content">
+            <div class="modal-header" style="min-height:60px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Citizen Complaints/Service Request</h4>
+            </div>
+            <div class="modal-body chartContainer" id="propertychartByComplaintStatusDiv2" data-yearqs="@Contants.QueryString.Year" data-propertytypeqs="@Contants.QueryString.PropertyType">
+
+                <img src="@Url.Content("~/Content/Images/loading_green.gif")" class="loading" />
+
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    //var height = $(".chart-inner").height();
+   var width = $(".chart-inner").width();
+    chartCompaintData = [];
+    function CreateComplaintChart(chartData) {
+        Highcharts.setOptions({
+            colors: ['#7CB5EC', '#434348', '#90ED7D', '#F7A35C', '#8085E9', '#F15C80']
+
+        });
+
+        //for pop up zoom
+        var AreaChartOptionsModal = {
+            chart: {
+                renderTo: 'propertychartByComplaintStatusDiv2',
+                type: 'pie',
+                width: 850,
+                //height: 300,
+                options3d: {
+                    enabled: true,
+                    alpha: 50,
+                    beta: 0
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: '',
+                verticalAlign: 'top',
+                align: 'center',
+                x: -62,
+                y: 4,
+                style: {
+                    fontSize: '11px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: 'bold'
+                }
+            },
+            exporting: {
+                enabled: false
+            },
+            legend: {
+                align: 'right',
+                verticalAlign: 'top',
+                layout: 'vertical',
+                y: 50,
+                x: -25,
+                itemStyle: {
+                    fontSize: '20px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: 'normal',
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:13px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.name}: <b>{point.percentage:.1f}%</b> of total<br/><span style="color:{point.color}">\u25CF</span> Complaint Count: <b>{point.y:,.0f}</b> of <b>{point.total:,.0f}<b>'
+            },
+            plotOptions: {
+                pie: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function () {
+                                location.href = this.options.url;
+                            }
+                        }
+                    },
+                    innerSize: 100,
+                    depth: 70,
+                    dataLabels: {
+                        distance: -30,
+                        color: 'black',
+                        enabled: true,
+                        format: '{point.percentage:.1f}%'
+                    },
+                    showInLegend: true
+
+                },
+
+            },
+            series: [{
+                type: 'pie',
+                name: 'Complaint Status',
+                data: chartData,
+
+            }],
+        }
+
+
+        var AreaChartOptions = {
+            chart: {
+                renderTo: 'propertychartByComplaintStatusDiv',
+                type: 'pie',
+                //width: width,
+                height: 300,
+                options3d: {
+                    enabled: true,
+                    alpha: 30,
+                    beta: 0
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: '',
+                verticalAlign: 'top',
+                align: 'center',
+                x: 0,
+                y: 4,
+                style: {
+                    fontSize: '11px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: 'bold'
+                }
+            },
+            exporting: {
+                enabled: false
+            },
+            legend: {
+                //align: 'right',
+                //verticalAlign: 'top',
+                //layout: 'vertical',
+                //y: 25,
+                //x: -15,
+                itemStyle: {
+                    fontSize: '11px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: 'normal',
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:13px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.name}: <b>{point.percentage:.1f}%</b> of total<br/><span style="color:{point.color}">\u25CF</span> Complaint Count: <b>{point.y:,.0f}</b> of <b>{point.total:,.0f}<b>'
+            },
+            plotOptions: {
+                pie: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function () {
+                                location.href = this.options.url;
+                            }
+                        }
+                    },
+                    innerSize: 80,
+                    depth: 70,
+                    dataLabels: {
+                        distance: -10,
+                        color: 'black',
+                        enabled: true,
+                        format: '{point.percentage:.1f}%'
+                    },
+                    showInLegend: true
+
+                },
+
+            },
+            series: [{
+                type: 'pie',
+                name: 'Complaint Status',
+                data: chartData,
+
+            }],
+        }
+        var AreaChartObject = new Highcharts.Chart(AreaChartOptions);
+        var AreaChartObject = new Highcharts.Chart(AreaChartOptionsModal);
+    };
+    function GetComplaintChartData(sector, onComplete) {
+        var deptId = '@Session["DeptId"]';
+        chartCompaintData = [];
+        var colors = Highcharts.getOptions().colors;
+        $.ajax({
+            url: '/API/Graph/PropertyComplaintGraph?sc=' + sector + '&DeptId=' + deptId,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $.each(data, function (i, item) {
+                    chartCompaintData.push({
+                        name: item.Disposal_Status,
+                        y: item.Disposal_Status_Count,
+                        url: '/Administration/Property/Complaints?cs=' + item.StatusId + "&sc=" + GetSeletedSectorForComplaints(),
+                    })
+                });
+                onComplete();
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        GetComplaintChartData("", function () {
+            CreateComplaintChart(chartCompaintData);
+        });
+    });
+</script>

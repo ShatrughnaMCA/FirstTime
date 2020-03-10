@@ -1,0 +1,148 @@
+﻿@model NoidaAuthority.PMS.Entity.ExtensionRequest
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.Extensions;
+
+
+<div class="form-bx" style="padding-top:10px;">
+    <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            @*@Html.Label("Registration Id", htmlAttributes: new { @class = "required" })
+            <input type="hidden" id="hdnPropertyNu" />
+            <input type="hidden" id="hdnExtendable" />
+            @Html.HiddenFor(m => m.Status)*@
+            @*@Html.Label("Department", htmlAttributes: new { @id = "_Department" })*@
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            <span id="Department" class=""></span>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            @*@Html.Label("Property No:", htmlAttributes: new { @id = "_Propno" })*@
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            <span id="propnumber"></span>
+        </div>
+    </div>
+
+    @*<div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            @Html.Label("Applicant Name", htmlAttributes: new { @id = "_ApplicantName" })
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            <span id="ApplicantName" class="form-control"></span>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            @Html.Label("Gender", htmlAttributes: new { @id = "_Gender" })
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            <span id="Gender" class="form-control"></span>
+        </div>
+    </div>*@
+
+    @*<div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            @Html.Label("Father/Husband Name", htmlAttributes: new { @id = "_FatherHusbandName" })
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            <span id="FatherHusbandName" class="form-control"></span>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            @Html.Label("Property Type", htmlAttributes: new { @id = "_PropertyType" })
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            <span id="PropertyType" class="form-control"></span>
+        </div>
+    </div>*@
+
+
+    <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            @Html.Label("Extension Due Date", htmlAttributes: new { @id = "_completiondate", @class = "required" })
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            @*@(Html.Kendo().DatePickerFor(m => m.Completion_DueDate).HtmlAttributes(new { @class = "DisableKeyboardInput", style = "width:100%" }))*@
+            @(Html.Kendo().DatePickerFor(m => m.Extension_Due_Date).HtmlAttributes(new { @class = "DisableKeyboardInput", style = "width:100%" }))
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            @Html.Label("Extension Given Date", htmlAttributes: new { @id = "_extensiondate", @class = "required" })
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+            @(Html.Kendo().DatePickerFor(m => m.Extension_Given_Date).HtmlAttributes(new { @class = "DisableKeyboardInput", style = "width:100%" }))
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var requestId = $("#ServiceRequestId").val();
+        var rid = $("#Registration_No").val();
+        //if (requestId != 0 && rid != 0) {
+        //    $.ajax({
+        //        dataType: 'json',
+        //        type: 'Post',
+        //        contentType: 'application/json; charset=utf-8',
+        //        data: JSON.stringify({ rid: rid, requestId: requestid, extensionDueDate: extDueDate, extensionGivenDate: extDate }),
+        //        url: "/Customer/GetPropertyDetailsForExtension",
+        //        success: function (data) {
+                    
+        //        },
+        //        error: function (objAjaxRequest, strError) {
+        //            var respText = objAjaxRequest.responseText;
+        //            //alert("error");
+        //        }
+        //    });
+        //}
+
+
+        $('#btnExtensionRequestSubmit').click(function () {
+            //alert("ok");
+            var extDueDate = $('#Extension_Due_Date').val();
+            var extDate = $('#Extension_Given_Date').val();
+            var rid = $("#Registration_No").val();
+            var requestid = $("#ServiceRequestId").val();
+            var desc = $("#Description").val();
+            $.ajax({
+                dataType: 'json',
+                type: 'Post',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ rid: rid, requestId: requestid, extensionDueDate: extDueDate, extensionGivenDate: extDate, desc: desc }),
+                url: "/Customer/SaveExtensionRequest",
+                success: function (data) {
+                    alertify.success("Firm Name added Successfully");
+                    $('#divAcknowledgementModal').modal('show');
+                    //ShowUploadDoc();
+                },
+                error: function (objAjaxRequest, strError) {
+                    var respText = objAjaxRequest.responseText;
+                    //alert("error");
+                }
+            });
+        });
+});
+
+    function checkExtensionDate() {
+        var ExtensionDate = $("#Extension_Due_Date").val();
+        var possessionDate = $("#Possessiondate").val();
+        var flag = false;
+        if ((Date.parse(possessionDate) >= Date.parse(ExtensionDate))) {
+            alertify.error("Extension Date should not be earlier than Possession Date.");
+            flag = false;
+            return flag;
+        }
+        else { flag = true }
+        return flag;
+    }
+
+    function checkExtensionCompletionDate() {
+        var ExtensionDate = $("#Extension_Due_Date").val();
+        var completionDate = $("#Completion_DueDate").val();
+        var flag = false;
+        if ((Date.parse(completionDate) >= Date.parse(ExtensionDate))) {
+            alertify.error("Extension Date should not be earlier than Completion Date.");
+            flag = false;
+            return flag;
+        }
+        else { flag = true }
+        return flag;
+    }
+</script>

@@ -1,0 +1,145 @@
+﻿@model NoidaAuthority.PMS.Entity.CustomerDetailViewModel
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+
+<style>
+    .col-md-4 {
+        margin-top: 0%;
+        /* width: 38.3333%; */
+    }
+</style>
+
+<div class="row" id="divPropertyInfo">
+    <div class="col-md-12">
+        <div class="row form-group">
+            <div class="col-md-2"><label class="nw-lbl-lft">Department:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (!string.IsNullOrEmpty(Model.PropertyModel.Department))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.PropertyModel.Department</label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">NA</label>
+                    }
+                }
+            </div>
+            <div class="col-md-2"><label class="nw-lbl-lft">Sector:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (!string.IsNullOrEmpty(Model.PropertyModel.SectorName))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.PropertyModel.SectorName</label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">NA</label>
+                    }
+                }
+            </div>
+
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2"><label class="nw-lbl-lft">Block:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (!string.IsNullOrEmpty(Model.PropertyModel.BlockName))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.PropertyModel.BlockName</label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">NA</label>
+                    }
+                }
+            </div>
+            <div class="col-md-2"><label class="nw-lbl-lft">Plot/Flat/shop No:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (!string.IsNullOrEmpty(Model.PropertyModel.PlotNo))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.PropertyModel.PlotNo</label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">NA</label>
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2"><label class="nw-lbl-lft">Total Area:</label></div>
+            <div class="col-md-4"><label class="nw-lbl-rht" id="lbl">@Model.PropertyModel.TotalArea</label></div>
+            <div class="col-md-2"><label class="nw-lbl-lft">Total Property Cost:</label></div>
+            <div class="col-md-4"><label class="nw-lbl-rht" id="lbl">@Model.PropertyModel.TotalPropertyCost</label></div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2"><label class="nw-lbl-lft">Land Rate:</label></div>
+            <div class="col-md-4"><label class="nw-lbl-rht" id="lbl">@Model.PropertyModel.LandRate</label></div>
+            <div class="col-md-2"><label class="nw-lbl-lft">Possession Date:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (!string.IsNullOrEmpty(Model.PropertyModel.PossessionDate.ToString()))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.PropertyModel.PossessionDate</label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">NA</label>
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2"><label class="nw-lbl-lft">Allotment Date:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (!string.IsNullOrEmpty(Model.PropertyModel.AllotmentDate.ToString()))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.PropertyModel.AllotmentDate</label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">NA</label>
+                    }
+
+                }
+            </div>
+            <div class="col-md-2"><label class="nw-lbl-lft">Registry Date:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (!string.IsNullOrEmpty(Model.PropertyModel.RegistryDate.ToString()))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.PropertyModel.RegistryDate</label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">NA</label>
+                    }
+                }
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2"><label class="nw-lbl-lft">Is NDC issued:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (Model.PropertyModel.IsNDCIssued.Equals("Yes"))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.PropertyModel.IsNDCIssued</label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">No</label>
+                    }
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+

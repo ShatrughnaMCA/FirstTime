@@ -1,0 +1,402 @@
+﻿@using System.Web.Optimization;
+@using NoidaAuthority.PMS.Common.Helpers;
+@using StackExchange.Profiling;
+@{
+    var displayMiniProfiler = SettingsHelper.IsMiniProfilerEnabled;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/others")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/others")
+    <link href="~/Content/CSS/template-style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/jquery.ba-hashchange.js"></script>
+    <script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+    <script src="~/Scripts/kendo.aspnetmvc.min.js" type="text/javascript"></script>
+    <link href="~/Content/CSS/easy-responsive-tabs.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
+    <link href="~/Scripts/toastr.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+    <script src="~/Scripts/slider.js"></script>
+    <style>
+        body {
+            background-color: #efefef;
+        }
+
+        .noidaauth-content-container {
+            padding: 0 4%;
+        }
+
+        .header-bg {
+            background-color: #00a182;
+        }
+
+        .profile-photo-container {
+            background-color: transparent;
+        }
+
+        .navbar-inverse {
+            background-color: transparent;
+            border-color: transparent;
+            background-image: inherit;
+        }
+
+            .navbar-inverse .navbar-nav > li > a {
+                color: white;
+                font-weight: bold;
+            }
+
+            .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .active > a {
+                background-image: inherit;
+                background-repeat: repeat-x;
+                box-shadow: 0 3px 9px rgba(0, 0, 0, 0.25) inset;
+                color: black;
+                background-color: white;
+            }
+
+                .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+                    background-color: transparent;
+                    color: white;
+                }
+
+        .navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+            text-decoration: none;
+            background-color: #b6cedb;
+            color: #ffffff !important;
+        }
+
+        .k-grid-content {
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+        .hyperlink{
+            cursor : pointer;
+        }
+    .alertify-notifier.ajs-bottom.ajs-right{
+        bottom:40px;
+        right:20px;
+    }
+    </style>
+</head>
+<body>
+    <!-- Left column -->
+    <div id="Maindiv">
+        <div class="header_new hidden-xs">
+            <div class="logo_new"><img class="home" src="@Url.Content("~/Content/Images/logo-noida-small.png")" style="cursor:pointer"></div>
+            <div class="user_bx_new">
+                @{
+                    if (Session["UserDetail"] != null)
+                    {
+                        var loginuser = (NoidaAuthority.PMS.Entity.UserViewModel)Session["UserDetail"];
+                        <ul class="nav navbar-nav navbar-right nw-wlcm-usr-bx">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff; min-height:60px;">
+                                    <span class="glyphicon glyphicon-user" style="font-size:30px; float:left; margin-right:15px;"></span>
+                                    <strong style="float:left; margin-top:6px;"> @loginuser.FullName </strong>
+                                    <span class="glyphicon glyphicon-chevron-down" style="float:left; margin-top:10px; margin-left:10px;"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="navbar-login">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <p class="text-center">
+                                                        <span class="glyphicon glyphicon-user icon-size" style="font-size:90px; padding-left:10px;"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <p class="text-left"><strong>Welcome @loginuser.FullName</strong></p>
+                                                    <p class="text-left small">@loginuser.Email</p>
+                                                    <p class="text-left" style="padding-right:10px;">
+                                                        <a href="#" class="btn btn-primary btn-block btn-sm changePassword">Change Password </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <div class="navbar-login navbar-login-session">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <p style="padding:0 10px;">
+                                                        <a href="/Account/Logout" class="btn btn-danger btn-block">Logout</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Account/Login");
+                    }
+                }
+            </div>
+            <button class="menu_btn">
+                <span></span>
+            </button>
+        </div>
+
+        <div class="main-cont nw-citi-spce-top">
+            <div class="nw-top-nav">
+                @if (Session["UserDetail"] != null)
+                {
+                    <nav class="navbar navbar-light bg-faded">
+                        <div class="logo_new hidden-sm hidden-md hidden-lg"><img src="@Url.Content("~/Content/Images/logo-noida-small.png")"></div>
+                        <button class="navbar-toggle pull-right hidden-lg" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="nav navbar-nav">
+                                @if (Convert.ToInt32(Session["RoleId"]) == 2)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link nav-icn-home home" href="#">Home</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link nav-icn-home homeEmployee" href="#">Home</a>
+                                    </li>
+                                }
+                                @if (Convert.ToInt32(Session["RoleId"]) == 2)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link nav-icn-prop myProperty" href="#">My Property</a>
+                                    </li>
+                                }
+                                @if (Convert.ToInt32(Session["RoleId"]) == 2)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link nav-icn-pay paymentDetail" href="#">Payment History</a>
+                                    </li>
+                                }
+                                @if (Convert.ToInt32(Session["RoleId"]) == 2)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link  menu-service-history" href="#">Property History</a>
+                                    </li>
+                                }
+                                @*@if (Convert.ToInt32(Session["RoleId"]) == 2)
+                                    {
+                                        <li class="nav-item">
+                                            <i class="fa fa-file" aria-hidden="true"></i>
+                                            <a class="nav-link  menu-document" href="#">Documents</a>
+                                        </li>
+                                    }*@
+                                @if (Convert.ToInt32(Session["RoleId"]) == 2)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link  menu-Download-Formats" href="#">Formats</a>
+                                    </li>
+                                }
+                                @if (Convert.ToInt32(Session["RoleId"]) == 2)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link nav-icn-jal jalPaymentDetail" href="#">Noida Jal</a>
+                                    </li>
+                                }
+                                @if (Convert.ToInt32(Session["RoleId"]) == 2)
+                                {
+                                    <li class="dropdown nav-item">
+                                        <a class="nav-link nav-icn-ser dropdown-toggle" data-toggle="dropdown" href="#">Property Services <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="link-request-service" href="#">Request Service</a></li>
+                                            <li><a class="link-service-history" href="#">Service History</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                @if (Convert.ToInt32(Session["RoleId"]) == 2)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link nav-icn-liti litigationHistory" href="#">Litigation History</a>
+                                    </li>
+                                }
+                                @if (Convert.ToInt32(Session["RoleId"]) == 2)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link nav-icn-notice notices" href="#">Notices</a>
+                                    </li>
+                                }
+                                @if (Convert.ToInt32(Session["RoleId"]) == 2)
+                                {
+                                    <li class="nav-item hidden-sm hidden-md hidden-lg">
+                                        <a class="nav-link nav-icn-logout" href="/Account/Logout">Logout</a>
+                                    </li>
+                                }
+                            </ul>
+
+                        </div>
+                    </nav>
+
+                }
+                else
+                {
+
+                }
+                <input type="hidden" id="registrationID" value="@Session["RegistrationId"]" />
+            </div>
+
+        </div>
+
+        <div class="content-wrap">
+            <div class="row" style="margin:10px 0 0; overflow-x:hidden">
+                <div class="col-md-12" style="padding-right:50px;">
+                    @RenderBody()
+                    <!-- Sliding div starts here -->
+                    <div id="slider" style="right:-269px;">
+                        <div id="sidebar" onclick="open_panel()">
+                            <img src="~/Content/Images/service-details.png" />
+                        </div>
+                        <div id="header">
+                            <ul>
+                                <li><a href="#">Transfer</a></li>
+                                <li><a href="#">Surrender</a></li>
+                                <li><a href="#">Permission to Mortgage</a></li>
+                                <li><a href="#">Lease Deed</a></li>
+                                <li><a href="#">Calculation for Deposits & Payments</a></li>
+                                <li><a href="#">Mutation</a></li>
+                                <li><a href="#">Functional Certificate</a></li>
+                                <li><a href="#">Time Extension</a></li>
+                                <li><a href="#">No Dues Certificate (NDC)</a></li>
+                                <li><a href="#">Change in Constitution</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Sliding div ends here -->
+                </div>
+            </div>
+        </div>
+        <footer class="footer_bx">
+            @*@{copyrightText;}*@
+            Copyright © @DateTime.Now.Year <b>Noida Authority</b>. Developed and Maintained by <a href="http://www.svam.com">North Shore Technologies</a>
+        </footer>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript" src="~/Scripts/template-script.js"></script>
+
+@RenderSection("Scripts", required: false)
+@if (displayMiniProfiler)
+{
+    @MiniProfiler.RenderIncludes();
+}
+
+
+<script>
+    function setCurrentTab(selectedTab) {
+        //alert(selectedTab);
+        //debugger;
+        $('.noidaauth-left-nav ul li').removeClass('selected');
+        $('[id=selectedTab]').addClass('selected');
+    }
+    $(function () {
+        var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
+        //alert(pgurl);
+        $("#nav ul li a").each(function () {
+            if ($(this).attr("href") == pgurl || $(this).attr("href") == '')
+                $(this).addClass("active");
+        })
+    });
+
+    $(document).ready(function () {
+        var registrationID = $("#registrationID").val();
+        //alert(registrationID);
+        $(".menu_btn").click(function () {
+            $(".nav-left").toggle("slide");
+            //$('.nav-left').slideToggle();
+        });
+
+
+        $('.home').click(function () {
+            window.location.href = "/Customer/Property/Dashboard";
+        });
+
+        $('.homeEmployee').click(function () {
+            window.location.href = "/Home/Dashboard";
+        });
+
+        $('.myProperty').click(function () {
+            @*window.location.href = "/Customer/CitizenPropertyDetail?id=" + '@NoidaAuthority.PMS.Common.CommonHelper.Encode(Convert.ToString(Session["RegistrationID"]))';*@
+            window.location.href = "/Customer/Property/Index";
+        });
+
+        $('.paymentDetail').click(function () {
+            //window.location.href = "/Customer/PaymentDetail?id=" + registrationID;
+            window.location.href = "/Customer/Property/Payment";
+        });
+
+        $('.link-service-history').click(function () {
+            @*window.location.href = "/Customer/ServiceRequest?id=" + '@NoidaAuthority.PMS.Common.CommonHelper.Encode(Convert.ToString(Session["RegistrationID"]))';*@
+            window.location.href = "/Customer/Property/Services";
+        });
+
+        $('.link-request-service').click(function () {
+            //window.location.href = "/Customer/Citizen";
+            window.location.href = "/Customer/Property/ServiceRequest";
+        })
+
+        $('.menu-document').click(function () {
+            window.location.href = "/Customer/Property/Documents";
+        });
+
+        $('.menu-Download-Formats').click(function () {
+            window.location.href = "/Customer/Property/Formats";
+        });
+
+        $('.menu-service-history').click(function () {
+            window.location.href = "/Customer/Property/History";
+        });
+
+        $('.notices').click(function () {
+            //window.location.href = "/Customer/index?id=" + registrationID + "&Pflag=" + "N";
+            window.location.href = "/Customer/Property/Notices";
+        });
+
+        $('.jalPaymentDetail').click(function () {
+            //window.location.href = "/Customer/JalPaymentDetail?id=" + registrationID;
+            window.location.href = "/Customer/Property/NoidaJal";
+        });
+        $('.litigationHistory').click(function () {
+            //window.location.href = "/Customer/LitigationHistory?id=" + registrationID;
+            window.location.href = "/Customer/Property/Litigation";
+        });
+        $('.remarks').click(function () {
+            window.location.href = "/Customer/CitizenRemarks?id=" + registrationID;
+        });
+        //$(".notices").on("click", function () {
+        //    //window.location.href = '/Customer/Index/' + registrationID + '?flag=1';
+        //    //$("#notices").show();
+        //    //$("#notices").css("display", "block");
+        //    window.location.href = '/Customer/Property/Notices';
+        //});
+
+        $('.changePassword').click(function () {
+            window.location.href = "/Account/ChangePassword";
+        });
+
+
+        $(".menu_btn").click(function () {
+            $(".nav-left").toggle("slide");
+            //$('.nav-left').slideToggle();
+        });
+    });
+
+</script>

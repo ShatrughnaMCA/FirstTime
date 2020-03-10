@@ -1,0 +1,624 @@
+﻿@using System.Web.Optimization;
+@using NoidaAuthority.PMS.Common.Helpers;
+@using StackExchange.Profiling;
+@using Kendo.Mvc.UI
+
+@{
+    var displayMiniProfiler = SettingsHelper.IsMiniProfilerEnabled;
+    var propCount = (NoidaAuthority.PMS.Entity.PropertyCount)ViewData["PropCount"];
+}
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @Styles.Render("~/Content/others")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/others")
+    @Scripts.Render("~/bundles/HighChartScripts")
+
+    <link href="~/Content/CSS/template-style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,400italic,700italic|Abril+Fatface|Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+    <script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+    @*<script src="~/Scripts/kendo/2014.2.716/kendo.aspnetmvc.min.js"></script>*@
+    <script src="~/Scripts/kendo.aspnetmvc.min.js"></script>
+
+    <style type="text/css">       
+        .user_bx_new {
+            padding-top: 10px;
+        }
+
+        .flex-content-row {
+            height: auto;
+        }
+
+        .noidaauth-flex-row {
+            display: inline-flex;
+            width: 100%;
+        }
+
+        .btn .caret {
+            margin-left: 10px !important;
+        }
+        #div-dashboard{
+            /*margin-left:12%;*/
+            z-index:-1;
+        }
+        .k-dropdown{
+            width:80px;
+        }
+    </style>
+
+
+<div class="" id="div-dashboard">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="row rw-pad-left-right">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-pad-left">
+                        <div class="row no-margin img-gda-1">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin">
+                                <p class="img-bx-name" style="margin:0">@propCount.IND_3<br /><span>Industry</span></p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-pad-left">
+                        <div class="row no-margin img-gda-2">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin">
+                                <p class="img-bx-name" style="margin:0">@propCount.INST_3<br /><span>Institutional</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-no-pad">
+                        <div class="row no-margin img-gda-3">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin">
+                                <p class="img-bx-name" style="margin:0">@propCount.RES_3<br /><span>Residential</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="row rw-pad-left-right">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-pad-left">
+                        <div class="row no-margin img-gda-1">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin">
+                                <p class="img-bx-name" style="margin:0">@propCount.GHP_3<br /><span>Group Housing</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-pad-left">
+                        <div class="row no-margin img-gda-2">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin">
+                                <p class="img-bx-name" style="margin:0">@propCount.COM_3<br /><span>Commercial</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-no-pad">
+                        <div class="row no-margin img-gda-3">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 no-margin">
+                                <p class="img-bx-name" style="margin:0">@propCount.HOS_3<br /><span>Housing</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="row no-margin rw-pad-left-right view-more-bx">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-margin col-pad-left bx-rel">
+            <div class="bx-top bx-txt-1">
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">1 AAAAAAAAA</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">AAAAAAAAA</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-margin col-pad-left bx-rel">
+            <div class="bx-top bx-txt-2">
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">1 AAAAAAAAA</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">AAAAAAAAA</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-margin col-no-pad bx-rel">
+            <div class="bx-top bx-txt-3">
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">1 AAAAAAAAA</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">AAAAAAAAA</div>
+                </div>
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                </div>
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                </div>
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                </div>
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                </div>
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-margin col-pad-left bx-rel">
+            <div class="bx-top bx-txt-4">
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">1 AAAAAAAAA</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">AAAAAAAAA</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-margin col-pad-left bx-rel">
+            <div class="bx-top bx-txt-5">
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">1 AAAAAAAAA</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">AAAAAAAAA</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                </div>
+                <div class="row no-margin col-pad-left">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-margin col-no-pad bx-rel">
+            <div class="bx-top bx-txt-6">
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">1 AAAAAAAAA</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">AAAAAAAAA</div>
+                </div>
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">BBBBBBBBB</div>
+                </div>
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">CCCCCCCC</div>
+                </div>
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">DDDDDDDD</div>
+                </div>
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">EEEEEEEE</div>
+                </div>
+                <div class="row no-margin col-no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 smll-fnt col-bg-view">FFFFFFFF</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row bx-chart-vspace chrt-main-rw">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-pad-left">
+            <div class="bx-new-chrt">
+                @{ Html.RenderPartial("_PropertyChart");}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-pad-left">
+            <div class=" bx-new-chrt">
+                @*@{Html.RenderPartial("_PaymentChart");}*@
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-no-pad">
+            <div class=" bx-new-chrt">
+                @*@{Html.RenderPartial("_ComplaintChart");}*@
+            </div>
+
+        </div>
+    </div>
+    <div class="row bx-chart-vspace chrt-main-rw">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-pad-left">
+            <div class=" bx-new-chrt">
+                @*@{Html.RenderPartial("_RevenueChart");}*@
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-pad-left">
+            <div class=" bx-new-chrt">
+                @*@{Html.RenderPartial("_LitigationChart");}*@
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-no-pad">
+            <div class=" bx-new-chrt">
+                @*@{Html.RenderPartial("_RTIChart");}*@
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<script type="text/javascript" src="~/Scripts/template-script.js"></script>*@
+
+
+<script>
+    // create DropDownList from input HTML element
+    $(".div-sector-list").kendoDropDownList({
+        dataTextField: "Text",
+        dataValueField: "Value",
+        optionLabel: "ALL",
+        filter: "contains",
+        dataSource: {transport: {read: ("/api/DefaultApi/List?name=sc")}},
+        index: 0,
+       //change: SectorChangeEventForProperty
+    });
+
+
+    $(function () {
+        var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
+        $("#nav ul li a").each(function () {
+            if ($(this).attr("href") == pgurl || $(this).attr("href") == '')
+                $(this).addClass("active");
+        })
+    });
+
+    function GetDropdownData(requestUrl, successFuntion) {
+        jQuery.support.cors = true;
+        $.ajax({
+            url: requestUrl,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                successFuntion(data);
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+
+    GetDropdownData("/api/DefaultApi/List?name=sc", function (data) {
+        PopulateDDLValues(data, 'div#div-property-sector-dropdown');
+        AttachDDLOnClick('div#div-property-sector-dropdown')
+        //$("div#div-property-sector-dropdown ul.dropdown-menu li span").click(function () {
+        //    var selectedVal = $(this).attr("Id");
+        //    //GetPropertyTypeChartData(selectedVal, function (chartData) {
+        //    //    //SetTotalProeprties();
+        //    //    GeneratePropertyTypeChart(chartData);
+        //    //});
+        //});
+    });
+
+    //GetDropdownData("/api/common/List?name=sc", function (data) {
+    //    PopulateDDLValues(data, 'div#div-property-sector-dropdown');
+    //    AttachDDLOnClick('div#div-property-sector-dropdown')
+    //    $("div#div-property-sector-dropdown ul.dropdown-menu li span").click(function () {
+    //        var selectedVal = $(this).attr("id");
+    //        GetPropertyTypeChartData(selectedVal, function (chartData) {
+    //            //SetTotalProeprties();
+    //            GeneratePropertyTypeChart(chartData);
+
+    //        });
+    //    });
+    //});
+
+    //GetDropdownData("/api/common/List?name=sc", function (data) {
+    //    PopulateDDLValues(data, 'div#PaymentChartDropdown');
+    //    AttachDDLOnClick('div#PaymentChartDropdown')
+    //    $("div#PaymentChartDropdown ul.dropdown-menu li span").click(function () {
+    //        var selectedVal = $(this).attr("id");
+    //        //pending payment chart
+    //        GetPaymentChartData(selectedVal, function () {
+    //            CreatePaymentChart(chartPaymentData, chartPaymentPropertyTypeData);
+    //        });
+    //    });
+    //});
+
+    //GetDropdownData("/api/common/List?name=sc", function (data) {
+    //    PopulateDDLValues(data, 'div#ComplaintStatusDropdown');
+    //    AttachDDLOnClick('div#ComplaintStatusDropdown')
+    //    $("div#ComplaintStatusDropdown ul.dropdown-menu li span").click(function () {
+    //        var selectedVal = $(this).attr("id");
+    //        //pending payment chart
+    //        GetComplaintChartData(selectedVal, function () {
+    //            CreateComplaintChart(chartCompaintData);
+    //        });
+    //    });
+    //});
+
+    //GetDropdownData("/api/common/GetLegalDDL", function (data) {
+    //    PopulateDDLValues(data, 'div#ComplaintStatusDropdown1');
+    //    AttachDDLOnClick('div#ComplaintStatusDropdown1')
+    //    $("div#ComplaintStatusDropdown1 ul.dropdown-menu li span").click(function () {
+    //        var selectedVal = $(this).attr("id");
+    //        //pending payment chart
+    //        GetComplaintChartData1(selectedVal, function () {
+    //            CreateComplaintChart1(chartCompaintData1);
+    //        });
+    //    });
+    //});
+
+    //GetDropdownData("/api/common/GetRevYears", function (data) {
+    //    PopulateDDLValues(data, 'div#RevenueChartDropdown');
+    //    AttachDDLOnClick('div#RevenueChartDropdown')
+    //    $("div#RevenueChartDropdown ul.dropdown-menu li span").click(function () {
+    //        var selectedVal = $(this).attr("id");
+    //        //pending payment chart
+    //        GetRevenueChartData(selectedVal, function () {
+    //            CreateRevenueChart();
+    //        });
+    //    });
+    //});
+
+
+    //GetDropdownData("/api/common/List?name=sc", function (data) {
+    //    PopulateDDLValues(data, 'div#RevenueChartDropdown1');
+    //    AttachDDLOnClick('div#RevenueChartDropdown1')
+    //    $("div#RevenueChartDropdown1 ul.dropdown-menu li span").click(function () {
+    //        var selectedVal = $(this).attr("id");
+    //        //pending payment chart
+    //        //GetRevenueChartData1(selectedVal, function () {
+    //        GetPropertyTypeChartData2(selectedVal, function (chartData2) {
+    //            GeneratePropertyTypeChart2(chartData2);
+    //        });
+    //    });
+    //});
+
+    function GetDataItem(divID, attribute) {
+        return $("div#" + divID).data(attribute);
+    }
+    function GetSeletedSector() {
+        var sect = $("#div-property-sector-dropdown").data("value");
+        return sect;
+    }
+    function GetSeletedSectorForRevenue() {
+        var sect = $("#RevenueChartDropdown").data("value");
+        return sect;
+    }
+    function GetSeletedSectorForComplaints() {
+        var sect = $("#ComplaintStatusDropdown").data("value");
+        return sect;
+    }
+    function GetSeletedSectorForDefaultPayment() {
+        var sect = $("#PaymentChartDropdown").data("value");
+        return sect;
+    }
+    function GetSeletedSectorForLegal() {
+        var sect = $("#ComplaintStatusDropdown1").data("value");
+        return sect;
+    }
+    function GetSeletedSectorForRTI() {
+        var sect = $("#RevenueChartDropdown1").data("value");
+        return sect;
+    }
+
+    function SearchObject(Array, searchFor) {
+        var self = Array;
+        searchFor = searchFor;
+        var result = null;
+        for (var index = 0; index < self.length; index++) {
+            var item = self[index];
+            if (item["name"] == searchFor) {
+                result = item;
+                break;
+            }
+        };
+        return result;
+    }
+
+    function PopulateDDLValues(options, divSelector) {
+        var optionString = "<li><span id=\"\">All</span></li>";
+
+        $.each(options, function (i, item) {
+            optionString += '<li><span id="' + item.Value + '">' + item.Text + '</span></li>'
+        });
+        $(divSelector + " ul.dropdown-menu li").html(optionString);
+
+        $(divSelector).data("Value", "0");
+        $(divSelector).find('.dropdown-toggle').html('All' + ' <span class="caret"></span>');
+    }
+
+    //function PopulateDDLValues(options, divSelector) {
+    //    var optionString = "<li><span id=\"\">All</span></li>";
+
+    //    $.each(options, function (i, item) {
+    //        optionString += '<li><span id="' + item.value + '">' + item.label + '</span></li>'
+    //    });
+    //    $(divSelector + " ul.dropdown-menu").html(optionString);
+
+    //    $(divSelector).data("value", "0");
+    //    $(divSelector).find('.dropdown-toggle').html('All' + ' <span class="caret"></span>');
+    //}
+
+
+    function AttachDDLOnClick(divSelector) {
+        $(divSelector + " .dropdown-menu li span").click(function () {
+            var selText = $(this).text();
+            $(this).parents('.btn-group').data("Value", $(this).attr("Text"));
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+    }
+
+    window.onload = function () {
+        function show_popup() {
+            $('#Maindiv').removeClass("MaindivCSS");
+        };
+        window.setTimeout(show_popup, 1000); // 5 seconds
+
+    }
+    //function show_popup1() {
+    //    var x = chartCount;
+    //    //debugger;
+    //    alert(x);
+    //    //alert("12345");
+    //};
+
+    //$(window).load(function () {
+    //    //$('#Maindiv').removeClass("MaindivCSS")
+    //});
+
+    function setCurrentTab(selectedTab) {
+        //alert(selectedTab);
+        $('.noidaauth-left-nav ul li').removeClass('selected');
+        $('[id=selectedTab]').addClass('selected');
+    }
+    $(document).ready(function () {
+        $(".menu_btn").click(function () {
+            $(".nav-left").toggle("slide");
+        });
+
+        $(".bx-1").click(function () {
+            $(".bx-top").hide();
+            $(".bx-txt-1").toggle("slide");
+        });
+        $(".bx-2").click(function () {
+            $(".bx-top").hide();
+            $(".bx-txt-2").toggle("slide");
+        });
+        $(".bx-3").click(function () {
+            $(".bx-top").hide();
+            $(".bx-txt-3").toggle("slide");
+        });
+        $(".bx-4").click(function () {
+            $(".bx-top").hide();
+            $(".bx-txt-4").toggle("slide");
+        });
+        $(".bx-5").click(function () {
+            $(".bx-top").hide();
+            $(".bx-txt-5").toggle("slide");
+        });
+        $(".bx-6").click(function () {
+            $(".bx-top").hide();
+            $(".bx-txt-6").toggle("slide");
+        });
+        $(document).mouseup(function (e) {
+            var container = $(".bx-top");
+
+            if (!container.is(e.target)
+            && container.has(e.target).length === 0) {
+                container.hide();
+            }
+        });
+
+    });
+
+    function GetDataItem(divID, attribute) {
+        return $("div#" + divID).data(attribute);
+    }
+    function GetSeletedSector() {
+        var sect = $("#div-property-sector-dropdown").data("value");
+        return sect;
+    }
+    function SearchObject(Array, searchFor) {
+        var self = Array;
+        searchFor = searchFor;
+        var result = null;
+        for (var index = 0; index < self.length; index++) {
+            var item = self[index];
+            if (item["name"] == searchFor) {
+                result = item;
+                break;
+            }
+        };
+        return result;
+    }
+</script>
+
+
+

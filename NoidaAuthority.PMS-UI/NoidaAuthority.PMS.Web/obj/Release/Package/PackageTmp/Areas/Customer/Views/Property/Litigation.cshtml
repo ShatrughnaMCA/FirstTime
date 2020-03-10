@@ -1,0 +1,109 @@
+﻿@using Kendo.Mvc.UI;
+@model NoidaAuthority.PMS.Entity.CustomerDetailViewModel
+
+@{
+    ViewBag.Title = "Litigation";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="container-content">
+    <div class="col-md-12" style="padding:0 10px 0px;">
+        <div class="col-md-12 divPropertyDetailHeader" style="margin-bottom:5px;">
+            <h4 class="inline">Litigation</h4>
+            <span class="pull-right RID-txt">Registration No: @Model.PropertyModel.RegistrationId</span>
+        </div>
+    </div>
+    <div class="col-md-12 hr-div"></div>
+    <div class="col-md-12 k-grid-content">
+        @*<h2 class="grid-title">Payment History</h2>*@
+        @(Html.Kendo().Grid<NoidaAuthority.PMS.Entity.LitigationViewModel>()
+            .Name("gridLitigation")
+            .Columns(columns =>
+            {
+                columns.Bound(c => c.CaseNo).Title("Case No").Width(80);
+                columns.Bound(c => c.Department).Title("Department").Width(80);
+                columns.Bound(c => c.Description).Title("Description").Width(80);
+                columns.Bound(c => c.Address).Title("Address").Width(80);
+                columns.Bound(c => c.LegalDate).Title("Legal Date").Format("{0:dd/MM/yyyy}").Width(80);
+                columns.Bound(c => c.Advocate).Title("Advocate").Width(80);
+            })
+            .Sortable()
+            .Filterable()
+            .Resizable(resize => resize.Columns(true))
+            .Pageable(pageable => pageable.Enabled(true).Refresh(true).PageSizes(true))
+            .DataSource
+            (
+                dataSource => dataSource
+                .Ajax()
+                .Model(model => model.Id(p => p.Id))
+                .ServerOperation(true)
+                .Read(read => read.Action("GetLitigationDataList", "Property", new { area = "Customer" }))
+                .PageSize(10)
+            )
+        )
+    </div>
+</div>
+
+@*<div class="container-content">
+    <div class="col-md-12" style="padding:0 10px 0px;">
+        <div class="col-md-12 divPropertyDetailHeader" style="margin-bottom:5px;">
+            <h4 class="inline">Litigation</h4>
+            <span class="pull-right RID-txt">Registration No: @Model.PropertyModel.RegistrationId</span>
+        </div>
+    </div>
+    <div class="col-md-12 hr-div"></div>
+
+    <div class="col-md-12 k-grid-content">
+        <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+        <div id="LegalHistoryGrid"></div>
+    </div>
+</div>*@
+
+<script>
+    $(document).ready(function () {
+        var rid = $("#PropertyModel_RegistrationId").val();
+        var modl = {
+            RegistrationId: rid
+        };
+        $("div#LegalHistoryGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "Customer/Property/GetLitigationDataList?model=" + modl
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                //DisplayNoResultsFound($('#LegalHistoryGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        //{ title: 'Registration ID', field: 'RegistrationId' },
+                        { title: 'Case No.', field: 'CASENO' },
+                        { title: 'Year', field: 'YEAR', width: 50 },
+                        { title: 'Court', field: 'COURT' },
+                        { title: 'Parties', field: 'PARTIES' },
+                        { title: 'Department', field: 'DEPTT' },
+                        { title: 'Description', field: 'DESCRIPTION' },
+                        { title: 'Advocate Details', field: 'ADVOCATEDETAILS' },
+                        { title: 'Stay', field: 'STAY', width: 50 },
+                        { title: 'Filed', field: 'filedFlag', width: 60 },
+                        { title: 'Date', field: 'DATE', type: "date", format: "{0:dd-MMM-yyyy}", width: 100 },
+                        { title: 'Narrative', field: 'NARRATIVEYES_NO', width: 70 }
+            ]
+        });
+    });
+</script>
+
+
+
+
+

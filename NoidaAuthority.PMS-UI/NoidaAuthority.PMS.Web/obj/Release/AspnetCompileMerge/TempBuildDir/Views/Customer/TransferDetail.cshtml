@@ -1,0 +1,64 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+@{
+    ViewBag.Title = "TransferDetail";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<link href="~/Content/CSS/easy-responsive-tabs.css" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<script src="~/Scripts/jquery.ba-hashchange.js"></script>
+
+<h2>TransferDetail</h2>
+<div>
+    <input type="hidden" id="hdnRegistrationID" value="@Model.RegistrationId" />
+    <input type="hidden" id="hdnPropertyCategory" value="@Model.PropertyCategory" />
+    <input type="hidden" id="hdnregID" value=@Request.QueryString["flag"] />
+    <input type="hidden" id="hdnflag" value=@Request.QueryString["Pflag"] />
+</div>
+<div class="">
+    <div id="divPropertyDetailHeader">
+        <h4 class="PropertyDetailHeader">Transfer Details</h4>
+    </div>
+    <br />
+    @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+    <br />
+    <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+    <div id="TransferHistoryGrid">
+    </div>
+    <br />
+</div>
+
+<script type="text/javascript">
+    var RegistrationID = $('#hdnRegistrationID').val();
+    $("div#TransferHistoryGrid").kendoGrid({
+        dataSource: {
+            type: "json",
+            transport: {
+                read: "/Property/GetTransferHistory/" + RegistrationID
+            },
+            pageSize: 5
+        },
+        //height: 250,
+        //filterable: true,
+        //groupable: true,
+        sortable: true,
+        pageable: {
+            refresh: true,
+            pageSizes: true,
+            buttonCount: 5
+        },
+        columns: [
+                    { title: 'From', field: 'OwnerName' },
+                    { title: 'To', field: 'TransfereeName' },
+                    { title: 'Scheduled Amount (&#8377)', field: 'SellingCost', format: "{0:#,0.00}" },
+                    { title: 'Amount (&#8377)', field: 'Amount', format: "{0:#,0.00}", width: 120 },
+                     { title: 'Mutation Date', field: 'MutationDate', type: "date", format: "{0:dd-MMM-yyyy}", width: 100 },
+                    { title: 'Allotment Date', field: 'AllotmentDate', type: "date", format: "{0:dd-MMM-yyyy}", width: 120 },
+                    { title: 'Transfer Deed Date', field: 'TransferdeedDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+        ]
+    });
+</script>

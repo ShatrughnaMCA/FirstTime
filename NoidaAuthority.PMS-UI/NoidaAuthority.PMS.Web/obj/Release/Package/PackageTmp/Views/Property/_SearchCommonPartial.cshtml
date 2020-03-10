@@ -1,0 +1,126 @@
+﻿<script>
+    $(document).ready(function () {
+        jQuery.support.cors = true;
+        $(".dropdown-menu li span").click(function () {
+            var selText = $(this).text();
+            $(this).parents('.btn-group').data("value", $(this).attr("id"));
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+        GetDropdownData("/api/common/List?name=pt", function (data) {
+            PopulateDDLValues(data, 'div#propertyTypeDropdown');
+            AttachDDLOnClick('div#propertyTypeDropdown')
+            //SetFilterDefaultValueOnLoad('pt', 'div#propertyTypeDropdown');
+            $("div#propertyTypeDropdown ul.dropdown-menu li span").click(function () {
+                var selectedVal = $(this).attr("id");
+                var optionString = "<li><span id=\"0\">Select</span></li>";
+                if (selectedVal != "0") {
+                    GetDropdownData("/api/common/List?name=sc&id=" + selectedVal, function (data) {
+                        PopulateDDLValues(data, 'div#propertySectorDropdown');
+                        PopulateDDLValues([], 'div#propertyBlockDropdown');
+                        AttachDDLOnClick('div#propertySectorDropdown')
+                        SetFilterDefaultValueOnLoad('sc', 'div#propertySectorDropdown');
+                        SetFilterDefaultValueOnLoad('bk', 'div#propertyBlockDropdown');
+                        $("div#propertySectorDropdown ul.dropdown-menu li span").on("click", function () {
+                            var selectedVal = $(this).attr("id");
+                            var optionString = "<li><span id=\"0\">Select</span></li>";
+                            if (selectedVal != "0") {
+                                GetDropdownData("/api/common/List?name=bk&id=" + selectedVal, function (data) {
+                                    PopulateDDLValues(data, 'div#propertyBlockDropdown');
+                                    AttachDDLOnClick('div#propertyBlockDropdown')
+                                    SetFilterDefaultValueOnLoad('0', 'div#propertyBlockDropdown');
+                                });
+                            }
+                            else {
+                                PopulateDDLValues([], 'div#propertyBlockDropdown');
+                            }
+                        });
+
+                    });
+                }
+                else {
+                    PopulateDDLValues([], 'div#propertySectorDropdown');
+                }
+            });
+        });
+    });
+    function GetDropdownData(requestUrl, successFuntion) {
+        jQuery.support.cors = true;
+        $.ajax({
+            url: requestUrl,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                successFuntion(data);
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+    function PopulateDDLValues(options, divSelector) {
+        var optionString = "<li><span id=\"0\">Select</span></li>";
+
+        $.each(options, function (i, item) {
+            optionString += '<li><span id="' + $.trim(item.value) + '">' + item.label + '</span></li>'
+        });
+        $(divSelector + " ul.dropdown-menu").html(optionString);
+
+        $(divSelector).data("value", 0);
+        $(divSelector).find('.dropdown-toggle').html('Select' + ' <span class="caret"></span>');
+    }
+    function AttachDDLOnClick(divSelector) {
+        $(divSelector + " .dropdown-menu li span").click(function () {
+            var selText = $(this).text();
+            $(this).parents('.btn-group').data("value", $(this).attr("id"));
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+    }
+    function GetFilterQueryForSearch() {
+        var propertyType = $("#propertyTypeDropdown").data("value");
+        var sect = $("#propertySectorDropdown").data("value");
+        var block = $("#propertyBlockDropdown").data("value");
+        var paymentStatus = $("#paymentStatusDropdown").length ? $("#paymentStatusDropdown").data("value") : 0;
+        var qs = "";
+        if ($.trim(propertyType) != 0) {
+            qs += "pt=" + $.trim(propertyType);
+        }
+        if ($.trim(sect) != 0) {
+            if (qs.length > 0)
+                qs = qs + "&sc=" + $.trim(sect);
+            else
+                qs = qs + "sc=" + $.trim(sect);
+        }
+
+        if (block != 0) {
+            if (qs.length > 0)
+                qs = qs + "&bk=" + $.trim(block);
+            else
+                qs = qs + "bk=" + $.trim(block);
+        }
+        if (paymentStatus != 0) {
+            if (qs.length > 0)
+                qs = qs + "&pts=" + $.trim(paymentStatus);
+            else
+                qs = qs + "pts=" + $.trim(paymentStatus);
+        }
+        return qs;
+    }
+    function SetFilterDefaultValueOnLoad(qsName, divSelector) {
+        var qsValue = getQueryStringByName(qsName);
+        if (qsValue != "")
+            SetDropdownValue(qsValue, divSelector)
+    }
+    function SetDropdownValue(value, divSelector) {
+        var selectedOption = $(divSelector).find('ul.dropdown-menu li span[id="' + value + '"]')
+        if (selectedOption.length) {
+            $(divSelector).data("value", value);
+            $(divSelector).find('.dropdown-toggle').html(selectedOption.text() + ' <span class="caret"></span>');
+        }
+    }
+    function getQueryStringByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+</script>

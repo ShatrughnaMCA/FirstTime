@@ -1,0 +1,79 @@
+﻿
+@model NoidaAuthority.PMS.Entity.CustomerDetailViewModel
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+<style>
+    .col-md-4 {
+        margin-top: 0%;
+        /* width: 38.3333%; */
+    }
+</style>
+
+<div class="row" id="divAllotteeBasicInfo">
+    <div class="col-md-12">        
+        <div class="row form-group">
+            <div class="col-md-2"><label class="nw-lbl-lft">Allottee Name:</label></div>
+            <div class="col-md-4"><label class="nw-lbl-rht" id="lblName">@Model.CustomerModel.Applicant </label></div>
+            <div class="col-md-2"><label class="nw-lbl-lft">Father/Husband:</label></div>
+            <div class="col-md-4"><label class="nw-lbl-rht" id="lbl">@Model.CustomerModel.ApplicantMaster</label></div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2"><label class="nw-lbl-lft">Permanent Address:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (!string.IsNullOrEmpty(Model.CustomerModel.PermanentAddress))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.CustomerModel.PermanentAddress</label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">NA</label>
+                    }
+                }
+            </div>
+            <div class="col-md-2"><label class="nw-lbl-lft">correspond Address:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (!string.IsNullOrEmpty(Model.CustomerModel.CorrespondAddress))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.CustomerModel.PermanentAddress</label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">NA</label>
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"><label class="nw-lbl-lft">Email Id:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (!string.IsNullOrEmpty(Model.CustomerModel.Email))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.CustomerModel.Email </label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">NA</label>
+                    }
+                }
+            </div>
+            <div class="col-md-2"><label class="nw-lbl-lft">Mobile Number:</label></div>
+            <div class="col-md-4">
+                @{
+                    if (!string.IsNullOrEmpty(Model.CustomerModel.MobileNo))
+                    {
+                        <label class="nw-lbl-rht" id="lbl">@Model.CustomerModel.MobileNo</label>
+                    }
+                    else
+                    {
+                        <label class="nw-lbl-rht" id="lbl">NA</label>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

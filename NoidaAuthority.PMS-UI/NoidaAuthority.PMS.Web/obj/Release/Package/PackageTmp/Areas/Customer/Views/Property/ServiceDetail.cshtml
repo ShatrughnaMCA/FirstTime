@@ -1,0 +1,569 @@
+﻿@model NoidaAuthority.PMS.Entity.ServiceRequestViewModel
+@using Kendo.Mvc.UI
+@using Kendo.Mvc.Extensions;
+@using NoidaAuthority.PMS.Common;
+
+@{
+    ViewBag.Title = "Service Detail";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<style>
+    .k-grid th.k-header .k-link, .k-grid-header .k-link, .k-grouping-header {
+        color: #171616 !important;
+    }
+    .row-file {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        background-color: #fff;
+    }
+
+    .row-file:nth-child(2n+1) {
+        background-color: #f1f1f1;
+    }
+    .file-header {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        background-color: #61c7d1;
+    }
+    .pay-charge-online{
+        margin-left: 30px;
+        font-weight:bold;
+        color:blue;
+    }
+   
+    
+</style>
+
+<div class="container-content col-md-10 col-md-offset-1">
+    <div class="col-md-12">
+        <div class="row row-heading">
+            <div class="col-md-12 divPropertyDetailHeader" style="margin-bottom:20px">
+                <h4 class="inline">Service Request Detail</h4>
+                <span class="pull-right RID-txt">Registration No : @Model.ServiceModel.RegistrationId</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 hr-div">
+        @Html.HiddenFor(m => m.ServiceModel.CreatedDate)
+        @Html.HiddenFor(m => m.ServiceModel.RequestorId)
+        @Html.HiddenFor(m => m.ServiceModel.RequestId)
+        @Html.HiddenFor(m => m.ServiceModel.RegistrationId)
+        @Html.HiddenFor(m => m.ServiceModel.ServiceStatusId)
+    </div>
+    <div class="col-md-12 k-grid-content content-border">
+        <div class="row row-ff">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label>Request Id:</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="request-id">@Model.Id</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">Service Name:</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">@Model.ServiceModel.ServiceName</label></div>
+        </div>
+        <div class="row row-f5">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">Applicant:</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">@Model.ServiceModel.Applicant</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">Property No:</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">@Model.ServiceModel.PropertyNo</label></div>
+        </div>
+        <div class="row row-ff">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">Address:</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">@Model.ServiceModel.ApplicantAddress</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">Mobile:</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">@Model.ServiceModel.MobileNo</label></div>
+        </div>
+        <div class="row row-f5">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">Requestor:</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">@Model.ServiceModel.Requestor</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">Email:</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">@Model.ServiceModel.Email</label></div>
+        </div>
+        <div class="row row-ff">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">Department:</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">@Model.ServiceModel.Department</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">Sub Department:</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">@Model.ServiceModel.SubDepartment</label></div>
+        </div>
+        <div class="row row-f5">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">Date:</label></div>
+
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                @*<label class="">@Model.ServiceModel.CreatedDate</label>*@
+                @{
+                    if (!string.IsNullOrEmpty(@Model.ServiceModel.CreatedDate.ToString()))
+                    {
+                        <label class="">@Model.ServiceModel.CreatedDate</label>
+                    }
+                    else
+                    {
+                        <label>NA</label>
+                    }
+                }
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group"><label class="">Status:</label></div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label class="">@Model.ServiceModel.RequestStatus</label>
+                @if (Model.ServiceModel.ServiceStatusId == NAStatusId.Initiated && Model.ServiceModel.RequestThrough == "Online")
+                {
+                    <label id="lbl-withdraw" style="font:bold;text-decoration:underline;color:red;cursor:pointer;">Withdraw request</label>
+                }
+            </div>
+        </div>
+        <div class="row row-ff" id="divDescription">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Description:</label>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                <label>@Model.ServiceModel.Description</label> 
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                @{
+                    if (Model.ServiceModel.ServiceStatusId == 8)
+                    {
+                        if (Model.ServiceModel.PaymentStatusId == 0 || Model.ServiceModel.PaymentStatusId == 2)
+                        {
+                            <label id="lbl-payment" style="font:bold;text-decoration:underline;color:blue;cursor:pointer;">Pay Processing Fee</label>
+                        }
+                    }
+                }
+            </div>
+        </div>
+        <div class="row row-f5" id="divDescription">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Comment:</label>
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-12 form-group">
+                <lable style="width:100%;font-weight:bold;">@Model.ServiceModel.Comment</lable> 
+            </div>
+        </div>
+        @if (Model.ServiceModel.ServiceId == NAServiceId.Transfer && Model.TransferModel != null)
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    @{ Html.RenderPartial("_TransferRequest", Model); }
+                </div>
+            </div>
+        }
+        @if (Model.ServiceModel.ServiceId == NAServiceId.Rent && Model.RentModel != null)
+        {
+            <div class="row" style="">
+                <div class="col-md-12">
+                    @{ Html.RenderPartial("_RentRequest", Model); }
+                </div>
+            </div>
+        }
+        @if (@Model.ServiceModel.ServiceId == NAServiceId.Mortgage && Model.MortgageModel != null)
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    @{ Html.RenderPartial("_MortgageRequest", Model); }
+                </div>
+            </div>
+        }
+        @if (@Model.ServiceModel.ServiceId == NAServiceId.Mutation && Model.MutationModel != null)
+        {
+            <div class="row">
+                <div class="col-md-12">
+
+                    @{ Html.RenderPartial("_MutationRequest", Model); }
+                </div>
+            </div>
+        }
+        @if (@Model.ServiceModel.ServiceId == NAServiceId.CIC && Model.CICModel != null)
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    @{ Html.RenderPartial("_CICRequest", Model); }
+                </div>
+            </div>
+        }
+        @if (Model.ServiceModel.ServiceId == NAServiceId.GPA && Model.GPAModel != null)
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    @{ Html.RenderPartial("_GPARequest", Model); }
+                </div>
+            </div>
+        }
+
+        @if (Model.ServiceModel.ServiceId == NAServiceId.Extension && Model.ExtensionModel != null)
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    @{ Html.RenderPartial("_ExtensionRequest", Model); }
+                </div>
+            </div>
+        }
+        
+        @if (Model.ServiceModel.FileUploadHtml != null)
+        {
+            using (Html.BeginForm("ReSubmitRequest", "ServiceRequest", FormMethod.Post, new { id = "UploadFileForObjection", name = "UploadFileForObjection", enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.RegistrationId)
+                    @Html.HiddenFor(model => model.ServiceModel.RequestId)
+                    @Html.HiddenFor(model => model.ServiceModel.RegistrationId)
+                    @Html.HiddenFor(model => model.ServiceModel.DepartmentId)
+                </div>
+                if (Model.ServiceModel.ServiceStatusId == NAStatusId.Objection)
+                {
+                    @Html.Raw(Model.ServiceModel.FileUploadHtml);
+                }
+
+            }
+        }
+        @if (Model.ServiceModel.ChargeDetailHtml != null)
+        {
+            @Html.Raw(Model.ServiceModel.ChargeDetailHtml);
+        }
+
+        @*@if (Model.ServiceModel.ServiceStatusId == NAStatusId.Objection)
+        {
+            using (Html.BeginForm("ReSubmitRequest", "ServiceRequest", FormMethod.Post, new { id = "UploadFileForObjection", name = "UploadFileForObjection", enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    @Html.HiddenFor(model => model.RegistrationId)
+                    @Html.HiddenFor(model => model.ServiceModel.RequestId)
+                    @Html.HiddenFor(model => model.ServiceModel.RegistrationId)
+                </div>
+                <div class="row" style="background:#fff;">
+                    <div class="row form-group">
+                        <div class="col-md-3">1. Required Document 1st</div>
+                        <div class="col-md-7">
+                            <input type="file" name="files" id="file-upload-01" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">2. Required Document 2nd</div>
+                        <div class="col-md-7">
+                            <input type="file" name="files" id="file-upload-02" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-7">
+                            <input type="button" class="btn btn-default" id="btn-upload-objection-file" value="Submit" style="min-width:110px;" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+        }*@
+
+        <div class="row" id="div-uploaded-document">
+            <div class="col-md-12 k-grid-content">
+                @(Html.Kendo().Grid<NoidaAuthority.PMS.Entity.DocumentViewModel>()
+                        .Name("gridDocs")
+                        .Columns(columns =>
+                        {
+                            //columns.Bound(c => c.Id).Title("S.No.").Width(60).ClientTemplate("# if (DocumentName != null) {#<a onclick='javascript:OpenDocument(this);' class='hyperlink'>#=Id#</a>#}else {#<span>#=Id#</span>#} #").Filterable(false);
+                            columns.Bound(c => c.Id).Title("S.No.").Width(60).Filterable(false);
+                            columns.Bound(c => c.DocumentName).Title("Document Uploaded").ClientTemplate("# if (DocumentName != null) {#<a onclick='javascript:OpenDocument(this);' class='hyperlink'>#=DocumentName#</a>#}else {#<span>---</span>#} #").Filterable(false);
+                            columns.Bound(c => c.DocumentPath).Hidden(true);
+                        })
+                        .Resizable(resize => resize.Columns(true))
+                        .AutoBind(true)
+                        .DataSource(dataSource => dataSource
+                                .Ajax().ServerOperation(true)
+                                .Model(model => model.Id(c => c.Id))
+                            //.Read(read => read.Action("GetServiceRequestDocuments", "ServiceRequest", new { Area = "Member" }).Data("FilterRequestId"))
+                                .Read(read => read.Action("GetServiceRequestDocumentsById", "Property", new { Area = "Customer" }).Data("FilterRequestId"))
+                        )
+                        //.Events(e => e.DataBound("dataBound"))
+                       .Events(e => e.DataBound("OnDocumentBoundEvent"))
+                )
+            </div>
+        </div>
+
+        @{
+            if (Model.ServiceModel.ServiceStatusId == NAStatusId.Objection)
+            {
+                <div class="row">
+                    <div class="col-md-12 form-group" style="text-align:center;margin-top:12px;">
+                        <input type="button" class="k-button" value="Submit Remarks" id="btn-resubmit-request" style="min-width:100px;border-radius:0;" />
+                    </div>
+                </div>
+            }
+        }
+        
+    </div>
+</div>
+
+<div id="div-comment-status" style="overflow:hidden">
+    <div class="row">
+        <div class="col-md-3 form-group" style="margin-top:20px;">
+            <label>Request Status</label>
+        </div>
+        <div class="col-md-6 form-group">
+            @(Html.Kendo().DropDownList()
+              .Name("dropdownStatusList")
+              .DataTextField("Text")
+              .DataValueField("Value")
+              .BindTo(new List<SelectListItem>() {
+                  new SelectListItem() { Text = "---Select---", Value = "0" },
+                  new SelectListItem() { Text = "Resubmit", Value = "18" }
+              })
+              .Value("1")
+              .HtmlAttributes(new { style = "width: 100%" })
+            )
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 form-group">
+            <label>Comment</label>
+        </div>
+        <div class="col-md-7 form-group">
+            <textarea class="k-textbox" id="txtarea-requestor" style="width:95%;min-height:70px;padding:0;margin:0;"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 form-group">
+           
+        </div>
+        <div class="col-md-7" style="">
+            <input type="button" class="k-button" id="btn-submit-comment" value="Submit" style="min-width:100px;border-radius:0;"/>
+        </div>
+    </div>
+</div>
+
+
+<div id="divDocumentView" style="overflow:hidden">
+    <div class="row  no-margin no-padding">
+        <div class="col-md-12 no-margin no-padding" id="divPageView" style="overflow:hidden">
+            <iframe id="ifrmViewPdf"></iframe>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#divDocumentView').kendoWindow({
+            modal: true,
+            title: "Document",
+            visible: false,
+            position: {
+                top: 60, // or "100px"
+                left: "15%"
+            },
+            width: "70%", height: "80%"
+        });
+
+        $('#div-comment-status').kendoWindow({
+            modal: true,
+            title: "Service Status",
+            visible: false,
+            position: {
+                top: 60, // or "100px"
+                left: "30%"
+            },
+            width: "40%", height: "40%"
+        });
+        
+        $("#btn-resubmit-request").click(function () {
+            $("#div-comment-status").data("kendoWindow").center();
+            $("#div-comment-status").data("kendoWindow").open();
+        });
+
+        $('#btn-upload-objection-file').click(function () {
+            //var file1 = $('#file-upload-01').val();
+            //var file2 = $('#file-upload-02').val();
+            //if (file1 != "" || file2 != "") {
+                var formData = new FormData($('form').get(0));
+                $.ajax({
+                    dataType: 'json',
+                    type: 'Post',
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: formData,
+                    url: '/Customer/Property/ReSubmitRequest',
+                    success: function (result) {
+                        alertify.success("service updated successfully.");
+                        //$('#file-upload-01').val('');
+                        //$('#file-upload-02').val('');
+                        $('#gridDocs').data("kendoGrid").dataSource.read();
+                        window.location.reload();
+                    },
+                    error: function (ajaxRequest, strError) {
+                        alertify.error("Network error, try again later");
+                    }
+                });
+            //}
+            //else {
+            //    alertify.error("Upload atleast one document.");
+            //}
+        });
+
+        //$('#btn-upload-objection-file').click(function () {
+        //    var file1 = $('#file-upload-01').val();
+        //    var file2 = $('#file-upload-02').val();
+        //    if (file1 != "" || file2 != "") {
+        //        var formData = new FormData($('form').get(0));
+        //        $.ajax({
+        //            dataType: 'json',
+        //            type: 'Post',
+        //            contentType: false, // Not to set any content header
+        //            processData: false, // Not to process data
+        //            data: formData,
+        //            url: '/Customer/Property/ReSubmitRequest',
+        //            success: function (result) {
+        //                alertify.success("service updated successfully.");
+        //                //$('#file-upload-01').val('');
+        //                //$('#file-upload-02').val('');
+        //                $('#gridDocs').data("kendoGrid").dataSource.read();
+        //                window.location.reload();
+        //            },
+        //            error: function (ajaxRequest, strError) {
+        //                alertify.error("Network error, try again later");
+        //            }
+        //        });
+        //    }
+        //    else {
+        //        alertify.error("Upload atleast one document.");
+        //    }
+        //});
+
+        $('#lbl-withdraw').click(function () {
+            var id = $('.request-id').html();
+            var actiontype = "withdraw";
+            //var status = $('#dropdownStatusList').val();
+            UpdateRequestStatus(id, actiontype);
+        });
+
+        $('#btn-submit-comment').click(function () {
+            var id = $('.request-id').html();
+            var actiontype = "Resubmit";
+            var comment = $('#txtarea-requestor').val();
+            if (comment.trim() != "" && comment.trim() != nudefined) {
+                UpdateRequestStatus(id, actiontype);
+            }
+            else {
+                $("#div-comment-status").data("kendoWindow").close();
+                alertify.error("Please write your comment");
+            }
+        });
+
+        $('#lbl-payment').click(function () {
+            var registrationid = $("input[name='ServiceModel.RegistrationId']").val();
+            var requestId = $("input[name='ServiceModel.RequestId']").val();
+            window.location.href = "/Customer/Payment/Index?rid="+registrationid+"&id=" + requestId;
+        });
+
+        $('.pay-charge-online').click(function () {
+            var registrationid = $("input[name='ServiceModel.RegistrationId']").val();
+            var requestId = $("input[name='ServiceModel.RequestId']").val();
+            window.location.href = "/Customer/Payment/Index?rid=" + registrationid + "&id=" + requestId + "&actionflag=ServiceCharge";
+        });
+    });
+
+    function UpdateRequestStatus(id,actiontype) {
+        var modal = {
+            Id: id,
+            ActionType: actiontype,
+            StatusId: $('#dropdownStatusList').val(),
+            Message: $('#txtarea-requestor').val()
+        };
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ model: modal }),
+            url: '/Customer/Property/UpdateServiceRequestStatus',
+            success: function (result) {
+                if (result == '@ReturnType.Success') {
+                    alertify.success("Status updated successfully.");
+                    window.location.reload();
+                }
+                else {
+                    alertify.error("Status is not updated.");
+                }
+            },
+            error: function (ajaxRequest, strError) {
+            }
+        });
+    }
+
+    function OpenDocument(row) {
+        $("#divDocumentView").empty();
+        var tr = $(row).parent().parent();
+        var link = $(tr).children("td:eq(2)").text();
+        $("#divDocumentView").append($('<iframe src=' + link + ' style="width:900px;height:500px;overflow:hidden;"></iframe>'));
+        $("#divDocumentView").data("kendoWindow").center();
+        $("#divDocumentView").data("kendoWindow").open();
+        $("#divDocumentView").data("kendoWindow").pin();
+    }
+
+    function OnDocumentBoundEvent(e) {
+        var grid = $("#gridDocs").data("kendoGrid");
+
+        var rowCount = grid.dataSource.total();
+        if (rowCount == 0) {
+            $("#div-uploaded-document").css("display","none");
+            //$(".checklist").show();
+        } else {
+            $("#div-uploaded-document").show();
+            //$(".checklist").hide();
+        }
+    }
+
+    function dataBound(e) {
+        var grid = $("#gridDocs").data("kendoGrid");
+
+        var rowCount = grid.dataSource.total();
+        if (rowCount == 0) {
+            $(".k-grid-content").hide();
+            $(".checklist").show();
+        } else {
+            $(".k-grid-content").show();
+            $(".checklist").hide();
+        }
+    }
+
+    function FilterRequestId() {
+        return {
+            RegistrationId: $("#ServiceModel_RegistrationId").val(),
+            RequestId: $("#ServiceModel_RequestId").val()
+        }
+    }
+
+    var checkedIDs = [];
+    $(function () {
+        $('#gridDocs2').on('change', '.inpchk', function () {
+            var checked = $(this).is(':checked');
+            var grid = $('#gridDocs').data().kendoGrid;
+            var dataItem = grid.dataItem($(this).closest('tr'));
+            if (checked == true) {
+                $("#f_" + dataItem.DocumentId).attr("disabled", false);
+                checkedIDs.push(dataItem.DocumentId);
+            }
+            else {
+                $("#f_" + dataItem.DocumentId).attr("disabled", true);
+                $("#f_" + dataItem.DocumentId).val('');
+                var i = checkedIDs.indexOf(dataItem.DocumentId);
+                checkedIDs.splice(i, 1);
+            }
+            $('#DocList').val(checkedIDs);
+        });
+    });
+
+    function ValidateFormFields() {
+
+        if (checkedIDs.length > 0) {
+            for (var i = 0; i < checkedIDs.length; i++) {
+                var fl = $('#f_' + checkedIDs[i]).val();
+                if (fl == "" || fl == null) {
+                    alertify.error("Please upload checked document.");
+                    return false;
+                }
+            }
+            $('#DocList').val(checkedIDs);
+            $('#StrDocList').val(checkedIDs);
+            $('#applicationform').submit();
+        }
+        else {
+            //$('#applicationform').submit();
+            alertify.error("Please upload atleast one document.");
+        }
+    }
+</script>
+
+
+

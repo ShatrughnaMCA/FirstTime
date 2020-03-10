@@ -1,0 +1,514 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entity;
+
+@{
+    ViewBag.Title = "Property Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+@*<script src="~/Scripts/bootstrap-tabcollapse.js"></script>*@
+<style>
+    .view-docs {
+        color: blue;
+        text-decoration: underline;
+    }
+
+    .view-docs:hover {
+        color: blue;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    .header-title{
+        margin-top: 6px;
+        margin-bottom: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 5px 0; 
+    }
+
+    .tab-content h4 {
+         padding-left: 0px; 
+    }
+
+    .row-ff{
+        display: table-row;
+        background-color: #ffffff;
+    }
+    .row-f5{
+        display: table-row;
+        background-color: #f5f5f5;
+    }
+    .col-lbl{
+        display: table-cell;
+        font-size: 13px;
+        padding: 6px 0 6px 20px;
+        vertical-align: middle;
+        width: 10%;
+        border-bottom: 1px solid #ccc;
+    }
+    .col-val{
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 5px;
+        width: 22%;
+        border-bottom: 1px solid #ccc;
+    }
+    .k-grid-content .k-grid .k-grid-header .k-header{
+        background:#9e9e9e !important;      
+    }
+   .k-grid.k-widget th.k-header a {
+        color: #fff !important;
+    }
+   .k-grid-content{
+       overflow-y:hidden;
+   }
+
+   #RemarksGrid .k-grid-header{
+       padding-right:0;
+   }
+   .col-md-12.k-grid-content{
+       padding:0;
+   }
+</style>
+<div class="tabbable" id="divProperty">
+    <ul class="nav nav-tabs content-tabs" id="ulProperty" role="tablist">
+        <li class="active"><a href="#one" data-toggle="tab"><i class="glyphicon glyphicon-home" style="color:#00c097;"></i>&nbsp;&nbsp;Property</a></li>
+        <li class="tab-02"><a href="#two" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-briefcase" style="color:#00c097;"></i>&nbsp;&nbsp;Documents</a></li>
+        <li class="tab-03"><a role="tab" data-toggle="tab" href="#three"><i class="glyphicon glyphicon-transfer" style="color:#00c097;"></i>&nbsp;&nbsp;History</a></li>
+        <li class="tab-04"><a role="tab" data-toggle="tab" href="#four"><i class="glyphicon glyphicon-credit-card" style="color:#00c097;"></i>&nbsp;&nbsp;Payment</a></li>
+        <li class="tab-05"><a role="tab" data-toggle="tab" href="#five"><i class="glyphicon glyphicon-credit-card" style="color:#00c097;"></i>&nbsp;&nbsp;Jal Payment</a></li>
+        <li class="tab-06"><a role="tab" data-toggle="tab" href="#six"><i class="glyphicon glyphicon-list-alt" style="color:#00c097;"></i>&nbsp;&nbsp;Services</a></li>
+        <li class="tab-07"><a role="tab" data-toggle="tab" href="#seven"><i class="glyphicon glyphicon-time" style="color:#00c097;"></i>&nbsp;&nbsp;Litigations</a></li>
+        <li class="tab-08"><a role="tab" data-toggle="tab" href="#eight"><i class="" style="color:#00c097;"></i>&nbsp;&nbsp;Remarks</a></li>
+    </ul>
+    <div class="tab-content" id="div-propertydetail" data-registrationid="@Model.RegistrationId">
+        <div class="tab-pane fade in active" id="one">
+            @Html.HiddenFor(model => model.RegistrationId)
+            @{Html.RenderPartial("_PartialProperty", Model);}          
+        </div>
+
+        <div class="tab-pane fade" id="two">
+            @{Html.RenderPartial("_PartialDocument", Model);}
+        </div>
+
+        <div class="tab-pane fade" id="three">
+            @{Html.RenderPartial("_PartialHistory", Model);}            
+        </div>
+
+        <div class="tab-pane fade" id="four">
+            @{Html.RenderPartial("_PartialPayment", Model);}            
+        </div>
+
+        <div class="tab-pane fade" id="five">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="header-title">Jal Detail History</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 k-grid-content">
+                    @*<div class="k-grouping-header" data-role="droptarget">Drag a column header and drop it here to group by that column</div>*@
+                    <div id="JalDetailGrid" style="width:100%;"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tab-pane fade" id="six">
+            @{Html.RenderPartial("_PartialServices", Model);}            
+        </div>
+
+        <div class="tab-pane fade" id="seven">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="header-title">Litigation History</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 k-grid-content">
+                    @*<div class="k-grouping-header" data-role="droptarget">Drag a column header and drop it here to group by that column</div>*@
+                    <div id="LegalHistoryGrid"> </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="eight">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="header-title">Remarks</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 k-grid-content">
+                    @*<div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>*@
+                    <div id="RemarksGrid"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="text-align:right;margin-top:5px;margin-bottom:5px;">
+                    <input type="button" class="k-button" onclick="javascript:OpenFeedbackWindow()" id="btn-remarks2" value="Add Remarks"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:550px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Remarks</h4>
+            </div>
+            <div class="modal-body">
+
+                Consumer Name: <label>@Model.Name</label><br />
+                Property Number: <label>@Model.PropertyNumber</label><br />
+                <span style="vertical-align:top">Comments:</span><div style="display:inline-block">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" id="textRemark" style="width:300px; height:100px"></textarea>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="fdsubmit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12" id="FeedbackWindow" style="min-height:250px;">
+    <div class="row" id="feedbackContent" style="height:250px; overflow:auto;padding:0;margin:0;">
+        <div class="col-md-3">
+            Consumer Name: 
+        </div>
+        <div class="col-md-7">
+            <label>@Model.Name</label>
+        </div>
+        <div class="col-md-3">
+            Property Number: 
+        </div>
+        <div class="col-md-7">
+            <label>@Model.PropertyNumber</label>
+        </div>
+        <div class="col-md-3">
+            Comments:
+        </div>
+        <div class="col-md-7">
+            <textarea class="k-textbox" id="text-feedback" style="width:100%; height:80px"></textarea>
+        </div>
+    </div>
+    <div class="row" style="padding: 0; margin: 0;">
+        <div class="col-md-12" style="text-align:center">
+            <button type="button" class="k-button" onclick="SubmitFeedback();" style="width:100px;">Submit</button>
+            <button type="button" class="k-button" onclick="CloseFeedbackWindow();" style="width:100px;">Close</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function OpenFeedbackWindow(row) {
+        //$("#divLetterContent").empty();
+        //var tr = $(row).parent().parent();
+        //var content = $(tr).children("td:eq(4)").text();
+        //$("#divLetterContent").html(content);
+        //$("#divPrintChallan").modal('show');
+
+        $("#FeedbackWindow").data("kendoWindow").open();
+        $("#FeedbackWindow").data("kendoWindow").center();
+    }
+
+    function CloseFeedbackWindow() {
+        $("#FeedbackWindow").data("kendoWindow").close();
+    }
+
+    function SubmitFeedback() {
+        var RegistrationID = $("div#PropertyDetailContainerDiv").data("registrationid");
+        var remark = $.trim($("#text-feedback").val());
+        if (remark == '') {
+            alert("Please enter Remarks");
+            return false;
+        }
+        $("#FeedbackWindow").data("kendoWindow").close();
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ registrationId: RegistrationID, remark: remark }),
+            url: '/Administration/Property/SaveRemark',
+            success: function (result) {
+                if (result == true) {                   
+                    $("#RemarksGrid").data("kendoGrid").dataSource.read();
+                    alert("Remark saved successfully");
+                    $("#text-feedback").val('');
+                }
+            },
+            error: function (obj) {
+            }
+        });
+    }
+
+    $(document).ready(function () {
+
+        $('#FeedbackWindow').kendoWindow({
+            modal: true,
+            title: "Feedbak",
+            //actions: false,
+            actions: ["Pin", "Minimize", "Maximize", "Close"],
+            visible: false,
+            width: "65%"
+        });
+
+        
+
+        var RegistrationID = $("div#div-propertydetail").data("registrationid");
+        //$("#PaymentSchedule").click(function () {
+        //    $("#myModalPaymentSchedule").modal('show');
+        //});
+        $("#legalHistory").click(function () {
+            $("#myModalLegalHistory").modal('show');
+        });
+        //$("#TransferHistory").click(function () {
+        //    $("#myModalTransferHistory").modal('show');
+        //});
+        $("#JALDetails").click(function () {
+            $("#myModalJALDetails").modal('show');
+        });
+
+        $("div#LegalHistoryGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Administration/Property/GetLegalHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#LegalHistoryGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        //{ title: 'Registration ID', field: 'RegistrationId' },
+                        { title: 'Case No.', field: 'CASENO' },
+                        { title: 'Year', field: 'YEAR', width: 50 },
+                        { title: 'Court', field: 'COURT' },
+                        { title: 'Parties', field: 'PARTIES' },
+                        { title: 'Department', field: 'DEPTT' },
+                        { title: 'Description', field: 'DESCRIPTION' },
+                        { title: 'Advocate Details', field: 'ADVOCATEDETAILS' },
+                        { title: 'Stay', field: 'STAY', width: 50 },
+                        { title: 'Filed', field: 'filedFlag', width: 60 },
+                        { title: 'Date', field: 'DATE', type: "date", format: "{0:dd-MMM-yyyy}", width: 100 },
+                        { title: 'Narrative', field: 'NARRATIVEYES_NO', width: 70 }
+            ]
+        });
+
+        $("div#RemarksGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Administration/Property/Remarks_Read/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#RemarksGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Registration No.', field: 'regNo' },
+                        //{ title: 'Year', field: 'YEAR', width: 50 },
+                        { title: 'Remarks', field: 'remarks' },
+                        //{ title: 'Parties', field: 'PARTIES' },
+                        //{ title: 'Department', field: 'DEPTT' },
+                        //{ title: 'Description', field: 'DESCRIPTION' },
+                        //{ title: 'Advocate Details', field: 'ADVOCATEDETAILS' },
+                        //{ title: 'Stay', field: 'STAY', width: 50 },
+                        //{ title: 'Filed', field: 'filedFlag', width: 60 },
+                        { title: 'Date', field: 'date', type: "date", format: "{0:dd-MMM-yyyy}", width: 100 },
+                        //{ title: 'Narrative', field: 'NARRATIVEYES_NO', width: 70 }
+            ]
+        });
+
+        $("div#JalDetailGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Administration/Property/GetJalDetailsPaymentHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#JalDetailGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Consumer No', field: 'ConsumerNumber' },
+                        { title: 'Bill Amt (&#8377/Sq. Mtr)', field: 'BillAmt', format: "{0:#,0.00}" },
+                        { title: 'Paid Amt (&#8377/Sq. Mtr)', field: 'PaidAmount', format: "{0:#,0.00}" },
+                        { title: 'Surcharge (&#8377/Sq. Mtr)', field: 'Surcharge', format: "{0:#,0.00}" },
+                        { title: 'Payment Date', field: 'PaymentDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Bill From', field: 'BLFrom', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Bill To', field: 'BLTo', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Due Date', field: 'DueDate', type: "date", format: "{0:dd-MMM-yyyy}" }
+            ]
+        });
+
+    });
+
+
+    //$("#btn-remarks").click(function () {
+    //    $("#feedbackModal").modal('show');
+    //    $("#message-text").val("");
+    //});
+
+
+    $("#fdsubmit").click(function () {
+        var RegistrationID = $("div#PropertyDetailContainerDiv").data("registrationid");
+        var remark = $.trim($("#textRemark").val());
+        if (remark == '') {
+            alert("Please enter Remarks");
+            return false;
+        }
+        $("#feedbackModal").modal('hide');
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ registrationId: RegistrationID, remark: remark }),
+            url: '/Administration/Property/SaveRemark',
+            success: function (result) {
+                if (result == true) {
+                    alert("Remark saved successfully");
+                    $("#textRemark").val('');
+                    $("#RemarksGrid").data("kendoGrid").dataSource.read();
+                }
+            },
+            error: function (obj) {
+            }
+        });
+    });
+
+</script>
+
+<script type="text/javascript">
+    function Getstatus(status) {
+        if (status == "Due") {
+            return "<b style='color:red'>" + status + "</b>";
+        }
+        else {
+            return status;
+        }
+    }
+
+    function DisplayNoResultsFound(grid) {
+        // Get the number of Columns in the grid
+        var dataSource = grid.data("kendoGrid").dataSource;
+        var colCount = grid.find('.k-grid-header colgroup > col').length;
+
+        // If there are no results place an indicator row
+        if (dataSource._view.length == 0) {
+            grid.find('.k-grid-content tbody')
+                .append('<tr class="kendo-data-row"><td colspan="' + colCount + '" style="text-align:center">No Results Found!</td></tr>');
+        }
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        setCurrentTab('prop')
+        // if the tabs are in wide columns on larger viewports
+        //$('.content-tabs').tabCollapse();
+
+        // initialize tab function
+        //$('.nav-tabs a').click(function (e) {
+        //    e.preventDefault();
+        //    $(this).tab('show');
+        //});
+
+        // slide to top of panel-group accordion
+        $('.panel-group').on('shown.bs.collapse', function () {
+            var panel = $(this).find('.in');
+            $('html, body').animate({
+                scrollTop: panel.offset().top + (-60)
+            }, 500);
+        });
+
+    });
+
+    function ChallanViewPrint(RegistrationID, Amount) {
+        $.ajax({
+            url: '@(Url.Action("ChallanPrint", "Property"))',
+            type: 'POST',
+            data: { RegistrationID: RegistrationID, Amount: Amount },
+            contenttype: "application/json; charset=utf-8",
+            success: function () {
+                //alert("Yes");
+            },
+            error: function () {
+                //alert("No");
+            }
+        });
+    }
+    $(function () {
+        $('a[data-auto-download]').each(function () {
+            //alert("KK");
+            var $this = $(this);
+            setTimeout(function () {
+                window.location = $this.attr('href');
+            }, 2000);
+        });
+    });
+
+    function GetAllAmount() {
+        var r = confirm("Do you want to make full payment?");
+        if (r == true) {
+            var src = "@Html.Raw(Url.Action("ChallanPrint", "Property", new { RegistrationId = @Model.RegistrationId.ToString(), flag = 1 }))";
+            $("#runReport").attr("href", src);
+        } else {
+            var src = "@Html.Raw(Url.Action("ChallanPrint", "Property", new { RegistrationId = @Model.RegistrationId.ToString(), flag = 0 }))";
+            $("#runReport").attr("href", src);
+        }
+    }
+</script>
+
+

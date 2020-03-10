@@ -1,0 +1,276 @@
+﻿@model NoidaAuthority.PMS.Entity.ServiceRequestViewModel
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.Extensions;
+@using NoidaAuthority.PMS.Common;
+
+@{
+    ViewBag.Title = "Online Payment";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<style>
+    .col-md-4 {
+        margin-top: 0%;
+        /* width: 38.3333%; */
+    }
+     .alertify-notifier.ajs-bottom {
+        bottom: 40px;
+    }
+</style>
+
+@using (Html.BeginForm("PayOnlineForServices", "Payment", new { area="Customer"}, FormMethod.Post, new { enctype = "multipart/form-data", id = "paymentform" }))
+{
+    <div id="div-payment" class="col-md-10 col-md-offset-1">
+        <div class="row form-group">
+            <div class="col-md-12">
+                <h2>Pay Online</h2>
+            </div>
+            <div>
+                @Html.HiddenFor(model => model.ActionType)
+                @Html.HiddenFor(model => model.DepartmentId)
+                @Html.HiddenFor(model => model.OnlineRequestId)
+                @Html.HiddenFor(model => model.RegistrationId)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.RegistrationId)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.OnlineRequestId)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.ChallanId)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.ServiceName)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.Email)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.ChallanDate)
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>TransactionId</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.TransactionId, htmlAttributes: new { @class = "k-textbox not-editable", @maxlength="25", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Processing Fee</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.Amount, htmlAttributes: new { @class = "k-textbox not-editable",@maxlength="10",  style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>Name</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.Applicant, htmlAttributes: new { @class = "k-textbox not-editable", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Product Info</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.ProductInfo, htmlAttributes: new { @class = "k-textbox not-editable", @maxlength="50", style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>Mobile No</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.MobileNo, htmlAttributes: new { @class = "k-textbox", @maxlength="10", @minlength="10", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Email</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.Email, htmlAttributes: new { @class = "k-textbox", @maxlength="25", style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>Service Name</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.ServiceName, htmlAttributes: new { @class = "k-textbox not-editable", @maxlength="50", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Account Head</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.AccountSubHead, htmlAttributes: new { @class = "k-textbox not-editable", @maxlength="50", style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group" id="div-pay-fee" >
+            <div class="col-md-6" id="divPaymentType">
+                <label>Payment Through:</label>
+                <label>@Html.RadioButtonFor(model => model.OnlinePaymentModel.PaymentType, "Offline", new { @class = "", @checked = true, @id = "" }) Offline</label>
+                <label>@Html.RadioButtonFor(model => model.OnlinePaymentModel.PaymentType, "Online", new { @class = "", @id = "" }) Online</label>
+                @(Html.Kendo().DropDownList()
+                  .Name("DDLBankList")
+                  .DataTextField("Text")
+                  .DataValueField("Value")
+                  .BindTo(new List<SelectListItem>() {
+                      new SelectListItem() { Text = "HDFC", Value = "2" },
+                      new SelectListItem() { Text = "Bank Of Baroda", Value = "3" }
+                  })
+                  //.Value("1")
+                  //.HtmlAttributes(new { style = "width: 100%" })
+                )
+            </div>
+            <div class="col-md-6" style="">
+                @Html.HiddenFor(model => model.OnlinePaymentModel.BankId, htmlAttributes: new { @value='2'})
+                <input type="button" value="Print Challan" id="btn-pay-online" />
+            </div>
+        </div>
+        
+    </div>
+}
+
+<div class="col-md-10 col-md-offset-1" id="div-challan">
+    <div class="row form-group">
+        <div class="col-md-12" style="height:450px; overflow:auto;background:#fff; border:1px solid black;">
+            <div id="div-challan-body" style="padding:20px;">
+                @Html.Raw(Model.PaymentModel.HTMLContent)
+            </div>           
+        </div>
+    </div>
+</div>
+
+<script>
+    @{
+        if (TempData["Success"] != null || TempData["Success"] == "")
+        {
+            @:alertify.success('Payment already done');
+        }
+
+        if (TempData["FailedTraxaction"] != null || TempData["FailedTraxaction"] == "")
+        {
+            @:alertify.error("Transaction failed.");
+        }
+        if (TempData["MismatchTraxaction"] != null || TempData["MismatchTraxaction"] == "")
+        {
+            @:alertify.error("Transaction Mismatch.");
+        }
+        if (TempData["ErrorInTraxaction"] != null || TempData["ErrorInTraxaction"] == "")
+        {
+            @:alertify.error("Error in Transaction.");
+        }
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        //$('#OnlinePaymentModel_BankId').val(2);
+        $('.k-widget.k-dropdown.k-header').css("display", "none");
+
+        $(".not-editable").keydown(function (event) {
+            return false;
+        });
+
+        if ($("input[name='OnlinePaymentModel.Amount']").val() == "" || $("input[name='OnlinePaymentModel.Amount']").val() == 0) {
+
+        }
+
+        $('#paymentform input:radio[name="OnlinePaymentModel.PaymentType"]').on('change', function () {
+            TogglePaymentType();
+        });
+
+        $('#btn-pay-online').click(function () {
+            var payType = $('input[name="OnlinePaymentModel.PaymentType"]:checked', '#paymentform').val();
+            if (payType.trim() == "Online") {
+                var flag = ValidateInputs();
+                if (flag) {
+                    $.ajax({
+                        dataType: 'json',
+                        type: 'Post',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify({ OnlineRequestId: $("input[name='OnlineRequestId']").val(), ActionType: $('#ActionType').val(), ChallanId: $('#OnlinePaymentModel_ChallanId').val() }),
+                        url: '/Customer/Payment/IsProcessingFeePaid',
+                        success: function (result) {
+                            if (result == true) {
+                                alertify.error("Processing fee already paid.");
+                            }
+                            else {
+                                var bankId = $('#DDLBankList').val();
+                                $('#OnlinePaymentModel_BankId').val(bankId);
+                                $('#paymentform').submit();
+                            }
+                        },
+                        error: function (objAjaxRequest, strError) {
+                            var respText = objAjaxRequest.responseText;
+                            alertify.error("Some Error in save database.");
+                        }
+                    });
+                }
+                else {
+
+                }
+            }
+            else {
+                PrintChallan();
+            }
+        });
+    });
+
+    function ValidateInputs() {
+        var flag = true;
+        if ($("input[name='OnlinePaymentModel.TransactionId']").val().trim() == "") {
+            alertify.error("Please enter Transaction Id");
+            return flag = false;
+        }
+        if ($("input[name='OnlinePaymentModel.Amount']").val().trim() == "") {
+            alertify.error("Please enter Processing fee");
+            return flag = false;
+        }
+        if ($("input[name='OnlinePaymentModel.MobileNo']").val().trim() == "") {
+            alertify.error("Please enter Mobile No");
+            return flag = false;
+        }
+        if ($("input[name='OnlinePaymentModel.Email']").val().trim() == "") {
+            alertify.error("Please enter Email Id");
+            return flag = false;
+        }
+        var payType = $('input[name="OnlinePaymentModel.PaymentType"]:checked', '#paymentform').val();
+        if (payType.trim() == "Online") {
+            var bankId = $('#DDLBankList').val();
+            if (bankId == "" || bankId == undefined) {
+                alertify.error("Please select bank");
+                flag = false;
+            }
+        }
+        return flag;
+    }
+
+    function TogglePaymentType() {
+        var formType = $('input[name="OnlinePaymentModel.PaymentType"]:checked', '#paymentform').val();
+        if (formType.trim() == "Online") {
+            $('#btn-pay-online').val('Pay Online');
+            //$('#DDLBankList').show();
+            $('.k-widget.k-dropdown.k-header').show();
+        }
+        else {
+            $('#btn-pay-online').val('Print Challan');
+            //$('#DDLBankList').css("display", "none");
+            $('.k-widget.k-dropdown.k-header').css("display", "none");
+        }
+        $('#btn-pay-online').show();
+    }
+
+    function PrintChallan() {
+        var contents = document.getElementById("div-challan-body").innerHTML;
+        var frame1 = document.createElement('iframe');
+        frame1.name = "frame1";
+        frame1.style.position = "absolute";
+        frame1.style.top = "-1000000px";
+        document.body.appendChild(frame1);
+        var frameDoc = frame1.contentWindow ? frame1.contentWindow : frame1.contentDocument.document ? frame1.contentDocument.document : frame1.contentDocument;
+        frameDoc.document.open();
+        frameDoc.document.write('<style>.td-amount {padding-right: 30px;}#div-challan-body {padding: 5px;font-size:10pt;}#authorityChallan {border: 1px solid black;padding: 5px;} .h4-dept{margin-top:0px; margin-bottom:0px;}.h4-noida{margin-bottom:2px;}</style>');
+        frameDoc.document.write('</head><body style="font-size:10pt;">');
+        frameDoc.document.write(contents);
+        frameDoc.document.write('</body></html>');
+        frameDoc.document.close();
+        setTimeout(function () {
+            window.frames["frame1"].focus();
+            window.frames["frame1"].print();
+            document.body.removeChild(frame1);
+        }, 500);
+        return false;
+    }
+
+</script>

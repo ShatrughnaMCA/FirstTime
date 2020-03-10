@@ -1,0 +1,290 @@
+﻿@using System.Web.Optimization
+@model NoidaAuthority.PMS.Entity.UserViewModel
+@{
+    ViewBag.Title = "Noida Authority";
+    Layout = "~/Views/Shared/_Blank.cshtml";
+}
+<style>
+    .form-control {
+        display: inline;
+        width: 100%;
+    }
+
+    #loginPad {
+        padding-top: 50px;
+    }
+
+    .login-page {
+        width: 660px;
+        /*padding: 5% 0 0;*/
+        margin: auto;
+    }
+
+    .form {
+        position: relative;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 660px;
+        /*margin: 0 auto 100px;*/
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+
+    .form input {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #f2f2f2;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+        height: auto;
+        background-color: #eee;
+        border: 1px solid #ccc;
+    }
+
+    .form button {
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #00A182;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+    }
+
+    .form button:hover, .form button:active, .form button:focus {
+        background: #43A047;
+    }
+
+    .form .message {
+        margin: 15px 0 0;
+        color: #b3b3b3;
+        font-size: 12px;
+    }
+
+    .form .message a {
+        color: #00A182;
+        text-decoration: none;
+    }
+
+    .form .register-form {
+        display: none;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+        /*max-width: 300px;*/
+        margin: 0 auto;
+    }
+
+    .container:before, .container:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .container .info {
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    .container .info h1 {
+        margin: 0 0 15px;
+        padding: 0;
+        font-size: 36px;
+        font-weight: 300;
+        color: #1a1a1a;
+    }
+
+    .container .info span {
+        color: #4d4d4d;
+        font-size: 12px;
+    }
+
+    .container .info span a {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    .container .info span .fa {
+        color: #EF3B3A;
+    }
+
+    body {
+        background: #fff; /* fallback for old browsers */
+        background: -webkit-linear-gradient(right, #00A182, #00A182);
+        background: -moz-linear-gradient(right, #00A182, #00A182);
+        background: -o-linear-gradient(right, #00A182, #00A182);
+        background: linear-gradient(to left, #00A182, #00A182);
+        font-family: "Roboto", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    }
+</style>
+<div class="login-page" id="loginPad" style="padding-top:0">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", id="loginform" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="row">
+            <div class="col-lg-12 text-center" style="margin-bottom:5%">
+                <img src="~/Content/Images/logo-noida-small.png" />
+            </div>
+        </div>
+        <div class="form">
+            <div class="row" style="height:20px">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <label id="errormessage">@Html.ValidationMessageFor(m => m.ErrorMessage, "", new { @class = "red" })</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "User Name" })<br />
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "red" })
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })<br />
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "red" })
+                    </div>
+                    <button type="button" id="btnSignin">login</button>
+                    <p class="message"><a href="#" id="forgotPWD" class="">Forgot Your Password?</a></p><br />
+                    <p class=""><a href="http://www.noidaauthorityonline.com/Instructions%20to%20apply%20for%20services%20online.pdf">Instructions to apply for services online</a></p>
+                </div>
+                <div class="col-md-6 text-left">
+                    @*<p class="height-txt">If you don't have Login, please <a href="@Url.Action("AddEditNACustomer", "ManageUsers")">Register here</a> to create a login.</p>*@
+                    <p class="height-txt">If you don't have Login, please <a href="@Url.Action("Register", "Account")"><b>Register here</b></a> to create a login.</p>                   
+                    <p class=""><a href="@Url.Action("ServiceStatus", "Property", new { area="Customer"})">Check service request</a></p>
+                    <p class=""><a href="@Url.Action("LetterVerification", "Property", new { area="Customer"})">Verify your letter</a></p>
+                    <p><strong>You need to have:</strong></p>
+                    <ol class="login-list">
+                        <li class="height-txt">Your Registration ID</li>
+                        <li class="height-txt">An Email ID to receive password upon Account Activation and for logging in</li>
+                        <li class="height-txt">A Mobile No. to receive OTP and password upon Account Activation</li>
+                        <li class="height-txt">Your ID Proof (Aadhar Card/PAN Card)</li>
+                        <li class="height-txt">Your Allotment Letter/Transfer Letter</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div id="divForgotPassword" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="padding-top:60px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Forget Your Password?</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <span>Please enter the User Name</span><br>
+                            <input type="text" required="" placeholder="User Name" id="inputEmail" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-blue btn" data-dismiss="modal">Close</button>
+                <button class="btn btn-success btn-sm" id="btnSubmit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/Scripts/template-script.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#forgotPWD").click(function () {
+            $("div#divForgotPassword").modal('show');
+        });
+
+        $("#btnSubmit").click(function () {
+            var emailID = $("#inputEmail").val();
+            if (emailID == '') {
+                alert("Please enter your User Name");
+                return false;
+            }
+            $.ajax({
+                dataType: 'json',
+                type: 'Post',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ emailID: emailID }),
+                url: '/Account/ResetPassword',
+                success: function (result) {
+                    if (result == true) {
+                        alert("New Password has been sent to your Email and Mobile Number successfully");
+                        $("div#divForgotPassword").modal('hide');
+                        $("#inputEmail").val('');
+                    }
+                    else {
+                        alert("User does not exist. Kindly recheck the entered Email.");
+                        $("div#divForgotPassword").modal('show');
+                    }
+                },
+                error: function (obj) {
+                }
+            });
+
+        });
+
+        @*@if (TempData["isForgotPwdSuccess"] != null && (bool)TempData["isForgotPwdSuccess"] == true)
+        {
+            <text>toastr.success('Password has been sent to your email address successfully.');</text>
+        }*@
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        @*$('#btnSignin').click(
+            function () {
+                $('#loading').show();
+                $('#btnSignin').hide();
+                $('#btnReset').hide();
+
+                $.get("@Url.Action("Login", "Account")",
+                    function (data) {
+                        $('#loading').hide();
+                        $('#btnSignin').show();
+                        $('#btnReset').show();
+                    });
+            }
+        );*@
+
+        $('#btnSignin').click(function () {
+            if ($('#UserName').val().trim() == "") {
+                alert("Enter User name");
+                return false;
+            }
+            else if ($('#Password').val().trim() == "") {
+                alert("Enter Password");
+                return false;
+            }
+            else {
+                $('#loginform').submit();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,476 @@
+﻿@using NoidaAuthority.PMS.Common;
+
+<div id="div-rti-chart">
+    <h5 class="chrt_title">RTI</h5>
+    <div class="btn-group new_btn_bx" id="RevenueChartDropdown1" data-value="0" style="float:right;">
+        <div class="div-sector-list"></div>
+        &nbsp;<a class="icn_zoom" data-toggle="modal" data-target="#revenuechartsDiv1Modal" href="#"><img title="Zoom In" src="~/Content/Images/zoom.png" /></a>
+    </div>
+    <div class="chart-wrapper">
+        <div class="chart-inner">
+            <div id="revenuechartsDiv1" class="chartContainer" data-propertytypeqs="@Contants.QueryString.PropertyType" style="border-left: 5px solid #fff; border-top: 5px solid #fff; border-right: 5px solid #fff;">
+                <img src="@Url.Content("~/Content/Images/loading_green.gif")" class="loading" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div id="revenuechartsDiv1" class="chartContainer" data-propertytypeqs="@Contants.QueryString.PropertyType" style="border-left: 5px solid #fff; border-top: 5px solid #fff; border-right: 5px solid #fff;">
+    <img src="@Url.Content("~/Content/Images/loading_green.gif")" class="loading" />
+</div>*@
+
+
+<!-- Modal -->
+<div class="modal fade" id="revenuechartsDiv1Modal" style="padding-top:5%; z-index:99999;" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" style="min-height:500px;">
+        <div class="modal-content">
+            <div class="modal-header" style="min-height:60px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">RTI</h4>
+            </div>
+            <div class="modal-body chartContainer" id="revenuechartsDiv12" data-propertytypeqs="@Contants.QueryString.PropertyType">
+                <img src="@Url.Content("~/Content/Images/loading_green.gif")" class="loading" />
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+<script>
+     var height = $(".chart-inner").height();
+     var width = $(".chart-inner").width();
+
+    function GeneratePropertyTypeChart2(chartData2) {
+        Highcharts.setOptions({
+            colors: ['#7CB5EC', '#434348', '#90ED7D', '#F7A35C', '#8085E9', '#F15C80']
+
+        });
+
+
+        $('#revenuechartsDiv12').highcharts({
+            chart: {
+                type: 'bar',
+                width: 850
+            },
+
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: '',
+                verticalAlign: 'top',
+                align: 'center',
+                x: -70,
+                y: 3,
+                style: {
+                    fontSize: '11px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: 'bold'
+                }
+            },
+            exporting: {
+                enabled: false
+            },
+            legend: {
+                //align: 'right',
+                //verticalAlign: 'top',
+                //layout: 'vertical',
+                //y: 50,
+                reversed: true,
+                itemStyle: {
+                    fontSize: '20px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: 'normal',
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:13px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.name}: <b>{point.percentage:.1f}%</b> of total<br/><span style="color:{point.color}">\u25CF</span> Property Count: <b>{point.y:,.0f}</b> of <b>{point.total:,.0f}<b>'
+            },
+            xAxis: {
+                categories: ['Residential', 'Goup Housing', 'Housing', 'Industrial', 'Commercial', 'Institutional']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: ''
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function () {
+                                location.href = this.options.url;
+                            }
+                        }
+                    }
+                }
+
+            },
+            //plotOptions: {
+            //    pie: {
+            //        allowPointSelect: true,
+            //        cursor: 'pointer',
+            //        point: {
+            //            events: {
+            //                click: function () {
+            //                    location.href = this.options.url;
+            //                }
+            //            }
+            //        },
+            //        depth: 70,
+            //        dataLabels: {
+            //            distance: -30,
+            //            color: 'black',
+            //            enabled: true,
+            //            style: {
+            //                //fontWeight: 'bold'
+            //            },
+            //            format: '{point.percentage:.1f}%'
+
+            //        },
+            //        showInLegend: true
+
+            //    },
+
+            //},
+            series: [{
+                //type: 'pie',
+                name: 'Property Type',
+                data: chartData2,
+
+            }],
+        });
+
+
+        $('#revenuechartsDiv1').highcharts({
+
+            chart: {
+                type: 'bar',
+                height: 300
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: '',
+                verticalAlign: 'top',
+                align: 'center',
+                x: -70,
+                y: 3,
+                style: {
+                    fontSize: '11px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: 'bold'
+
+                }
+            },
+            exporting: {
+                enabled: false
+            },
+            //legend: {
+            //    align: 'right',
+            //    verticalAlign: 'top',
+            //    layout: 'vertical',
+            //    y: 50,
+            //    itemStyle: {
+            //        fontSize: '11px',
+            //        color: '#606060',
+            //        fontFamily: "Lucida Sans Unicode",
+            //        fontWeight: 'normal',
+            //    }
+            //},
+            legend: {
+                reversed: true
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:13px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.name}: <b>{point.percentage:.1f}%</b> of total<br/><span style="color:{point.color}">\u25CF</span> Property Count: <b>{point.y:,.0f}</b> of <b>{point.total:,.0f}<b>'
+            },
+            xAxis: {
+                categories: ['Residential', 'Goup Housing', 'Housing', 'Industrial', 'Commercial','Institutional']
+
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: ''
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function () {
+                                location.href = this.options.url;
+                            }
+                        }
+                    }
+                }
+
+            },
+
+            series: [{
+
+                name: 'Property Type',
+                data: chartData2,
+
+            }],
+        });
+
+
+    };
+    function GetPropertyTypeChartData2(sector, onComplete) {
+        chartData2 = [];
+        jQuery.support.cors = true;
+        $.ajax({
+            url: '/API/Graph/PropertyRevenue1?sc=' + sector,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                TotalProperties = 0;
+                $.each(data, function (i, item) {
+                    chartData2.push({
+                        name: item.PropertyType,
+                        y: item.PropertyTypeCount,
+                        //url: '/Property/Index?' + GetDataItem("revenuechartsDiv1", "propertytypeqs") + '=' + item.ID + "&sc=" + GetSeletedSector(),
+                        url: '/Property/InProgress',
+                    })
+                    TotalProperties += item.PropertyTypeCount;
+                });
+                onComplete(chartData2);
+
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+
+</script>
+
+@*@using NoidaAuthority.PMS.Common;
+
+    <div id="revenuechartsDiv1" class="chartContainer" data-yearqs="@Contants.QueryString.Year" data-propertytypeqs="@Contants.QueryString.PropertyType" style="border-bottom: 5px solid #fff; border-left: 1px solid #fff; border-right: 5px solid #fff; border-top: 1px solid #fff; ">
+        <img src="@Url.Content("~/Content/Images/loading_green.gif")" class="loading" />
+    </div>
+
+    <script>
+        XSeriesData1 = [];
+        YSeriesData1 = [];
+        revenueChartDrilldownSeries1 = [];
+        function CreateRevenueChart1() {
+            Highcharts.setOptions({
+                colors: ['#F15C80', '#8085E9', '#7CB5EC', '#F7A35C', '#90ED7D', '#434348']
+            });
+
+            $('#revenuechartsDiv1').highcharts({
+
+                chart: {
+                    type: 'column',
+                    height: 300,
+                    options3d: {
+                        enabled: true,
+                        alpha: 15,
+                        beta: 5,
+                        viewDistance: 25,
+                        depth: 60
+                    },
+                    marginTop: 30,
+                },
+
+                title: {
+                    text: 'Revenue by Year',
+                    verticalAlign: 'top',
+                    align: 'center',
+                    y: 2,
+                    style: {
+                        fontSize: '11px',
+                        color: '#606060',
+                        fontFamily: "Lucida Sans Unicode",
+                        fontWeight: 'bold'
+                    }
+                },
+                exporting: {
+                    enabled: false
+                },
+                legend: {
+                    align: 'right',
+                    verticalAlign: 'top',
+                    layout: 'vertical',
+                    y: 50,
+                    itemStyle: {
+                        fontSize: '11px',
+                        color: '#606060',
+                        fontFamily: "Lucida Sans Unicode",
+                        fontWeight: 'normal',
+                    }
+                },
+                xAxis: {
+                    //categories: XSeriesData
+                    type: 'category'
+                },
+
+                yAxis: {
+
+                    title: {
+                        text: 'Revenue (in ₹)'
+                    },
+                    labels: {
+                        format: '{value:,.0f} Lacs'
+                    }
+                },
+
+                tooltip: {
+                    headerFormat: '',
+                    pointFormat: '{point.name}<br/><span style="color:{series.color}">\u25CF</span> {series.name}: <b>₹ {point.y:,.2f} Lacs</b> of <b>₹ {point.stackTotal:,.2f} Lacs</b><br/><span style="color:{series.color}">\u25CF</span> Percentage: <b>{point.percentage:.1f}%</b> of total',
+                },
+
+                plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        depth: 40,
+                        point: {
+                            events: {
+                                click: function () {
+                                    location.href = this.options.url;
+                                }
+                            }
+                        },
+                    },
+
+                },
+                series: YSeriesData1,
+                drilldown: {
+                    _animation: {
+                        duration: 2000
+                    },
+                    activeAxisLabelStyle: {
+                        textDecoration: 'none',
+                        fontSize: '11px',
+                        color: '#606060',
+                        fontFamily: "Lucida Sans Unicode",
+                        fontWeight: 'normal',
+                    },
+                    drillUpButton: {
+                        relativeTo: 'spacingBox',
+                        position: {
+                            y: 0,
+                            x: 0
+                        },
+                    },
+                    series: revenueChartDrilldownSeries1
+                }
+            });
+        };
+
+        function GetRevenueChartData1(sector, onComplete) {
+            XSeriesData1 = [];
+            YSeriesData1 = [];
+            jQuery.support.cors = true;
+            $.ajax({
+                url: '/API/Graph/PropertyRevenue1?sc=' + sector,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    //  alert("success");
+                    $.each(data, function (i, item) {
+                        if ($.inArray(item.Year, XSeriesData1) < 0) {
+                            XSeriesData1.push(
+                               item.Year
+                            );
+                        }
+                        var result = SearchObject(YSeriesData1, item.PropertyType);
+                        if (result == null) {
+                            YSeriesData1.push({
+                                name: item.PropertyType,
+                                data: [{
+                                    y: item.Revenue,
+                                    name: item.Year,
+                                    drilldown: item.Year + item.PropertyType,
+                                    url: '/Property/Revenue?' + GetDataItem("revenuechartsDiv", "yearqs") + '=' + item.Year + '&' + GetDataItem("revenuechartsDiv", "propertytypeqs") + '=' + item.ID + "&sc=" + GetSeletedSector(),// + "&head=" + item.RECIEPT_HEAD_NAME,
+                                }],
+                                stack: 'property'
+                            });
+                        }
+                        else {
+                            result.data.push({
+                                y: item.Revenue,
+                                name: item.Year,
+                                drilldown: item.Year + item.PropertyType,
+                                url: '/Property/Revenue?' + GetDataItem("revenuechartsDiv", "yearqs") + '=' + item.Year + '&' + GetDataItem("revenuechartsDiv", "propertytypeqs") + '=' + item.ID + "&sc=" + GetSeletedSector(),
+                            });
+                        }
+                    });
+                    $.each(YSeriesData1, function (i, ydata) {
+
+                        $.each(ydata.data, function (i, innerData) {
+
+
+                        });
+                    });
+                    GetRevenueChartDrilldownData1(sector, onComplete);
+
+                },
+                error: function (x, y, z) {
+                    //alert(x + '\n' + y + '\n' + z);
+                }
+            });
+            alert(XSeriesData1);
+        }
+        function GetRevenueChartDrilldownData1(sector, onComplete) {
+            revenueChartDrilldownSeries1 = [];
+
+            $.ajax({
+                url: '/API/Graph/RevenueSourceType?sc=' + sector,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+
+                    $.each(data, function (i, item) {
+                        var result = SearchObject(revenueChartDrilldownSeries1, item.FiscalYear + " " + item.Department);
+                        if (result == null) {
+                            result = {
+                                id: item.FiscalYear + item.Department,
+                                name: item.FiscalYear + " " + item.Department,
+                                data: [],
+
+                            }
+                            revenueChartDrilldownSeries1.push(result);
+                        }
+                        result.data.push({
+                            y: item.Revenue,
+                            name: item.RECIEPT_HEAD_NAME,
+                            url: '/Property/Revenue?' + GetDataItem("revenuechartsDiv", "yearqs") + '=' + item.FiscalYear + '&' + GetDataItem("revenuechartsDiv", "propertytypeqs") + '=' + item.PropertyTypeId + "&sc=" + GetSeletedSector() + "&head=" + item.RECIEPT_HEAD_NAME,
+                        });
+
+                    });
+                    // debugger;
+                    onComplete();
+
+                },
+                error: function (x, y, z) {
+                    //alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+
+
+        $(document).ready(function () {
+            GetRevenueChartData1("", function () {
+                CreateRevenueChart1();
+            });
+        });
+    </script>*@

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D664ED8D-DBB2-4F25-AB29-D402EE64E495}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NoidaAuthority.PMS.Entity</RootNamespace>
+    <AssemblyName>NoidaAuthority.PMS.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Auth\ManageRoles.cs" />
+    <Compile Include="Auth\Menu.cs" />
+    <Compile Include="Auth\PropertyRemark.cs" />
+    <Compile Include="Auth\Role.cs" />
+    <Compile Include="Auth\Role_Menu_Mapping.cs" />
+    <Compile Include="Auth\Role_Users.cs" />
+    <Compile Include="Auth\User.cs" />
+    <Compile Include="Citizen\CustomerViewModel.cs" />
+    <Compile Include="Citizen\ServiceDetailViewModel.cs" />
+    <Compile Include="Citizen\ServiceRequest.cs" />
+    <Compile Include="Common\BaseEntity.cs" />
+    <Compile Include="Common\CommonViewModel.cs" />
+    <Compile Include="Common\DtoList.cs" />
+    <Compile Include="Common\ModelHelper.cs" />
+    <Compile Include="Common\PropertyCount.cs" />
+    <Compile Include="Graph\DtoAllotmentStatus.cs" />
+    <Compile Include="Graph\DtoAreaDetails.cs" />
+    <Compile Include="Graph\DtoComplaintGraph.cs" />
+    <Compile Include="Graph\DtoDepartmentwiseRevenueGraph.cs" />
+    <Compile Include="Graph\DtoPropertyAreaType.cs" />
+    <Compile Include="Graph\DtoRevenueDefaultedGraph.cs" />
+    <Compile Include="Graph\DtoRevenueSource.cs" />
+    <Compile Include="NaUser\AttachedFile.cs" />
+    <Compile Include="NaUser\DtoNAcustomerDetails.cs" />
+    <Compile Include="NaUser\FileType.cs" />
+    <Compile Include="NaUser\NAcustomer.cs" />
+    <Compile Include="NaUser\NaUser.cs" />
+    <Compile Include="NaUser\UserModel.cs" />
+    <Compile Include="NaUser\UserViewModel.cs" />
+    <Compile Include="Property\DtoDepartmentPaymentDetails.cs" />
+    <Compile Include="Property\DtoJalDetailsPaymentHistory.cs" />
+    <Compile Include="Property\DtoLegalHistory.cs" />
+    <Compile Include="Property\DtoLegalwithFarmerDetails.cs" />
+    <Compile Include="Property\DtoPaymentPayStatus.cs" />
+    <Compile Include="Property\DtoPaymentSchedule.cs" />
+    <Compile Include="Property\DtoPropertyComplaintList.cs" />
+    <Compile Include="Property\DtoPropertyDetails.cs" />
+    <Compile Include="Property\DtoProperty.cs" />
+    <Compile Include="Graph\DtoPropertyType.cs" />
+    <Compile Include="Graph\DtoYearwiseRevenue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Property\DtoPropertyFilter.cs" />
+    <Compile Include="Property\DtoPropertyPaymentHistory.cs" />
+    <Compile Include="Property\DtoSchedulePaymentSummary.cs" />
+    <Compile Include="Property\DtoSectorLocation.cs" />
+    <Compile Include="Property\DtoPropertyLocation.cs" />
+    <Compile Include="Property\DtoTransferHistory.cs" />
+    <Compile Include="Property\FeedbackModel.cs" />
+    <Compile Include="Property\PropertyDocument.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PIMS\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,91 @@
+﻿@using Kendo.Mvc.UI;
+@{
+    ViewBag.Title = "Property Listing";
+    // Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/kendo/2014.2.716/kendo.common.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2014.2.716/kendo.default.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2014.2.716/kendo.default.mobile.min.css" rel="stylesheet" />
+
+@*<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2017.1.118/js/kendo.all.min.js"></script>*@
+
+<script src="~/Scripts/kendo/2014.2.716/jquery.min.js"></script>
+<script src="~/Scripts/kendo/2014.2.716/jszip.min.js"></script>
+<script src="~/Scripts/kendo/2014.2.716/kendo.all.min.js"></script>
+<script src="~/Scripts/kendo/2014.2.716/kendo.excel.min.js"></script>
+
+<script src="~/Scripts/kendo.aspnetmvc.min.js"></script>
+@*<script src="~/Scripts/jquery-ui.js"></script>*@
+
+<div>
+    @{
+        Html.RenderPartial("_PropertyGridSearchPartial");
+    }
+    <div id="PropertyListHeading">
+        <h4 class="label-commom">
+            @ViewBag.FilterString
+        </h4>
+    </div>
+
+    <div id="properties-grid">
+
+    </div>
+</div>
+<div class="row" style="padding: 0 30px 0px 30px;">
+    <div class="col-md-12" style="padding:20px 0">
+        <div class="k-grid-content" style="overflow-y:hidden;">
+            @(Html.Kendo().Grid<NoidaAuthority.PMS.Entity.DtoProperty>()
+              .Name("gridPropertySearch")
+              .Columns(columns =>
+              {
+                  columns.Bound(c => c.RID).Title("Registration ID").Width(130);
+                  columns.Bound(c => c.PropertyNo).Title("Property No").ClientTemplate("<a href='/Property/PropertyDetail/#=RID#'>#=PropertyNo#</a>").Width(130);
+                  columns.Bound(c => c.PropertyType).Title("Department").Width(150);
+                  columns.Bound(c => c.Sector).Title("Sector").Width(90);
+                  columns.Bound(c => c.Block).Title("Block").Width(90);
+                  columns.Bound(c => c.PlotNumber).Title("Plot No").Width(100);
+                  columns.Bound(c => c.AreaSqm).Title("Area (sqm)").Format("{0:n0}").Width(130);
+                  columns.Bound(c => c.ApplicantName).Title("Allottee Name");
+              })
+              .Sortable()
+              .Filterable()
+              .Resizable(resize => resize.Columns(true))
+              .Pageable(pageable => pageable.Enabled(true).Refresh(true).PageSizes(true))
+              .DataSource
+              (
+                  dataSource => dataSource
+                      .Ajax()
+                      .Sort(x => x.Add("RID").Descending())
+                      .Model(model => model.Id(p => p.RID))
+                      .ServerOperation(true)
+                                      .Read(read => read.Action("GetPropertiesSearch", "Property").Data("PropertyFilter"))
+                      .PageSize(10)
+              )
+            )
+
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+    });
+    function PropertyFilter() {
+        var propertyType = $("#propertyTypeDropdown").data("value");
+        var sect = $("#propertySectorDropdown").data("value");
+        var block = $("#propertyBlockDropdown").data("value");
+        var propNumber = $("#txtPropNumbr").val();
+        PropertyFilterObj = {
+            PropertyId: $.trim(propertyType),
+            Block: $.trim(block),
+            Sector: $.trim(sect),
+            PlotNumber: $.trim(propNumber)
+        };
+        return PropertyFilterObj;
+
+    }
+</script>

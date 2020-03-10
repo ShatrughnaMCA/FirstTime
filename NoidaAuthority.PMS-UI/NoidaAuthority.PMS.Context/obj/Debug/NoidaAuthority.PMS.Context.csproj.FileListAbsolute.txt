@@ -1,0 +1,10 @@
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Context\bin\Debug\NoidaAuthority.PMS.Context.dll.config
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Context\bin\Debug\NoidaAuthority.PMS.Context.dll
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Context\bin\Debug\NoidaAuthority.PMS.Context.pdb
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Context\bin\Debug\EntityFramework.dll
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Context\bin\Debug\EntityFramework.SqlServer.dll
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Context\bin\Debug\EntityFramework.xml
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Context\bin\Debug\EntityFramework.SqlServer.xml
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Context\obj\Debug\NoidaAuthority.PMS.Context.csprojResolveAssemblyReference.cache
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Context\obj\Debug\NoidaAuthority.PMS.Context.dll
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Context\obj\Debug\NoidaAuthority.PMS.Context.pdb

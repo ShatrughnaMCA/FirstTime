@@ -1,0 +1,196 @@
+﻿@model NoidaAuthority.PMS.Entity.RentingModel
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.Extensions;
+
+
+
+<div class="row" id="">
+    <div class="col-md-6 no-padding" style="">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Tenant Name", new { @class = "nw-lbl-lft required" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.TenantName, htmlAttributes: new { @class = "nw-lbl-rht nw-txt-bx", @maxlength = "50" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Tenant Project", new { @class = "nw-lbl-lft required" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.TenantProject, htmlAttributes: new { @class = "nw-lbl-rht nw-txt-bx", @maxlength = "50" })
+            </div>
+        </div>
+        <div class="row" style="display:none">
+            <div class="col-md-6">
+                @Html.Label("Renting Charge", new { @class = "nw-lbl-lft required" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.RentingCharge, htmlAttributes: new { @class = "nw-lbl-rht nw-txt-bx", @maxlength = "12" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 no-padding">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Renting Date", new { @class = "nw-lbl-lft required" })
+            </div>
+            <div class="col-md-6">
+                @(Html.Kendo().DatePickerFor(m => m.RentingDate).HtmlAttributes(new { style = "width:100%;", @class = "DisableKeyboardInput" }))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Rent Duration", new { @class = "nw-lbl-lft required" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.RentDuration, htmlAttributes: new { @class = "nw-lbl-rht nw-txt-bx", @maxlength = "2" })
+            </div>
+        </div>
+        <div class="row" style="display:none">
+            <div class="col-md-6">
+                @Html.Label("Amount", new { @class = "" })
+            </div>
+            <div class="col-md-6" style="padding-left:8px; padding-right:27px">
+                @Html.TextBoxFor(m => m.Amount, htmlAttributes: new { @class = "", @maxlength = "12" })
+            </div>
+        </div>
+    </div>
+    @*<div class="row">
+            <div class="">
+                <input type="button" id="btnRentServiceSubmit" class="btn btn-upload-doc btnName" style="padding:10px 20px" value="Submit" />
+            </div>
+        </div>*@
+    @*<div class="row">
+            <div class="col-md-12 text-right btn-add-service" style="padding-top:15px;">
+                <input type="button" id="btnRentServiceSubmit" class="btn btn-upload-doc btnName" style="padding:10px 20px" value="Next >>" />
+            </div>
+        </div>*@
+</div>
+
+
+<script type="text/javascript">
+    //var flag = false;
+    //function CheckFileUpload() {
+    //    var files = $(".single");
+    //    if ($(".single").length > 0) {
+    //        for (i = 0; i < $(".single").length; i++) {
+    //            if ($(".single")[i].value.trim() == "") {
+    //                alertify.alert("Upload Documents", "Please Upload All the Documents");
+    //                return flag=false;
+    //            }
+    //            else {
+    //                flag = true;
+    //            }
+    //        }
+    //        return flag;
+    //    }
+    //    else {
+    //        alertify.alert("Upload Documents", "No file found to upload.");
+    //        return flag=false;
+    //    }
+    //}
+
+    $(document).ready(function () {
+
+        $("#btnRentServiceSubmit").click(function () {
+            //alert("Ok");
+            debugger;
+            var name = $("#TenantName").val();
+            var project = $("#TenantProject").val();
+            //var charge = $("#RentingCharge").val();
+            var charge = 0;
+            var rdate = $("#RentingDate").val();
+            var duration = $("#RentDuration").val();
+            var rid = $("#Registration_No").val();
+            var serviceid = $("#ServiceRequestId").val();
+            var desc = $("#Description").val();
+            if (RentValidation() && CheckFileUpload() && CheckFileSize()) {
+                //alert(CheckFileSize());
+                $.ajax({
+                    dataType: 'json',
+                    type: 'Post',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ rid: rid, serviceId: serviceid, tenantName: name, tenantProject: project, rentingCharge: charge, rentingDate: rdate, rentDuration: duration, desc: desc }),
+                    url: '/Customer/SaveRentServiceReq',
+                    success: function (result) {
+                        $('#divAcknowledgementModal').modal('show');
+                        //$('#userform').submit();
+                        alertify.success("Renting data Saved successfully");
+                        $("#TenantName").val('');
+                        $("#TenantProject").val('');
+                        $("#RentingCharge").val('');
+                        $("#RentingDate").data("kendoDatePicker").value('');
+                        $("#RentDuration").val('');
+                        $("#Amount").val('');
+                        //ShowUploadDoc();
+                    },
+                    error: function (ajaxRequest, strError) {
+                        //alert(ajaxRequest.responseText);
+                        alert("Some error occured. Please try again later.");
+                    }
+                });
+            }
+        });
+
+
+        function RentValidation() {
+            var bflag = false;
+            var name = $("#TenantName").val();
+            var project = $("#TenantProject").val();
+            var charge = $("#RentingCharge").val();
+            var rdate = $("#RentingDate").val();
+            var duration = $("#RentDuration").val();
+            var rid = $("#Registration_No").val();
+            var serviceid = $("#ServiceRequestId").val();
+
+            if (rid == "") {
+                alertify.error("Please select Registration Id.");
+                bflag = false;
+            }
+            else if (serviceid == "") {
+                alertify.error("Please select Service id.");
+                bflag = false;
+            }
+            else if (name == "") {
+                alertify.error("Please enter Tenant Name.");
+                bflag = false;
+            }
+            else if (project == "") {
+                alertify.error("Please select Tenant Project.");
+                bflag = false;
+            }
+            else if (/^[0-9.]*$/.test(charge) == false) {
+                alertify.error("Please enter Renting charge.");
+                bflag = false;
+            }
+            else if (rdate == "") {
+                alertify.error("Please enter Renting Date.");
+                bflag = false;
+            }
+            else if (/^[0-9]*$/.test(duration) == false || duration == "") {
+                ///^[a-zA-Z0-9- ]*$/.test(PAN) == false
+                alertify.error("Please enter Rent duration.");
+                bflag = false;
+            }
+            else if (duration == 0) {               
+                alertify.error("Rent duration can't equal to zero.");
+                bflag = false;
+            }
+                //else if($(".single").length > 0){
+                //    for (i = 0; i < $(".single").length; i++) {
+                //        if ($(".single")[i].value.trim() == "") {
+                //            alertify.alert("Upload Documents", "Please Upload All the Documents");
+                //            return false;
+                //            bflag = false;
+                //        }
+                //    }
+                //}
+            else {
+                bflag = true;
+            }
+            return bflag;
+        }
+    });
+</script>

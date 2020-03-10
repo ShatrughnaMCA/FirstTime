@@ -1,0 +1,255 @@
+﻿@model NoidaAuthority.PMS.Entity.GPAModel
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+
+<div class="row">
+    <div class="col-md-6 no-padding">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("GPA Registration Number", htmlAttributes: new { @class = "nw-lbl-lft" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(gpa => gpa.GPARegisteredNo, new { @maxlength = "29", style = "width:100%", @class = "nw-lbl-rht nw-txt-bx" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("GPA Holder Name", htmlAttributes: new { @class = "required nw-lbl-lft" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(gpa => gpa.GPAHolderName, new { @maxlength = "99", style = "width:100%", @class = "nw-lbl-rht nw-txt-bx" })
+            </div>
+        </div>
+        <div class="row nw-kendo-select">
+            <div class="col-md-6">
+                @Html.Label("GPA Registered", htmlAttributes: new { @class = "required nw-lbl-lft" })
+            </div>
+            <div class="col-md-6">
+                @(Html.Kendo().DropDownListFor(m => m.GPARegistered)
+                        //.Filter("contains")
+                    .DataTextField("text")
+                    .DataValueField("id")
+                    .OptionLabel("Select")
+                    .DataSource(source =>
+                    {
+                        source.Read(read =>
+                        {
+                            read.Action("YesNoDDL", "Customer");
+                        });
+                    })
+                           .Events(events => { events.Change("RegisteredChange"); })
+                    .HtmlAttributes(new { @class = "schemeForms", style = "width:100%" })
+                )
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Application Date", htmlAttributes: new { @class = "required nw-lbl-lft" })
+            </div>
+            <div class="col-md-6">
+                @(Html.Kendo().DatePickerFor(gpa => gpa.ApplicationDate)
+                                  .HtmlAttributes(new { @class = "DisableKeyboardInput", style = "width:100%" }))
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-6 no-padding">
+        
+
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Relation", htmlAttributes: new { @class = "required nw-lbl-lft" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(gpa => gpa.RelationName, new { @maxlength = "29", style = "width:100%", @class = "nw-lbl-rht nw-txt-bx" })
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("GPA Effective From", htmlAttributes: new { @class = "required nw-lbl-lft" })
+            </div>
+            <div class="col-md-6">
+                @(Html.Kendo().DatePickerFor(gpa => gpa.EffectiveFrom)
+                                  .HtmlAttributes(new { @class = "DisableKeyboardInput", style = "width:100%" }))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("GPA Effective To", htmlAttributes: new { @class = "required nw-lbl-lft" })
+            </div>
+            <div class="col-md-6">
+                @(Html.Kendo().DatePickerFor(gpa => gpa.EffectiveTo)
+                                  .HtmlAttributes(new { @class = "DisableKeyboardInput", style = "width:100%" }))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("GPA Holder Address", htmlAttributes: new { @class = "required nw-lbl-lft" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextAreaFor(gpa => gpa.GPAHolderAdd, new { @maxlength = "499", style = "width:100%", @class = "nw-lbl-rht nw-txt-bx" })
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+
+    
+    
+    @*<div class="row">
+        <div class="col-md-12 text-right btn-add-service" style="padding-top:15px;">
+            <input type="button" id="btngpaRequest" class="btn btn-upload-doc btnName" value="Next >>" style="padding:10px 20px" />
+        </div>
+    </div>*@
+
+
+<script type="text/javascript">
+
+    function RegisteredChange() {
+        var registeredVal = $("#GPARegistered").val();
+        if (registeredVal == '') {
+            $("#GPARegisteredNo").val('');
+            $("#GPARegisteredNo").prop("disabled", true);
+            alertify.error("Please select GPA Registered");
+            return false;
+        }
+        if (registeredVal == '@NoidaAuthority.PMS.Common.Contants.MortPrevLoan.no') {
+            $("#GPARegisteredNo").val('');
+            $("#GPARegisteredNo").prop("disabled", true);
+        }
+        else {
+            $("#GPARegisteredNo").prop("disabled", false);
+        }
+    }
+
+
+    $(document).ready(function () {
+        $("#btnGPAServiceSubmit").click(function () {
+            var GPAHolderName = $("#GPAHolderName").val();
+            var GPAHolderAdd = $("#GPAHolderAdd").val();
+            var GPARelationName = $("#RelationName").val();
+            var applicationDate = $("#ApplicationDate").val();
+            var effectiveFrom = $("#EffectiveFrom").val();
+            var effectiveTo = $("#EffectiveTo").val();
+            var GPARegistered = $("#GPARegistered").val();
+            var GPARegistrationNo = $("#GPARegisteredNo").val();
+            var allotmentDate = $("#AllotmentDate").val();
+            var dtEffectiveFrom = new Date(effectiveFrom);
+            var dtEffectiveTo = new Date(effectiveTo);
+            var dtApplicationDate = new Date(applicationDate);
+            var dtAllotmentDate = new Date(allotmentDate);
+            var desc = $("#Description").val();
+
+            var ObjGpaModel = {
+                RequestNo: $("#ServiceRequestId").val(),
+                RId: $("#Registration_No").val(),
+                GPAHolderName: $("#GPAHolderName").val(),
+                GPAHolderAdd: $("#GPAHolderAdd").val(),
+                RelationName: $("#RelationName").val(),
+                ApplicationDate: new Date(applicationDate),
+                EffectiveFrom: new Date(effectiveFrom),
+                EffectiveTo: new Date(effectiveTo),
+                GPARegistered: $("#GPARegistered").val(),
+                GPARegisteredNo: $("#GPARegisteredNo").val(),
+                AllotmentDate: new Date(allotmentDate),
+                Desc: desc
+            };
+
+            if (Validation()) {
+                $.ajax({
+                    dataType: 'json',
+                    type: 'Post',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(ObjGpaModel),
+                    url: '/Customer/SaveGpaRequest',
+                    success: function (result) {
+                        alertify.success("GPA Data Save successfully");
+                        $('#divAcknowledgementModal').modal('show');
+                        //ShowUploadDoc();
+                    },
+                    error: function (objAjaxRequest, strError) {
+                        var respText = objAjaxRequest.responseText;
+                        alert(respText);
+                        alert("Some error occured. Please try again later.");
+                        //$("#assignToWindow").data("kendoWindow").close();
+
+                    }
+                });
+            }
+        });
+
+
+        function Validation() {
+            var bflag = false;
+            var GPAHolderName = $("#GPAHolderName").val();
+            var GPAHolderAdd = $("#GPAHolderAdd").val();
+            var GPARelationName = $("#RelationName").val();
+            var applicationDate = $("#ApplicationDate").val();
+            var effectiveFrom = $("#EffectiveFrom").val();
+            var effectiveTo = $("#EffectiveTo").val();
+            var GPARegistered = $("#GPARegistered").val();
+            var GPARegistrationNo = $("#GPARegisteredNo").val();
+            var allotmentDate = $("#AllotmentDate").val();
+            var dtEffectiveFrom = new Date(effectiveFrom);
+            var dtEffectiveTo = new Date(effectiveTo);
+            var dtApplicationDate = new Date(applicationDate);
+            var dtAllotmentDate = new Date(allotmentDate);
+
+
+            if (GPAHolderName == '') {
+                alertify.error("Please enter GPA Holder Name");
+                bflag = false;
+            }
+            else if (GPAHolderAdd == '') {
+                alertify.error("Please enter GPA Holder Address");
+                bflag = false;
+            }
+            else if (GPARelationName == '') {
+                alertify.error("Please enter Relation");
+                bflag = false;
+            }
+            else if (applicationDate == '') {
+                alertify.error("Please enter Application Date");
+                bflag = false;
+            }
+            else if (effectiveFrom == '') {
+                alertify.error("Please enter Effective From Date");
+                bflag = false;
+            }
+            else if (effectiveTo == '') {
+                alertify.error("Please enter Effective To Date");
+                bflag = false;
+            }
+            else if (GPARegistered == '') {
+                alertify.error("Please select GPA Registered");
+                bflag = false;
+            }
+            else if (dtEffectiveFrom > dtEffectiveTo) {
+                alertify.error("Effective From can't be later than Effective To");
+                bflag = false;
+            }
+            else if (dtApplicationDate <= dtAllotmentDate) {
+                alertify.error("Application Date can't be earlier than, or equal to Allotment Date");
+                bflag = false;
+            }
+            else if (dtEffectiveFrom <= dtAllotmentDate) {
+                alertify.error("GPA Effective From can't be earlier than, or equal to Allotment Date");
+                bflag = false;
+            }
+            else {
+                bflag = true;
+            }
+
+            if (GPARegistered == '@NoidaAuthority.PMS.Common.Contants.MortPrevLoan.yes') {
+                if (GPARegistrationNo == '') {
+                    alertify.error("Please enter GPA Registration Number");
+                    bflag = false;
+                }
+            }
+            return bflag;
+        }
+    });
+</script>

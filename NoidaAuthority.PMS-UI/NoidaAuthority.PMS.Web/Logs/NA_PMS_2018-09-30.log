@@ -1,0 +1,661 @@
+2018-09-30 17:22:08,950 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:22:09,025 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:22:19,760 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:22:43,670 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:22:43,817 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Controller Exception
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at NoidaAuthority.PMS.Repository.CommonRepository.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Common\CommonRepository.cs:line 566
+   at NoidaAuthority.PMS.Service.CommonService.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Common\CommonService.cs:line 211
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 672
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2018-09-30 17:22:43,913 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at NoidaAuthority.PMS.Repository.CommonRepository.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Common\CommonRepository.cs:line 566
+   at NoidaAuthority.PMS.Service.CommonService.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Common\CommonService.cs:line 211
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 672
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-09-30 17:22:43,999 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:23:18,570 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:23:18,725 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Controller Exception
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at NoidaAuthority.PMS.Repository.CommonRepository.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Common\CommonRepository.cs:line 566
+   at NoidaAuthority.PMS.Service.CommonService.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Common\CommonService.cs:line 211
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 672
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2018-09-30 17:23:18,787 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at NoidaAuthority.PMS.Repository.CommonRepository.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Common\CommonRepository.cs:line 566
+   at NoidaAuthority.PMS.Service.CommonService.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Common\CommonService.cs:line 211
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 672
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-09-30 17:23:19,098 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:23:19,104 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:23:19,573 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:23:19,574 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:23:20,074 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:23:20,084 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:23:20,575 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:23:29,733 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:23:29,880 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:23:29,978 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:23:33,663 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:23:33,668 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:23:35,656 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:23:36,353 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:23:36,695 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:23:36,806 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:23:37,197 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:23:37,198 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:23:37,242 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:23:37,243 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:23:37,743 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:23:37,744 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:26:11,819 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:26:11,820 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:26:19,727 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:26:19,868 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:26:20,253 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:26:20,357 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:26:20,774 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:26:20,777 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:26:20,804 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:26:20,807 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:26:21,287 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:26:21,289 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:28:12,983 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:28:12,985 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:28:20,882 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:28:20,987 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:28:21,398 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:28:21,527 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:28:21,912 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:28:21,918 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:28:21,938 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:28:21,944 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:28:21,973 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:28:21,974 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:28:29,472 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:28:29,475 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:28:31,638 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:28:31,754 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:28:32,197 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:28:32,198 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:28:32,212 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:28:32,214 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:28:32,712 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:28:32,814 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:28:33,226 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:28:33,229 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:29:30,490 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:29:30,497 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:29:38,578 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:29:38,723 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:29:39,102 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:29:39,257 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:29:39,624 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:29:39,627 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:29:39,651 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:29:39,662 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:29:40,133 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:29:40,136 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:31:18,426 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:31:18,429 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:31:25,525 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:31:25,625 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:31:26,045 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:31:26,188 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:31:26,567 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:31:26,568 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:31:26,593 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:31:26,595 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:31:27,093 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:31:27,094 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:32:07,361 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:32:07,363 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:32:14,345 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:32:14,485 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:32:14,862 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:32:14,975 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:32:15,388 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:32:15,390 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:32:15,405 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:32:15,410 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:32:15,916 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:32:15,917 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:32:32,198 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 17:32:32,472 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 17:32:36,717 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 17:32:36,719 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 17:33:53,303 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:33:53,304 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:34:00,378 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:34:01,368 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:34:01,407 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:34:02,611 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:34:02,930 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:34:02,931 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:34:02,960 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:34:02,961 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:34:03,461 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:34:03,462 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:49:35,154 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:49:35,225 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:49:45,618 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:49:49,975 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:49:50,118 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:49:50,207 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:49:50,647 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:49:50,664 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:49:50,714 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:49:50,716 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:49:51,195 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:49:51,196 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:50:27,124 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:50:27,126 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:50:33,156 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:50:33,303 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:50:33,679 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:50:33,802 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:50:34,211 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:50:34,212 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:50:34,227 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:50:34,230 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:50:34,725 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:50:34,726 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:51:53,861 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:51:53,863 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:52:00,533 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:52:00,678 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:52:01,052 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:52:01,183 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:52:01,583 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:52:01,584 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:52:01,600 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:52:01,601 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:52:02,099 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:52:02,100 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:52:17,049 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:52:17,051 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:52:23,523 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:52:23,608 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:52:23,637 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:52:23,638 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:52:24,064 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:52:24,142 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:52:24,568 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:52:24,569 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:52:24,630 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:52:24,632 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:52:47,225 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:52:47,227 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:52:53,777 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:52:53,907 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:52:54,296 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:52:54,423 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:52:54,819 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:52:54,822 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:52:54,839 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:52:54,841 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:52:54,868 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:52:54,873 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:53:10,820 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:53:10,821 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:53:18,525 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:53:18,663 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:53:19,055 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:53:19,146 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:53:19,620 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:53:19,621 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:53:19,644 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:53:19,646 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:53:19,664 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:53:19,666 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:54:00,531 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:54:00,532 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:54:07,545 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:54:07,643 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:54:08,068 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:54:08,210 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:54:08,600 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:54:08,603 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:54:08,631 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:54:08,631 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:54:09,113 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:54:09,114 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:57:21,721 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 17:57:21,724 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 17:57:29,580 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:57:29,693 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 17:57:30,098 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:57:30,235 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 17:57:30,623 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:57:30,624 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 17:57:30,653 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:57:30,654 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:57:31,162 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:57:31,163 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 17:57:58,685 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 17:57:59,001 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 19:34:41,155 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 19:34:41,219 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 19:34:51,427 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:34:55,376 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:34:55,447 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:34:55,578 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:34:55,658 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:34:55,660 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:34:55,960 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:34:55,975 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:34:56,151 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:34:56,154 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:35:59,038 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 19:35:59,039 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 19:36:04,656 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:36:04,749 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:36:05,174 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:36:05,337 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:36:05,694 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:36:05,697 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:36:05,720 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:36:05,722 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:36:06,214 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:36:06,215 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:36:15,689 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 19:36:15,935 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 19:38:50,699 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 19:38:50,700 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 19:38:56,647 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:38:56,792 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:38:57,164 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:38:57,288 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:38:57,694 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:38:57,696 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:38:57,730 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:38:57,735 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:38:58,223 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:38:58,224 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:39:35,242 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 19:39:35,243 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 19:39:38,669 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 19:39:38,672 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 19:42:58,949 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 19:42:58,951 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 19:43:05,089 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:43:05,238 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:43:05,609 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:43:05,754 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:43:06,130 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:43:06,132 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:43:06,180 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:43:06,181 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:43:06,680 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:43:06,681 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:43:32,682 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 19:43:32,684 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 19:43:38,934 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:43:39,093 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:43:39,457 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:43:39,575 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:43:39,961 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:43:39,963 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:43:39,978 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:43:39,981 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:43:40,020 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:43:40,022 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:44:44,778 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 19:44:44,779 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 19:44:45,953 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:44:46,162 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:44:46,476 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:44:46,640 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:44:47,016 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:44:47,019 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:44:47,030 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:44:47,031 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:44:47,043 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:44:47,044 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:45:48,778 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 19:45:48,780 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 19:45:54,937 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:45:55,108 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:45:55,461 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:45:55,596 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:45:56,005 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:45:56,007 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:45:56,030 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:45:56,031 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:45:56,042 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:45:56,043 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:46:14,680 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 19:46:14,682 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 19:57:59,778 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 19:57:59,780 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 19:58:06,570 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:58:06,980 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 19:58:07,096 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:58:07,194 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 19:58:07,630 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:58:07,632 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 19:58:07,662 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:58:07,664 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:58:08,165 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 19:58:08,166 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 20:16:03,736 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 20:16:03,739 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 20:16:10,428 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 20:16:10,892 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 20:16:10,948 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 20:16:11,067 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 20:16:11,461 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 20:16:11,463 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 20:16:11,498 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 20:16:11,499 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 20:16:11,995 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 20:16:11,997 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 23:55:39,693 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 23:55:39,784 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 23:55:49,544 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 23:55:53,055 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 23:55:53,585 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 23:55:53,587 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 23:55:54,066 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 23:55:54,188 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 23:55:54,566 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 23:55:54,570 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 23:55:54,636 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 23:55:54,848 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 23:55:55,620 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 23:55:55,622 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 23:56:05,696 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 23:56:05,698 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 23:56:56,338 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 23:56:56,340 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 23:57:05,646 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 23:57:05,647 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 23:57:27,687 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 23:57:27,690 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 23:57:29,859 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 23:57:30,007 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 23:57:30,387 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 23:57:30,488 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 23:57:30,911 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 23:57:30,913 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 23:57:30,933 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 23:57:30,935 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 23:57:31,432 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 23:57:31,435 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 23:58:43,957 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-09-30 23:58:43,958 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-09-30 23:59:36,766 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-09-30 23:59:36,831 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-09-30 23:59:45,222 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-09-30 23:59:49,001 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-09-30 23:59:49,239 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 23:59:49,245 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-09-30 23:59:49,297 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 23:59:49,299 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-09-30 23:59:49,740 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-09-30 23:59:49,885 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-09-30 23:59:50,645 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ValidateRegistrationId on Controller: Account For User : .

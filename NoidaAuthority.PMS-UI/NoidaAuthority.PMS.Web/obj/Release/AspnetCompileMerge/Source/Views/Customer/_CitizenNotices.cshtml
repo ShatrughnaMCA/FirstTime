@@ -1,0 +1,107 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+
+
+<div class="row" id="PropertyDetailContainerDiv" data-registrationid="@Model.RegistrationId">
+    <div class="col-md-12">
+        <div class="row" style="padding:0 10px 20px;">
+            <div class="col-md-12 divPropertyDetailHeader">
+                <h4 class="inline"> Notices</h4>
+                <span class="pull-right RID-txt">(Registration No: @Model.RegistrationNo)</span>
+                <input type="hidden" id="hdnRegNo" value="@Model.RegistrationNo" />
+                <input type="hidden" id="hdnPropType" value="@Model.PropertyCategory" />
+            </div>
+        </div>
+        <div class="row">
+            @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                There is no Notice.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" id="feedbkbtn" style="float:right; margin:10px auto 0" class="btn btn-success">Submit Feedback</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:600px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Customer Feedback</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        Consumer Name:
+                    </div>
+                    <div class="col-md-9 form-group">
+                        <label>@Model.Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        Registration No:
+                    </div>
+                    <div class="col-md-9 form-group">
+                        <label> @Model.RegistrationNo</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        Comments:
+                    </div>
+                    <div class="col-md-9 form-group">
+                        <textarea class="form-control" id="message-text" style="width:100%; height:120px;"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" id="fdsubmit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var RegistrationID = $('#hdnRegistrationID').val();
+        
+        $("#feedbkbtn").click(function () {
+            $("#feedbackModal").modal('show');
+            $("#message-text").val("");
+        });
+
+        $("#fdsubmit").click(function () {
+            var feedback = $.trim($("#message-text").val());
+            if (feedback == '') {
+                alert("Please enter Feedback");
+                return false;
+            }
+            $("#feedbackModal").modal('hide');
+            $.ajax({
+                dataType: 'json',
+                type: 'Post',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ feedback: $("#message-text").val(), regNo: $("#hdnRegNo").val() }),
+                url: '/Customer/SaveFeedback',
+                success: function (result) {
+                    if (result == true)
+                        alert("Thank you for your feedback");
+                },
+                error: function (obj) {
+                }
+            });
+        });
+
+    });
+</script>

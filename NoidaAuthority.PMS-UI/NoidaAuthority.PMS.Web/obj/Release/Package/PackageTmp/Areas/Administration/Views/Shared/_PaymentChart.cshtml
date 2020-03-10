@@ -1,0 +1,401 @@
+﻿@using NoidaAuthority.PMS.Common;
+
+
+<div id="paymentChartsDiv" class="chartContainer" data-yearqs="@Contants.QueryString.Year" data-propertytypeqs="@Contants.QueryString.PropertyType" style="border-top: 5px solid #fff; border-right: 5px solid #fff;">
+    <img src="@Url.Content("~/Content/Images/loading_green.gif")" class="loading" />
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="paymentChartsDivModal" style="padding-top:5%; z-index:99999;" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg" style="min-height:500px;">
+        <div class="modal-content">
+            <div class="modal-header" style="min-height:60px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Defaulted Payment (End of Quarter)</h4>
+            </div>
+            <div class="modal-body chartContainer" id="paymentChartsDiv2" data-yearqs="@Contants.QueryString.Year" data-propertytypeqs="@Contants.QueryString.PropertyType">
+
+                <img src="@Url.Content("~/Content/Images/loading_green.gif")" class="loading" />
+
+
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>*@
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    //var height = $(".chart-inner").height();
+    var width = $(".chart-inner").width();
+    chartPaymentData = [];
+    chartPaymentPropertyTypeData = [];
+    PaymentID = {};
+    var AreaChartObject = null;
+
+    function CreatePaymentChart(chartData, drilldownSeriesData) {
+        Highcharts.setOptions({
+            colors: ['#90ED7D', '#434348']
+        });
+        drilldownSeriesData.push({
+            type: 'spline',
+
+            data: drilldownSeriesData[0],
+            marker: {
+                lineWidth: 0.1,
+                lineColor: Highcharts.getOptions().colors[3],
+                fillColor: 'white'
+            }
+
+
+        });
+
+        // for pop up zoom
+        var PaymentChartOptions2 = {
+            chart: {
+                renderTo: 'paymentChartsDiv2',
+                type: 'column',
+                width: 850,
+                //height: 300,
+                options3d: {
+                    enabled: false,
+                    alpha: 5,
+                    beta: 5,
+                    depth: 20,
+                    viewDistance: 25
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: '',
+                verticalAlign: 'top',
+                align: 'center',
+                y: -2,
+                style: {
+                    fontSize: '11px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: "bold"
+                }
+            },
+            exporting: {
+                enabled: false
+            },
+            legend: {
+                align: 'right',
+                verticalAlign: 'top',
+                layout: 'vertical',
+                y: 50
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:13px">{series.name}</span><br/><span style="font-size:13px">{point.key}</span><br/>',
+                pointFormat: '<span style="color:{series.color}">\u25CF</span> Defaulted Amount: <b>₹ {point.y:,.2f} Crore</b><br/><span style="color:{series.color}">\u25CF</span> Count: <b>{point.no:,.0f}</b>'
+            },
+            plotOptions: {
+                column: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function () {
+                                location.href = this.options.url;
+                            }
+                        }
+                    },
+                    depth: 70,
+                    dataLabels: {
+                        distance: -30,
+                        color: 'white',
+                        enabled: false,
+                        format: '{point.percentage:.1f}%'
+                    },
+                    showInLegend: false
+
+                },
+
+            },
+            xAxis: {
+                type: 'category',
+                title: {
+                    enabled: true,
+                    style: {
+                        fontSize: '11px',
+                        color: '#606060',
+                        fontFamily: "Lucida Sans Unicode",
+                        fontWeight: 'normal',
+
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Defaulted Amount End of Quarter (in ₹)'
+                },
+                min: 0,
+                labels: {
+                    format: '{value:,.0f} Crores'
+                }
+            },
+            series: [{
+                name: 'Defaulted Payment',
+                colorByPoint: true,
+                data: chartData,
+                pointWidth: 50
+
+            }, {
+                type: 'line',
+                name: 'Defaulted Payment',
+                dashStyle: 'Dot',
+                data: chartData,
+                marker: {
+
+                    lineColor: Highcharts.getOptions().colors[2],
+                    fillColor: 'white'
+                },
+                enableMouseTracking: false,
+                showInLegend: false,
+            }],
+            drilldown: {
+                series: drilldownSeriesData,
+                events: {
+                    drilldown: function (e) {
+                        chart.options.plotOptions.column.colorByPoint = true
+                        e.Highcharts.options.get
+                    },
+                    drillup: function (e) {
+                        chart.options.plotOptions.column.colorByPoint = false
+                    }
+                },
+                activeAxisLabelStyle: {
+                    textDecoration: 'none',
+                    fontSize: '11px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: 'normal',
+                },
+
+
+                drillUpButton: {
+                    relativeTo: 'spacingBox',
+                    position: {
+                        y: 0,
+                        x: 0
+                    },
+                }
+            },
+
+        }
+
+
+        var PaymentChartOptions = {
+            chart: {
+                renderTo: 'paymentChartsDiv',
+                type: 'column',
+                height: 300,
+                options3d: {
+                    enabled: false,
+                    alpha: 5,
+                    beta: 5,
+                    depth: 20,
+                    viewDistance: 25
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: '',
+                verticalAlign: 'top',
+                align: 'center',
+                 y:-2,
+                style: {
+                    fontSize: '11px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight:"bold"
+                }
+            },
+            exporting: {
+                enabled: false
+            },
+            legend: {
+                align: 'right',
+                verticalAlign: 'top',
+                layout: 'vertical',
+                y: 50
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:13px">{series.name}</span><br/><span style="font-size:13px">{point.key}</span><br/>',
+                pointFormat: '<span style="color:{series.color}">\u25CF</span> Defaulted Amount: <b>₹ {point.y:,.2f} Crore</b><br/><span style="color:{series.color}">\u25CF</span> Count: <b>{point.no:,.0f}</b>'
+            },
+            plotOptions: {
+                column: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function () {
+                                location.href = this.options.url;
+                            }
+                        }
+                    },
+                    depth: 70,
+                    dataLabels: {
+                        distance: -30,
+                        color: 'white',
+                        enabled: false,
+                        format: '{point.percentage:.1f}%'
+                    },
+                    showInLegend: false
+
+                },
+
+            },
+            xAxis: {
+                type: 'category',
+                                title: {
+                    enabled:true,
+                    style: {
+                        fontSize: '11px',
+                        color: '#606060',
+                        fontFamily: "Lucida Sans Unicode",
+                        fontWeight: 'normal',
+
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Defaulted Amount End of Quarter (in ₹)'
+                },
+                min:0,
+                labels: {
+                    format: '{value:,.0f} Crores'
+                }
+            },
+            series: [{
+                name: 'Defaulted Payment',
+                colorByPoint: true,
+                data: chartData,
+                pointWidth: 35
+
+            }, {
+                type: 'line',
+                name: 'Defaulted Payment',
+                dashStyle: 'Dot',
+                data: chartData,
+                marker: {
+
+                    lineColor: Highcharts.getOptions().colors['2'],
+                    fillColor: 'white'
+                },
+                enableMouseTracking: false,
+                showInLegend:false,
+            }],
+            drilldown: {
+                series: drilldownSeriesData,
+                events: {
+                    drilldown: function(e) {
+                        chart.options.plotOptions.column.colorByPoint = true
+                        e.Highcharts.options.get
+                    },
+                    drillup: function(e) {
+                        chart.options.plotOptions.column.colorByPoint = false
+                    }
+                },
+                              activeAxisLabelStyle: {
+                    textDecoration: 'none',
+                    fontSize: '11px',
+                    color: '#606060',
+                    fontFamily: "Lucida Sans Unicode",
+                    fontWeight: 'normal',
+                },
+
+
+                drillUpButton: {
+                    relativeTo: 'spacingBox',
+                    position: {
+                        y: 0,
+                        x: 0
+                    },
+                }
+            },
+
+        }
+        PaymentChartObject = new Highcharts.Chart(PaymentChartOptions);
+        PaymentChartObject = new Highcharts.Chart(PaymentChartOptions2);
+    };
+    function GetPaymentChartData(sector, onComplete) {
+        var deptId = '@Session["DeptId"]';
+        chartPaymentData = [];
+        chartPaymentPropertyTypeData = [];
+        var colors = Highcharts.getOptions().colors;
+        jQuery.support.cors = true;
+        $.ajax({
+            url: '/API/Graph/RevenueDefaulted?sc=' + sector + '&DeptId=' + deptId,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $.each(data, function (i, item) {
+                    chartPaymentData.push({
+                        name: item.Monyear,
+                        no: item.defaultedNumber,
+                        y: item.DefaultedAmount,
+                        url: '/Administration/Property/Payments?pts=1' + "&sc=" + GetSeletedSectorForDefaultPayment(),
+                        drilldown: item.ID
+                    })
+                    PaymentID[item.Monyear] = item.ID;
+                });
+
+                GetPaymentPropertyTypeChartData(sector, onComplete);
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+    function GetPaymentPropertyTypeChartData(sector, onComplete) {
+        var deptId = '@Session["DeptId"]';
+        chartData = [];
+        jQuery.support.cors = true;
+        $.ajax({
+            url: '/API/Graph/DepartmentWiseRevenue?sc=' + sector + '&DeptId=' + deptId,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                var currentMonyear = "";
+                var newObj = null;
+                $.each(data, function (i, item) {
+                    if (currentMonyear != item.Monyear) {
+                        newObj = {
+                            name: item.Monyear,
+                            id: PaymentID[item.Monyear],
+                            data: []
+                        }
+                        chartPaymentPropertyTypeData.push(newObj);
+                    }
+                    newObj.data.push({
+                        name: item.propertyType,
+                        y: item.DefaultedAmount,
+                        no: item.defaultedNumber,
+                        url: '/Administration/Property/Payments?pts=1' + '&' + GetDataItem("paymentChartsDiv", "propertytypeqs") + '=' + item.ID + "&sc=" + GetSeletedSectorForDefaultPayment() + "&qtr=" + item.Monyear,
+                    });
+                    currentMonyear = item.Monyear;
+                });
+                onComplete();
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+    $(document).ready(function () {
+        GetPaymentChartData("", function () {
+            CreatePaymentChart(chartPaymentData, chartPaymentPropertyTypeData);
+        });
+    });
+</script>

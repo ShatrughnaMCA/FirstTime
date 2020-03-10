@@ -1,0 +1,41 @@
+﻿@model NoidaAuthority.PMS.Entity.CustomerDetailViewModel
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+@*<div>
+    <input type="hidden" id="hdnRegistrationID" value="@Model.RegistrationId" />
+    <input type="hidden" id="hdnPropertyCategory" value="@Model.PropertyCategory" />
+    <input type="hidden" id="hdnregID" value=@Request.QueryString["flag"] />
+    <input type="hidden" id="hdnflag" value=@Request.QueryString["Pflag"] />
+</div>*@
+
+<div class="col-md-10 col-md-offset-1" id="PropertyDetailContainerDiv" data-registrationid="@Model.PropertyModel.RegistrationId">
+    <div>
+        <input type="hidden" id="hdnRegNo" value="@Model.PropertyModel.RegistrationId" />
+        <input type="hidden" id="hdnPropType" value="@Model.PropertyModel.Department" />
+    </div>
+
+    <div class="row" style="padding:0 10px 20px;">
+        <div class="col-md-12 divPropertyDetailHeader" style="margin-bottom:20px;">
+            <h4 class="inline">Allottee Details</h4>
+            <span class="pull-right RID-txt">Registration No: @Model.PropertyModel.RegistrationId</span>
+        </div>
+        
+
+        @{ Html.RenderPartial("_AllotteeInfo", Model); }
+    </div>
+
+    <div class="row" style="padding:0 10px 20px;">
+        <div class="col-md-12 divPropertyDetailHeader" style="margin-bottom:20px;">
+            <h4 class="inline">Property Details</h4>
+        </div>
+
+        @{ Html.RenderPartial("_PropertyInfo", Model); }
+    </div>
+
+</div>

@@ -1,0 +1,140 @@
+﻿@model NoidaAuthority.PMS.Entity.MutationModel
+@using Kendo.Mvc.UI;
+
+<div class="row">
+    <div class="col-md-6 no-padding">
+        @*<div class="row">
+            <div class="col-md-6">
+                @Html.Label("Mutation Date", htmlAttributes: new { @class = "nw-lbl-lft" })
+    </div>
+    <div class="col-md-6">
+        @(Html.Kendo().DatePickerFor(model => model.MutationDate)
+                                                          .HtmlAttributes(new { @class = "DisableKeyboardInput", style = "width:100%" }))
+    </div>
+    </div>*@
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Transfer Deed Date", htmlAttributes: new { @class = "nw-lbl-lft" })
+            </div>
+            <div class="col-md-6">
+        @(Html.Kendo().DatePickerFor(model => model.TransferDeedDate)
+                                                          .HtmlAttributes(new { @class = "DisableKeyboardInput", style = "width:100%" }))
+    </div>
+</div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Bahi Number", htmlAttributes: new { @class = "nw-lbl-lft" })
+    </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.BahiNo, new { @maxlength = "10", @class = "nw-lbl-rht" })
+    </div>
+    </div>
+    </div>
+    <div class="col-md-6 no-padding">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Bahi Zild Number", htmlAttributes: new { @class = "nw-lbl-lft" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.BahiZildNo, new { @maxlength = "10", @class = "nw-lbl-rht nw-txt-bx-spce" })
+    </div>
+</div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Bahi Page Number", htmlAttributes: new { @class = "nw-lbl-lft" })
+    </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.BahiPageNo, new { @maxlength = "10", @class = "nw-lbl-rht nw-txt-bx-spce" })
+    </div>
+    </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("SI Number", htmlAttributes: new { @class = "nw-lbl-lft" })
+    </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.SINo, new { @maxlength = "10", @class = "nw-lbl-rht nw-txt-bx-spce" })
+</div>
+    </div>
+    </div>
+    </div>
+
+
+
+@*<div class="row">
+    <div class="col-md-12 text-right btn-add-service" style="padding-top:15px;">
+        <input type="button" id="btnSubmit" class="btn btn-upload-doc btnName" style="padding:10px 20px" value="Next >>" />
+    </div>
+</div>*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnMutationServiceSubmit").click(function () {
+            //var mutDate = $("#MutationDate").data("kendoDatePicker").value();
+            //var transDeedDate = $("#TransferDeedDate").data("kendoDatePicker").value();
+            var mutDate = $("#MutationDate").val();
+            var transDeedDate = $("#TransferDeedDate").val();
+            var bahiNo = $("#BahiNo").val();
+            var bahiZildNo = $("#BahiZildNo").val();
+            var bahiPgNo = $("#BahiPageNo").val();
+            var SINo = $("#SINo").val();
+            var rId = $("#Registration_No").val();
+            var desc = $("#Description").val();
+            var serviceId = $("#ServiceRequestId").val();
+            //if (mutDate == "" || mutDate == null) {
+            //    alert("Please enter Mutation Date.");
+            //    return false;
+            //}
+            if (transDeedDate == "" || transDeedDate == null) {
+                alert("Please enter Transfer Deed Date.");
+                return false;
+            }
+            if (bahiNo == "") {
+                alert("Please enter Bahi Number.");
+                return false;
+            }
+            if (bahiZildNo == "") {
+                alert("Please enter Bahi Zild Number.");
+                return false;
+            }
+            if (bahiPgNo == "") {
+                alert("Please enter Bahi Page Number.");
+                return false;
+            }
+            if (SINo == "") {
+                alert("Please enter SI Number.");
+                return false;
+            }
+            if (CheckFileUpload) {
+            $.ajax({
+                dataType: 'json',
+                type: 'Post',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({
+                    transDeedDate: transDeedDate, bahiNo: bahiNo, bahiZildNo: bahiZildNo, bahiPgNo: bahiPgNo, SINo: SINo, rId: rId, serviceId: serviceId, desc: desc
+                }),
+                url: '/Customer/SaveMutationRequest',
+                success: function (result) {
+                    if (result == true) {
+                        alertify.success("Request added successfully");
+
+                        $('#divAcknowledgementModal').modal('show');
+
+                        //$('#userform').submit();
+                        @*alert("Request added successfully");
+                        window.location.href = '@Url.Action("Citizen", "Customer")';*@
+                        //ShowUploadDoc();
+                    }
+                    //else {
+                    //    alertify.error("No new Transfer Request exists for the selected RID.");
+                    //}
+                },
+                error: function (objAjaxRequest, strError) {
+                    var respText = objAjaxRequest.responseText;
+                    //alert(respText);
+                }
+            });
+            }
+            
+        });
+    });
+</script>

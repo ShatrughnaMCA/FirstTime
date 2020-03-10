@@ -1,0 +1,253 @@
+﻿@model NoidaAuthority.PMS.Entity.CitizenServiceRequest
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.Extensions;
+
+@{
+    ViewBag.Title = "Service Status";
+    Layout = "~/Views/Shared/_Blank.cshtml";
+}
+
+<style>
+    body {
+        background-color: #00a182;
+    }
+
+    .cust-panel {
+        background-color: #fff;
+        border-radius: 6px;
+        padding-bottom: 15px;
+        box-shadow: 2px 2px 8px #000;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    #divCustomerRequest {
+        width: 80%;
+        margin-left: 10%;
+        border-radius: 3px;
+    }
+
+    .col-md-4 {
+        margin-top: 0px;
+    }
+
+    .form-control {
+        border-radius: 0;
+    }
+
+    .k-button {
+        padding: 5px 12px;
+    }
+
+    .data-field {
+        display: none;
+    }
+</style>
+
+<div id="divCustomerRequest">
+
+    <div class="row">
+        <div class="col-lg-12 text-center" style="margin-bottom:1%">
+            <img src="~/Content/Images/logo-noida-small.png" />
+        </div>
+    </div>
+    <div class="cust-panel" id="divPanel">
+        <div class="row form-group">
+            <div class="col-md-12" style="border-bottom:2px solid #aaa;padding:6px; text-align:center;">
+                <h2>Service Request Detail</h2>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>Request No</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.ServiceRequestId, new { @class = "form-control", @maxlength = "6", style = "width:100%;" })
+                @*@(Html.Kendo().ComboBoxFor(model => model.ServiceRequestId)
+                            //.Name("RequestComboBox")
+                            .DataTextField("text")
+                            .DataValueField("id")
+                            .DataSource(source =>
+                            {
+                                source.Custom()
+                                      .ServerFiltering(true)
+                                      .Type("aspnetmvc-ajax")
+                                      .Transport(transport =>
+                                      {
+                                          transport.Read("GetAllServiceRequestId", "Customer");
+                                      })
+                                      .Schema(schema =>
+                                      {
+                                          schema.Data("Data").Total("Total");
+                                      });
+                            })
+                            .Events(events => { events.Change("GetRequestDetails"); })
+                            .HtmlAttributes(new { style="width:100%;"})
+                    )*@
+            </div>
+            <div class="col-md-2">
+                <label>Mobile No</label>
+
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control", @maxlength = "10", style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-12" style="text-align:right">
+                <input type="button" class="k-button" id="btnClear" value="Clear" />
+                <input type="button" class="k-button" id="btnSearch" value="Search Request" />
+            </div>
+
+        </div>
+        <div class="row form-group data-field">
+            <div class="col-md-2">
+                <label>Registration Id</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.Registration_No, new { @class = "form-control", @Readonly = "readonly", style = "width:100%;" })
+            </div>
+            <div class="col-md-2">
+                <label>Property No</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.Property_No, new { @class = "form-control", @Readonly = "readonly", style = "width:100%;" })
+            </div>
+        </div>
+        <div class="row form-group data-field">
+            <div class="col-md-2">
+                <label>Allottee Name</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.ApplicantName, new { @class = "form-control", @Readonly = "readonly", style = "width:100%;" })
+            </div>
+            <div class="col-md-2">
+                <label>Requestor Name</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.RequesterName, new { @class = "form-control", @Readonly = "readonly", style = "width:100%;" })
+            </div>
+        </div>
+        <div class="row form-group data-field">
+            <div class="col-md-2">
+                <label>Applicant Address</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.ApplicantAddress, new { @class = "form-control", @Readonly = "readonly", style = "width:100%;" })
+            </div>
+            <div class="col-md-2">
+                <label>Requestor Address</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.RequestorAddress, new { @class = "form-control", @Readonly = "readonly", style = "width:100%;" })
+            </div>
+        </div>
+        <div class="row form-group data-field">
+            <div class="col-md-2">
+                <label>Comment</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.Comment, new { @class = "form-control", @Readonly = "readonly", style = "width:100%;" })
+            </div>
+            <div class="col-md-2">
+                <label>Description</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @Readonly = "readonly", style = "width:100%;" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-12" style="text-align:center;">
+                @Html.ActionLink("Login here", "Login", new { Controller="Account", area=""})
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#ServiceRequestId').val("");
+
+        $('#btnSearch').click(function () {
+            var reqid = $('#ServiceRequestId').val();
+            var mobile = $('#Mobile').val();
+            if (reqid != "" && reqid != 0) {
+                if (mobile != "" && mobile.length == 10) {
+                    GetRequestDetails();
+                    //$('.data-field').show();
+                }
+                else {
+                    alertify.error("Please enter correct mobile number.");
+                    return false;
+                }
+            }
+            else {
+                alertify.error("Request id is not valid");
+                return false;
+            }
+        });
+
+        $('#btnClear').click(function () {
+            $('#ServiceRequestId').val("");
+            $('#Mobile').val("");
+            $('#Registration_No').val("");
+            $('#Property_No').val("");
+            $('#ApplicantName').val("");
+            $('#RequesterName').val("");
+            $('#ApplicantAddress').val("");
+            $('#RequestorAddress').val("");
+            $('#Comment').val("");
+            $('#Description').val("");
+        });
+
+    });
+    //$('#ServiceRequestId').change(function () {
+    //    var reqid = $('#ServiceRequestId').val();
+    //    if (reqid != "" && reqid != 0) {
+    //        GetRequestDetails();
+    //    }
+    //    else {
+    //        alertify.error("Request id is not valid");
+    //        return false;
+    //    }
+    //});
+
+
+    function GetRequestDetails() {
+        var reqid = $('#ServiceRequestId').val();
+        var mobile = $('#Mobile').val();
+        if (reqid != 0) {
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ requestId: reqid, mobile: mobile }),
+                url: '@Url.Action("GetServiceRequestDetailByRequestId", "Property", new { area="Customer"})',
+                success: function (result) {
+                    if (result.IsNull == false) {
+                        $('#Registration_No').val(result.Registration_No);
+                        $('#Property_No').val(result.Property_No);
+                        $('#ApplicantName').val(result.ApplicantName);
+                        $('#RequesterName').val(result.RequesterName);
+                        $('#ApplicantAddress').val(result.ApplicantAddress);
+                        $('#RequestorAddress').val(result.RequestorAddress);
+                        //$('#Mobile').val(result.Mobile);
+                        $('#Comment').val(result.Comment);
+                        $('#Description').val(result.Description);
+
+                        $('.data-field').show();
+                    }
+                    else {
+                        alertify.error("Please check Request id or mobile no.");
+                    }
+                },
+                error: function (ajaxRequest, strError) {
+                    alert(ajaxRequest.responseText);
+                    //alertify.error("Something is wrong, try again later.");
+                }
+            });
+        }
+    }
+</script>
+

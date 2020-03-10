@@ -1,0 +1,996 @@
+2018-12-08 19:15:14,952 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:15:15,172 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:15:41,581 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-12-08 19:15:41,590 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-12-08 19:15:43,970 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-12-08 19:15:47,900 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-12-08 19:15:47,954 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-12-08 19:15:47,959 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-12-08 19:15:48,063 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-12-08 19:15:48,149 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-12-08 19:15:48,467 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-12-08 19:15:48,475 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-12-08 19:15:48,960 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-12-08 19:15:48,962 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-12-08 19:15:49,459 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-12-08 19:15:49,564 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-12-08 19:15:49,640 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-12-08 19:15:49,739 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-12-08 19:16:02,003 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:16:02,093 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:16:17,463 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:16:17,464 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:16:18,039 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:16:18,635 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:16:22,078 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:16:22,080 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:16:22,631 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:16:22,767 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:16:22,823 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Controller Exception
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at Inflector.ToMD5HashForPassword(String plainText) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Common\Extensions\Strings.cs:line 734
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__3.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2018-12-08 19:16:22,855 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.ArgumentNullException: String reference not set to an instance of a String.
+Parameter name: s
+   at System.Text.Encoding.GetBytes(String s)
+   at Inflector.ToMD5HashForPassword(String plainText) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Common\Extensions\Strings.cs:line 734
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__3.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-12-08 19:16:45,495 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:16:45,496 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:17:07,445 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:17:07,447 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:17:08,011 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:25:28,096 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:25:28,246 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:26:47,384 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:26:47,478 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:26:48,034 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:27:50,387 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:27:57,432 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:27:57,433 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:28:25,731 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:28:25,732 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:28:26,288 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:28:45,764 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:28:46,664 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:28:46,667 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:28:53,394 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:28:53,397 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:29:07,341 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:29:07,343 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:29:07,901 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:29:59,791 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:30:31,640 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:30:31,641 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:38:30,559 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:38:30,759 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:38:42,805 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:38:42,806 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:38:43,408 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:38:50,911 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:40:36,902 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryCloseInternal(Boolean closeReader)
+   at System.Data.SqlClient.SqlDataReader.Close()
+   at System.Data.Common.DbDataReader.Dispose(Boolean disposing)
+   at System.Data.Common.DbDataReader.Dispose()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.Finally()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.Dispose()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at NoidaAuthority.PMS.Repository.CustomerRepository.GetPaymentLedgerDataListById(DataSourceRequest request, Nullable`1 rid) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Customer\CustomerRepository.cs:line 835
+   at NoidaAuthority.PMS.Service.CustomerService.GetPaymentLedgerDataListById(DataSourceRequest request, Nullable`1 rid) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Customer\CustomerService.cs:line 39
+   at NoidaAuthority.PMS.Web.Areas.Customer.Controllers.PropertyController.GetPaymentLedgerDataListById(DataSourceRequest request, Nullable`1 rid) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Areas\Customer\Controllers\PropertyController.cs:line 256
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:3d9e88b9-5f51-47a8-b923-64510521395b
+Error Number:-2,State:0,Class:11
+2018-12-08 19:41:51,996 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryCloseInternal(Boolean closeReader)
+   at System.Data.SqlClient.SqlDataReader.Close()
+   at System.Data.Common.DbDataReader.Dispose(Boolean disposing)
+   at System.Data.Common.DbDataReader.Dispose()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.Finally()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.Dispose()
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at NoidaAuthority.PMS.Repository.CustomerRepository.GetPaymentLedgerDataListById(DataSourceRequest request, Nullable`1 rid) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Customer\CustomerRepository.cs:line 835
+   at NoidaAuthority.PMS.Service.CustomerService.GetPaymentLedgerDataListById(DataSourceRequest request, Nullable`1 rid) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Customer\CustomerService.cs:line 39
+   at NoidaAuthority.PMS.Web.Areas.Customer.Controllers.PropertyController.GetPaymentLedgerDataListById(DataSourceRequest request, Nullable`1 rid) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Areas\Customer\Controllers\PropertyController.cs:line 256
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:3d9e88b9-5f51-47a8-b923-64510521395b
+Error Number:-2,State:0,Class:11
+2018-12-08 19:53:59,618 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:53:59,840 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:54:24,422 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:54:24,520 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:54:25,075 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:54:36,590 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:55:03,347 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:55:03,348 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:55:03,887 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:55:07,115 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:55:07,177 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Controller Exception
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.GetAuthorityUserDetail(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 236
+   at NoidaAuthority.PMS.Service.Login.LoginService.GetAuthorityUserDetail(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 63
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__3.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 80
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2018-12-08 19:55:07,215 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.GetAuthorityUserDetail(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 236
+   at NoidaAuthority.PMS.Service.Login.LoginService.GetAuthorityUserDetail(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 63
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__3.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 80
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-12-08 19:55:40,082 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:55:40,086 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:55:51,451 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:55:51,452 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:55:52,001 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:56:41,794 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:56:59,389 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 19:56:59,390 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 19:56:59,943 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:00:52,876 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:00:52,935 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Controller Exception
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.GetAuthorityUserDetail(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 236
+   at NoidaAuthority.PMS.Service.Login.LoginService.GetAuthorityUserDetail(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 63
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__3.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 80
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2018-12-08 20:00:52,953 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.GetAuthorityUserDetail(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 236
+   at NoidaAuthority.PMS.Service.Login.LoginService.GetAuthorityUserDetail(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 63
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__3.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 80
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-12-08 20:19:56,362 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:19:56,364 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:20:15,588 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:20:15,589 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:20:16,139 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:20:19,469 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:21:13,936 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at NoidaAuthority.PMS.Repository.CustomerRepository.GetCustomerDetails(Int32 rid) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Customer\CustomerRepository.cs:line 1680
+   at NoidaAuthority.PMS.Service.CustomerService.GetCustomerDetails(Int32 rid) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Customer\CustomerService.cs:line 189
+   at NoidaAuthority.PMS.Web.Areas.Customer.Controllers.PropertyController.Dashboard() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Areas\Customer\Controllers\PropertyController.cs:line 79
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-12-08 20:21:20,422 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:21:20,424 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:30:57,770 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:30:57,931 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:31:15,467 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:31:15,559 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:31:16,103 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:31:23,164 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:31:23,260 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:31:23,262 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:32:45,299 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:32:45,484 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:32:59,116 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:32:59,117 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:32:59,728 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:34:17,218 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:34:17,411 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:34:40,755 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:34:40,843 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:34:41,370 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:34:48,028 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:34:48,175 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:34:48,177 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:36:44,727 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:36:44,728 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:36:47,305 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:36:51,316 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:36:51,370 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:36:51,371 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:38:21,965 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:38:21,966 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:38:22,513 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:38:46,338 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:38:46,411 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:38:46,413 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:41:25,423 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:41:25,608 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:41:47,728 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:41:47,823 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:41:48,371 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:41:56,206 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:41:56,324 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:41:56,327 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:42:16,437 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:42:16,439 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:42:16,977 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:42:19,455 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:46:09,438 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:46:09,616 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:46:28,438 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:46:28,531 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:46:29,077 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:46:36,319 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:50:53,075 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at NoidaAuthority.PMS.Repository.Common.GetConnection.GetOpenConnection() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Common\GetConnection.cs:line 14
+   at NoidaAuthority.PMS.Repository.PropertyRepository.GetPropertyList(DtoPropertyFilter objPropertyFilter, DataSourceRequest request) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Property\PropertyRepository.cs:line 38
+   at NoidaAuthority.PMS.Service.PropertyService.GetPropertyList(DtoPropertyFilter objPropertyFilter, DataSourceRequest request) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Property\PropertyService.cs:line 30
+   at NoidaAuthority.PMS.Web.Areas.Administration.Controllers.PropertyController.GetProperties(DataSourceRequest req, List`1 options) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Areas\Administration\Controllers\PropertyController.cs:line 223
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-12-08 20:55:49,729 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:55:49,907 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:56:09,257 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:56:09,349 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:56:09,882 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:56:17,243 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 20:57:26,443 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 20:57:26,446 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:04:03,843 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:04:04,032 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:06:04,775 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:06:04,845 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:06:14,225 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:06:14,226 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:06:14,816 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:06:24,350 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:06:32,596 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:06:32,599 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:07:51,482 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:07:51,483 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:10:01,102 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:10:01,104 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:10:34,716 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:10:34,718 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:10:52,119 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:10:52,121 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:10:52,676 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:11:02,038 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:11:02,093 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Controller Exception
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.ValidateUser(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 214
+   at NoidaAuthority.PMS.Service.Login.LoginService.ValidateUser(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 57
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__3.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2018-12-08 21:11:02,128 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.ValidateUser(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 214
+   at NoidaAuthority.PMS.Service.Login.LoginService.ValidateUser(UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 57
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__3.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 76
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-12-08 21:12:24,009 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:12:24,012 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:12:32,210 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:12:32,211 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:12:32,775 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:12:33,295 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:12:35,197 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Web.HttpCompileException (0x80004005): d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Areas\Administration\Views\Admin\ManageEmployee.cshtml(210): error CS0117: 'NoidaAuthority.PMS.Common.ReturnType' does not contain a definition for 'Deactive'
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-12-08 21:13:55,551 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:13:55,555 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:41:12,660 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:41:12,812 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:41:29,760 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:41:29,856 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:41:30,409 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:41:34,593 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:54:02,541 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:54:02,542 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:54:38,989 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:54:38,991 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:54:50,655 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:54:50,656 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:54:51,205 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:54:51,704 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:55:07,449 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:55:07,452 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:56:32,220 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:56:32,221 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 21:59:08,197 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 21:59:08,200 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:07:56,725 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:07:56,728 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:07:57,310 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:07:57,875 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:08:24,127 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:08:24,129 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:12:20,659 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:12:20,662 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:21:10,798 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:24:46,865 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:24:59,748 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:27:45,912 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:28:19,086 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:29:57,302 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:30:00,727 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:33:55,384 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:33:55,389 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:35:50,608 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:35:50,609 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:35:52,382 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:35:52,383 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:35:53,494 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:35:53,495 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:35:55,094 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:35:55,095 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:35:56,349 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:35:56,351 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:35:57,235 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:35:57,236 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:35:59,227 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:35:59,228 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:00,167 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:00,168 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:01,008 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:01,010 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:02,400 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:02,401 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:03,815 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:03,816 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:05,039 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:05,040 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:06,048 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:06,070 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:14,103 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:14,106 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:14,775 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:14,776 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:15,245 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:15,246 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:15,473 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:15,474 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:16,216 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:16,217 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:16,886 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:16,887 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:28,642 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:28,643 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:29,817 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:29,818 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:30,815 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:30,816 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:31,526 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:31,527 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:32,230 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:32,231 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:33,039 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:33,040 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:33,839 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:33,840 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:34,610 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:34,614 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:35,301 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:35,302 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:35,968 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:35,969 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:37,775 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:37,776 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:38,750 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:38,751 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:39,447 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:39,448 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:40,124 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:40,126 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:40,751 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:40,752 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:41,439 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:41,440 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:42,120 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:42,121 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:42,896 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:42,897 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:43,710 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:43,711 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:45,152 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:45,153 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:52,608 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:52,609 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:36:53,746 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:36:53,747 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:37:05,576 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:37:05,581 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:37:06,641 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:37:06,642 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:37:07,467 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:37:07,469 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:37:08,927 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:37:08,928 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-12-08 23:37:10,175 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-12-08 23:37:10,176 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .

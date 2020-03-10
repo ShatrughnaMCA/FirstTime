@@ -1,0 +1,234 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+
+
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<script src="~/Scripts/jquery.ba-hashchange.js"></script>
+
+
+
+<style>
+    #complaint {
+        display: block;
+    }
+</style>
+
+<div id="services" class="">
+    
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Name:</label>
+            </div>
+            <div class="col-sm-8">
+                <label>@Model.Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Property Number:</label>
+            </div>
+            <div class="col-sm-8">
+                <label id="lblPropertyNo">@Model.PropertyNumber</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label> Customer Address:</label>
+            </div>
+            <div class="col-sm-8">
+                <label>@Model.CustomerAddress</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Mobile No:</label>
+            </div>
+            <div class="col-sm-8">
+                <label>
+                    @{
+                        if (!string.IsNullOrEmpty(Model.Mobile))
+                        {
+                            <label id="lbl">@Model.Mobile</label>
+                        }
+                        else
+                        {
+                            <label id="lbl">NA</label>
+                        }
+                    }
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Email ID:</label>
+            </div>
+            <div class="col-sm-8">
+                <label>
+                    @{
+                        if (!string.IsNullOrEmpty(Model.EmailId))
+                        {
+                            <label id="lbl">@Model.EmailId</label>
+                        }
+                        else
+                        {
+                            <label id="lbl">NA</label>
+                        }
+                    }
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Department:</label>
+            </div>
+            <div class="col-sm-8">
+                <select id="ddlDepartment" onchange="GetAllServices(this)">
+                    <option value="">Select</option>
+                    <option value="1">Institutional</option>
+                    <option value="2">Commercial</option>
+                    <option value="3">Residential</option>
+                    <option value="4">Industrial</option>
+                    <option value="5">Housing</option>
+                    <option value="6">Group Housing</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Services:</label>
+            </div>
+            <div class="col-sm-8">
+                <select id="ddlService" style="word-wrap:break-word;width:300px;"></select>
+            </div>
+        </div>
+        <div class="row" style="display:none;">
+            <div class="col-sm-4">
+                <label> Description:</label>
+            </div>
+            <div class="col-sm-8">
+                <textarea class="form-control" id="txtServiceDescription" style="padding:0;margin:0;"></textarea>
+            </div>
+        </div>
+
+
+        <div class="row" style="padding-top:20px;">
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-8">
+                <button type="button" id="btnSubmit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+   
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var PropertyCategory = $('#hdnPropertyCategory').val();
+        var DepartmentValue = 0;
+        if (PropertyCategory == "Institutional") {
+            DepartmentValue = 1;
+        }
+        else if (PropertyCategory == "Commercial") {
+            DepartmentValue = 2;
+        }
+        else if (PropertyCategory == "Residential") {
+            DepartmentValue = 3;
+        }
+        else if (PropertyCategory == "Industrial") {
+            DepartmentValue = 4;
+        }
+        else if (PropertyCategory == "Housing") {
+            DepartmentValue = 5;
+        }
+        else if (PropertyCategory == "Group Housing") {
+            DepartmentValue = 6;
+        }
+
+        $("#ddlDepartment").prop('selectedIndex', DepartmentValue);
+        GetAllServices(ddlDepartment);
+        $("#ddlDepartment").prop("disabled", true);
+    });
+
+    function GetAllServices(a) {
+        if ($(a).val() == "") {
+            //alert("Please Select a Department");
+            $("#ddlService").empty();
+            return false;
+        }
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ deptt: $(a).val() }),
+            url: '/Property/GetAllServiceData',
+            success: function (result) {
+                //debugger;
+                $("#ddlService").empty();
+                $.each(result, function (i, v) {
+                    ($("#ddlService").append($('<option>', {
+                        value: v.value,
+                        text: v.label
+                    })));
+                    //options[options.length] = new Option(v, val);
+                });
+            },
+            error: function (objAjaxRequest, strError) {
+                var respText = objAjaxRequest.responseText;
+                //alert(respText);
+            }
+        });
+    }
+
+    $("#btnSubmit").click(function () {
+        var deptVal = $("#ddlDepartment").val();
+        var registrationId = $('#hdnRegistrationID').val();
+        var serviceVal = $("#ddlService").val();
+        var propNo = $("#lblPropertyNo").text();
+        //alert(serviceVal);
+        var description = $.trim($("#txtServiceDescription").val());
+        if (deptVal == '' || deptVal == null) {
+            alert("Please select Department");
+            return false;
+        }
+        if (serviceVal == '' || serviceVal == null) {
+            alert("Please select Service");
+            return false;
+        }
+        //if (description == '') {
+        //    alert("Please enter Description");
+        //    return false;
+        //}
+        //Ajax call to save Service Request
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ deptVal: deptVal, serviceVal: serviceVal, description: description, regNo: registrationId, propertyNo: propNo }),
+            url: '/Customer/SaveServiceReq',
+            success: function (result) {
+                window.location.href = '@Url.Action("CitizenService", "Customer")' + "/" + result;
+                //if (result == true)
+                //    alert("Service Request added succssfully");
+                //$("#ddlDepartment").val('');
+                //location.reload();
+                $("#ddlService").val('');
+                $("#txtServiceDescription").val('');
+                $("#ddlService").empty();
+            },
+            error: function (ajaxRequest, strError) {
+                //alert(ajaxRequest.responseText);
+                alert("Some error occured. Please try again later.");
+            }
+        });
+    });
+</script>
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+﻿
+<link href='//fonts.googleapis.com/css?family=Convergence|Bitter|Droid+Sans|Ubuntu+Mono' rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="~/Content/Images/NAFullMap/dist/when.js"></script>
+<script type="text/javascript" src="~/Content/Images/NAFullMap/dist/core.js"></script>
+<script type="text/javascript" src="~/Content/Images/NAFullMap/dist/graphics.js"></script>
+<script type="text/javascript" src="~/Content/Images/NAFullMap/dist/mapimage.js"></script>
+<script type="text/javascript" src="~/Content/Images/NAFullMap/dist/mapdata.js"></script>
+<script type="text/javascript" src="~/Content/Images/NAFullMap/dist/areadata.js"></script>
+<script type="text/javascript" src="~/Content/Images/NAFullMap/dist/areacorners.js"></script>
+<script type="text/javascript" src="~/Content/Images/NAFullMap/dist/scale.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#noidamap_image').mapster(
+        {
+            fillOpacity: 0.2,
+            fillColor: "d42e16",
+            strokeColor: "3320FF",
+            strokeOpacity: 0.9,
+            strokeWidth: 4,
+            stroke: true,
+            singleSelect: true,
+            isSelectable: false,
+            mapKey: 'name',
+            listKey: 'name',
+            showToolTip: true,
+            clickNavigate: true,
+            areas: [
+           {
+               key: "sec11",
+               fillColor: "ffffff"
+           }
+            ]
+
+        });
+        $('area.group1').mapster('set', true);
+
+    });
+</script>
+<div id="">
+
+    <div class="row">
+        <div class="span11">
+            <div class="popin">
+                <div id="map">
+                    <h3>Click the Highlighted Scheme to view more details</h3>
+                    <img src="~/Content/Images/NAFullMap/Noida_Guide_Map.jpg" id="noidamap_image" usemap="#ImageMap" border=0>
+                    <map name="ImageMap">
+                        <area shape=POLY class="group1" name="sec11" href=" @Url.Action("Location", "Property") " alt="Sector 11" target="" coords=350,293,381,270,371,256,362,257,352,257,338,259,328,263,322,268,330,275,340,286>
+                    </map>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

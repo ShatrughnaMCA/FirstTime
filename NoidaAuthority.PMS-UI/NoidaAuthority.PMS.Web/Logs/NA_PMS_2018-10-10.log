@@ -1,0 +1,942 @@
+2018-10-10 00:54:24,333 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 00:54:24,667 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 00:54:40,365 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-10-10 00:54:40,375 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-10-10 00:54:41,702 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-10-10 00:54:43,575 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-10-10 00:54:43,741 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-10-10 00:54:43,879 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-10-10 00:54:44,271 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 00:54:44,274 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 00:54:44,755 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 00:54:44,766 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 00:54:45,256 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 00:54:45,258 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 00:55:15,946 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 00:55:17,712 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 00:57:30,445 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: SendOTPOnMobileAndEmail on Controller: Account For User : .
+2018-10-10 00:57:30,836 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: SendOTPOnMobileAndEmail on Controller: Account For User : .
+2018-10-10 00:58:21,436 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: RegisterCustomer on Controller: Account For User : .
+2018-10-10 01:00:19,952 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: RegisterCustomer on Controller: Account For User : .
+2018-10-10 01:04:09,711 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 01:04:10,084 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 01:05:12,470 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-10-10 01:05:12,477 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-10-10 01:05:13,965 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-10-10 01:05:17,362 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-10-10 01:05:17,521 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-10-10 01:05:17,632 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-10-10 01:05:18,023 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 01:05:18,035 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 01:05:18,072 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 01:05:18,074 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 01:05:18,558 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 01:05:18,560 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 01:05:28,458 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 01:05:33,505 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 01:09:28,425 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-10-10 01:09:28,427 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-10-10 01:09:29,487 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-10-10 01:09:29,593 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-10-10 01:09:30,005 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-10-10 01:09:30,225 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-10-10 01:09:30,536 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 01:09:30,537 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 01:09:30,549 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 01:09:30,550 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 01:09:31,037 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 01:09:31,039 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 01:09:35,950 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 01:09:36,470 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 01:10:41,960 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: SendOTPOnMobileAndEmail on Controller: Account For User : .
+2018-10-10 01:10:42,204 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: SendOTPOnMobileAndEmail on Controller: Account For User : .
+2018-10-10 01:11:07,454 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: RegisterCustomer on Controller: Account For User : .
+2018-10-10 01:11:42,563 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: RegisterCustomer on Controller: Account For User : .
+2018-10-10 01:14:28,077 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 01:14:28,265 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 01:14:31,430 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-10-10 01:14:31,611 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-10-10 01:14:40,348 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 01:14:40,350 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 01:14:40,943 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 01:14:42,029 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 01:14:42,081 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : prem@gmail.com.
+2018-10-10 01:14:42,082 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : prem@gmail.com.
+2018-10-10 01:17:34,701 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 01:17:35,030 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 01:17:55,479 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-10-10 01:17:55,559 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-10-10 01:18:02,638 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 01:18:02,638 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 01:18:03,254 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 01:18:04,383 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 01:18:04,443 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : prem@gmail.com.
+2018-10-10 01:18:04,445 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : prem@gmail.com.
+2018-10-10 10:38:40,181 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 10:38:40,556 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 10:43:48,321 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-10-10 10:43:48,410 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-10-10 10:43:57,371 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-10-10 10:44:28,563 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-10-10 10:44:28,726 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Controller Exception
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at NoidaAuthority.PMS.Repository.CommonRepository.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Common\CommonRepository.cs:line 566
+   at NoidaAuthority.PMS.Service.CommonService.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Common\CommonService.cs:line 211
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 680
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2018-10-10 10:44:28,836 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at NoidaAuthority.PMS.Repository.CommonRepository.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Common\CommonRepository.cs:line 566
+   at NoidaAuthority.PMS.Service.CommonService.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Common\CommonService.cs:line 211
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 680
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-10-10 10:44:29,124 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 10:45:33,213 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 10:45:33,324 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-10-10 10:45:33,326 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-10-10 10:45:33,441 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 10:45:33,447 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 10:45:33,949 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 10:45:38,433 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 10:45:38,457 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 10:45:38,458 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 10:45:38,963 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 10:45:38,975 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 10:45:39,464 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-10-10 10:45:49,073 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-10-10 10:46:08,478 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-10-10 10:46:09,829 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-10-10 10:46:10,024 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-10-10 10:46:11,953 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-10-10 10:46:12,052 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 10:46:12,054 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 10:46:12,074 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 10:46:12,076 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 10:46:12,089 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 10:46:12,090 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 10:46:37,911 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 10:46:49,115 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 10:48:05,479 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: SendOTPOnMobileAndEmail on Controller: Account For User : .
+2018-10-10 10:48:13,855 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: SendOTPOnMobileAndEmail on Controller: Account For User : .
+2018-10-10 10:48:35,925 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: RegisterCustomer on Controller: Account For User : .
+2018-10-10 10:49:21,321 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: RegisterCustomer on Controller: Account For User : .
+2018-10-10 10:50:07,817 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 10:50:08,025 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 10:50:12,409 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-10-10 10:50:15,670 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-10-10 10:50:20,068 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 10:50:20,070 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 10:50:20,688 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 10:51:00,488 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 10:51:00,612 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Controller Exception
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.GetUserDetails(String userName) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 57
+   at NoidaAuthority.PMS.Service.Login.LoginService.GetUserDetails(String email) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 23
+   at NoidaAuthority.PMS.Web.Controllers.Common.CustomMemberShip.GetUserDetails(String email) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\Common\CustomMemberShip.cs:line 210
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__2.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 339
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2018-10-10 10:51:00,671 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.GetUserDetails(String userName) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 57
+   at NoidaAuthority.PMS.Service.Login.LoginService.GetUserDetails(String email) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 23
+   at NoidaAuthority.PMS.Web.Controllers.Common.CustomMemberShip.GetUserDetails(String email) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\Common\CustomMemberShip.cs:line 210
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__2.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 339
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-10-10 10:51:06,908 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 10:51:29,771 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 10:51:29,849 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Controller Exception
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The user name or password is incorrect
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.ValidateUser(String userName, String password) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 34
+   at NoidaAuthority.PMS.Service.Login.LoginService.ValidateUser(String userName, String password) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 18
+   at NoidaAuthority.PMS.Web.Controllers.Common.CustomMemberShip.ValidateUser(String username, String password) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\Common\CustomMemberShip.cs:line 197
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__2.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 333
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2018-10-10 10:51:29,886 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The user name or password is incorrect
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.ValidateUser(String userName, String password) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 34
+   at NoidaAuthority.PMS.Service.Login.LoginService.ValidateUser(String userName, String password) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 18
+   at NoidaAuthority.PMS.Web.Controllers.Common.CustomMemberShip.ValidateUser(String username, String password) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\Common\CustomMemberShip.cs:line 197
+   at System.Web.Security.Membership.ValidateUser(String username, String password)
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.<Login>d__2.MoveNext() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 333
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   at System.Threading.Tasks.TaskHelpersExtensions.ThrowIfFaulted(Task task)
+   at System.Web.Mvc.Async.TaskAsyncActionDescriptor.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeAsynchronousActionMethod>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-10-10 10:52:59,429 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 10:53:24,524 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 10:53:24,721 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 10:53:24,724 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 10:53:35,893 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 10:53:35,896 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 10:53:36,493 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-10-10 10:53:40,631 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-10-10 10:53:40,904 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 10:53:55,188 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 10:53:55,220 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : prem@gmail.com.
+2018-10-10 10:53:55,224 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : prem@gmail.com.
+2018-10-10 11:31:16,559 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.Entity.Core.ProviderIncompatibleException: An error occurred accessing the database. This usually means that the connection to the database failed. Check that the connection string is correct and that the appropriate DbContext constructor is being used to specify it or find it in the application's config file. See http://go.microsoft.com/fwlink/?LinkId=386386 for information on DbContext and connections. See the inner exception for details of the failure. ---> System.Data.Entity.Core.ProviderIncompatibleException: The provider did not return a ProviderManifestToken string. ---> System.Data.SqlClient.SqlException: Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=1749; handshake=14494;  ---> System.ComponentModel.Win32Exception: The wait operation timed out
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass31.<UsingConnection>b__2f()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   at System.Data.Entity.SqlServer.SqlProviderServices.GetDbProviderManifestToken(DbConnection connection)
+   at System.Data.Entity.Core.Common.DbProviderServices.GetProviderManifestToken(DbConnection connection)
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.Common.DbProviderServices.GetProviderManifestToken(DbConnection connection)
+   at System.Data.Entity.Utilities.DbProviderServicesExtensions.GetProviderManifestTokenChecked(DbProviderServices providerServices, DbConnection connection)
+   --- End of inner exception stack trace ---
+   at NoidaAuthority.PMS.Repository.Login.LoginRepository.GetUserDetails(String userName) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Login\LoginRepository.cs:line 57
+   at NoidaAuthority.PMS.Service.Login.LoginService.GetUserDetails(String email) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Login\LoginService.cs:line 23
+   at NoidaAuthority.PMS.Web.Controllers.Common.CustomMemberShip.GetUserDetails(String email) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\Common\CustomMemberShip.cs:line 210
+   at NoidaAuthority.PMS.Web.Helper.LoginHelper.LoginHelperInitialize() in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Helper\LoginHelper.cs:line 24
+   at NoidaAuthority.PMS.Web.Global.Session_Start(Object sender, EventArgs e) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Global.asax.cs:line 94
+   at System.Web.SessionState.SessionStateModule.RaiseOnStart(EventArgs e)
+   at System.Web.SessionState.SessionStateModule.CompleteAcquireState()
+   at System.Web.SessionState.SessionStateModule.BeginAcquireState(Object source, EventArgs e, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.AsyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-10-10 11:34:24,030 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 11:34:24,332 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 11:34:48,108 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-10-10 11:34:48,120 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-10-10 11:34:49,628 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-10-10 11:35:45,354 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-10-10 11:35:45,454 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Controller Exception
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The user name or password is incorrect
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at NoidaAuthority.PMS.Repository.CommonRepository.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Common\CommonRepository.cs:line 566
+   at NoidaAuthority.PMS.Service.CommonService.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Common\CommonService.cs:line 211
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 680
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2018-10-10 11:35:45,497 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The user name or password is incorrect
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at NoidaAuthority.PMS.Repository.CommonRepository.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\Common\CommonRepository.cs:line 566
+   at NoidaAuthority.PMS.Service.CommonService.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\Common\CommonService.cs:line 211
+   at NoidaAuthority.PMS.Web.Controllers.AccountController.GetSectorList(DropdownViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Controllers\AccountController.cs:line 680
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-10-10 11:35:45,922 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 11:36:08,972 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 11:36:09,024 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-10-10 11:36:09,917 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-10-10 11:36:10,090 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 11:36:17,770 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 11:36:18,124 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 11:36:18,128 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 11:36:18,622 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 11:36:18,629 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 11:36:19,124 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 11:36:19,126 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 11:36:19,624 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-10-10 11:36:25,058 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-10-10 11:38:28,938 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: SendOTPOnMobileAndEmail on Controller: Account For User : .
+2018-10-10 11:38:31,349 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: SendOTPOnMobileAndEmail on Controller: Account For User : .
+2018-10-10 11:39:04,946 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: RegisterCustomer on Controller: Account For User : .
+2018-10-10 11:39:27,366 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: RegisterCustomer on Controller: Account For User : .
+2018-10-10 11:40:29,692 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 11:40:29,951 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 11:40:33,417 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-10-10 11:40:35,189 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-10-10 11:40:38,605 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 11:40:38,607 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 11:40:39,212 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 11:40:59,981 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 11:41:00,095 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : prem@gmail.com.
+2018-10-10 11:41:00,102 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : prem@gmail.com.
+2018-10-10 11:41:55,594 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByteArray(Byte[] buff, Int32 offset, Int32 len, Int32& totalRead)
+   at System.Data.SqlClient.TdsParserStateObject.TryReadString(Int32 length, String& value)
+   at System.Data.SqlClient.TdsParser.TryReadSqlStringValue(SqlBuffer value, Byte type, Int32 length, Encoding encoding, Boolean isPlp, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.TryReadSqlValue(SqlBuffer value, SqlMetaDataPriv md, Int32 length, TdsParserStateObject stateObj, SqlCommandColumnEncryptionSetting columnEncryptionOverride, String columnName)
+   at System.Data.SqlClient.SqlDataReader.TryReadColumnData()
+   at System.Data.SqlClient.SqlDataReader.TryReadColumnInternal(Int32 i, Boolean readHeaderOnly)
+   at System.Data.SqlClient.SqlDataReader.TryReadColumn(Int32 i, Boolean setTimeout, Boolean allowPartiallyReadColumn)
+   at System.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method(Closure , Shaper )
+   at System.Data.Entity.Core.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   at System.Data.Entity.Core.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at Kendo.Mvc.Extensions.QueryableExtensions.Execute[TModel,TResult](IQueryable source, Func`2 selector)
+   at Kendo.Mvc.Extensions.QueryableExtensions.CreateDataSourceResult[TModel,TResult](IQueryable queryable, DataSourceRequest request, ModelStateDictionary modelState, Func`2 selector)
+   at Kendo.Mvc.Extensions.QueryableExtensions.ToDataSourceResult(IQueryable queryable, DataSourceRequest request, ModelStateDictionary modelState)
+   at Kendo.Mvc.Extensions.QueryableExtensions.ToDataSourceResult(IQueryable enumerable, DataSourceRequest request)
+   at NoidaAuthority.PMS.Repository.ManageUsers.ManageUsersRepository.GetRegisteredCustomerList(DataSourceRequest request, UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\ManageUsers\ManageUsersRepository.cs:line 854
+   at NoidaAuthority.PMS.Service.ManageUsers.ManageUserService.GetRegisteredCustomerList(DataSourceRequest request, UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\ManageUsers\ManageUserService.cs:line 196
+   at NoidaAuthority.PMS.Web.Areas.Administration.Controllers.AdminController.GetRegisteredCustomerList(DataSourceRequest request, UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Areas\Administration\Controllers\AdminController.cs:line 82
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:c894ba82-e19e-4209-b231-99787f0a0ad2
+Error Number:-2,State:0,Class:11
+2018-10-10 11:42:27,810 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The user name or password is incorrect
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__38(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at Kendo.Mvc.Extensions.QueryableExtensions.Count(IQueryable source)
+   at Kendo.Mvc.Extensions.QueryableExtensions.CreateDataSourceResult[TModel,TResult](IQueryable queryable, DataSourceRequest request, ModelStateDictionary modelState, Func`2 selector)
+   at Kendo.Mvc.Extensions.QueryableExtensions.ToDataSourceResult(IQueryable queryable, DataSourceRequest request, ModelStateDictionary modelState)
+   at Kendo.Mvc.Extensions.QueryableExtensions.ToDataSourceResult(IQueryable enumerable, DataSourceRequest request)
+   at NoidaAuthority.PMS.Repository.ManageUsers.ManageUsersRepository.GetRegisteredCustomerList(DataSourceRequest request, UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Repository\ManageUsers\ManageUsersRepository.cs:line 854
+   at NoidaAuthority.PMS.Service.ManageUsers.ManageUserService.GetRegisteredCustomerList(DataSourceRequest request, UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Service\ManageUsers\ManageUserService.cs:line 196
+   at NoidaAuthority.PMS.Web.Areas.Administration.Controllers.AdminController.GetRegisteredCustomerList(DataSourceRequest request, UserViewModel model) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Areas\Administration\Controllers\AdminController.cs:line 82
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-10-10 12:31:04,091 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-10-10 12:31:04,407 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-10-10 12:31:13,821 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Register on Controller: Account For User : .
+2018-10-10 12:31:13,834 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Register on Controller: Account For User : .
+2018-10-10 12:31:15,394 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSectorList on Controller: Account For User : .
+2018-10-10 12:31:17,218 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSectorList on Controller: Account For User : .
+2018-10-10 12:31:17,405 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetBlockList on Controller: Account For User : .
+2018-10-10 12:31:17,515 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetBlockList on Controller: Account For User : .
+2018-10-10 12:31:17,953 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 12:31:17,967 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetSecurityQuestionList on Controller: Account For User : .
+2018-10-10 12:31:18,011 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 12:31:18,013 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 12:31:18,470 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 12:31:18,470 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMiscellaneousTypeList on Controller: Account For User : .
+2018-10-10 12:31:31,305 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 12:31:32,103 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 12:31:47,298 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 12:31:48,128 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: ValidateRegistrationId on Controller: Account For User : .
+2018-10-10 12:34:51,805 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: SendOTPOnMobileAndEmail on Controller: Account For User : .
+2018-10-10 12:34:52,247 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: SendOTPOnMobileAndEmail on Controller: Account For User : .
+2018-10-10 12:35:15,792 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: RegisterCustomer on Controller: Account For User : .
+2018-10-10 12:35:28,375 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: RegisterCustomer on Controller: Account For User : .

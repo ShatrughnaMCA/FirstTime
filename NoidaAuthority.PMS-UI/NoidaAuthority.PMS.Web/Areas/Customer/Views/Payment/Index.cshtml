@@ -1,0 +1,477 @@
+﻿@model NoidaAuthority.PMS.Entity.ServiceRequestViewModel
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.Extensions;
+@using NoidaAuthority.PMS.Common;
+
+@{
+    ViewBag.Title = "Online Payment";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<style>
+    .col-md-4 {
+        margin-top: 0%;
+        /* width: 38.3333%; */
+    }
+     .alertify-notifier.ajs-bottom {
+        bottom: 40px;
+    }
+     .k-button{
+         font-weight:800;
+     }
+</style>
+
+@using (Html.BeginForm("PayOnlineForServices", "Payment", new { area="Customer"}, FormMethod.Post, new { enctype = "multipart/form-data", id = "paymentform" }))
+{
+    <div id="div-payment" class="col-md-10 col-md-offset-1">
+        <div class="row form-group">
+            <div class="col-md-12">
+                <h2 id="h2-header-title">Pay Online/Offline</h2>
+            </div>
+            <div>
+                @Html.HiddenFor(model => model.ActionType)
+                @Html.HiddenFor(model => model.DepartmentId)
+                @Html.HiddenFor(model => model.OnlineRequestId)
+                @Html.HiddenFor(model => model.RegistrationId)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.RegistrationId)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.OnlineRequestId)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.ServiceName)
+                @*@Html.HiddenFor(model => model.OnlinePaymentModel.Email)*@
+                @Html.HiddenFor(model => model.OnlinePaymentModel.ChallanId)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.ChallanDate)
+                @*@Html.HiddenFor(model => model.OnlinePaymentModel.BankId)*@
+                @Html.HiddenFor(model => model.OnlinePaymentModel.BankName)
+                @*@Html.HiddenFor(model => model.OnlinePaymentModel.BranchId)*@
+                @Html.HiddenFor(model => model.OnlinePaymentModel.BranchAddress)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.AddressI)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.IFSCCode)
+                @Html.HiddenFor(model => model.OnlinePaymentModel.IsChallanExist)
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>TransactionId</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.TransactionId, htmlAttributes: new { @class = "k-textbox not-editable", @maxlength="25", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Processing Fee</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.Amount, htmlAttributes: new { @class = "k-textbox not-editable",@maxlength="10",  style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>Name</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.Applicant, htmlAttributes: new { @class = "k-textbox not-editable", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Product Info</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.ProductInfo, htmlAttributes: new { @class = "k-textbox not-editable", @maxlength="50", style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>Mobile No</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.MobileNo, htmlAttributes: new { @class = "k-textbox", @maxlength="10", @minlength="10", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Email</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.Email, htmlAttributes: new { @class = "k-textbox", @maxlength="25", style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>Service Name</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.ServiceName, htmlAttributes: new { @class = "k-textbox not-editable", @maxlength="50", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Account Head</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.AccountSubHead, htmlAttributes: new { @class = "k-textbox not-editable", @maxlength="50", style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>City</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.City, htmlAttributes: new { @class = "k-textbox", @maxlength = "50", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>State</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.State, htmlAttributes: new { @class = "k-textbox", @maxlength = "50", style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>Country</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.Country, htmlAttributes: new { @class = "k-textbox", @maxlength = "50", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Zipcode</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.Zipcode, htmlAttributes: new { @class = "k-textbox", @maxlength = "50", style = "width:100%" })
+            </div>
+        </div>
+
+        <div class="row form-group" id="divPaymentType">
+            <div class="col-md-2">
+                <label class="lbl-payment-type">Payment Through:</label>
+            </div>
+            <div class="col-md-10">
+                <label>@Html.RadioButtonFor(model => model.OnlinePaymentModel.PaymentType, "Offline", new { @class = "", @checked = true, @id = "" }) Offline</label>&nbsp;&nbsp;&nbsp;
+                <label>@Html.RadioButtonFor(model => model.OnlinePaymentModel.PaymentType, "Online", new { @class = "", @id = "" }) Online</label>
+            </div>
+        </div>
+
+        <div class="row row-bank form-group">
+            <div class="col-md-2">
+                <label>Bank Name</label>
+            </div>
+            <div class="col-md-4">
+                @(Html.Kendo().DropDownListFor(model=>model.OnlinePaymentModel.BankId)
+                    .DataTextField("Text")
+                    .DataValueField("Id")
+                    .OptionLabel(" -- Select --")
+                    .Enable(true)
+                    .AutoBind(true)
+                    .Filter("contains")
+                    .DataSource(source =>
+                    {
+                        source.Custom()
+                        .ServerFiltering(true)
+                        .ServerPaging(true)
+                        .Type("aspnetmvc-ajax") //Set this type if you want to use DataSourceRequest and ToDataSourceResult instances.
+                        .Transport(transport => transport.Read(read => read.Action("GetBankDetailAsDataSource", "Payment", new { area = "Customer" }).Data("FilterBankParameter")))
+                        .Schema(schema => schema.Data("Data").Total("Total"))
+                        .PageSize(100);
+                    })
+                  .HtmlAttributes(new { style="width:100%" })
+                )
+            </div>
+            <div class="col-md-2">
+                <label>Branch Name</label>
+            </div>
+            <div class="col-md-4">
+                @(Html.Kendo().DropDownListFor(model=>model.OnlinePaymentModel.BranchId)
+                    .DataTextField("Text")
+                    .DataValueField("Id")
+                    .OptionLabel(" -- Select --")
+                    .Enable(true)
+                    .AutoBind(true)
+                    .Filter("contains")
+                    .CascadeFrom("OnlinePaymentModel_BankId")
+                    .DataSource(source =>
+                    {
+                        source.Custom()
+                        .ServerFiltering(true)
+                        .ServerPaging(true)
+                        .Type("aspnetmvc-ajax") //Set this type if you want to use DataSourceRequest and ToDataSourceResult instances.
+                        .Transport(transport => transport.Read(read => read.Action("GetBankDetailAsDataSource", "Payment", new { area = "Customer" }).Data("FilterBranchParameter")))
+                        .Schema(schema => schema.Data("Data").Total("Total"))
+                        .PageSize(100);
+                    })
+                  .HtmlAttributes(new { style = "width:100%" })
+                  .Events(e => e.Change("BranchAddressChangeEvent"))
+                )
+            </div>
+        </div>
+        <div class="row row-bank form-group">
+            <div class="col-md-2">
+                <label>Account No</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.AccountNo, htmlAttributes: new { @class = "k-textbox not-editable", @maxlength = "20", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-4" style="text-align:right;">
+                <input type="button" class="k-button" value="Generate Challan" id="btn-generate-challan" style="min-width:100px;border-radius:0;" />
+                <input type="button" class="k-button" value="Print Challan" id="btn-pay-online" style="min-width:100px;" border-radius:0; />
+            </div>
+        </div>
+        
+    </div>
+}
+
+<div class="col-md-10 col-md-offset-1" id="div-challan">
+    <div class="row form-group">
+        <div class="col-md-12" style="height:450px; overflow:auto;background:#fff; border:1px solid black;">
+            <div id="div-challan-body" style="padding:20px;">
+                @*@Html.Raw(Model.PaymentModel.HTMLContent)*@
+            </div>           
+        </div>
+    </div>
+</div>
+
+<script>
+    @{
+        if (TempData["Success"] != null || TempData["Success"] == "")
+        {
+            @:alertify.success('Payment already done');
+        }
+
+        if (TempData["FailedTraxaction"] != null || TempData["FailedTraxaction"] == "")
+        {
+            @:alertify.error("Transaction failed.");
+        }
+        if (TempData["MismatchTraxaction"] != null || TempData["MismatchTraxaction"] == "")
+        {
+            @:alertify.error("Transaction Mismatch.");
+        }
+        if (TempData["ErrorInTraxaction"] != null || TempData["ErrorInTraxaction"] == "")
+        {
+            @:alertify.error("Error in Transaction.");
+        }
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        //$('#OnlinePaymentModel_BankId').val(2);
+        //$('.k-widget.k-dropdown.k-header').css("display", "none");  //for new version commented
+
+        //$('.lbl-payment-type').css("display", "none");
+        //$('.col-payment-type').css("display", "none");
+        //$('#btn-pay-online').css("display", "none");
+
+        $(".not-editable").keydown(function (event) {
+            return false;
+        });
+
+        if ($("input[name='OnlinePaymentModel.Amount']").val() == "" || $("input[name='OnlinePaymentModel.Amount']").val() == 0) {
+
+        }
+
+        $('#paymentform input:radio[name="OnlinePaymentModel.PaymentType"]').on('change', function () {
+            //TogglePaymentType();
+            var formType = $('input[name="OnlinePaymentModel.PaymentType"]:checked', '#paymentform').val();
+            if (formType.trim() == "Online") {
+                $('#btn-pay-online').val('Pay Online');
+                $('#h2-header-title').html('Pay Online');
+            }
+            else {
+                $('#btn-pay-online').val('Print Challan');
+                $('#h2-header-title').html('Pay Offline');
+            }
+            $('#OnlinePaymentModel_AccountNo').val('');
+            $('#OnlinePaymentModel_IFSCCode').val('');
+            $("#OnlinePaymentModel_BankId").data("kendoDropDownList").value('');
+            $("#OnlinePaymentModel_BankId").data("kendoDropDownList").dataSource.read();
+        });
+
+        $('#btn-generate-challan').click(function () {
+            GenerateChallanByBankId()
+        });
+
+        $('#btn-pay-online').click(function () {
+            SubmitDataForOnlinePayent();           
+        });
+    });
+
+    function FilterBankParameter() {
+        var paymentType = $('input[name="OnlinePaymentModel.PaymentType"]:checked', '#paymentform').val();
+        if (paymentType == "Online") {
+            return { FilterType: "OnlineBank" };
+        }
+        else {
+            return { FilterType: "Bank" };
+        }
+    }
+
+    function FilterBranchParameter() {
+        return {
+            FilterType: "Branch",
+            BankId : $("#OnlinePaymentModel_BankId").val()
+        };
+    }
+
+    function BranchAddressChangeEvent() {
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ BankId: $("#OnlinePaymentModel_BankId").val(), BranchId: $('#OnlinePaymentModel_BranchId').val(), FilterType: "AccountNo" }),
+            url: '/Customer/Payment/GetBankDetailAsDataSource',
+            success: function (result) {
+                if (result != null) {
+                    $('#OnlinePaymentModel_AccountNo').val(result.Data[0].AccountNo);
+                    $('#OnlinePaymentModel_IFSCCode').val(result.Data[0].IFSCCode);
+                    //if ($('#RegistrationId').val() != "" && $('#RegistrationId').val() != undefined) {
+                    //    GenerateChallanByBankId();
+                    //}
+                }
+                else {
+                    alertify.error("Data provider failed to load.");
+                }
+            },
+            error: function (ajaxRequest, strError) {
+                var respText = ajaxRequest.responseText;
+                alertify.error("Network error, try again later.");
+            }
+        });
+    }
+
+    function GenerateChallanByBankId() {
+        var cmodel = {
+            RegistrationId: $("#RegistrationId").val(),
+            OnlineRequestId: $('#OnlineRequestId').val(),
+            ActionType: $('#ActionType').val(),
+            PaymentModel: {
+                BankId: $('#OnlinePaymentModel_BankId').val(),
+                BankName: $('#OnlinePaymentModel_BankId').data("kendoDropDownList").text(),
+                BranchId: $('#OnlinePaymentModel_BranchId').val(),
+                BranchName: $('#OnlinePaymentModel_BranchId').data("kendoDropDownList").text(),
+                AccountNo: $('#OnlinePaymentModel_AccountNo').val(),
+                IFSCCode: $('#OnlinePaymentModel_IFSCCode').val()
+            }
+        };
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ model: cmodel }),
+            url: '/Customer/Payment/GenerateChallanForPayment',
+            success: function (result) {
+                if (result != null) {                   
+                    $('#OnlinePaymentModel_BankName').val($('#OnlinePaymentModel_BankId').data("kendoDropDownList").text());
+                    $('#OnlinePaymentModel_BranchAddress').val($('#OnlinePaymentModel_BranchId').data("kendoDropDownList").text());
+                    $('#OnlinePaymentModel_IsChallanExist').val(result.PaymentModel.IsChallanExist);
+                    $('#div-challan-body').html(result.PaymentModel.HTMLContent);
+                    //$('.lbl-payment-type').show();
+                    //$('.col-payment-type').show();
+                    //$('#btn-pay-online').show();
+                    //$('#btn-generate-challan').css("display", "none");
+                }
+            },
+            error: function (objAjaxRequest, strError) {
+                var respText = objAjaxRequest.responseText;
+                alertify.error("Some Error in save database.");
+            }
+        });
+    }
+
+    function SubmitDataForOnlinePayent() {
+        var payType = $('input[name="OnlinePaymentModel.PaymentType"]:checked', '#paymentform').val();
+        if (payType.trim() == "Online") {
+            var flag = ValidateInputs();
+            if (flag) {
+                $.ajax({
+                    dataType: 'json',
+                    type: 'Post',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ OnlineRequestId: $("input[name='OnlineRequestId']").val(), ActionType: $('#ActionType').val(), ChallanId: $('#OnlinePaymentModel_ChallanId').val() }),
+                    url: '/Customer/Payment/IsProcessingFeePaid',
+                    success: function (result) {
+                        if (result == true) {
+                            alertify.error("Processing fee already paid.");
+                        }
+                        else {
+                            var bankId = $('#OnlinePaymentModel_BankId').val();
+                            $('#OnlinePaymentModel_BankId').val(bankId);
+                            $('#paymentform').submit();
+                        }
+                    },
+                    error: function (objAjaxRequest, strError) {
+                        var respText = objAjaxRequest.responseText;
+                        alertify.error("Some Error in save database.");
+                    }
+                });
+            }
+            else {
+
+            }
+        }
+        else {
+            PrintChallan();
+        }
+    }
+
+    function ValidateInputs() {
+        var flag = true;
+        if ($("input[name='OnlinePaymentModel.TransactionId']").val().trim() == "") {
+            alertify.error("Please enter Transaction Id");
+            return flag = false;
+        }
+        if ($("input[name='OnlinePaymentModel.Amount']").val().trim() == "") {
+            alertify.error("Please enter Processing fee");
+            return flag = false;
+        }
+        if ($("input[name='OnlinePaymentModel.MobileNo']").val().trim() == "") {
+            alertify.error("Please enter Mobile No");
+            return flag = false;
+        }
+        if ($("input[name='OnlinePaymentModel.Email']").val().trim() == "") {
+            alertify.error("Please enter Email Id");
+            return flag = false;
+        }
+        var payType = $('input[name="OnlinePaymentModel.PaymentType"]:checked', '#paymentform').val();
+        if (payType.trim() == "Online") {
+            var bankId = $('#OnlinePaymentModel_BankId').val();
+            if (bankId == "" || bankId == undefined) {
+                alertify.error("Please select bank");
+                flag = false;
+            }
+        }
+        return flag;
+    }
+
+    function TogglePaymentType() {
+        var formType = $('input[name="OnlinePaymentModel.PaymentType"]:checked', '#paymentform').val();
+        if (formType.trim() == "Online") {
+            $('#btn-pay-online').val('Pay Online');
+            //$('#OnlinePaymentModel_BankId').show();
+            //$('.k-widget.k-dropdown.k-header').show();
+        }
+        else {
+            $('#btn-pay-online').val('Print Challan');
+            //$('#OnlinePaymentModel_BankId').css("display", "none");
+            //$('.k-widget.k-dropdown.k-header').css("display", "none");
+        }
+        $('#btn-pay-online').show();
+    }
+
+    function PrintChallan() {
+        var contents = document.getElementById("div-challan-body").innerHTML;
+        var frame1 = document.createElement('iframe');
+        frame1.name = "frame1";
+        frame1.style.position = "absolute";
+        frame1.style.top = "-1000000px";
+        document.body.appendChild(frame1);
+        var frameDoc = frame1.contentWindow ? frame1.contentWindow : frame1.contentDocument.document ? frame1.contentDocument.document : frame1.contentDocument;
+        frameDoc.document.open();
+        frameDoc.document.write('<style>.td-amount {padding-right: 30px;}#div-challan-body {padding: 5px;font-size:10pt;}#authorityChallan {border: 1px solid black;padding: 5px;} .h4-dept{margin-top:0px; margin-bottom:0px;}.h4-noida{margin-bottom:2px;}</style>');
+        frameDoc.document.write('</head><body style="font-size:10pt;">');
+        frameDoc.document.write(contents);
+        frameDoc.document.write('</body></html>');
+        frameDoc.document.close();
+        setTimeout(function () {
+            window.frames["frame1"].focus();
+            window.frames["frame1"].print();
+            document.body.removeChild(frame1);
+        }, 500);
+        return false;
+    }
+
+</script>

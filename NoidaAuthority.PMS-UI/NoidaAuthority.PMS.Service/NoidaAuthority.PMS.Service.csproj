@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E39A72D-4FBF-4883-A439-3BF67E192862}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NoidaAuthority.PMS.Service</RootNamespace>
+    <AssemblyName>NoidaAuthority.PMS.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Kendo.Mvc, Version=2014.1.528.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\KendoUI\Kendo.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CommonService.cs" />
+    <Compile Include="Common\ICommonService.cs" />
+    <Compile Include="Admin\IManageRoleService.cs" />
+    <Compile Include="Admin\IMenuMappingService.cs" />
+    <Compile Include="Admin\ManageRoleService.cs" />
+    <Compile Include="Admin\MenuMappingService.cs" />
+    <Compile Include="Customer\CustomerService.cs" />
+    <Compile Include="Customer\ICustomerService.cs" />
+    <Compile Include="Graph\GraphService.cs" />
+    <Compile Include="Graph\IGraphService.cs" />
+    <Compile Include="Login\ILogin.cs" />
+    <Compile Include="Login\LoginService.cs" />
+    <Compile Include="ManageCitizen\IManageCitizenService.cs" />
+    <Compile Include="ManageCitizen\ManageCitizenService.cs" />
+    <Compile Include="ManageUsers\IManageUserService.cs" />
+    <Compile Include="ManageUsers\ManageUserService.cs" />
+    <Compile Include="Payment\IPaymentService.cs" />
+    <Compile Include="Payment\PaymentService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Property\IPropertyService.cs" />
+    <Compile Include="Property\PropertyService.cs" />
+    <Compile Include="Services\IRequestService.cs" />
+    <Compile Include="Services\RequestService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NoidaAuthority.PMS.Common\NoidaAuthority.PMS.Common.csproj">
+      <Project>{95b2a921-929a-4b7d-a9c1-39006be91ffd}</Project>
+      <Name>NoidaAuthority.PMS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NoidaAuthority.PMS.Entity\NoidaAuthority.PMS.Entity.csproj">
+      <Project>{d664ed8d-dbb2-4f25-ab29-d402ee64e495}</Project>
+      <Name>NoidaAuthority.PMS.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NoidaAuthority.PMS.Repository\NoidaAuthority.PMS.Repository.csproj">
+      <Project>{ae58dd35-d7a5-4bc8-ad93-5bf2a57fc87e}</Project>
+      <Name>NoidaAuthority.PMS.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

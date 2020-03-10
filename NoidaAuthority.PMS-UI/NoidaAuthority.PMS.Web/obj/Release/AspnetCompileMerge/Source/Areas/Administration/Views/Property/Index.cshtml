@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Property";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+@*<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.dataviz.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.dataviz.default.min.css")" rel="stylesheet" />*@
+@*<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>*@
+
+<div>
+    @{
+        Html.RenderPartial("_PropertySearchPartial");
+    }
+    <div id="PropertyListHeading">
+        <h4 class="label-commom">
+            @ViewBag.FilterString
+        </h4>
+    </div>
+
+    <div id="properties-grid">
+
+    </div>
+</div>
+<style>
+    div#properties-grid .k-grid-content {
+        /*min-height: 50px;
+        max-height: 600px;*/
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        var requestUrl = "/Administration/Property/GetProperties" + location.search;
+    $("div#properties-grid").kendoGrid({
+        dataSource: {
+            type: "json",
+            transport: {
+                read: requestUrl
+            },
+            serverPaging: true,
+            //serverFiltering: true,
+            serverSorting: true,
+            schema: {
+                data: "data",
+                total: "total" // total is returned in the "total" field of the response
+            },
+            ServerOperation: true,
+            pageSize: 10
+        },
+
+        filterable: true,
+        groupable: true,
+        sortable: true,
+        //height: 750,
+        //scrollable: {
+        //    virtual: true
+        //},
+        pageable: {
+            refresh: true,
+            pageSizes: true,
+            buttonCount: 5
+        },
+        requestStart: function () {
+
+            kendo.ui.progress($("div#properties-grid"), false);
+        },
+        requestEnd: function () {
+            kendo.ui.progress($("div#properties-grid"), true);
+        },
+        //requestStart: function (e) {
+        //    e.preventDefault();
+        //    kendo.ui.progress($("div#properties-grid"), false);
+        //},
+
+
+        columns: [{ title: 'Registration ID', type: 'number', field: 'RegistrationId', template: '<a href="/Administration/Property/PropertyDetail/#=RegistrationId#">#=RegistrationId#</a>', width: 130 },
+            { title: 'Property No', field: 'PropertyNo', template: '<a href="/Administration/Property/PropertyDetail/#=RegistrationId#">#=PropertyNo#</a>', width: 130 },
+            { title: 'Depatrment', field: 'PropertyType', width: 150 },
+            { title: 'Sector', type: 'number', field: 'Sector', width: 90 },
+            { title: 'Block', field: 'Block', width: 90 },
+             { title: 'Plot No.', field: 'PlotNumber', width: 100 },
+            { title: 'Area (sqm)', type: 'number', field: 'Area', width: 130, format: "{0:n0}" },
+              { title: 'Allottee Name', field: 'ApplicantName' }, ],
+
+        //requestEnd: function() {
+        //    kendo.ui.progress($("div#properties-grid"), true);
+        //},
+    });
+    });
+    $(document).ready(function () {
+        setCurrentTab('prop')
+
+        });
+</script>
+
+
+

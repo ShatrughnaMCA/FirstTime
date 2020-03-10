@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Complaint Listing";
+}
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+
+<div id="PropertyListHeading">
+    <h4 class="label-commom">Complaint Listing</h4>
+</div>
+<div id="properties-grid">
+
+</div>
+<style>
+    /*div#properties-grid .k-grid-content {
+        min-height: 50px;
+        max-height: 600px;
+    }*/
+</style>
+
+<script type="text/javascript">
+    $(function () {
+        var requestUrl = "/Property/GetPropertyComplaintList" + location.search;
+        $("div#properties-grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: requestUrl
+                },
+                pageSize: 10
+            },
+            filterable: true,
+            groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            requestStart: function () {
+
+                kendo.ui.progress($("div#properties-grid"), false);
+            },
+            requestEnd: function () {
+                kendo.ui.progress($("div#properties-grid"), true);
+            },
+            columns: [
+                { title: 'Registration ID', type: 'number', field: 'RegistrationId', template: '<a href="/Property/PropertyDetail/#=RegistrationId#">#=RegistrationId#</a>' },
+                { title: 'Complaint No', field: 'Complaint_No', width: 100 },
+                 { title: 'Subject', field: 'Nature_Subject', },
+                { title: 'Created Date', field: 'Submission_Date', type: "date", format: "{0:dd-MMM-yyyy}" },
+                  { title: 'Due Date', field: 'Exp_Delivery_Date', type: "date", format: "{0:dd-MMM-yyyy}" },
+                { title: 'Department', field: 'Department' },
+                 { title: 'Location', field: 'Complaint_Location' },
+                { title: 'Citizen Name', field: 'Citizen_Name' },
+                { title: 'Mobile', field: 'Citizen_Mobile', width: 90 },
+                { title: 'Status', field: 'Disposal_Status', width: 90 },
+              
+            ]
+        });
+    });
+</script>
+
+

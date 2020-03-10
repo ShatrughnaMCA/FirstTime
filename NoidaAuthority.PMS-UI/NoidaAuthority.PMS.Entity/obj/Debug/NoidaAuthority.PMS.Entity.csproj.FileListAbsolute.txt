@@ -1,0 +1,12 @@
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\bin\Debug\NoidaAuthority.PMS.Entity.dll.config
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\bin\Debug\NoidaAuthority.PMS.Entity.dll
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\bin\Debug\NoidaAuthority.PMS.Entity.pdb
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\bin\Debug\EntityFramework.dll
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\bin\Debug\EntityFramework.SqlServer.dll
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\bin\Debug\System.Web.Mvc.dll
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\bin\Debug\EntityFramework.xml
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\bin\Debug\EntityFramework.SqlServer.xml
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\bin\Debug\System.Web.Mvc.xml
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\obj\Debug\NoidaAuthority.PMS.Entity.csprojResolveAssemblyReference.cache
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\obj\Debug\NoidaAuthority.PMS.Entity.dll
+D:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Entity\obj\Debug\NoidaAuthority.PMS.Entity.pdb

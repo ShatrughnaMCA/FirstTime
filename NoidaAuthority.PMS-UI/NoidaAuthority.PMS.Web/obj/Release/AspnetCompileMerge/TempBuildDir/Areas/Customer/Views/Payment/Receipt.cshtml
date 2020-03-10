@@ -1,0 +1,200 @@
+﻿@model NoidaAuthority.PMS.Entity.ServiceRequestViewModel
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.Extensions;
+@using NoidaAuthority.PMS.Common;
+@{
+    ViewBag.Title = "Receipt";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<style>
+    .noida-logo {
+        background: url(/Content/Images/noida-acknowledgement.png);
+        width: 550px;
+        height: 70px;
+        margin-left: 150px;
+    }
+
+    .row-pad {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    /*#AcknowledgementContent {
+        display: none;
+    }*/
+</style>
+
+
+<div id="div-receipt" class="col-md-10 col-md-offset-1" style="border:2px solid black;">
+    <div class="" id="divAcknowledgementReceiptBody" style="padding:20px;">
+        <div class="row">
+            <div class="col-md-12" style="background:#00a182;display:none;">
+                <div class="noida-logo"></div>
+            </div>
+            <div class="col-md-12">
+                <h2 style="text-align:center;padding:0;margin-bottom:2px;">NEW OKHLA INDUSTRIAL DEVELOPMENT AUTHORITY</h2>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h4 style="text-align:center;padding:0;margin-bottom:2px;">Sector-6 Administrator Office, NOIDA</h4>
+            </div>
+        </div>
+        @*<div class="row">
+            <div class="col-md-12">
+                <h4 style="text-align:center;padding:0;margin-bottom:2px;">@Model.ServiceModel.Department &nbsp;&nbsp;(@Model.ServiceModel.SubDepartment)</h4>
+            </div>
+        </div>*@
+        <div class="row ">
+            <div class="col-md-12">
+                <h5 style="text-align:center;padding:0;margin-top:3px;">Acknowledgement Receipt </h5>
+            </div>
+        </div>
+        <div class="row row-pad">
+            <div class="col-md-12">
+                <span style="width:50%;text-align:right;float:right"> <b>Date: <span id="CreatedDate">@Model.ServiceModel.CreatedDate</span></b></span>
+            </div>
+        </div>
+        <div class="row row-pad">
+            <div class="col-md-12">
+                <span style="width:50%;float:left"><b> Acknowledgement No: &nbsp;<span id="ServiceRequestId">@Model.ServiceModel.RequestId</span></b></span>
+            </div>
+        </div>
+        <div class="row row-pad">
+            <div class="col-md-12">
+                <span style="width:50%;float:left"><b> Applicant Name: &nbsp;<span id="Name">@Model.ServiceModel.Applicant</span></b></span>
+                <span style="width:50%;text-align:right;float:right"><b>Property No: &nbsp;<span id="Property_No">@Model.ServiceModel.PropertyNo</span></b></span>
+            </div>
+        </div>
+        <div class="row row-pad">
+            <div class="col-md-12">
+                <span style="width:50%;float:left"><b> Department: &nbsp;<span id="DepartmentName">@Model.ServiceModel.Department</span></b> &nbsp;&nbsp;( <span id="SubDepartment">@Model.ServiceModel.SubDepartment</span> )</span>
+                <span style="width:50%;text-align:right;float:right"><b>Mobile No.: &nbsp;<span id="Mobile">@Model.ServiceModel.MobileNo</span></b></span>
+            </div>
+        </div>
+        <div class="row row-pad">
+            <div class="col-md-12">
+                <b> Request Type: &nbsp;<span id="ServiceName">@Model.ServiceModel.ServiceName</span></b>
+            </div>
+        </div>
+        <div class="row row-pad">
+            <div class="col-md-12">
+                <b> Subject: &nbsp; <label id="lblDescription">@Model.ServiceModel.Description</label></b>
+            </div>
+        </div>
+        <div class="row row-pad">
+            <div class="col-md-12" style="text-align:justify;text-justify:inter-word">
+                <p>
+                    <b> Note:</b> The information provided in application shall be validated against the available information with the department.
+                    In case where addition information like payment info addition supporting document etc.is required, the same shall be communicated on registered
+                    mobile number and mail You can also track the status of service request on <b> http://www.mynoida.in </b>,Please quote this service request number for any
+                    communication regarding the application.
+                </p>
+            </div>
+        </div>
+        <div class="row row-pad" style="margin-bottom:8px;">
+            <div class="col-md-12">
+                <b>
+                    Thanks for using services online.<br />
+                    Your Thankfully<br />
+                    NOIDA
+                </b>
+            </div>
+        </div>
+
+        <div class="row row-pad">
+            <div class="col-md-12" style="border-top:1px solid black;">
+                <label>Payment Detail</label>
+            </div>
+        </div>
+        <div class="row row-pad">
+            <div class="col-md-12">
+                <span style="width:50%;float:left"><b> Paid Amount: &nbsp;<span id="lbl-amount">@Model.OnlinePaymentModel.Amount</span></b></span>
+                <span style="width:50%;text-align:right;float:right"><b>Payment Status: &nbsp;<span id="lbl-paystatus">@Model.OnlinePaymentModel.TransactionStatus</span></b></span>
+            </div>
+        </div>
+        <div class="row row-pad">
+            <div class="col-md-12">
+                <span style="width:50%;float:left"><b> Payment Mode: &nbsp;<span id="lbl-mode">@Model.OnlinePaymentModel.Mode</span></b></span>
+                @{
+                    if (Model.ServiceModel.Status == "success")
+                    {
+                        <span style="width:50%;text-align:right;float:right"><b>Transaction Id: &nbsp;<span id="lbl-transactionid">@Model.OnlinePaymentModel.TransactionId</span></b></span>
+                    }
+                }
+            </div>
+        </div>
+        <div class="row row-pad">
+            <div class="col-md-12">
+                <span style="width:50%;float:left"><b> Payment Date: &nbsp;<span id="lbl-entry-date">@Model.OnlinePaymentModel.EntryDate</span></b></span>
+                @{
+                    if (Model.ServiceModel.Status == "success")
+                    {
+                        <span style="width:50%;text-align:right;float:right"><b>Bank Reference No: &nbsp;<span id="lbl-bankrefno">@Model.OnlinePaymentModel.BankReferenceNo</span></b></span>
+                    }
+                }
+            </div>
+        </div>
+        <div class="row row-pad row-btn">
+            <div class="col-md-12" style="text-align: center; padding:15px 0px;">
+                <button type="button" id="btnPrintDiv" class="btn btn-success" onclick=" PrintAcknowledgementReciept();">Print</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    @{
+        if (TempData["Success"] != null || TempData["Success"] == "")
+        {
+            @:alertify.success('Payment completed successfully');
+       }
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        //$('.popup-window').kendoWindow({
+        //    modal: true,
+        //    title: "Service Request Acknowledgement",
+        //    visible: false,
+        //    width: "70%",
+        //    //height: "60%"
+        //});
+
+        //$('#btnClose').click(function () {
+        //    $(".popup-window").data("kendoWindow").close();
+        //    window.location.reload();
+        //    alertify.success("Request Submitted Successfully.");
+        //});
+    });
+
+    function PrintAcknowledgementReciept() {
+        var contents = document.getElementById("divAcknowledgementReceiptBody").innerHTML;
+        var frame1 = document.createElement('iframe');
+        frame1.name = "frame1";
+        frame1.style.position = "absolute";
+        frame1.style.top = "-1000000px";
+        document.body.appendChild(frame1);
+        var frameDoc = frame1.contentWindow ? frame1.contentWindow : frame1.contentDocument.document ? frame1.contentDocument.document : frame1.contentDocument;
+        frameDoc.document.open();
+        frameDoc.document.write('<html><head><title></title>');
+        frameDoc.document.write('<style>.row-btn{display:none;}</style>');
+        //frameDoc.document.write('<style>.noida-logo{background:url(/Content/Images/noida-acknowledgement.png);margin-left:150px;width:550px;height:70px;}</style>');
+        //frameDoc.document.write('<style>.popup-window{background:url(/Content/Images/logo-noida-small2.png) repeat;}</style>');
+        frameDoc.document.write('<style>.row-pad{padding: 0 30px;}</style>');
+        frameDoc.document.write('</head><body>');
+        frameDoc.document.write(contents);
+        frameDoc.document.write('</body></html>');
+        frameDoc.document.close();
+        setTimeout(function () {
+            window.frames["frame1"].focus();
+            window.frames["frame1"].print();
+            document.body.removeChild(frame1);
+        }, 500);
+        return false;
+    }
+</script>

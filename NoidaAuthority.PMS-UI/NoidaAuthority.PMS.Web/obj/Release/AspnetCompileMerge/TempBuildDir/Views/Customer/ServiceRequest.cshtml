@@ -1,0 +1,158 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+@{
+    ViewBag.Title = "ServiceRequest";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+<style>
+    .hyperlinkcss {
+        cursor: pointer;
+    }
+
+    .k-grid-content {
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+</style>
+
+
+@*<script src="~/Scripts/jquery.ba-hashchange.js"></script>*@
+
+<div>
+    <input type="hidden" id="hdnRegistrationID" value="@Model.RegistrationId" />
+    <input type="hidden" id="hdnPropertyCategory" value="@Model.PropertyCategory" />
+    <input type="hidden" id="hdnregID" value=@Request.QueryString["flag"] />
+    <input type="hidden" id="hdnflag" value=@Request.QueryString["Pflag"] />
+</div>
+
+<div class="row" id="PropertyDetailContainerDiv" data-registrationid="@Model.RegistrationId">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 text-right btn-help-wrap1">
+                @Html.ActionLink("Citizen Charter Guidelines", "OnlineHelp", new { controller = "Customer" }, new { target = "_blank" })
+            </div>
+        </div>
+        <div class="row" style="padding:0 10px 20px;">
+            <div class="col-md-12 divPropertyDetailHeader">
+                <h4 class="inline">Citizen Services Request</h4>
+
+                <span class="pull-right RID-txt">(Registration No: @Model.RegistrationNo)</span>
+                <input type="hidden" id="hdnRegNo" value="@Model.RegistrationNo" />
+                <input type="hidden" id="hdnPropType" value="@Model.PropertyCategory" />
+            </div>
+        </div>
+        <div class="row" style="padding-bottom:20px;">
+            <div class="col-md-12 text-right btn-add-service">
+                <input type="button" id="btnServiceRequest" value="Add Service Request" style="margin-right:15px;" />
+                @*@Html.ActionLink("Add Service Request", "CitizenService", new {id = Model.RegistrationId, optString = string.Empty })*@
+                @*<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalService">Add Service Request</button>*@
+            </div>
+        </div>
+        @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+
+        <div class="row" style="padding: 0 30px 0px 30px;">
+            <div class="col-md-12" style="padding:20px 0">
+                <div class="k-grid-content" style="overflow-y:hidden;">
+                    @(Html.Kendo().Grid<NoidaAuthority.PMS.Entity.CitizenRequestsModel>()
+              .Name("gridServiceReq")
+              .Columns(columns =>
+              {
+                  // columns.Bound(c => c.RId).Title("Service Request#").Width(40);
+                  //columns.Bound(c => c.RefNo).Title("Reference Number").Width(40).ClientTemplate("<a href='" + "/Customer/ViewRequestDetail/#= RefNo #'>#= RefNo #</a>").Filterable(false);
+                  columns.Bound(c => c.RefNo).Title("Reference Number").Width(40);//.ClientTemplate("<a href='" + "/Customer/ViewRequestDetail/#= RefNo #'>#= RefNo #</a>").Filterable(false);
+                  columns.Bound(c => c.ReqDate).Title("Request Date").Width(50).Format("{0:dd/MM/yyyy}");
+                  // columns.Bound(c => c.SLA).Title("SLA (In Days)").Width(35);
+                  columns.Bound(c => c.ServiceName).Title("Service Name").Width(60);
+                  columns.Bound(c => c.DuesAmount).Title("DueAmount").Width(60); 
+                  columns.Bound(c => c.ServiceFee).Title("ServiceFee").Width(60);
+                  //columns.Bound(c => c.Amount).Title("Pay").ClientTemplate("# if (Amount != null) {#<a onclick='redirectToPayment(#=RefNo#)'>Pay Now</a>#} else{#<span>Pay Now</span>#}#").Width(60);
+                  columns.Bound(c => c.TotalAmount).Title("Pay").ClientTemplate("# if (TotalAmount != 0) {#<span class='hyperlinkcss'><a onclick='PaymentGateway(#=RefNo#)'>Pay Now</a></span>#} else{#<span class='hyperlinkcss'><a onclick='return false;' style='color:grey;cursor:default'>Pay Now</a></span>#}#").Width(60);
+                  //   columns.Bound(c => c.DuesAmount).Title("Dues Amount").Width(60);
+                  //columns.Bound(c => c.ChallanId).Title("Challan").ClientTemplate("<a class='hyperlinkcss' onclick='javascript:DownloadChallan(#=ChallanId#);'>Receipt</a>").Width(60);
+                  columns.Bound(c => c.ChallanId).Title("Challan").ClientTemplate("#if(ChallanId != null){#  <a class='hyperlinkcss' onclick='javascript:DownloadChallan(ChallanId);'>Receipt</a> #} else{#<a class=''>NA</a>#}#").Width(60);
+
+
+              })
+              .Sortable()
+              .Filterable()
+                   .Resizable(resize => resize.Columns(true))
+                      .Pageable(pageable => pageable.Enabled(true).Refresh(true).PageSizes(true))
+              .DataSource
+              (
+                  dataSource => dataSource
+                      .Ajax()
+                      .Sort(x => x.Add("RefNo").Descending())
+                      .Model(model => model.Id(p => p.Id))
+                      .ServerOperation(true)
+                      .Read(read => read.Action("GetCitizenRequests", "Customer"))
+                      .PageSize(10)
+              )
+                    )
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="myModalService" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false" style="z-index:9999;padding-top:50px;">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="width:100%; background:#00c097; margin-top:0; border-top-left-radius:5px; border-top-right-radius:5px; color:#ffffff">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    Service Request
+                </h4>
+            </div>
+            <div class="modal-body">
+                @{Html.RenderPartial("_CitizenComplaint", Model);}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <input type="hidden" value="@System.Configuration.ConfigurationManager.AppSettings["PMSPaymentGateway"].ToString()" id="hdnURL" />
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#btnServiceRequest').click(function () {
+        $('#myModalService').modal('show');
+        @*window.location.href = '@Url.Action("Citizen", "Customer")';*@
+    });
+
+    function DownloadChallan(e) {
+        //alert(e);
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ challanId: e }),
+            url: '/Customer/DownloadReceipt',
+            success: function (result) {
+                alertify.success("Renting data Saved successfully");
+            },
+            error: function (ajaxRequest, strError) {
+                //alert(ajaxRequest.responseText);
+                alert("Some error occured. Please try again later.");
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        @if (TempData["completed"] != null && (bool)TempData["completed"] == true)
+        {
+            <text > alertify.alert("Congratulations!", "Your application has been initiated successfully. <br /> Your service request number: @((string)TempData["ServiceRequestId"])  <br /> Upon verification of documents, you will get a notification to pay fee for the service you have requested.")</text>
+        }
+    });
+
+    function PaymentGateway(refno) {
+        var intialPath = $("#hdnURL").val();
+        window.location = intialPath + "Property/PaymentGateway/OtherPayments?refno=" + refno + "&PaymentType=Other";
+    }
+</script>
+@*@{Html.RenderPartial("_CitizenComplaint", @Model);}*@
+

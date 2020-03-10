@@ -1,0 +1,144 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entity;
+
+<style>
+    .k-grid-content{
+        overflow-y:hidden;
+    }
+
+
+</style>
+
+@*<div class="row">
+        <div class="col-md-12">
+            <h4 class="header-title">Complaint/Service Request History</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <div class="k-grouping-header" data-role="droptarget">Drag a column header and drop it here to group by that column</div>
+            <div id="ComplainHistoryGrid"> </div>
+        </div>
+    </div>*@
+
+<div class="container-content">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="header-title">Service Request History</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 k-grid-content" id="service-grid">
+            @(Html.Kendo().Grid<NoidaAuthority.PMS.Entity.ServiceViewModel>()
+            .Name("gridServiceRequest")
+            .Columns(columns =>
+            {
+                columns.Bound(c => c.Id).Hidden(true);
+                columns.Bound(c => c.Id).Title("Ref Id").Width(110).ClientTemplate("<a href='/Administration/Property/ServiceDetail?id= #=EncryptedId#'> #=Id#</a>");
+                columns.Bound(c => c.ServiceName).Title("Service Name");
+                //columns.Bound(c => c.Description).Title("Description");
+                columns.Bound(c => c.Requestor).Title("Requestor");
+                columns.Bound(c => c.CreatedDate).Format("{0:dd-MMM-yyyy}").Title("Request Date").Width(140);
+                columns.Bound(c => c.Status).Title("Status").Width(120);
+            })
+            .Sortable(sort => sort.Enabled(true)).Filterable().Resizable(resize => resize.Columns(true))
+            .Pageable(pageable => pageable.Enabled(true).Refresh(true).PageSizes(true))
+            .ClientDetailTemplateId("template").AutoBind(true)
+            .DataSource
+            (
+                dataSource => dataSource
+                .Ajax().ServerOperation(true).Sort(x => x.Add(i => i.CreatedDate).Descending())
+                .Model(model => model.Id(p => p.Id))
+                .Read(read => read.Action("GetServiceHistoryDataListById", "Property", new { area = "Customer" }).Data("AdditionalInfoS")).PageSize(10)
+            )
+            )
+        </div>
+    </div>
+   
+</div>
+
+<script id="template" type="text/kendo-tmpl">
+    @(Html.Kendo().Grid<NoidaAuthority.PMS.Entity.ServiceViewModel>()
+            .Name("grid_#=Id#") // template expression, to be evaluated in the master context
+            .Columns(columns =>
+            {
+                columns.Bound(c => c.Id).Hidden(true);
+                //columns.Bound(o => o.Applicant).Width(300);//.ClientTemplate("<span>#= ServiceName #<br/><small ><b>Receiving Date:</b>&nbsp;#= CreatedDate#</small></span>");
+                columns.Bound(o => o.Description);
+                columns.Bound(o => o.Comment);//.ClientTemplate("<label>#=Comment#</label>");
+                //columns.Bound(o => o.Status).Width(120).Title("Update Status").ClientTemplate("<label class='lbl-status-action' onclick='javascript:OpenStatusWindow(this)'>#=Status#</label>");
+                //columns.Bound(o => o.RequestDate).Format("{0:dd/MM/yyyy}").Width(120);
+            })
+            .DataSource(dataSource => dataSource
+                .Ajax()
+                .PageSize(10)
+                .Read(read => read.Action("GetServiceHistoryDataListById", "Property", new {area="Customer", RegistrationId = "#=RegistrationId#", Id = "#=Id#" }))
+            )
+            .ToClientTemplate()
+    )
+</script>
+<script>
+    function dataBound() {
+        this.expandRow(this.tbody.find("tr.k-master-row").first());
+    }
+</script>
+
+<script>
+    function AdditionalInfoS() {
+        return {
+            RegistrationId: $('#RegistrationId').val()
+            //rid: 10000013
+        }
+    }
+
+
+    $(document).ready(function () {
+        var RegistrationID = $("div#div-propertydetail").data("registrationid");
+        $("div#ComplainHistoryGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Administration/Property/GetPropertyComplainHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#ComplainHistoryGrid'));
+            },
+            filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            requestStart: function () {
+
+                kendo.ui.progress($("div#ComplainHistoryGrid"), false);
+            },
+            requestEnd: function () {
+                kendo.ui.progress($("div#ComplainHistoryGrid"), true);
+            },
+            columns: [
+                { title: 'Registration ID', type: 'number', field: 'RegistrationId' },
+                { title: 'Complaint No', type: 'number', field: 'Complaint_No', width: 100 },
+                 { title: 'Subject', field: 'Nature_Subject', },
+                { title: 'Created Date', field: 'Submission_Date', type: "date", format: "{0:dd-MMM-yyyy}" },
+                  { title: 'Due Date', field: 'Exp_Delivery_Date', type: "date", format: "{0:dd-MMM-yyyy}" },
+                { title: 'Department', field: 'Department' },
+                 { title: 'Location', field: 'Complaint_Location' },
+                { title: 'Citizen Name', field: 'Citizen_Name' },
+                { title: 'Mobile', type: 'number', field: 'Citizen_Mobile', width: 90 },
+                { title: 'Status', field: 'Disposal_Status', width: 90 },
+
+            ]
+        });
+
+    });
+
+
+</script>

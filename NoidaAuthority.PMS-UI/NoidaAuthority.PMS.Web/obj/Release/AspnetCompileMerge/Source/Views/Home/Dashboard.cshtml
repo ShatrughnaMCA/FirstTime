@@ -1,0 +1,53 @@
+﻿@using System.Web.Optimization;
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/highcharts")
+}
+<style>
+    .noidaauth-flex-row {
+        display: inline-flex;
+        width: 100%;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        @{if (TempData["MesgAdd"] != null && TempData["MesgAdd"] != "")
+    {
+        @:alert('Data saved successfully.');
+                            }
+    }
+    });
+    function GetDataItem(divID, attribute) {
+        return $("div#" + divID).data(attribute);
+    }
+    function GetSeletedSector() {
+        var sect = $("#propertySectorDropdown").data("value");
+        return sect;
+    }
+    function SearchObject(Array, searchFor) {
+        var self = Array;
+        searchFor = searchFor;
+        var result = null;
+        for (var index = 0; index < self.length; index++) {
+            var item = self[index];
+            if (item["name"] == searchFor) {
+                result = item;
+                break;
+            }
+        };
+        return result;
+    }
+</script>
+
+@*@{
+        Html.RenderPartial("_PropertySectorSelectorPartial");
+        Html.RenderPartial("_PropertyChartByTypePartial");
+        Html.RenderPartial("_PaymentChartPartial");
+        Html.RenderPartial("_ComplaintStatusChartPartial");
+        Html.RenderPartial("_RevenueChartPartial");
+    }*@

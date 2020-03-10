@@ -1,0 +1,160 @@
+﻿@model NoidaAuthority.PMS.Entity.NaUser.NaUser
+@using Kendo.Mvc.UI
+@using System.Web.Optimization
+@{
+    ViewBag.Title = "Add New Customer";
+}
+<style>
+    .form-control {
+        display: inline;
+        width: 100%;
+    }
+
+    .logo-gda {
+        background: #00c097 /*url("../../Content/Images/logo-gda.png") no-repeat scroll 20px center*/;
+        font-size: 20px;
+        height: 56px;
+        line-height: 56px;
+        padding-left: 10px;
+        width: 100%;
+        color: #fff;
+    }
+
+    label {
+        font-weight: 500 !important;
+        font-size: 14px;
+    }
+</style>
+
+@using (Html.BeginForm("Register", "ManageUsers", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div id="divMyProfile">
+
+        <div class="panel panel-default">
+            <div class="row" style="margin:40px 0">
+                <div class="col-sm-4 col-sm-offset-4">
+
+                    <table style="width:100%; border:1px solid #ccc; box-sizing:border-box;">
+
+                        <tr>
+
+                            <td class="logo-gda">Register New User</td>
+                        </tr>
+
+                        <tr>
+                            <td style="height:10px"></td>
+                        </tr>
+                        <tr>
+                            <td style=" padding:0 8px">
+                                @Html.LabelFor(m => m.FirstName)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style=" padding:0 8px">
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "red" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height:10px"></td>
+                        </tr>
+
+                        <tr>
+                            <td style=" padding:0 8px">@Html.LabelFor(m => m.LastName)</td>
+                        </tr>
+                        <tr>
+                            <td style=" padding:0 8px">
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "red" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height:10px"></td>
+                        </tr>
+
+                        <tr>
+                            <td style=" padding:0 8px">@Html.LabelFor(m => m.Email)</td>
+                        </tr>
+                        <tr>
+                            <td style=" padding:0 8px">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "red" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height:10px"></td>
+                        </tr>
+
+
+                        <tr>
+                            <td style=" padding:0 8px">@Html.LabelFor(m => m.Password)</td>
+                        </tr>
+                        <tr>
+                            <td style=" padding:0 8px">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "red" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height:10px"></td>
+                        </tr>
+
+                        <tr>
+                            <td style=" padding:0 8px">@Html.LabelFor(m => m.ConfirmPassword)</td>
+                        </tr>
+                        <tr>
+                            <td style=" padding:0 8px">
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "red" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height:10px"></td>
+                        </tr>
+
+                        <tr style="display:none">
+                            <td style=" padding:0 8px">@Html.LabelFor(m => m.PropertyId)</td>
+                        </tr>
+                        <tr style="display:none">
+                            <td style=" padding:0 8px">
+                                @Html.TextBoxFor(m => m.PropertyId, new { @class = "form-control", })
+                                @*@Html.ValidationMessageFor(m => m.PropertyId, "", new { @class = "red" })*@
+                            </td>
+                        </tr>
+                        <tr style="display:none">
+                            <td style="height:10px"></td>
+                        </tr>
+
+                        <tr>
+                            <td style=" padding:0 8px">@Html.LabelFor(m => m.MobileNo)</td>
+                        </tr>
+                        <tr>
+                            <td style=" padding:0 8px">
+                                @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control", @maxlength = "10" })
+                                @Html.ValidationMessageFor(m => m.MobileNo, "", new { @class = "red" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height:10px"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center; padding-bottom:20px;">
+                                <button type="submit" class="btn btn-success btn-sm">Submit</button>&nbsp;&nbsp;&nbsp;
+                                <button type="reset" class="btn-blue btn" onclick="location.href='@Url.Action("Index", "Home")'">Cancel</button>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+}

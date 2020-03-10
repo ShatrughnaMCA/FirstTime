@@ -1,0 +1,119 @@
+﻿
+<script src="~/Scripts/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<div id="ContentHeader">
+
+    <div class="row no-margin" style="padding-left:10px;">
+        <div class="select-bx-col">
+            <label>Depatrment</label><br />
+            <div class="btn-group srch-btn-inline" data-value="0" id="propertyTypeDropdown">
+                <a class="btn btn-default dropdown-toggle btn-select2 select-bx" data-toggle="dropdown" href="#">Select<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><span id="0">Select</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="select-bx-col">
+            <label>
+                Sector
+            </label><br />
+            <div class="btn-group srch-btn-inline" id="propertySectorDropdown" data-value="0">
+                <a class="btn btn-default dropdown-toggle btn-select2 select-bx" data-toggle="dropdown" href="#">Select<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><span id="0">Select</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="select-bx-col">
+            <label>
+                Block
+            </label><br />
+            <div class="btn-group srch-btn-inline" id="propertyBlockDropdown" data-value="0">
+                <a class="btn btn-default dropdown-toggle btn-select2 select-bx" data-toggle="dropdown" href="#">Select<span class="caret"></span></a>
+
+                <ul class="dropdown-menu" id="location">
+                    <li><span id="0">Select</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="select-bx-col">
+            <label>Payment Status</label><br />
+
+            <div class="btn-group srch-btn-inline" data-value="0" id="paymentStatusDropdown">
+                <a class="btn btn-default dropdown-toggle btn-select2 select-bx" data-toggle="dropdown" href="#">Select<span class="caret"></span></a>
+
+                <ul class="dropdown-menu">
+                    <li><span id="0">Select</span></li>
+                    <li><span id="1">Defaulted</span></li>
+                    <li><span id="2">Due</span></li>
+                    @*<li><span id="4">Due</span></li>*@
+                </ul>
+            </div>
+
+        </div>
+        <div class="select-bx-col">
+            <label>
+                &nbsp;
+            </label><br />
+            <input type="button" name="Search" id="btnPaymentSearchBtn" class="btn btn-success" value="Search" />
+        </div>
+    </div>
+
+</div>
+
+@{
+    Html.RenderPartial("_SearchCommonPartial");
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var deptId = '@Session["DeptId"]';
+        var deptName = '@Session["DeptName"]';
+        $("#btnPaymentSearchBtn").click(function () {
+            var propertyType = $("#propertyTypeDropdown").data("value");
+            var sect = $("#propertySectorDropdown").data("value");
+            var block = $("#propertyBlockDropdown").data("value");
+            var paymentStatus = $("#paymentStatusDropdown").data("value");
+            if (propertyType == "0" &&
+                sect == "0" &&
+                block == "0" &&
+                paymentStatus == "0") {
+                alert("Please enter atleast one value");
+            }
+            else {
+                var url = '/Property/Payments?';
+                var qs = GetFilterQueryForSearch();
+                window.location = (url + qs);
+            }
+        });
+        setTimeout(function () {
+            if (deptId != 0) {
+                $('#propertyTypeDropdown a').text(deptName);
+                $('#propertyTypeDropdown *').prop('disabled', true);
+                GetDropdownData("/api/common/List?name=sc&id=" + deptId, function (data) {
+                    PopulateDDLValues(data, 'div#propertySectorDropdown');
+                    AttachDDLOnClick('div#propertySectorDropdown')
+                    $("div#propertySectorDropdown ul.dropdown-menu li span").on("click", function () {
+                        var selectedVal = $(this).attr("id");
+                        var optionString = "<li><span id=\"0\">Select</span></li>";
+                        if (selectedVal != "0") {
+                            GetDropdownData("/api/common/List?name=bk&id=" + selectedVal, function (data) {
+                                PopulateDDLValues(data, 'div#propertyBlockDropdown');
+                                AttachDDLOnClick('div#propertyBlockDropdown')
+                                SetFilterDefaultValueOnLoad('0', 'div#propertyBlockDropdown');
+                            });
+                        }
+                        else {
+                            PopulateDDLValues([], 'div#propertyBlockDropdown');
+                        }
+                    });
+
+                });
+            }
+        }, 1000);
+    });
+
+
+</script>
+

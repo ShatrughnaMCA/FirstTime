@@ -1,0 +1,217 @@
+﻿@using System.Web.Optimization;
+@using NoidaAuthority.PMS.Common.Helpers;
+@using StackExchange.Profiling;
+@{
+    var displayMiniProfiler = SettingsHelper.IsMiniProfilerEnabled;
+}
+<style>
+    .flex-content-row {
+        height: auto;
+    }
+
+    .btn .caret {
+        margin-left: 10px !important;
+    }
+
+    .MaindivCSS {
+        pointer-events: none;
+    }
+</style>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="template">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/others")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/others")
+    <script src="~/Scripts/jquery-1.11.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/jquery.ba-hashchange.js"></script>
+    <script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+    <link href="~/Content/CSS/easy-responsive-tabs.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
+    <link href="~/Content/CSS/template-style.css" rel="stylesheet">
+    <link href="~/Scripts/toastr.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,400italic,700italic|Abril+Fatface|Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        .content-wrap {
+            padding-top: 80px;
+            margin-left: 15%;
+            width: 85%;
+            padding-bottom: 40px;
+        }
+
+        .user_bx_new {
+            padding-top: 10px;
+        }
+        .hyperlink:hover{
+            cursor:pointer;
+            color:blueviolet;
+        }
+    </style>
+    <script src="~/Scripts/kendo.aspnetmvc.min.js"></script>
+
+    <link href="~/Content/kendo/2014.2.716/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2014.2.716/kendo.default.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2014.2.716/kendo.default.mobile.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/kendo/2014.2.716/kendo.all.min.js"></script>
+    <script src="~/Scripts/kendo/2014.2.716/kendo.core.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".input-disabled").keypress(function () {
+                return false;
+            });
+        });
+    </script>
+
+</head>
+<body id="page_load">
+    <!-- Left column -->
+    <div id="Maindiv">
+        <div class="header_new">
+            <div class="logo_new"><img src="@Url.Content("~/Content/Images/logo-noida-small.png")"></div>
+            <div class="user_bx_new">
+                @{
+                    if (Session["UserDetail"] != null)
+                    {
+                        var loginuser = (NoidaAuthority.PMS.Entity.UserViewModel)Session["UserDetail"];
+                        @*<input type="button" onclick="goBack()" value="Go Back" />*@
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                @*<a href="#" class="dropdown-toggle" data-toggle="dropdown">Iasmani Pinazo <span class="glyphicon glyphicon-user pull-right"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Favourites Snippets <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                                    </ul>*@
+                            </li>
+                        </ul>
+                        <span class="user-name">Welcome @loginuser.FullName!<br /> <span>@loginuser.RoleName</span></span>
+                        <a class="logout_icn" href="/Account/Logout"><span class="user-name"><img src="@Url.Content("~/Content/Images/logout.png")" title="logout" /><br /><span style="font-size:11px;">Logout</span></span></a>
+                    }
+                    else
+                    {
+                        //Response.Redirect("~/Account/Login");
+                        Response.Redirect(Url.Action("Login", new { Controller="Account",area=""}));
+                    }
+                }
+
+            </div>
+            <button class="menu_btn">
+                <span></span>
+            </button>
+        </div>
+
+        <div class="main-cont">
+            <div class="nav-left">
+                @if (Session["UserDetail"] != null)
+                {
+                    <nav class="noidaauth-left-nav">
+                        <ul>
+                            @if (Convert.ToInt32(Session["RoleId"]) != 0)
+                            {
+                                <li class="user-name-mob"><a href="/" style="color:#fff"><span class="user-name" style="color:#fff">Sudhir Mangla > Admin</span> </a></li>
+                                <li id="dash" class="selected"><a href="/Administration/Admin/Dashboard"><i class="fa fa-users fa-fw"></i>Dashboard</a></li>
+                                <li id="prop"><a href="/Administration/Property/"><i class="fa fa-bar-chart fa-fw"></i>Properties</a></li>
+                                <li id="fina"><a href="/Administration/Property/Payments?sc=&pts=2"><i class="fa fa-map-marker fa-fw"></i>Finance</a></li>
+                                <li id="liti"><a href="/Administration/Property/Litigation"><i class="fa fa-database fa-fw"></i>Litigation</a></li>
+                                <li id="srvs"><a href="/Administration/Property/Services"><i class="fa fa-database fa-fw"></i>Services</a></li>
+                                <li id="serv"><a href="/Administration/Property/ServiceRequest"><i class="fa fa-sliders fa-fw"></i>Request Service</a></li>
+                                
+                                @*<li id="vacantproperties"><a href="/Property/VacantProperties"><i class="fa fa-sliders fa-fw"></i>Vacant Properties</a></li>*@
+                                <li id="adva"><a href="/Administration/Property/AdvanceSearch"><i class="fa fa-sliders fa-fw"></i>Advance Search</a></li>
+                                
+                                @*<li id="adva"><a href="/Property/PropertySearch"><i class="fa fa-sliders fa-fw"></i>Property Search</a></li>*@
+                            }
+                            else
+                            {
+                                <li id="admin-emp"><a href="/Administration/Admin/ManageEmployee"><i class="fa fa-sliders fa-fw"></i>Manage Employee</a></li>
+                                <li id="admi-cus"><a href="/Administration/Admin/ManageCustomer"><i class="fa fa-sliders fa-fw"></i>Manage Customer</a></li>
+                                <li id="emp-reg"><a href="/Administration/Admin/Employee"><i class="fa fa-sliders fa-fw"></i>Register Employee</a></li>
+                                <li id="cus-reg"><a href="/Administration/Admin/Customer"><i class="fa fa-sliders fa-fw"></i>Register Customer</a></li>
+                                @*<li id="feed"><a href="/ManageUsers/Feedbacks"><i class="fa fa-sliders fa-fw"></i>Feedbacks</a></li>
+                                <li id="serv"><a href="/Customer/ServiceRequests"><i class="fa fa-sliders fa-fw"></i>Service Requests</a></li>*@
+                            }
+                            @if (Convert.ToInt32(Session["RoleId"]) != 2)
+                            {
+                                @*<li id="newServ"><a href="/Administration/Property/ServiceRequest"><i class="fa fa-sliders fa-fw"></i>Add Service Request</a></li>*@
+                                @*<li id="servReport"><a href="/Administration/Property/ServiceReport"><i class="fa fa-sliders fa-fw"></i>Service Report</a></li>*@
+                            }
+                            <li id="chpass"><a href="/Account/ChangePassword"><i class="fa fa-sliders fa-fw"></i>Change Password</a></li>
+                            @*<li id="chpass">@Html.ActionLink("Chanage Password", "ChangePassword", new { controller = "Account", area = "" }, htmlAttributes: new { @class = "fa fa-sliders fa-fw" })</li>*@
+                            <li class="mob_logout"><a href="/Account/Logout"><i class="fa fa-eject fa-fw"></i>Sign Out</a></li>
+                        </ul>
+                    </nav>
+                }
+            </div>
+
+        </div>
+        <div class="content-wrap">
+            <div class="row" style="margin:10px 0 0">
+                <div class="col-md-12">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <footer class="footer_bx">
+            Copyright © 2016 <b>NOIDA</b>. Developed and Maintained by <a href="http://www.svam.com">North Shore Technologies</a>
+        </footer>
+    </div>
+
+
+
+
+
+    <script type="text/javascript" src="~/Scripts/template-script.js"></script>
+
+    @RenderSection("Scripts", required: false)
+    @if (displayMiniProfiler)
+    {
+        @MiniProfiler.RenderIncludes();
+    }
+    <script>
+        $(function () {
+            var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
+            $("#nav ul li a").each(function () {
+                if ($(this).attr("href") == pgurl || $(this).attr("href") == '')
+                    $(this).addClass("active");
+            })
+        });
+        function setCurrentTab(selectedTab) {
+            //alert(selectedTab);
+            $('.noidaauth-left-nav ul li').removeClass('selected');
+            $('#' + selectedTab).addClass('selected');
+            //alert(selectedTab);
+        }
+
+        $(document).ready(function () {
+            $(".menu_btn").click(function () {
+                $(".nav-left").toggle("slide");
+            });
+            //setCurrentTab('dash');
+        });
+
+        //function goBack() {
+        //    window.history.back();
+        //}
+
+    </script>
+
+</body>
+</html>

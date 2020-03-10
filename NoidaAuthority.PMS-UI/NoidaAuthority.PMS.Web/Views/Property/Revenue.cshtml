@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Payment Receipt History";
+}
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+
+<div id="PropertyListHeading">
+    <h4>Payment Receipt History</h4>
+</div>
+<div id="properties-grid">
+
+</div>
+<style>
+    div#properties-grid .k-grid-content {
+        min-height: 50px;
+        max-height: 600px;
+    }
+</style>
+
+<script type="text/javascript">
+
+    $(function () {
+
+
+        var requestUrl = "/Property/GetPaymentList" + location.search;
+        $("div#properties-grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: requestUrl
+                },
+                pageSize: 10,
+                //filter: { field: "UserException", operator: "neq", value: 'LEASE RENT' }
+            },
+            //filterable: true,
+            filterable: { extra: false },
+            groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            requestStart: function () {
+
+                kendo.ui.progress($("div#properties-grid"), false);
+            },
+            requestEnd: function () {
+                kendo.ui.progress($("div#properties-grid"), true);
+            },
+            columns: [{ title: 'Registration ID', type: 'number', field: 'RegistrationId', template: '<a href="/Property/PropertyDetail/#=RegistrationId#">#=RegistrationId#</a>' },
+                { title: 'Depatrment', field: 'PropertyType', width: 150 },
+                 { title: 'Sector', type: 'number', field: 'Sector', width: 90 },
+                { title: 'Deposit Date', field: 'DepositDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                { title: 'Depositor Name', field: 'DepositorName' },
+                 { title: 'Head', field: 'ReceiptHead' },
+                { title: '', type: 'number', field: 'AmountPaid', format: "{0:#,0.00}", headerTemplate: 'Amount Paid (&#8377)' },
+                { title: 'Bank ID', field: 'BankId' },
+                { title: 'Challan ID', field: 'ChallanId' }]
+        });
+
+        var grid = $("div#properties-grid").data("kendoGrid");
+        var headValue = getParameterByName('head');
+        //alert(headValue);
+        var $filter = new Array();
+        $filter.push({ field: "ReceiptHead", operator: "eq", value: headValue });
+        //grid.dataSource.filter($filter);
+
+
+    });
+
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+
+
+</script>
+
+

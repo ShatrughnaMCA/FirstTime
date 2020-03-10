@@ -1,0 +1,150 @@
+﻿@model NoidaAuthority.PMS.Entity.CustomerDetailViewModel
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+
+
+@{
+    ViewBag.Title = "Formats";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="container-content">
+    <div class="col-md-12">
+        <div class="row row-heading" style="padding:0 10px 0px;">
+            <div class="col-md-12 divPropertyDetailHeader" style="margin-bottom:10px;">
+                <h4 class="inline">Procedure For Transacting Property Related Matters</h4>
+                <span class="pull-right RID-txt">Registration No: @Model.PropertyModel.RegistrationId</span>
+                @Html.HiddenFor(m => m.CustomerModel.RegistrationId)
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 hr-div"></div>
+    <div class="col-md-12">
+        @*<div class="inr-bx" style="border:solid #e2e3e4; border-width:0 1px 1px">*@
+        <div class="col-md-10">
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>1</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="~/Content/Transferapplication.doc">Permission for transfer of property in favour of prospective transferee. (there is a prescribed tr. application form)</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>2</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/blood-relation.html">Permission for transfer of property amongst blood relations i.e. amongst father, mother, son, daughter and also between husband and wife.</a>
+                </div> 
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>3</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/legial_heirs.html">Permission for transfer of property on demise of the allottee to his legal heirs or to other beneficiary (s).</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>4</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/co-allotteeship.html">	Permission for Co-allotteeship</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>5</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/Mortgage.html">Permission to mortgage the property to clear noida's dues, raise construction, set up the unit or stablishment.</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>6</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/Collateral-Securiy.html">Mortgage permission for use of the premises as collateral security Issuing duplicate documents</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>7</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/property.html">	Issuing duplicate documents</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>8</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/Extenion.html">Grant extension to raise construction or set up unit/establishment</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>9</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/Extension-of-LD-TD.html">Grant extension to execute lease deed/transfer deed</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>10</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/gpa.html">Accepting Power of Attorney</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>11</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/Mutation-Letter.html">Issuing Mutation letter on receipt of the transfer deed</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>12</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/Functional-letter.html">Issuing Functional letter(Industrial/Commercial/Institutional)</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>13</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/Change-in-Constitution.html">Permitting Change in Constitution (Industrial / Commercial / Institutional)</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>14</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/Renting-Permission.html">Renting Permission (Industrial/ Institutional)</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-1" style="text-align:justify;">
+                    <strong>15</strong>
+                </div>
+                <div class="col-md-9">
+                    <a style="text-align:justify;font-weight:bold;" href="http://www.noidaauthorityonline.com/Change-in-Project.html">Change / Addition of Project / Change of Use (Industrial / Commercial)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

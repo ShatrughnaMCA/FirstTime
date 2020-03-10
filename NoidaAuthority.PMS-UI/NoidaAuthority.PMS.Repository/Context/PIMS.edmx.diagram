@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1bae5253e5414ab18ac485897ec19761" Name="Diagram1" ZoomLevel="39">
+        <EntityTypeShape EntityType="DbEntities.OnlineExtensionDetail" Width="1.5" PointX="21.75" PointY="71.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.OnlineFirmDirectorMaster" Width="1.5" PointX="21.75" PointY="86.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.OnlineFirmRequestMaster" Width="1.5" PointX="24.75" PointY="68.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.OnlineFunctionalDetail" Width="1.5" PointX="24.75" PointY="75.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.OnlineGPA" Width="1.5" PointX="7.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.OnlineMortgageDetail" Width="1.5" PointX="27.75" PointY="70.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.OnlinePropertyCancellationDetail" Width="1.5" PointX="21.75" PointY="79.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.OnlineRentPermissionDetail" Width="1.5" PointX="21.75" PointY="63.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.OnlineTransferMutation" Width="1.5" PointX="30.75" PointY="66.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.AccountHeadMst" Width="1.5" PointX="25.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.AccountLedgerBook" Width="1.5" PointX="0.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.AccountSubHeadMst" Width="1.5" PointX="28" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.AlloteeListMaster" Width="1.5" PointX="3" PointY="66.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.AllotmentMaster" Width="1.5" PointX="6" PointY="65.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.ApplicationDetail" Width="1.5" PointX="9" PointY="61.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.ApplicationPaymentDetail" Width="1.5" PointX="17.25" PointY="66.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Audit" Width="1.5" PointX="0.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Auto_Schedule" Width="1.5" PointX="5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.BankMst" Width="1.5" PointX="15" PointY="53" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.BlockMst" Width="1.5" PointX="0.75" PointY="62.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.BranchMst" Width="1.5" PointX="15" PointY="80.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Building_Plan_Master" Width="1.5" PointX="5.25" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Building_Plan_Trans" Width="1.5" PointX="7.5" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Challan_Master" Width="1.5" PointX="17.25" PointY="79.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Challan_Trans" Width="1.5" PointX="19.5" PointY="76" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.ChecklistMaster" Width="1.5" PointX="20" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.ChecklistTran" Width="1.5" PointX="20" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.ChecklistTypeMaster" Width="1.5" PointX="17.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.CircleRateMst" Width="1.5" PointX="3" PointY="61.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.CitizenService_Master" Width="1.5" PointX="9.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Common_Config" Width="1.5" PointX="12" PointY="53.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Completion_Details" Width="1.5" PointX="15.75" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.DemandNoteDetail" Width="1.5" PointX="17.75" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.DepartmentMst" Width="1.5" PointX="0.75" PointY="66.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Director_Request_Master" Width="1.5" PointX="8.25" PointY="55.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Document_Mst" Width="1.5" PointX="24.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Extension_Details" Width="1.5" PointX="11.25" PointY="64.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Firm_Director_Master" Width="1.5" PointX="11.25" PointY="70.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Firm_Master" Width="1.5" PointX="14.25" PointY="65.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Firm_Type_Master" Width="1.5" PointX="19.75" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.FloorMst" Width="1.5" PointX="3" PointY="85.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.FunctionalDetail" Width="1.5" PointX="14.25" PointY="45.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.GPA" Width="1.5" PointX="0.75" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.GroupHousingProjectMst" Width="1.5" PointX="27.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.HEAD_MASTER" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.HEAD_SUB_MASTER" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.InstallmentDuesPayment" Width="1.5" PointX="22.75" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.InstallmentDuesPaymentTran" Width="1.5" PointX="25" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.InterestMst" Width="1.5" PointX="3" PointY="96.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Interview_Details" Width="1.5" PointX="11.25" PointY="75.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.KYADetail" Width="1.5" PointX="7.75" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.LeaseRentPayment" Width="1.5" PointX="12.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.LeaseRentPaymentTran" Width="1.5" PointX="15" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Letter_History" Width="1.5" PointX="3" PointY="100.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Letter_Signing_Authority" Width="1.5" PointX="3" PointY="105" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.LitigationMst" Width="1.5" PointX="27.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.LocationMst" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.MediaTypeMst" Width="1.5" PointX="6" PointY="42.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Merge_Property_Master" Width="1.5" PointX="22.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Merge_Property_Trans" Width="1.5" PointX="25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.MortgageDetail" Width="1.5" PointX="14.25" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Nominee_Details" Width="1.5" PointX="9.75" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.NotificationMediaTran" Width="1.5" PointX="8.25" PointY="47" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.NotificationPaymentModeTran" Width="1.5" PointX="11.25" PointY="47" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Noting_File_Master" Width="1.5" PointX="22.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Noting_File_Trans" Width="1.5" PointX="25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.OccupationMst" Width="1.5" PointX="6.75" PointY="78.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PaymentDetailMaster" Width="1.5" PointX="20.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PaymentDetailTran" Width="1.5" PointX="23" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PaymentLeaseRentMaster" Width="1.5" PointX="27.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PaymentLeaseRentTran" Width="1.5" PointX="15" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PaymentModeMst" Width="1.5" PointX="9" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PaymentScheduleMaster" Width="1.5" PointX="17.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PaymentScheduleTran" Width="1.5" PointX="20" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PaymentSubTypeMst" Width="1.5" PointX="18" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PaymentTypeMst" Width="1.5" PointX="15.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PossessionDetail" Width="1.5" PointX="14.25" PointY="57.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PRE_FULL_PAYMENT_NDC" Width="1.5" PointX="11.75" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Process_Master" Width="1.5" PointX="2.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Product_Master" Width="1.5" PointX="27.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Property_Cancellation_Details" Width="1.5" PointX="21.75" PointY="52" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Property_Ledger" Width="1.5" PointX="7.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PropertyLocationChargesTran" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PropertyRateMst" Width="1.5" PointX="29.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PropertyTransaction" Width="1.5" PointX="29.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PropertyTypeMst" Width="1.5" PointX="3" PointY="108.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.QuotaMst" Width="1.5" PointX="3.75" PointY="56.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.RebateMst" Width="1.5" PointX="3.75" PointY="77.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.RECEIPT_AMOUNT_TRANS" Width="1.5" PointX="10.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.RECEIPT_DETAIL_MASTER" Width="1.5" PointX="8.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.RECEIPT_SUB_HEAD" Width="1.5" PointX="5.25" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.RECEIPTBEFORE2009" Width="1.5" PointX="29.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.RECIEPT_HEAD" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.RegistryDetail" Width="1.5" PointX="8.25" PointY="94.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.ReligionMst" Width="1.5" PointX="6.75" PointY="52.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.RentPermissionDetail" Width="1.5" PointX="14.25" PointY="73.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SchemeBankTran" Width="1.5" PointX="20.25" PointY="58.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SchemeCostTran" Width="1.5" PointX="5.25" PointY="86" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SchemeDepartmentTran" Width="1.5" PointX="3" PointY="71.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SchemeMst" Width="1.5" PointX="3.75" PointY="48" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SchemeNotifTran" Width="1.5" PointX="6" PointY="46.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SchemePropTran" Width="1.5" PointX="8.25" PointY="84.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SchemeQuotaTran" Width="1.5" PointX="6" PointY="59.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SchemeRebateTran" Width="1.5" PointX="6" PointY="73.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SchemeRefundTran" Width="1.5" PointX="19.5" PointY="70.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SchemeTypeMst" Width="1.5" PointX="1.5" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SectorMst" Width="1.5" PointX="3" PointY="89.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.ServiceCheckList_Master" Width="1.5" PointX="13.75" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.ServiceRequest_Documents" Width="1.5" PointX="21.75" PointY="139.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SigningOfficerMaster" Width="1.5" PointX="19.75" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.StampDutyMaster" Width="1.5" PointX="29.75" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.StatusMaster" Width="1.5" PointX="12" PointY="58.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.SubDepartmentMst" Width="1.5" PointX="24.75" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Succ_Mut_Trans" Width="1.5" PointX="14.25" PointY="85.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.TemplateMaster" Width="1.5" PointX="3" PointY="126.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Transfer_Type" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.UmApplicationMaster" Width="1.5" PointX="10.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.UmDepartmentMaster" Width="1.5" PointX="10.75" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.UmMenuMaster" Width="1.5" PointX="13" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.UmRoleAppTran" Width="1.5" PointX="13" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.UmRoleMaster" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.UmRoleMasterTran" Width="1.5" PointX="16" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.UmUserDepartmentTran" Width="1.5" PointX="13" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.UmUserMaster" Width="1.5" PointX="10.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.UmUserMasterRole" Width="1.5" PointX="13" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.UnsuccessfulApplicantListMaster" Width="1.5" PointX="17.25" PointY="60.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.AccountData" Width="1.5" PointX="26.75" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.PRE_PROP_HIRE_PURCHASE" Width="1.5" PointX="30.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Project_report" Width="1.5" PointX="2.75" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbEntities.Village_Master" Width="1.5" PointX="4.75" PointY="34.375" IsExpanded="true" />
+        <AssociationConnector Association="DbEntities.FKOlExtStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Ol_Firm_Master_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Ol_Firm_Master_Type_New" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Ol_StatusMaster_PossessionDetails_StatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Ol_StatusMaster_MortgageDetails_StatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Ol_Refund_Cancel" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Ol_StatusMaster_RentPermissionDetails_StatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Ol_StatusMaster_Transfer_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_AccountSubHeadMst_AccountHeadMst" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_departmentMst_AlloteeListMaster_departmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeMst_AlloteeListMaster_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_AllotmentMaster_ApplicationDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_AllotmentMaster_DepartmentMst" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_AllotmentMaster_RentPermissionDetails_Rid" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_AllotmentMaster_SchemeMst" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Director_Request_Master_AllotmentMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Extension_Details_AllotmentMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Firm_Master_AllotmentMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_PossessionDetails_AllotmentMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_RegistryDetails_AllotmentMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_ApplicationDetails_ApplicationPaymentDetails_applicationId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_ApplicationDetails_UnsuccessfulApplicantListMaster_applicationId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_DepartmentMst_ApplicationDetails_departmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Firm_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Firm_D_Application" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_OccupationMst_ApplicationDetails_occupationId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_QuotaMst_ApplicationDetails_quotaId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_ReligionMst_ApplicationDetails_religionId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeMst_ApplicationDetails_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_BankMst_ApplicationPaymentDetails_bankId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_BranchMst_ApplicationPaynmentDetails_banchId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Process_Master_Auto_Schedule_Process_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Process_Master_Auto_Schedule_Trigger_Process_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_BankMst_BranchMst_bankId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_BankMst_SchemeBankTrans_bankId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_BlockMst_CircleRateMst_blockId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_BlockMst_SchemeCostTrans_blockId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_BlockMst_SchemePropTrans_blockId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_BranchMst_SchemeBankTrans_branchId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Challan_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_BP_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Receipt_Bp" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Challan_Master_Trans" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_ChecklistTypeMaster_ChecklistMaster_ChecklistTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_ChecklistTypeMaster_ChecklistTrans_ChecklistTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_DepartmentMst_CircleRateMst_departmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Firm_Master_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Firm_Master_Type_New" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_DepartmentMst_Department_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_DepartmentMst_InterestMst_departmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_DepartmentMst_PropertyTypeMst_departmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_DepartmentMst_SchemeCostTrans_departmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_DepartmentMst_SchemeDepartmentTrans_departmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_DepartmentMst_SchemePropTrans_departmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_DepartmentMst_SchemeQuotaTrans_departmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_DepartmentMst_SchemeRebateTrans_departmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_departmentMst_UnsuccessfulApplicantListMaster_departmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.Fk_Dept_id" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Lh_DepartmentMst_Department_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Ext_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_FloorMst_SchemeCostTrans_floorId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_FloorMst_SchemePropTrans_floorId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_StatusMaster_PossessionDetails_StatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_HEAD_MASTER_HEAD_SUB_MASTER_HEAD_CODE" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_HEAD_MASTER_RECIEPT_HEAD_HEAD_CODE" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_InstallmentDuesPaymentTrans_InstallmentDuesPayment" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_LeaseRentPaymentTrans_LeaseRentPayment" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_PaymentLeaseRentTrans_LeaseRentPayment" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_LocationMst_PropertyLocationChargesTrans_locationId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_MediaTypeMst_NotificationMediaTrans_mediaTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Merge_Master_Trans" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_StatusMaster_MortgageDetails_StatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeNotifTrans_NotificationMediaTrans_notificationId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_PaymentModeMst_NotificationPaymentModeTrans_paymentModeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeNotifTrans_NotificationPaymentModeTrans_notificationId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Noting_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_PaymentDetailTrans_PaymentDetailMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_PaymentScheduleMaster_PaymentScheduleTrans_ScheduleId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_PaymentSubTypeMst_PaymentTypeMst" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_StatusMaster_PossessionDetails_StausId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_Refund_Cancel" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.Fk_Receipt_Head" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.Fk_Receipt_SubHead" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeCostTrans_PropertyTypeMst" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemePropTrans_PropertyTypeMst" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_QuotaMst_SchemeQuotaTrans_quotaID" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_RebateMst_SchemeRebateTrans_rebateID" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_RECEIPT_DETAILS_MASTER_RECEIPT_AMOUNT_TRANS_RECEIPT_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_RECIEPT_HEAD_RECEIPT_AMOUNT_TRANS_RECIEPT_HEAD_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_RECIEPT_SUB_HEAD_RECEIPT_AMOUNT_TRANS_RECEIPT_SUBHEAD_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_RECIEPT_HEAD_RECEIPT_SUB_HEAD_RECEIPT_CODE" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_StatusMaster_RentPermissionDetails_StatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeMst_SchemeBankTrans_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeMst_SchemeCostTrans_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SectorMst_SchemeCostTrans_sectorId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeMst_SchemeDepartmentTrans_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeMst_SchemeNotifTrans_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeMst_SchemePropTrans_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeMst_SchemeQuotaTrans_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeMst_SchemeRebateTrans_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeMst_SchemeRefundTrans_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeMst_UnsuccessfulApplicantListMaster_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SchemeTypeMst_SchemeMst_schemeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_SectorMst_SchemePropTrans_sectorId" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_StatusMaster_Transfer_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.Fk_TransferType" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_UmMenuMaster_UmApplicationMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_UmRoleAppTrans_UmApplicationMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_UmRoleMasterTrans_UmApplicationMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_UmUserDepartmentTrans_UmDepartmentMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_UmRoleAppTrans_UmRoleMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_UmRoleMasterTrans_UmRoleMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_UmUserMasterRole_UmRoleMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_UmUserDepartmentTrans_UmUserMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="DbEntities.FK_UmUserMasterRole_UmUserMaster" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbEntities.CustomerMst" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="DbEntities.NDCDetailMst" Width="1.5" PointX="32.375" PointY="8.75" />
+        <EntityTypeShape EntityType="DbEntities.Customer_ServiceRequest" Width="1.5" PointX="19.5" PointY="80.25" />
+        <AssociationConnector Association="DbEntities.Fk_ServiceExtension" />
+        <AssociationConnector Association="DbEntities.Fk_ServiceCID" />
+        <AssociationConnector Association="DbEntities.Fk_ServiceFirm" />
+        <AssociationConnector Association="DbEntities.Fk_ServiceFunctional" />
+        <AssociationConnector Association="DbEntities.Fk_ServiceMortgage" />
+        <AssociationConnector Association="DbEntities.Fk_ServiceCSR" />
+        <AssociationConnector Association="DbEntities.Fk_ServiceRentPermission" />
+        <AssociationConnector Association="DbEntities.Fk_ServiceTransfer" />
+        <AssociationConnector Association="DbEntities.Fk_Challan_Services" />
+        <AssociationConnector Association="DbEntities.Fk_SrvcRqstDoc" />
+        <EntityTypeShape EntityType="DbEntities.Customer_ServiceStatusTrans" Width="1.5" PointX="32.375" PointY="19.75" />
+        <EntityTypeShape EntityType="DbEntities.DepartmentSubMst" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbEntities.ExcessAreaDetailMst" Width="1.5" PointX="29.75" PointY="32.75" />
+        <EntityTypeShape EntityType="DbEntities.NICsingalwindowSystem" Width="1.5" PointX="34.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbEntities.online_Director_Master" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbEntities.OnlineApplicationDetail" Width="1.5" PointX="32.75" PointY="25.625" />
+        <EntityTypeShape EntityType="DbEntities.OnlineApplicationDetails_trans" Width="1.5" PointX="34.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DbEntities.OnlineApplicationProcessDetail" Width="1.5" PointX="35" PointY="37.875" />
+        <EntityTypeShape EntityType="DbEntities.OnlineAreawithRegisandProcfee" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbEntities.OnlineCheckListMaster" Width="1.5" PointX="35.75" PointY="25.25" />
+        <EntityTypeShape EntityType="DbEntities.OnlineCheckLisTran" Width="1.5" PointX="38" PointY="32.625" />
+        <EntityTypeShape EntityType="DbEntities.OnlineSchemeDraw" Width="1.5" PointX="35" PointY="29.625" />
+        <EntityTypeShape EntityType="DbEntities.PropertyCompensationMst" Width="1.5" PointX="11.625" PointY="79.875" />
+        <EntityTypeShape EntityType="DbEntities.SMSServicesMst" Width="1.5" PointX="34.75" PointY="19.75" />
+        <EntityTypeShape EntityType="DbEntities.NiveshMitraEntr_Master" Width="1.5" PointX="36.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbEntities.Service" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbEntities.ServiceStatu" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbEntities.ServiceStatusTran" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbEntities.ServiceTran" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbEntities.RECEIPT_AMOUNT_TRAN" Width="1.5" PointX="21.75" PointY="0.75" />
+        <AssociationConnector Association="DbEntities.FK_PropertyCompensationMst_BlockMst" />
+        <AssociationConnector Association="DbEntities.FK_PropertyCompensationMst_DepartmentMst" />
+        <AssociationConnector Association="DbEntities.FK_OnlineApplicationDetails_OnlineSchemeDraw" />
+        <AssociationConnector Association="DbEntities.FK_OnlineApplicationProcessDetail_OnlineApplicationDetails" />
+        <AssociationConnector Association="DbEntities.FK_OnlineCheckLisTrans_OnlineApplicationDetails" />
+        <AssociationConnector Association="DbEntities.FK_OnlineCheckLisTrans_OnlineCheckListMaster" />
+        <AssociationConnector Association="DbEntities.FK_PropertyCompensationMst_SectorMst" />
+        <EntityTypeShape EntityType="DbEntities.UmUserSubDepartmentTran" Width="1.5" PointX="24.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DbEntities.Customer_ServiceRequestCharges" Width="1.5" PointX="10.375" PointY="36.75" />
+        <EntityTypeShape EntityType="DbEntities.Customer_ServiceRequestDocument" Width="1.5" PointX="16.375" PointY="36.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

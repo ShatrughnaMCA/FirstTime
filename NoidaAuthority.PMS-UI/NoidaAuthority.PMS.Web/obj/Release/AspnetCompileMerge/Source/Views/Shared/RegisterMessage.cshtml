@@ -1,0 +1,105 @@
+﻿@using System.Web.Optimization
+@model NoidaAuthority.PMS.Web.Models.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    @Styles.Render("~/Content/others")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/others")
+
+
+</head>
+<body id="page_load">
+    <div class="row-fluid" id="header">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="row-fluid">
+                <div id="page_head" class="col-md-8" style="width: 15%">
+                    <a href="/">
+                        <img src="@Url.Content("~/Content/Images/logo.png")" style="height: 55px; margin-bottom: 1px;" alt="" border="0">
+                    </a>
+                </div>
+                <div class="logo-text">
+                    New Okhla Industrial Development Authority<br>
+                    <span style="font-size: 11px; font-weight: bold;">[ISO 9001:2000 &amp; ISO 14001:2004 Certified]</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="row-fluid" style="height: 66%;">
+            <div class="col-md-10 col-md-offset-1">
+                <nav class="hidden-xs hidden-sm navbar-custom">
+                    <ul class="nav nav-pills">
+                        <li><a href="/" tabindex="1">Home</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+              @if (TempData["isCreated"] != null && (bool)TempData["isCreated"] == true)
+{
+    ViewBag.Title = "Registration is successfull";
+    <p>Your Registration is successful</p>
+}
+
+else
+{
+    ViewBag.Title = "Registration is successfull";
+    <p>Data has been updated </p>
+}
+            </div>
+            <hr>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#forgotPWD").click(function () {
+            $("div#divForgotPassword").modal('show');
+        });
+
+        $("#btnSubmit").click(function () {
+            alert("Password has been sent to your email address successfully.");
+            $("div#divForgotPassword").modal('hide');
+        });
+
+        @*@if (TempData["isForgotPwdSuccess"] != null && (bool)TempData["isForgotPwdSuccess"] == true)
+        {
+
+            <text>toastr.success('Password has been sent to your email address successfully.');</text>
+        }*@
+        });
+</script>
+<script type="text/javascript">
+    $(document).ready(
+        function () {
+            $('#btnSignin').click(
+                function () {
+                    $('#loading').show();
+                    $('#btnSignin').hide();
+                    $('#btnReset').hide();
+
+
+                    $.get("@Url.Action("Login", "Account")",
+                        function (data) {
+                            $('#loading').hide();
+                            $('#btnSignin').show();
+                            $('#btnReset').show();
+                        });
+                }
+            );
+        }
+    );
+</script>

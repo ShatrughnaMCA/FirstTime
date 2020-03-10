@@ -1,0 +1,63 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+
+
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<script src="~/Scripts/jquery.ba-hashchange.js"></script>
+
+
+<div class="row" id="PropertyDetailContainerDiv">
+    <div class="col-md-12">
+        <div class="row" style="padding:0 10px 20px;">
+            <div class="col-md-12 divPropertyDetailHeader">
+                <h4 class="inline">Pay Jal Bill</h4>
+                <a style="background:#333; padding:8px 15px; color:#fff;" class="pull-right" href="http://www.noidajalonline.com/" target="_blank">Pay Jal Bill</a>
+                <input type="hidden" id="hdnRegNo" value="@Model.RegistrationNo" />
+                <input type="hidden" id="hdnPropType" value="@Model.PropertyCategory" />
+            </div>
+        </div>
+        @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+    </div>
+    <div class="col-md-12">
+        <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+        <div id="JalDetailGrid"></div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        var RegistrationID = $("#hdnRegistrationID").val();
+        $("div#JalDetailGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Customer/GetJalDetailsPaymentHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Consumer No', field: 'ConsumerNumber' },
+                        { title: '', field: 'BillAmt', format: "{0:#,0.00}", headerTemplate: 'Bill Amount (&#8377)' },
+                        { title: '', field: 'PaidAmount', format: "{0:#,0.00}", headerTemplate: 'Paid Amount (&#8377)' },
+                        { title: '', field: 'Surcharge', format: "{0:#,0.00}", headerTemplate: 'Surcharge (&#8377)' },
+                        { title: 'Payment Date', field: 'PaymentDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Bill From', field: 'BLFrom', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Bill To', field: 'BLTo', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Due Date', field: 'DueDate', type: "date", format: "{0:dd-MMM-yyyy}" }
+            ]
+        });
+    });
+</script>

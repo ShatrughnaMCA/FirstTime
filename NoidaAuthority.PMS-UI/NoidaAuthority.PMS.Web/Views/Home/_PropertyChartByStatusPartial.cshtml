@@ -1,0 +1,102 @@
+﻿@using NoidaAuthority.PMS.Common;
+
+<div id="propertychartByStatusDiv" class="chartContainer" data-propertystatusqs="@Contants.QueryString.PropertyStatus">
+    <img src="@Url.Content("~/Content/Images/loading_green.gif")" class="loading" />
+</div>
+
+<script>
+    function GenerateAllotedChart(allotedData) {
+        $('#propertychartByStatusDiv').highcharts({
+            chart: {
+                type: 'pie',
+                height: 330,
+                options3d: {
+                    enabled: false,
+                    alpha: 20,
+                    beta: 0
+                }
+            },
+            title: {
+                text: 'Property by Status',
+                verticalAlign: 'bottom',
+                align: 'center',
+                x: -70,
+                style: {
+                    fontWeight: 'bold',
+                    fontSize: '13px',
+                }
+            },
+            exporting: {
+                enabled: false
+            },
+            legend: {
+                align: 'right',
+                verticalAlign: 'top',
+                layout: 'vertical',
+                y: 50
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:13px"><b>{series.name}<b></span><br>',
+                pointFormat: '<span style="color:{point.color}"><b>{point.name}</b></span>: <b>{point.percentage:.1f}%</b> of total<br/>Property Count: <b>{point.y:,.0f}</b> of <b>{point.total:,.0f}<b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function () {
+                                location.href = this.options.url;
+                            }
+                        }
+                    },
+                    depth: 70,
+                    dataLabels: {
+                        distance: -50,
+
+                        y: -20,
+                        color: 'white',
+                        enabled: true,
+                        format: '{point.percentage:.1f}%'
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Property Status',
+                data: allotedData
+            }]
+        });
+    };
+
+    
+    function GetAllotedChartData(sector,onComplete) {
+        allotedData = [];
+        jQuery.support.cors = true;
+        $.ajax({
+            url: '/API/Graph/PropertyStatus?sc='+ sector,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $.each(data, function (i, item) {
+                    allotedData.push(
+                        {
+                            name: item.AllotmentStatus,
+                            y: item.AllotmentStatusCount,
+                            url: '/Property?' + GetDataItem("propertychartByStatusDiv", "propertystatusqs") + '=' + item.ID + "&sc=" + GetSeletedSector(),
+                        })
+                });
+                onComplete(allotedData);
+            },
+            error: function (x, y, z) {
+                //alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+    $(document).ready(function () {
+        GetAllotedChartData("", function (allotedData) {
+            GenerateAllotedChart(allotedData);
+        });
+    });
+</script>

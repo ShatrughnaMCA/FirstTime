@@ -1,0 +1,180 @@
+﻿@model NoidaAuthority.PMS.Entity.MortgageModel
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+
+
+<div class="row">
+    <div class="col-md-6 no-padding">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.BankName, htmlAttributes: new { @class = "nw-lbl-lft required" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.BankName, new { @maxlength = "70", @class = "nw-lbl-rht nw-txt-bx-spce" })
+                @Html.ValidationMessageFor(model => model.BankName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.BranchAddress, htmlAttributes: new { @class = "nw-lbl-lft required" })
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.BranchAddress, new { @maxlength = "150", @class = "nw-lbl-rht nw-txt-bx-spce" })
+                @Html.ValidationMessageFor(model => model.BranchAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.MortgageType, htmlAttributes: new { @class = "nw-lbl-lft required" })
+            </div>
+            <div class="col-md-6">
+                @(Html.Kendo().DropDownListFor(model => model.MortgageType)
+                                                      .DataTextField("text")
+                                                      .DataValueField("id")
+                                      .OptionLabel("Select")
+                                      .DataSource(source =>
+                                      {
+                                          source.Read(read =>
+                                          {
+                                              read.Action("GetMortgageType", "Customer");
+                                          });
+                                      })
+                                    .HtmlAttributes(new { style = "width:100%;" })
+                )
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 no-padding">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.PreviousLoanNoc, htmlAttributes: new { @class = "nw-lbl-lft required" })
+            </div>
+            <div class="col-md-6">
+                @(Html.Kendo().DropDownListFor(model => model.PreviousLoanNoc)
+                                      .DataTextField("text")
+                                      .DataValueField("id")
+                                      .OptionLabel("Select")
+                                      .DataSource(source =>
+                                      {
+                                          source.Read(read =>
+                                          {
+                                              read.Action("GetPreviousLoanNoc", "Customer");
+                                          });
+                                      })
+                                    .HtmlAttributes(new { style = "width:100%;" })
+                )
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.SanctionedAmount, htmlAttributes: new { @class = "nw-lbl-lft" })<i class="glyphicon fa fa-inr"></i>
+            </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.SanctionedAmount, new { @maxlength = "13", @class = "nw-lbl-rht nw-txt-bx-spce" })
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+@*<div class="row">
+        <div class="col-md-12 text-right btn-add-service" style="padding-top:15px;">
+            <input type="button" id="btnUpdateService" class="btn btn-upload-doc btnName" value="Next >>" style="padding:10px 20px" />
+        </div>
+    </div>*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnMortgageServiceSubmit").click(function () {
+            var bankname = $("#BankName").val();
+            var branchAddress = $("#BranchAddress").val();
+            var sanctionedAmount = "0";
+            if ($("#SanctionedAmount").val() != "") {
+                sanctionedAmount = $("#SanctionedAmount").val();
+            }
+            var mortgageType = $("#MortgageType").val();
+            var previousLoanNoc = $("#PreviousLoanNoc").val();
+            var rid = $("#Registration_No").val();
+            var registrationno = $("#ServiceRequestId").val();
+            var desc = $("#Description").val();
+            if (Validation() && CheckFileUpload() && CheckFileSize()) {
+                $.ajax({
+                    dataType: 'json',
+                    type: 'Post',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ rid: rid, registrationno: registrationno, BankName: bankname, BranchAddress: branchAddress, SanctionedAmount: sanctionedAmount, MortgageType: mortgageType, PreviousLoanNoc: previousLoanNoc, desc: desc }),
+                    url: '/Customer/SaveMortgageReq',
+                    success: function (result) {
+                        alertify.success("Mortgage Data Save successfully");
+                        $('#divAcknowledgementModal').modal('show');
+                        //$('#userform').submit();
+                        //ShowUploadDoc();
+                    },
+                    error: function (objAjaxRequest, strError) {
+                        var respText = objAjaxRequest.responseText;
+                        //alert(respText);
+                        alert("Some error occured. Please try again later.");
+                        //$("#assignToWindow").data("kendoWindow").close();
+
+                    }
+                });
+            }
+        });
+
+
+        function Validation() {
+            var bflag = false;
+            var rid = $("#Registration_No").val();
+            var bankname = $("#BankName").val();
+            var mortgageType = $("#MortgageType").val();
+            var branchAddress = $("#BranchAddress").val();
+            var processingFee = $("#ProcessingFee").val();
+            var sanctionedAmount = $("#SanctionedAmount").val();
+            var validUpto = $("#ValidUpto").val();
+            var previousLoanNoc = $("#PreviousLoanNoc").val();
+            var registrationno = $("#ServiceRequestId").val();
+
+            if (rid == "") {
+                alertify.error("Please select RID.");
+                bflag = false;
+            }
+            else if (bankname == "") {
+                alertify.error("Please enter Bank Name.");
+                bflag = false;
+            }
+            else if (branchAddress == "") {
+                alertify.error("Please enter Branch Address.");
+                bflag = false;
+            }
+            else if (mortgageType == "") {
+                alertify.error("Please select Mortgage Type.");
+                bflag = false;
+            }
+            else if (previousLoanNoc == "") {
+                alertify.error("Please enter Previous Loan NOC.");
+                bflag = false;
+            }
+            //else if (sanctionedAmount == "") {
+            //    alertify.error("Please enter Sanctioned Amount.");
+            //    bflag = false;
+            //}
+            else if (isNaN(sanctionedAmount)) {
+                alertify.error("Sanctioned Amount should be number.");
+                bflag = false;
+            }
+            else {
+                bflag = true;
+            }
+            return bflag;
+        }
+    });
+</script>

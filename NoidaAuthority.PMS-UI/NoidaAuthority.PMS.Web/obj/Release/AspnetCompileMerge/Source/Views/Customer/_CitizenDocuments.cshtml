@@ -1,0 +1,143 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+<link href="~/Content/CSS/easy-responsive-tabs.css" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<script src="~/Scripts/jquery.ba-hashchange.js"></script>
+
+<h3>Documents</h3>
+
+<div>
+    <div class="tblPropertyDetailsRow">
+        <div class="tblPropertyDetailsCellWidth">Allottee Name:</div>
+        <div class="tblPropertyDetailsCell"><label id="lblName">@Model.Name </label> </div>
+        <div class="tblPropertyDetailsCellWidth">Scheme:</div>
+        <div class="tblPropertyDetailsCell">
+
+            @{
+                if (!string.IsNullOrEmpty(Model.Sector))
+                {
+                    <label id="lbl">@Model.Sector</label>
+                }
+                else
+                {
+                    <label id="lbl">NA</label>
+                }
+            }
+        </div>
+    </div>
+    <div class="tblPropertyDetailsRowColor">
+        <div class="tblPropertyDetailsCellWidth">Block:</div>
+        <div class="tblPropertyDetailsCell"><label id="lbl">@Model.Block</label></div>
+        <div class="tblPropertyDetailsCellWidth">Property Number:</div>
+        <div class="tblPropertyDetailsCell"><label>@Model.PropertyNumber</label></div>
+    </div>
+    <div class="tblPropertyDetailsRow">
+        <div class="tblPropertyDetailsCellWidth">Plot Number:</div>
+        <div class="tblPropertyDetailsCell">
+
+            @{
+                if (!string.IsNullOrEmpty(Model.PlotNumber))
+                {
+                    <label id="lbl">@Model.PlotNumber</label>
+                }
+                else
+                {
+                    <label id="lbl">NA</label>
+                }
+            }
+        </div>
+        <div class="tblPropertyDetailsCellWidth"></div>
+        <div class="tblPropertyDetailsCell">
+        </div>
+    </div>
+    <br />
+    <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+    <div style="display:none" id="AttachmentDetails">
+    </div>
+    <div id="DocumentDetails">
+    </div>
+    @(Html.Kendo().Window().Visible(false)
+                   .Name("IDWindow")
+           .Title("Document")
+           .Modal(true)
+           .Content(@<text>
+            <div style="width:100%" id="windowDiv">
+                <iframe id="ifrmViewPdf" style="width:800px; height:500px;"></iframe>
+            </div>
+        </text>)
+                                                                                                .Actions(actions => actions.Close())
+    )
+    <br />
+</div>
+<script>
+    $(document).ready(function () {
+        var RegistrationID = $("#hdnRegistrationID").val();
+    $("div#DocumentDetails").kendoGrid({
+        dataSource: {
+            type: "json",
+            transport: {
+                read: "/Property/GetDocumentDetails/" + RegistrationID
+            },
+            pageSize: 5
+        },
+        dataBound: function () {
+            //DisplayNoResultsFound($('#DocumentDetails'));
+        },
+        sortable: true,
+        pageable: {
+            refresh: true,
+            pageSizes: true,
+            buttonCount: 5
+        },
+        columns: [
+                    { title: 'Document Name', field: 'DocumentName' },
+   { field: 'PathName', hidden: true },
+   { title: 'Document', field: 'PathName', template: '<a onclick="javascript:OpenFile(this);" class="view-docs" >Click Here</a>' }
+        ],
+        noRecords: true,
+    });
+    $("div#AttachmentDetails").kendoGrid({
+        dataSource: {
+            type: "json",
+            transport: {
+                read: "/Property/GetPropertyAttachmentDetails/" + RegistrationID
+            },
+            pageSize: 5
+        },
+        dataBound: function () {
+            //DisplayNoResultsFound($('#AttachmentDetails'));
+            var filepath = 'PathName'
+        },
+        sortable: true,
+        pageable: {
+            refresh: true,
+            pageSizes: true,
+            buttonCount: 5
+        },
+        columns: [
+                    { title: 'Document Name', field: 'DocumentName' },
+                    { title: 'Document', field: 'PathName', template: '<a href="#=PathName#" target="_blank">Click Here</a>' }
+                    //{ title: 'Document', field: 'PathName', template: "<a href='#=PathName#' onclick='javascript:OpenLetterFileForAdmin(filepath);' class='view-docs'>View</a>" }
+        ],
+        noRecords: true,
+    });
+
+    $("#showDocument").click(function () {
+        $("#AttachedDocument").show().kendoWindow({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetPropertyAttachmentDetails/" + RegistrationID
+                }
+            },
+            width: "600px",
+            height: "900px",
+            modal: true,
+            title: "#=PathName#"
+        });
+    });
+    });
+
+</script>

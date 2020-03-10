@@ -1,0 +1,450 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+
+@{
+    ViewBag.Title = "CustomerView";
+}
+
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+
+
+
+<div id="PropertyDetailContainerDiv" data-registrationid="@Model.RegistrationId">
+    <div id="divPropertyDetailHeader">
+        <h4 class="PropertyDetailHeader">PropertyDetails (Registration No:@Model.RegistrationNo)</h4>
+    </div>
+    <div class="tblPropertyDetails" id="divPropertyDetails">
+        <div class="tblPropertyDetailsRow">
+            <div class="tblPropertyDetailsCellWidth">Alottee Name:</div>
+            <div class="tblPropertyDetailsCell"><label id="lblName">@Model.Name </label> </div>
+            <div class="tblPropertyDetailsCellWidth">@*Location:*@</div>
+            <div class="tblPropertyDetailsCell">
+                @*<label id="lbl">@Model.Location</label>  <a href='/Property/Location?id=@Model.RegistrationId' id="Viewlocation" target="_blank" class="propertyDetailsA">Location on Layout</a>*@
+            </div>
+
+        </div>
+
+        <div class="tblPropertyDetailsRowColor">
+            <div class="tblPropertyDetailsCellWidth">Registration Number:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.RegistrationNo</label></div>
+            <div class="tblPropertyDetailsCellWidth">Payment Schedule:</div>
+            <div class="tblPropertyDetailsCell">
+                <label id="lbl">@Model.PaymentSchedule</label>
+                @{
+                    if (Model.PaymentSchedule.Equals("Yes"))
+                    {
+                        <a href="#" id="PaymentSchedule" class="propertyDetailsA">Payment Schedule</a>
+                    }}
+            </div>
+        </div>
+        <div class="tblPropertyDetailsRow">
+            <div class="tblPropertyDetailsCellWidth">Sector:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.Sector</label></div>
+            <div class="tblPropertyDetailsCellWidth"></div>
+            <div class="tblPropertyDetailsCell"></div>
+        </div>
+        <div class="tblPropertyDetailsRowColor">
+            <div class="tblPropertyDetailsCellWidth">Block:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.Block</label></div>
+            <div class="tblPropertyDetailsCellWidth">Depatrment:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.PropertyType</label></div>
+        </div>
+        <div class="tblPropertyDetailsRow">
+            <div class="tblPropertyDetailsCellWidth">Scheme:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.Scheme</label></div>
+            <div class="tblPropertyDetailsCellWidth">Alottment Date:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.AlottmentDate</label>  </div>
+        </div>
+        <div class="tblPropertyDetailsRowColor">
+            <div class="tblPropertyDetailsCellWidth">Area:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.Area</label></div>
+            <div class="tblPropertyDetailsCellWidth">No Dues Certifiate issued:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.NoDuesCertificateIssued</label></div>
+        </div>
+        <div class="tblPropertyDetailsRow">
+            <div class="tblPropertyDetailsCellWidth">Status:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.Status</label></div>
+            <div class="tblPropertyDetailsCellWidth">Building Plan Approved:</div>
+            <div class="tblPropertyDetailsCell">
+                <label id="lbl">@Model.BuildingPlanApproved</label>
+                @*@{
+                    if (Model.BuildingPlanApproved.Equals("Yes"))
+                    {
+                        <a href="@Url.Content("~/Documents/BuildingPlan/" + Model.RegistrationId + ".jpg")" target="_blank" id="BuildingPlan" class="propertyDetailsA">Building Plan</a>
+                    }}*@
+
+            </div>
+        </div>
+        <div class="tblPropertyDetailsRowColor">
+            <div class="tblPropertyDetailsCellWidth">Rate Per Sq. Mtr:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.RatePerSqMtr</label></div>
+            <div class="tblPropertyDetailsCellWidth">Construction Completed:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.ConstructionCompleted</label></div>
+        </div>
+        <div class="tblPropertyDetailsRow">
+            <div class="tblPropertyDetailsCellWidth">Property Category:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.PropertyType</label></div>
+            <div class="tblPropertyDetailsCellWidth">Functional Date:</div>
+            <div class="tblPropertyDetailsCell">
+                <label id="lbl">@Model.FunctionalDate</label>
+                @*@{
+                    if (!string.IsNullOrEmpty(Model.FunctionalDate))
+                    {
+                        <a href="@Url.Content("~/Documents/FunctionalCertificate/" + Model.RegistrationId + ".jpg")" target="_blank" id="FunctionalCertificate" class="propertyDetailsA">Functional Certificate</a>
+                    }}*@
+
+            </div>
+        </div>
+        <div class="tblPropertyDetailsRowColor">
+            <div class="tblPropertyDetailsCellWidth">Floor Area Ratio:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.FloorAreaRatio</label></div>
+            <div class="tblPropertyDetailsCellWidth">Registry Date:</div>
+            <div class="tblPropertyDetailsCell">
+                <label id="lbl">@Model.RegistryDate</label>
+                @*@{
+                    if (!string.IsNullOrEmpty(Model.RegistryDate))
+                    {
+                        <a href="@Url.Content("~/Documents/LeaseDeed/" + Model.RegistrationId + ".jpg")" target="_blank" id="LeaseDeed" class="propertyDetailsA">Lease Deed</a>
+                    }}*@
+
+            </div>
+        </div>
+        <div class="tblPropertyDetailsRow">
+            <div class="tblPropertyDetailsCellWidth">Possession Date:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.PossessionDate</label></div>
+            <div class="tblPropertyDetailsCellWidth">Rent Permission:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.RentPermission</label></div>
+        </div>
+        <div class="tblPropertyDetailsRowColor">
+            <div class="tblPropertyDetailsCellWidth">Payment Due:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.PaymentDue</label></div>
+            <div class="tblPropertyDetailsCellWidth">Mortgage Permission:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.MortgagePermission</label></div>
+        </div>
+        <div class="tblPropertyDetailsRow">
+            <div class="tblPropertyDetailsCellWidth">Customer Address:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.CustomerAddress</label></div>
+            <div class="tblPropertyDetailsCellWidth">Any Litigation:</div>
+            <div class="tblPropertyDetailsCell">
+                <label id="lbl">@Model.LegalPreceedings</label>
+                @{
+                    if (Model.LegalPreceedings.Equals("Yes"))
+                    {
+                        <a href="#" id="legalHistory" class="propertyDetailsA">Litigation History</a>
+                    }}
+
+            </div>
+        </div>
+        <div class="tblPropertyDetailsRowColor">
+            <div class="tblPropertyDetailsCellWidth">Mobile: </div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.Mobile</label></div>
+            <div class="tblPropertyDetailsCellWidth">Transfer Case:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl"></label>  <a href="#" id="TransferHistory" class="propertyDetailsA">Transfer History</a></div>
+        </div>
+
+        <div class="tblPropertyDetailsRow">
+            <div class="tblPropertyDetailsCellWidth">Phone Number:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.PhoneNo</label></div>
+            <div class="tblPropertyDetailsCellWidth">JAL Connection:</div>
+            <div class="tblPropertyDetailsCell">
+                <label id="lbl"></label> @*yes/no to do*@
+                <a href="#" id="JALDetails" class="propertyDetailsA">JAL Details and payment history</a>
+            </div>
+        </div>
+        <div class="tblPropertyDetailsRowColor">
+            <div class="tblPropertyDetailsCellWidth">Email ID:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.EmailId</label></div>
+            <div class="tblPropertyDetailsCellWidth">Extension Given:</div>
+            <div class="tblPropertyDetailsCell"><label id="lbl"></label>  </div>
+        </div>
+
+
+    </div>
+    <br />
+    <h4>Payment History</h4>
+    <div id="PaymentHistoryGrid">
+    </div>
+    <br />
+    <h4>Property Documents List</h4>
+    <div id="PropertyDocumentsGrid">
+
+    </div>
+    <br />
+    <h4>Complain/Service Request History</h4>
+    <div id="ComplainHistoryGrid">
+        There are no complains for this property.
+    </div>
+</div>
+
+<div id="PopupContainerDiv">
+
+    <div id="myModalPaymentSchedule" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:70%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Payment Schedule</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="PaymentScheduleGrid"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModalLegalHistory" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:80%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Litigation History</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="LegalHistoryGrid">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="myModalTransferHistory" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:70%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Property Transfer History</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="TransferHistoryGrid">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="myModalJALDetails" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:70%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"> JAL Details and Payment History</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="JalDetailGrid">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var RegistrationID = $("div#PropertyDetailContainerDiv").data("registrationid");
+        $("#PaymentSchedule").click(function () {
+            $("#myModalPaymentSchedule").modal('show');
+        });
+        $("#legalHistory").click(function () {
+            $("#myModalLegalHistory").modal('show');
+        });
+        $("#TransferHistory").click(function () {
+            $("#myModalTransferHistory").modal('show');
+        });
+        $("#JALDetails").click(function () {
+            $("#myModalJALDetails").modal('show');
+        });
+
+        $("div#PaymentScheduleGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetPaymentSchedule/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Registration ID', field: 'RegistrationId' },
+                        { title: 'PropertyNo', field: 'PropertyNo' },
+                        { title: 'Applicant Name', field: 'ApplicantName' },
+                        { title: 'AllotmentDate', field: 'AllotmentDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Payment Schedule Date', field: 'paymentScheduleDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'ScheduleAmount', field: 'ScheduleAmount' }
+            ]
+        });
+        $("div#LegalHistoryGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetLegalHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Registration ID', field: 'RegistrationId' },
+                        { title: 'Case No.', field: 'CASENO' },
+                        { title: 'Year', field: 'YEAR', width: 50 },
+                        { title: 'Court', field: 'COURT' },
+                        { title: 'Parties', field: 'PARTIES' },
+                        { title: 'Department', field: 'DEPTT' },
+                        { title: 'Description', field: 'DESCRIPTION' },
+                        { title: 'Advocate Details', field: 'ADVOCATEDETAILS' },
+                        { title: 'Stay', field: 'STAY', width: 50 },
+                        { title: 'Filed', field: 'filedFlag', width: 60 },
+                        { title: 'Date', field: 'DATE', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Narrative', field: 'NARRATIVEYES_NO', width: 70 }
+            ]
+        });
+        $("div#TransferHistoryGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetTransferHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Registration ID', field: 'RegistrationId' },
+                        { title: 'MutationDate', field: 'MutationDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Applicant Name', field: 'ApplicantName' },
+                        { title: 'Selling Cost', field: 'SellingCost' },
+                        { title: 'Amount', field: 'Amount' },
+                        { title: 'Payment Date', field: 'PaymentDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Allotment Date', field: 'AllotmentDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Transfer Deed Date', field: 'TransferdeedDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+            ]
+        });
+        $("div#JalDetailGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetJalDetailsPaymentHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Registration ID', field: 'RegistrationId' },
+                        { title: 'Consumer', field: 'Consumer', width: 175, },
+                        { title: 'Flat No', field: 'FlatNo' },
+                        { title: 'Block', field: 'Block' },
+                        { title: 'Sector', field: 'Sector' },
+                        { title: 'Bill Amount', field: 'BillAmt' },
+                        { title: 'Paid Amount', field: 'PaidAmount' },
+                        { title: 'Surcharge', field: 'Surcharge' },
+                        { title: 'Payment Date', field: 'PaymentDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Bill From', field: 'BLFrom', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Bill To', field: 'BLTo', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Due Date', field: 'DueDate', type: "date", format: "{0:dd-MMM-yyyy}" }
+            ]
+        });
+        $("div#PaymentHistoryGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetPropertyPaymentHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                 { title: 'Registration ID', field: 'RegistrationId' },
+            { title: 'Deposit Date', field: 'DepositDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+            { title: 'Depositor Name', field: 'DepositorName' },
+            { title: 'Amount Paid', field: 'AmountPaid' },
+             { title: 'Amount Due', field: 'AmountDue' },
+            { title: 'Bank', field: 'BankId' },
+            { title: 'Challan', field: 'ChallanId' }
+            ]
+        });
+        $("div#PropertyDocumentsGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetPropertyDocuments/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Name', field: 'Name' },
+                        { title: 'Document Link', field: 'Url', template: '<a href="#=Url#" target="_blank">Click Here</a>' },
+            ]
+        });
+
+
+    });
+
+
+</script>

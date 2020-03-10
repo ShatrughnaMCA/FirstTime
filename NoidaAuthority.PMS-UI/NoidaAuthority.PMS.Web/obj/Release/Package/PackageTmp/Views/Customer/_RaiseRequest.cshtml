@@ -1,0 +1,581 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI
+@using Kendo.Mvc.Extensions;
+<link href="~/Content/kendo/2014.2.716/kendo.default.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2014.2.716/kendo.common.min.css" rel="stylesheet" />
+<style>
+    .form-control {
+        width: 100%;
+    }
+
+    label {
+        margin-bottom: 0;
+    }
+
+    .form-group {
+        margin-bottom: 8px;
+    }
+
+    .disabled-label {
+        background: #ccc;
+        padding: 6px;
+        width: 100%;
+        height: 30px;
+    }
+
+    .select-bx {
+        padding: 5px;
+    }
+
+
+    #txtServiceDescription.textarea-bx {
+        resize: none;
+        height: 80px;
+        width: 100%;
+        padding: 6px;
+        margin-left: 0;
+    }
+
+    /*.form-lbl {
+        width:100%;
+        background:#00ffff;
+    }*/
+    /*.k-dropdown-wrap .k-select span{
+        display:none;
+    }
+    .k-dropdown-wrap span{
+
+        width:100%;
+    }
+    #ddl span .k-widget.k-dropdown.k-header{
+        background:#00ffff;
+        width:100%;
+    }
+    .k-widget.k-dropdown.k-header .k-dropdown-wrap .k-input{
+        background:#00ffff;
+        width:100%;
+    }*/
+    .k-dropdown-wrap.k-state-focused {
+        box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    }
+
+    .k-state-focused {
+        background-color: #e3e3e3 !important;
+        border-color: #ddd !important;
+        color: #fff;
+    }
+
+    .k-popup.k-list-container {
+        border-color: #c5c5c5;
+    }
+
+    .btn-next {
+        background: #00A182;
+        color: #fff;
+    }
+
+        .btn-next:hover {
+            background-color: #027960;
+            color: #fff;
+        }
+</style>
+
+<div class="">
+    <div class="row form-group">
+        <div class="col-md-12">
+            @*<h4 style="width:100%; background:#00c097; padding:10px; margin-top:0; border-top-left-radius:5px; border-top-right-radius:5px; color:#fff">
+                    Service Request
+                </h4>*@
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class=""> Registration ID: </label>
+        </div>
+        <div class="col-md-3" id="ddl">
+            @*@(Html.Kendo().DropDownListFor(po => po.RID)
+                    .DataTextField("text")
+                    .DataValueField("id")
+                            .OptionLabel("--Select--").Filter("contains")
+                    .DataSource(source =>
+                    {
+                        source.Read(read =>
+                        {
+                            read.Action("GetRIDsByDeptt", "Customer").Data("addData");
+                        });
+                    }).AutoBind(false)
+                    .Events(events => { events.Change("RIDChange"); })
+                   .HtmlAttributes(new { style = "width:100%" })
+                )*@
+            @Html.TextBoxFor(m => m.RID, new { Value = "", @maxlength = "8", @class = "form-control" })
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class="lbl_lft_req">Sector:</label>
+        </div>
+        <div class="col-md-3">
+            @(Html.Kendo().DropDownListFor(po => po.RID)
+                    .DataTextField("text")
+                    .DataValueField("id")
+                            .OptionLabel("--Select--").Filter("contains")
+                    .DataSource(source =>
+                    {
+                        source.Read(read =>
+                        {
+                            read.Action("GetRIDsByDeptt", "Customer").Data("addData");
+                        });
+                    }).AutoBind(false)
+                    .Events(events => { events.Change("RIDChange"); })
+                   .HtmlAttributes(new { style = "width:100%" })
+            )
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class="lbl_lft_req">Block:</label>
+        </div>
+        <div class="col-md-3">
+            @(Html.Kendo().DropDownListFor(po => po.RID)
+                    .DataTextField("text")
+                    .DataValueField("id")
+                            .OptionLabel("--Select--").Filter("contains")
+                    .DataSource(source =>
+                    {
+                        source.Read(read =>
+                        {
+                            read.Action("GetRIDsByDeptt", "Customer").Data("addData");
+                        });
+                    }).AutoBind(false)
+                    .Events(events => { events.Change("RIDChange"); })
+                   .HtmlAttributes(new { style = "width:100%" })
+            )
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class="lbl_lft_req">Plot No.:</label>
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(m => m.PlotNo)
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class="lbl_lft_req">  Department: </label>
+        </div>
+        <div class="col-md-3">
+            <select id="ddlDepartment" class="select-bx" style="width:100%;" onchange="DDLChange()">
+                <option value="">Select</option>
+                <option value="1">Institutional</option>
+                <option value="2">Commercial</option>
+                <option value="3">Residential</option>
+                <option value="4">Industrial</option>
+                <option value="5">Housing</option>
+                <option value="6">Group Housing</option>
+            </select>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class="lbl_lft_req">Name:</label>
+        </div>
+        <div class="col-md-3">
+            <label id="lblName" class="form-lbl disabled-label"></label>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class="lbl_lft_req"> Property Number: </label>
+        </div>
+        <div class="col-md-3">
+            <label id="lblPropNo" class="form-lbl disabled-label"></label>
+            @*<input type="text" hidden="hidden" id="hdnPropertyNo" />*@
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class="lbl_lft_req"> Customer Address: </label>
+        </div>
+        <div class="col-md-3">
+            <label id="lblAdd" class="form-lbl disabled-label" style="display:none"></label>
+            <input type="text" id="txtAddress" class="form-control" readonly="readonly" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class="lbl_lft_req"> Mobile No: </label>
+        </div>
+        <div class="col-md-3">
+            <input id="txtMobile" type="text" class="form-control" maxlength="10" />
+            <label id="lblMobile" class="form-lbl disabled-label" style="display:none"></label>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class="lbl_lft_req">  Email ID: </label>
+        </div>
+        <div class="col-md-3">
+            <label id="lblEmail" class="form-lbl disabled-label" style="display:none"></label>
+            <input type="text" id="txtEmail" class="form-control" maxlength="25" />
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class="lbl_lft_req"> Services: </label>
+        </div>
+        <div class="col-md-3">
+            <select id="ddlService" onchange="ServiceChange(this)" class="select-bx" style="width:100%;"></select>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+            <label class="lbl_lft_req classDesc"> Description: </label>
+        </div>
+        <div class="col-md-3">
+            <textarea class="form-control textarea-bx classDesc" id="txtServiceDescription"></textarea>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-3">
+            <button type="button" id="btnSubmit" class="btn btn-next" style="padding:10px 35px;margin-top:8px;">Next</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var PropertyCategory = $('#hdnPropertyCategory').val();
+        var DepartmentValue = 0;
+        if (PropertyCategory == "Institutional") {
+            DepartmentValue = 1;
+        }
+        else if (PropertyCategory == "Commercial") {
+            DepartmentValue = 2;
+        }
+        else if (PropertyCategory == "Residential") {
+            DepartmentValue = 3;
+        }
+        else if (PropertyCategory == "Industrial") {
+            DepartmentValue = 4;
+        }
+        else if (PropertyCategory == "Housing") {
+            DepartmentValue = 5;
+        }
+        else if (PropertyCategory == "Group Housing") {
+            DepartmentValue = 6;
+        }
+
+        //$("#ddlDepartment").prop('selectedIndex', 1);
+        //GetAllServices(ddlDepartment);
+        $("#ddlDepartment").prop("disabled", true);
+
+        $("#RID").blur(function () {
+            var RID = $("#RID").val();
+            $.ajax({
+                dataType: 'json',
+                type: 'Post',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({
+                    RID: RID
+                }),
+                url: '/Customer/GetDepttByRID',
+                success: function (result) {
+                    if (result.isRIdExists == false) {
+                        alert("RID does not exist. Please enter correct Registration ID.");
+                        $('#ddlDepartment').val('');
+                        GetAllServices(ddlDepartment);
+                        $("#lblName").html('');
+                        $("#lblPropNo").html('');
+                        $("#lblAdd").html('');
+                        $("#txtAddress").val('');
+                        $("#lblMobile").html('');
+                        $("#lblEmail").html('');
+                        return false;
+                    }
+                    else {
+                        $("#ddlDepartment").prop('selectedIndex', result.DepttId);
+                        GetAllServices(ddlDepartment);
+                        $("#lblName").html(result.Name);
+                        $("#lblPropNo").html(result.PropertyNumber);
+                        $("#hdnPropertyNo").val(result.PropertyNumber);
+                        $("#lblAdd").html(result.CustomerAddress);
+                        $("#txtAddress").val(result.CustomerAddress);
+                        $("#lblMobile").html(result.Mobile);
+                        $("#txtMobile").val(result.Mobile);
+                        $("#lblEmail").html(result.EmailId);
+                        $("#txtEmail").val(result.EmailId);
+                    }
+                },
+                error: function (objAjaxRequest, strError) {
+                    var respText = objAjaxRequest.responseText;
+                    //alert(respText);
+                }
+            });
+        });
+
+    });
+
+    function ServiceChange(serv) {
+        var val = $(serv).val();
+        if (val > 9) {
+            $(".classDesc").hide();
+        }
+        else {
+            $(".classDesc").show();
+        }
+    }
+
+    function addData() {
+        return { deptt: $('#ddlDepartment').find(":selected").val() };
+    }
+
+    function RIDChange() {
+        var RID = $("#RID").val();
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                RID: RID
+            }),
+            url: '/Customer/GetDepttByRID',
+            success: function (result) {
+                //alert(result.EmailId);
+                //$("#ddlDepartment").prop('selectedIndex', result.DepttId);
+                //GetAllServices(ddlDepartment);
+                $("#lblName").html(result.Name);
+                $("#lblPropNo").html(result.PropertyNumber);
+                $("#hdnPropertyNo").val(result.PropertyNumber);
+                $("#lblAdd").html(result.CustomerAddress);
+                $("#txtAddress").val(result.CustomerAddress);
+                $("#lblMobile").html(result.Mobile);
+                $("#txtMobile").val(result.Mobile);
+                $("#lblEmail").html(result.EmailId);
+                $("#txtEmail").val(result.EmailId);
+                //}
+            },
+            error: function (objAjaxRequest, strError) {
+                var respText = objAjaxRequest.responseText;
+                //alert(respText);
+            }
+        });
+    }
+
+    function DDLChange() {
+        var ddl = $("#RID").data("kendoDropDownList");
+        ddl.dataSource.read();
+        ddl.enable(true);
+        //alert($('#ddlDepartment').find(":selected").val());
+
+        GetAllServices(ddlDepartment);
+        if ($('#ddlDepartment').find(":selected").val() == '') {
+            $("#lblName").html('');
+            $("#lblPropNo").html('');
+            $("#lblAdd").html('');
+            $("#txtAddress").val('');
+            $("#lblMobile").html('');
+            $("#lblEmail").html('');
+            ddl.value('');
+            ddl.enable(false);
+            //ddl.text('');
+            //$("#RID").data("kendoDropDownList").dataSource.data({}); // clears dataSource
+            //ddl.text(""); // clears visible text
+            //ddl.value(""); // clears invisible value
+        }
+    }
+
+    function GetAllServices(a) {
+        if ($(a).val() == "") {
+            //alert("Please Select a Department");
+            $("#ddlService").empty();
+            return false;
+        }
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ deptt: $(a).val() }),
+            url: '/Property/GetAllServiceData',
+            success: function (result) {
+                //debugger;
+                $("#ddlService").empty();
+                $.each(result, function (i, v) {
+                    ($("#ddlService").append($('<option>', {
+                        value: v.value,
+                        text: v.label
+                    })));
+                    //options[options.length] = new Option(v, val);
+                });
+            },
+            error: function (objAjaxRequest, strError) {
+                var respText = objAjaxRequest.responseText;
+                //alert(respText);
+            }
+        });
+    }
+
+    $("#btnSubmit").click(function () {
+        var deptVal = $("#ddlDepartment").val();
+        var registrationId = $('#RID').val();
+        var serviceVal = $("#ddlService").val();
+        var PropNumber = $("#lblPropNo").text();
+        var mobile = $('#txtMobile').val();
+        var mail = $('#txtEmail').val();
+        //alert(PropNumber);
+        //alert(lblPropNo.textContent);
+        var description = $.trim($("#txtServiceDescription").val());
+        if (registrationId == '' || registrationId == 0) {
+            alert("Please enter RID");
+            return false;
+        }
+
+        var registrationId = $("#RID").val();
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                RID: registrationId
+            }),
+            url: '/Customer/GetDepttByRID',
+            success: function (result) {
+                if (result.isRIdExists == false) {
+                    alert("RID does not exist. Please enter correct Registration ID.");
+                    return false;
+                }
+            },
+            error: function (objAjaxRequest, strError) {
+                var respText = objAjaxRequest.responseText;
+                //alert(respText);
+            }
+        });
+
+        //if (deptVal == '' || deptVal == null) {
+        //    //alert("Please select Department");
+        //    return false;
+        //}
+        if (mobile == '' || mobile == null) {
+            alert("Please enter Mobile No.");
+            return false;
+        }
+        if (mobile.length < 10) {
+            alert("Please enter a valid Mobile No.");
+            return false;
+        }
+        if (mail != '') {
+            if (/^([a-zA-Z0-9_.+-])+\@@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(mail) == false) {
+                alert("Please enter a valid Email");
+                return false;
+            }
+        }
+        //if (mail == '' || mail == null) {
+        //    alert("Please enter Email");
+        //        return false;
+        //    }
+        if (serviceVal == '' || serviceVal == null) {
+            alert("Please select Service");
+            return false;
+        }
+        if (serviceVal <= 9) {
+            if (description == '') {
+                alert("Please enter Description");
+                return false;
+            }
+        }
+
+        //var RID = $("#RID").val();
+        //$.ajax({
+        //    dataType: 'json',
+        //    type: 'Post',
+        //    contentType: 'application/json; charset=utf-8',
+        //    data: JSON.stringify({
+        //        RID: RID
+        //    }),
+        //    url: '/Customer/GetDepttByRID',
+        //    success: function (result) {
+        //        //alert(result.EmailId);
+        //        //$("#ddlDepartment").prop('selectedIndex', result.DepttId);
+        //        //GetAllServices(ddlDepartment);
+        //        $("#lblName").html(result.Name);
+        //        $("#lblPropNo").html(result.PropertyNumber);
+        //        $("#hdnPropertyNo").val(result.PropertyNumber);
+        //        $("#lblAdd").html(result.CustomerAddress);
+        //        $("#txtAddress").val(result.CustomerAddress);
+        //        $("#lblMobile").html(result.Mobile);
+        //        $("#txtMobile").val(result.Mobile);
+        //        $("#lblEmail").html(result.EmailId);
+        //        $("#txtEmail").val(result.EmailId);
+        //        //}
+        //    },
+        //    error: function (objAjaxRequest, strError) {
+        //        var respText = objAjaxRequest.responseText;
+        //        //alert(respText);
+        //    }
+        //});
+
+        var RID = $("#RID").val();
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                RID: RID
+            }),
+            url: '/Customer/GetDepttByRID',
+            success: function (result) {
+                if (result.isRIdExists == false) {
+                    alert("RID does not exist. Please enter correct Registration ID.");
+                    $('#ddlDepartment').val('');
+                    GetAllServices(ddlDepartment);
+                    $("#lblName").html('');
+                    $("#lblPropNo").html('');
+                    $("#lblAdd").html('');
+                    $("#txtAddress").val('');
+                    $("#lblMobile").html('');
+                    $("#lblEmail").html('');
+                    return false;
+                }
+                else {
+                    //Ajax call to save Service Request
+                    $.ajax({
+                        dataType: 'json',
+                        type: 'Post',
+                        contentType: 'application/json; charset=utf-8',
+                        //data: JSON.stringify({ deptVal: deptVal, serviceVal: serviceVal, description: description, regNo: registrationId }),
+                        //url: '/Customer/SaveServiceReq',
+                        data: JSON.stringify({ deptVal: deptVal, serviceVal: serviceVal, description: description, regNo: registrationId, propertyNo: PropNumber, mobile: mobile, email: mail, type: '@NoidaAuthority.PMS.Common.Contants.offline' }),
+                        url: '/Customer/SaveInternalServiceRequest',
+                        success: function (result) {
+                            @*window.location.href = '@Url.Action("CitizenService", "Customer")' + "/" + result;
+                            $("#ddlService").val('');
+                            $("#txtServiceDescription").val('');
+                            $("#ddlService").empty();*@
+                            alert("Request saved successfully!");
+                            window.location.href = '@Url.Action("Dashboard", "Home")';
+                        },
+                        error: function (objAjaxRequest, strError) {
+                            var respText = objAjaxRequest.responseText;
+                            //alert(respText);
+                            alert("Some error occured. Please try again later.");
+                        }
+                    });
+                }
+            },
+            error: function (objAjaxRequest, strError) {
+                var respText = objAjaxRequest.responseText;
+                //alert(respText);
+            }
+        });
+
+
+    });
+</script>

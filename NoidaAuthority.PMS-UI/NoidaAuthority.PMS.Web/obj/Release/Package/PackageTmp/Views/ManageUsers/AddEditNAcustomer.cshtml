@@ -1,0 +1,888 @@
+﻿@model NoidaAuthority.PMS.Entity.NaUser.NAcustomer
+@using Kendo.Mvc.UI
+@using System.Web.Optimization
+@{
+    ViewBag.Title = "Add New User";
+    Layout = "~/Views/Shared/_Blank.cshtml";
+}
+
+<style type="text/css">
+    .col-md-4 {
+        margin-top: 0;
+    }
+
+    .form-control {
+        display: inline;
+        width: 100%;
+    }
+
+    .logo-gda {
+        background: #00c097 url("../../Content/Images/logo-gda.png") no-repeat 20px center;
+        width: 100%;
+        height: 76px;
+    }
+
+    #step2 {
+        display: none;
+    }
+
+    #step3 {
+        display: none;
+    }
+
+    #next_button {
+        /*display: none;*/
+    }
+
+    .SendOTPAnchor:hover {
+        color: blue;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    #tblLogin h1 {
+        display: none;
+    }
+
+    #loginPad {
+        padding-top: 40px;
+    }
+
+    @@media screen and (max-width: 767px) {
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    @@media screen and (min-width:992px) and (max-width: 1199px) {
+        .col-md-offset-1 {
+            margin-left: 0;
+        }
+
+        .col-md-10 {
+            width: 100%;
+        }
+    }
+
+    @@media screen and (min-width:768px) and (max-width: 991px) {
+        #BlockDropdown {
+            display: block;
+            max-width: 120px;
+            z-index: 9999;
+        }
+    }
+
+    @@media screen and (max-width: 767px) {
+        #BlockDropdown {
+            display: inline-block;
+            max-width: 120px;
+            z-index: 9999;
+        }
+    }
+</style>
+
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+@using (Html.BeginForm("RegisterNAcustomer", "ManageUsers", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="row">
+        <div class="col-lg-12" style="background:rgb(0, 161, 130) none repeat scroll 0 0; width:100%; height:60px; padding-left:10px; box-sizing:border-box">
+            <img src="~/Content/Images/logo-noida-small.png" />
+        </div>
+    </div>
+    <div class="row panel nw-reg-user-bx">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-10">
+                    <h4>Register New Customer</h4>
+                </div>
+
+            </div>
+            <div class="stepwizard" style="margin-top:30px;">
+                <div class="stepwizard-row setup-panel">
+                    <div class="stepwizard-step">
+                        <a id="step-1-lnk" href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+                        <p>Step 1</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a id="step-2-lnk" href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                        <p>Step 2</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row setup-content" id="step1" style="padding-bottom:20px;">
+                @*<h4>Step-1</h4>*@
+                @*<div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <h4>Step-1</h4>
+                        </div>
+                    </div>*@
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <span style="color: red; font-size: x-small">*</span>@Html.LabelFor(m => m.RegistrationId) <img title="Please enter your Registration Id." src="~/Content/Images/information16.png" />
+                                @Html.TextBoxFor(m => m.RegistrationId, new { @class = "form-control", @maxlength = "8", @minlength = "8", onkeypress = "return IsNumeric(event);" })
+                                <br />
+                                @Html.ValidationMessageFor(m => m.RegistrationId, "", new { @class = "red" })
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <span style="color: red; font-size: x-small">*</span>@Html.LabelFor(m => m.UserNameEmail)
+                                @*<input type="radio" name="inlineRadioOptions" id="radRegistrationId" checked="checked" value="radRegistrationId"> Registration Id
+
+                                    <input type="radio" name="inlineRadioOptions" id="radEmailId" value="radEmailId"> Email Id*@
+
+                                @Html.TextBoxFor(m => m.UserNameEmail, new { @class = "form-control", @readonly = "true" })
+                                @*<br />
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "red" })*@
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <span style="color: red; font-size: x-small">*</span> @Html.LabelFor(m => m.FirstName) <img title="Please enter your First Name." src="~/Content/Images/information16.png" />
+                                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @maxlength = "100", @minlength = "2" })
+                                <br />
+                                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "red" })
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <span style="color: red; font-size: x-small">*</span>@Html.LabelFor(m => m.LastName) <img title="Please enter your Last Name." src="~/Content/Images/information16.png" />
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @maxlength = "100", @minlength = "2" })
+                                <br />
+                                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "red" })
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <span style="color: red; font-size: x-small">*</span>@Html.LabelFor(m => m.MobileNo) <img title="Please enter your Mobile Number." src="~/Content/Images/information16.png" />
+                                @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control", @maxlength = "10", onkeypress = "return IsNumeric(event);" })
+                                <br />
+                                @Html.ValidationMessageFor(m => m.MobileNo, "", new { @class = "red" })
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                @Html.LabelFor(m => m.Email) <img title="Please enter your Email Id." src="~/Content/Images/information16.png" />
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                <br />
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "red" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="row nw-inline-controls">
+                                    <div class="col-md-4 col-sm-4 nw-no-padding">
+                                        <div class="nw-inline-lbl">
+                                            <span style="color: red; font-size: x-small">*</span><label>Sector</label> <img title="Please select Sector from the dropdown." src="~/Content/Images/information16.png" />
+                                        </div>
+                                        @Html.HiddenFor(m => m.Sector)
+                                        @*<div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" id="SectorDropdown" data-toggle="dropdown">
+                                                    Select Sector
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><span id="">All</span></li>
+                                                </ul>
+                                            </div>*@
+                                        <div class="btn-group" id="SectorDropdown" data-value="0" style="z-index:9999;">
+                                            <a class="form-control btn btn-default dropdown-toggle btn-select2" data-toggle="dropdown" href="#">-Select-<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><span id="">-Select-</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 nw-no-padding">
+                                        <div class="nw-inline-lbl"><span style="color: red; font-size: x-small">*</span><label>Block</label> <img title="Please select Block from the dropdown." src="~/Content/Images/information16.png" /></div>
+                                        @Html.HiddenFor(m => m.Block)
+
+                                        <div class="btn-group" id="BlockDropdown" data-value="0" style="z-index:9999;">
+                                            <a class="form-control btn btn-default dropdown-toggle btn-select2" data-toggle="dropdown" href="#">-Select-<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><span id="">-Select-</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 nw-no-padding">
+                                        <div class="nw-inline-lbl">
+                                            <span style="color: red; font-size: x-small">*</span>@Html.LabelFor(m => m.PropertyNo) <img title="Please enter Plot/Shop/Flat No." src="~/Content/Images/information16.png" />
+                                        </div>
+                                        @Html.TextBoxFor(m => m.PropertyNo, new { @class = "form-control", @maxlength = "6" })
+                                        <br />
+                                        @Html.ValidationMessageFor(m => m.PropertyNo, "", new { @class = "red" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <span style="color: red; font-size: x-small">*</span>@Html.LabelFor(m => m.SecurityQuestion) <img title="Please select Security Question." src="~/Content/Images/information16.png" />
+                                @{
+                                    List<SelectListItem> listItemsQuestions = new List<SelectListItem>();
+                                    listItemsQuestions.Add(new SelectListItem
+                                            {
+                                                Text = "What is your Father's Name?",
+                                                Value = "What is your Father's Name?"
+                                            });
+                                    listItemsQuestions.Add(new SelectListItem
+                                            {
+                                                Text = "What is the name of your first school?",
+                                                Value = "What is the name of your first school?"//,
+                                                //Selected = true
+                                            });
+                                    listItemsQuestions.Add(new SelectListItem
+                                            {
+                                                Text = "What is the name of your favorite pet?",
+                                                Value = "What is the name of your favorite pet?"
+                                            });
+                                    listItemsQuestions.Add(new SelectListItem
+                                    {
+                                        Text = "What is your favorite movie?",
+                                        Value = "What is your favorite movie?"//,
+                                        //Selected = true
+                                    });
+                                    listItemsQuestions.Add(new SelectListItem
+                                    {
+                                        Text = "In what city were you born?",
+                                        Value = "In what city were you born?"
+                                    });
+                                    listItemsQuestions.Add(new SelectListItem
+                                    {
+                                        Text = "When is your anniversary?",
+                                        Value = "When is your anniversary?"
+                                    });
+                                    listItemsQuestions.Add(new SelectListItem
+                                    {
+                                        Text = "What was your favorite place to visit as a child?",
+                                        Value = "What was your favorite place to visit as a child?"
+                                    });
+                                }
+
+                                @Html.DropDownListFor(model => model.SecurityQuestion, listItemsQuestions, "-Select Questions-")
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <span style="color: red; font-size: x-small">*</span>@Html.LabelFor(m => m.SecurityAnswer) <img title="Please enter Answer." src="~/Content/Images/information16.png" />
+                                @Html.TextBoxFor(m => m.SecurityAnswer, new { @class = "form-control", @maxlength = "50", @minlength = "2" })
+                                <br />
+                                @Html.ValidationMessageFor(m => m.SecurityAnswer, "", new { @class = "red" })
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px;">
+                                <div class="row">
+                                    <div class="col-md-12 nw-no-padding">
+                                        <span style="color: red; font-size: x-small">*</span>@Html.Label("Upload File-Customer Id") <img title="Please select your Id prrof that you want to upload for verification." src="~/Content/Images/information16.png" />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 nw-no-padding">
+                                        @{
+                                            List<SelectListItem> listItems1 = new List<SelectListItem>();
+                                            listItems1.Add(new SelectListItem
+                                                 {
+                                                     Text = "PAN Card",
+                                                     Value = "PANCard"
+                                                 });
+                                            listItems1.Add(new SelectListItem
+                                                 {
+                                                     Text = "Aadhaar Card",
+                                                     Value = "AadhaarCard"
+                                                 });
+                                        }
+                                        @Html.DropDownListFor(model => model.CustomerIdFiletype, listItems1, "-- Select your ID --", new { @class = "form-control nw-upld-select" })
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 nw-no-padding">
+                                        <input style="max-width:180px;" type="file" onchange="UploadFileSelection()" id="CustomerIdFile" name="Upload1" />
+                                        <span class="nw-upld-help-txt">Only jpg, png and gif files up to 50KB is allowed</span>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-md-12 nw-no-padding">
+                                        <span style="color: red; font-size: x-small">*</span>@Html.Label("Upload File-Authority Letter") <img title="Please select Authority Type Letter that you want to upload for verification." src="~/Content/Images/information16.png" />
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 nw-no-padding">
+                                        @{
+                                            List<SelectListItem> listItems = new List<SelectListItem>();
+                                            listItems.Add(new SelectListItem
+                                                 {
+                                                     Text = "Allotment Letter",
+                                                     Value = "AllotmentLetter"
+                                                 });
+                                            listItems.Add(new SelectListItem
+                                                 {
+                                                     Text = "Transfer Letter",
+                                                     Value = "TransferLetter"
+                                                 });
+                                        }
+                                        @Html.DropDownListFor(model => model.AuthorityLetterType, listItems, "-- Select  Doc --", new { @class = "form-control nw-upld-select" })
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 nw-no-padding">
+                                        <input style="max-width:180px;" type="file" id="AuthorityLetter" onchange="AuthorityLetterSelection()" name="Upload2" />
+                                        <span class="nw-upld-help-txt">Only jpg, png and gif files up to 50KB is allowed</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="nw-inline-lbl"><span style="color: red; font-size: x-small">*</span><label>Enter Captcha</label> <img title="Please enter below captcha." src="~/Content/Images/information16.png" /></div>
+                                @Html.TextBoxFor(m => m.RandomKeyVal, new { @class = "form-control captcha-bg", @maxlength = "50", @minlength = "2", @readonly = "readonly", @id = "txtrandom" })
+                                @Html.HiddenFor(m => m.RandomKeyVal, new { @id = "txtrandomHidden" })
+                                @Html.TextBoxFor(m => m.RandomKeyEdit, new { @class = "form-control", @maxlength = "50", @minlength = "2", @id = "txtrandomEdit", @placeholder = "Enter above security code" })
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row" id="next_button">
+                    <br />
+                    <div class="col-sm-12 text-center">
+                        <input type="button" style="display:inline-block; width:auto; padding:15px 25px;" class="btn btn-primary btn-block" id="nxtBtn" value="Continue" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 col-sm-5 col-sm-offset-1  select-frm">
+
+                </div>
+
+                <div class="col-xs-5 col-sm-5" style="font-size:13px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row  setup-content" id="step2" style="padding-bottom:45px; ">
+        @*<h4>Step-2</h4>*@
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <label>Enter OTP here</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-1">
+                <input type="text" id="txtOTP" class="form-control" />
+            </div>
+            <div class="col-sm-5">
+                <input type="submit" style="height: 34px;
+    width: 120px;" class="btn btn-primary btn-block" id="btnOTP" value="Verify OTP" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <a class="SendOTPAnchor" onclick="ResendOTP();">Resend OTP</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+        </div>
+    </div>
+
+
+    <div class="col-sm-4">
+
+    </div>
+
+}
+
+<script type="text/javascript">
+
+    var specialKeys = new Array();
+    specialKeys.push(8); //Backspace
+    function IsNumeric(e) {
+        var keyCode = e.which ? e.which : e.keyCode
+        var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+        if (ret == false)
+            return false;
+    }
+
+    function AuthorityLetterSelection() {
+        var imgTypeAuthorityLetter = $("#AuthorityLetter").val();
+        var arrayImageTypeAuthorityLetter = imgTypeAuthorityLetter.split('.');
+        if (arrayImageTypeAuthorityLetter[1] == "jpg" || arrayImageTypeAuthorityLetter[1] == "png" || arrayImageTypeAuthorityLetter[1] == "gif" || arrayImageTypeAuthorityLetter[1] == "jpeg") {
+            if ($("#AuthorityLetterType").val() == "") {
+                alert("Please select Letter Type");
+                return false;
+            }
+        }
+        else {
+            alert("Only jpg, png and gif files are allowed");
+            $('#AuthorityLetter').val('');
+            return false;
+        }
+    }
+
+    function UploadFileSelection() {
+
+        var imgTypeCustomerId = $("#CustomerIdFile").val();
+        var arrayImageTypeCustomerId = imgTypeCustomerId.split('.');
+        if (arrayImageTypeCustomerId[1] == "jpg" || arrayImageTypeCustomerId[1] == "png" || arrayImageTypeCustomerId[1] == "gif" || arrayImageTypeCustomerId[1] == "jpeg") {
+            if ($("#CustomerIdFiletype").val() == "") {
+                alert("Please select upload file");
+                return false;
+            }
+        }
+        else {
+            alert("Only jpg, png and gif files are allowed");
+            $('#CustomerIdFile').val('');
+            return false;
+        }
+    }
+
+    var OTPVal;
+    $(document).ready(function () {
+        function GetDropdownData(requestUrl, successFuntion) {
+            jQuery.support.cors = true;
+            $.ajax({
+                url: requestUrl,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    successFuntion(data);
+                },
+                error: function (x, y, z) {
+                    //alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+
+        GetDropdownData("/api/common/List?name=sc", function (data) {
+            PopulateDDLValues(data, 'div#SectorDropdown');
+            AttachDDLOnClick('div#SectorDropdown')
+            $("div#SectorDropdown ul.dropdown-menu li span").click(function () {
+                var selectedVal = $(this).attr("id");
+                $("#Sector").val(selectedVal);
+                var optionString = "<li><span id=\"0\">Select</span></li>";
+                if (selectedVal != "0") {
+                    GetDropdownData("/api/common/List?name=bk&id=" + selectedVal, function (data) {
+                        PopulateDDLValues(data, 'div#BlockDropdown');
+                        AttachDDLOnClick('div#BlockDropdown')
+                        SetFilterDefaultValueOnLoad('0', 'div#BlockDropdown');
+
+                        $("div#BlockDropdown ul.dropdown-menu li span").on("click", function () {
+                            var selectedVal = $(this).attr("id");
+                            $("#Block").val(selectedVal);
+                        });
+                    });
+                }
+                else {
+                    PopulateDDLValues([], 'div#propertyBlockDropdown');
+                }
+            });
+        });
+
+        function PopulateDDLValues(options, divSelector) {
+            var optionString = "<li><span id=\"\">-Select-</span></li>";
+
+            $.each(options, function (i, item) {
+                optionString += '<li><span id="' + item.value + '">' + item.label + '</span></li>'
+            });
+            $(divSelector + " ul.dropdown-menu").html(optionString);
+
+            $(divSelector).data("value", "11");
+            $(divSelector).find('.dropdown-toggle').html('-Select-' + ' <span class="caret"></span>');
+        }
+
+        function AttachDDLOnClick(divSelector) {
+            $(divSelector + " .dropdown-menu li span").click(function () {
+                var selText = $(this).text();
+                $(this).parents('.btn-group').data("value", $(this).attr("id"));
+                $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+            });
+        }
+
+        function SetFilterDefaultValueOnLoad(qsName, divSelector) {
+            var qsValue = getQueryStringByName(qsName);
+            if (qsValue != "")
+                SetDropdownValue(qsValue, divSelector)
+        }
+
+        function SetDropdownValue(value, divSelector) {
+            var selectedOption = $(divSelector).find('ul.dropdown-menu li span[id="' + value + '"]')
+            if (selectedOption.length) {
+                $(divSelector).data("value", value);
+                $(divSelector).find('.dropdown-toggle').html(selectedOption.text() + ' <span class="caret"></span>');
+            }
+        }
+
+        function getQueryStringByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        $('#RegistrationId').blur(function () {
+            var RegistrationId = $("#RegistrationId").val();
+            $.ajax({
+                @*url: '@(Url.Action("CheckRegistationIDforNAcustomer", "Property", new { area=""}))',*@
+                url: "/ManageUsers/CheckRegistationIDForNAcustomer",
+                type: 'POST',
+                dataType: 'json',
+                data: { RegistrationId: RegistrationId },
+                success: function (result) {
+                    if (result == true) {
+                        alert("Registration ID already exists");
+                        return false;
+                    }
+                    else {
+                        if (RegistrationId != "") {
+                            $.ajax({
+                                url: '@(Url.Action("PropertyDetailJson", "ManageUsers"))',
+                                type: 'POST',
+                                dataType: 'json',
+                                data: { id: RegistrationId },
+                                success: function (result) {
+                                },
+                                error: function () {
+                                    alert("Registration ID does not exist in our records.");
+                                    $("#RegistrationId").val('');
+                                    $('#PropertyNo').val('');
+                                    $('#AllotteeName').val('');
+                                }
+                            });
+                        }
+                    }
+                }
+            });
+            $('#UserNameEmail').val(RegistrationId);
+
+            //if ($('#radEmailId').is(':checked') == true) {
+            //    var EmailId = $("#Email").val();
+            //    $('#UserNameEmail').val(EmailId);
+            //}
+            //else {
+            //    $('#UserNameEmail').val(RegistrationId);
+            //}
+        })
+        //$('input[type=radio]').click(function () {
+        //    if ($(this).val() == "radEmailId") {
+        //        var EmailId = $("#Email").val();
+        //        if (EmailId == '') {
+        //            alert("Please enter Email Id");
+        //            $('#Email').focus();
+        //            //return false;
+        //        }
+        //        $('#UserNameEmail').val(EmailId);
+        //    }
+        //    else {
+        //        var RegistrationId = $("#RegistrationId").val();
+        //        if (RegistrationId == '') {
+        //            alert("Please enter Registration Id");
+        //            $('#RegistrationId').focus();
+        //            //return false;
+        //        }
+        //        $('#UserNameEmail').val(RegistrationId);
+        //    }
+        //});
+
+        function isValidEmailAddress(emailAddress) {
+            var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+            return pattern.test(emailAddress);
+        };
+
+        $('#nxtBtn').click(function () {
+            var RegistrationId = $("#RegistrationId").val();
+            var UserName = $("#UserNameEmail").val().trim();
+            if (RegistrationId == null || RegistrationId == '') {
+                alert("Please enter Registration Id");
+                return false;
+            }
+            if (RegistrationId.length > 8) {
+                alert("Registration id can't be more than 8 digits.");
+                return false;
+            }
+
+            var sector = $('#Sector').val();
+            if (sector == '' || sector == null) {
+                alert("Please select Sector");
+                return false;
+            }
+
+            var block = $('#Block').val();
+            if (block == '' || block == null) {
+                alert("Please select Block");
+                return false;
+            }
+
+            var propertyNo = $('#PropertyNo').val().trim();
+            if (propertyNo.length > 6) {
+                alert("Plot No can't be more than 8 digits or alphabets");
+                return false;
+            }
+            if (propertyNo == '' || propertyNo == null) {
+                alert("Please enter Plot/Shop/Flat No.");
+                return false;
+            }
+
+            var firstName = $('#FirstName').val().trim();
+            if (firstName == '' || firstName == null) {
+                alert("Please enter First Name");
+                return false;
+            }
+
+            var lastName = $('#LastName').val().trim();
+            if (lastName == '' || lastName == null) {
+                alert("Please enter Last Name");
+                return false;
+            }
+
+            var securityQuestion = $("#SecurityQuestion").val();
+            if (securityQuestion == '') {
+                alert("Please select Security Question.");
+                return false;
+            }
+
+
+
+            var securityCode = $("#txtrandomHidden").val();
+            var enterSecurityCode = $("#txtrandomEdit").val();
+
+            if (securityCode != enterSecurityCode) {
+                alert("Please enter correct secuity code !.");
+                return false;
+            }
+
+            else {
+                if ($("#SecurityAnswer").val() == "") {
+                    alert("Please enter Answer");
+                    return false;
+                }
+            }
+            $('#nxtBtn').prop('disabled', true);
+
+            $.ajax({
+                @*url: '@(Url.Action("CheckRegistationIDforNAcustomer", "Property", new { area=""}))',*@
+                url: "/ManageUsers/CheckRegistationIDForNAcustomer",
+                type: 'POST',
+                dataType: 'json',
+                data: { RegistrationId: RegistrationId },
+                success: function (result) {
+                    if (result == true) {
+                        alert("Registration ID already exists");
+                        $('#nxtBtn').prop('disabled', false);
+                        return false;
+                    }
+                    else {
+                        $.ajax({
+                            url: '@(Url.Action("PropertyDetailJson", "ManageUsers"))',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: { id: RegistrationId },
+                            success: function (result) {
+                                if (UserName == null || UserName == '') {
+                                    $('#nxtBtn').prop('disabled', false);
+                                    alert("Please enter Registration Id");
+                                    return false;
+                                }
+                                $.ajax({
+                                    url: '@(Url.Action("CheckEmailForNAcustomerRegistation", "Account"))',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    data: { emailId: UserName },
+                                    success: function (result) {
+                                        if (result == true) {
+                                            $('#nxtBtn').prop('disabled', false);
+                                            alert("User Name already exists");
+                                            return false;
+                                        }
+                                        if (result == false) {
+                                            if ($("#Email").val() != "") {
+                                                if (!isValidEmailAddress($("#Email").val())) { $('#nxtBtn').prop('disabled', false); alert("Invalid Email Format."); }
+                                            }
+
+                                            var mobileNo = $('#MobileNo').val();
+                                            if (mobileNo == '' || mobileNo == null) {
+                                                $('#nxtBtn').prop('disabled', false);
+                                                alert("Please enter Mobile No");
+                                                return false;
+                                            }
+
+                                            if ($("#CustomerIdFiletype").val() == "") {
+                                                $('#nxtBtn').prop('disabled', false);
+                                                alert("Please select Upload File - File-Customer ID");
+                                                return false;
+                                            }
+
+                                            if ($("#CustomerIdFile").val() == '') {
+                                                $('#nxtBtn').prop('disabled', false);
+                                                alert("Please select file(s) to upload - File-Customer ID");
+                                                return false;
+                                            }
+
+                                            var uploadedCustomerIdFile = document.getElementById('CustomerIdFile');
+                                            var customerIdFileSize = uploadedCustomerIdFile.files[0].size;
+                                            var customerIdFileSizeinKB = customerIdFileSize / 1024
+                                            if (customerIdFileSizeinKB > 50) {
+                                                $('#nxtBtn').prop('disabled', false);
+                                                alert("Please select Customer Id File of max 50 KB");
+                                                return false;
+                                            }
+
+
+                                            if ($("#AuthorityLetterType").val() == "") {
+                                                $('#nxtBtn').prop('disabled', false);
+                                                alert("Please select Letter Type - File-Authority Letter");
+                                                return false;
+                                            }
+
+                                            if ($("#AuthorityLetter").val() == '') {
+                                                $('#nxtBtn').prop('disabled', false);
+                                                alert("Please select file(s) to upload - File-Authority Letter");
+                                                return false;
+                                            }
+                                            //if ($("#AuthorityLetter").val() != "") {
+                                            var uploadedAuthorityLetter = document.getElementById('AuthorityLetter');
+                                            var authorityLetterFileSize = uploadedAuthorityLetter.files[0].size;
+                                            //var authorityLetterFileSizeinKB = GetFileSize(authorityLetterFileSize);
+                                            var authorityLetterFileSizeinKB = authorityLetterFileSize / 1024
+                                            if (authorityLetterFileSizeinKB > 50) {
+                                                $('#nxtBtn').prop('disabled', false);
+                                                alert("Please select Authority Letter File of max 50 KB");
+                                                return false;
+                                            }
+                                            //}
+
+                                            $('#step1').css("display", "none");
+                                            $("#step2").show();
+                                            $("#step-1-lnk").attr("disabled", "disabled");
+                                            $("#step-1-lnk").removeClass("btn-primary");
+                                            $("#step-1-lnk").addClass("btn-default");
+                                            $("#step-2-lnk").removeAttr("disabled", "disabled");
+                                            $("#step-2-lnk").addClass("btn-primary");
+                                            $("#nxtBtn").css('display', 'none');
+                                            var mobileNo = $("#MobileNo").val();
+                                            $.ajax({
+                                                dataType: 'json',
+                                                type: 'Post',
+                                                contentType: 'application/json; charset=utf-8',
+                                                data: JSON.stringify({ mobNo: mobileNo }),
+                                                url: '/ManageUsers/GenerateOTP',
+                                                success: function (result) {
+                                                    if (result.flag == true) {
+                                                        OTPVal = result.OTPValue;
+                                                        alert("OTP has been sent to your Registered Mobile number");
+                                                    }
+                                                    else {
+                                                        $('#step2').css("display", "block");
+                                                        $('#step1').css("display", "none");
+                                                        //$("#step1").show();
+                                                        //alert("Kindly visit Noida Authority Office and register your mobile number with us.")
+                                                    }
+                                                },
+                                                error: function (objAjaxRequest, strError) {
+                                                }
+                                            });
+                                        }
+                                    },
+                                    error: function () {
+                                        return false;
+                                    }
+                                });
+                            },
+                            error: function () {
+                                alert("Registration ID does not exist in our records.");
+                                //$('#PropertyNo').val('');
+                                //$('#AllotteeName').val('');
+                            }
+                        });
+                    }
+                }
+            });
+
+        })
+
+        $('#btnOTP').click(function () {
+
+            if (OTPVal != null && OTPVal != 0) {
+                var userOTP = $('#txtOTP').val();
+                if (userOTP == OTPVal) {
+                    //$('#step1').css("display", "none");
+                    $('#step2').css("display", "none");
+                    //$('#step3').show();
+                }
+                else {
+                    alert("Incorrect OTP. Please enter again.");
+                    return false;
+                }
+            }
+            else {
+                alert("Some error occurred. Please try again after some time.");
+            }
+        })
+
+        $('#Email').blur(function () {
+            @*var emailId = $("#Email").val();
+            $.ajax({
+                url: '@(Url.Action("CheckEmailForNAcustomerRegistation", "Account"))',
+                type: 'POST',
+                dataType: 'json',
+                data: { emailId: emailId },
+                success: function (result) {
+                    if (result == true) {
+                        alert("Email already exists");
+                        return false;
+                    }
+                    if (result == false) {
+                        return true;
+                    }
+                },
+                error: function () {
+                    return false;
+                }
+            });*@
+            //if ($('#radEmailId').is(':checked') == true) {
+            //    var EmailId = $("#Email").val();
+            //    if (EmailId == '') {
+            //        alert("Please enter Email Id");
+            //        $("#Email").focus();
+            //    }
+            //    $('#UserNameEmail').val(EmailId);
+            //}
+            //else {
+            //    var RegistrationId = $("#RegistrationId").val();
+            //    $('#UserNameEmail').val(RegistrationId);
+            //}
+
+        })
+
+        //$('#btnSubmit').click(function () {
+        //    if ($("#CustomerIdFile").val() == '' || $("#AuthorityLetter").val() == '') {
+        //        alert("Please select file(s) to upload");
+        //        return false;
+        //    }
+        //});
+
+    });
+
+    function ResendOTP() {
+        $('.SendOTPAnchor').css("display", "none");
+        var mobileNo = $("#MobileNo").val();
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ mobNo: mobileNo }),
+            url: '/ManageUsers/GenerateOTP',
+            success: function (result) {
+                $('#step1').css("display", "none");
+                OTPVal = result.OTPValue;
+                alert("OTP has been sent to your Registered Mobile number");
+            },
+            error: function (objAjaxRequest, strError) {
+                //var respText = objAjaxRequest.responseText;
+                //alert(respText);
+                //alert(strError);
+            }
+        });
+    }
+</script>

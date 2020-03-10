@@ -1,0 +1,205 @@
+﻿@model NoidaAuthority.PMS.Entity.CustomerDetailViewModel
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    //Layout = "~/Views/Shared/_CitizenLayout.cshtml";
+}
+
+<style type="text/css">
+    body {
+        background: #f4eeee;
+    }
+
+    .content-wrap {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .footer_bx {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .home-btns-spce a {
+        margin-right: 5%;
+        width: 95%;
+    }
+
+    .service-req-bx-new input, #complaint {
+        display: block;
+    }
+
+    .service-req-bx-new .lbl_lft_req {
+        display: inline-block;
+        width: 30%;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    textarea.form-control {
+        display: inline-block;
+        background: #bfe1dc;
+        border: 1px solid #2da797;
+        border-radius: 0;
+        resize: none;
+        height: 80px !important;
+    }
+
+    .adv-srch-bx h4,
+    .adv-srch-bx center {
+        display: none;
+    }
+
+    .service-req-bx-new {
+        background: #299a8b;
+    }
+
+    .adv-srch-bx div#divCitizenCharter select {
+        width: 300px;
+        background: #bfe1dc;
+        border: 1px solid #2da797;
+    }
+
+    #divServiceButton button.btn-success {
+        width: 150px;
+        background-image: none !important;
+        background: #fff;
+        border-radius: 0;
+        color: #299a8b;
+        text-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+
+        #divServiceButton button.btn-success:hover {
+            background: #299a8b;
+            color: #fff;
+        }
+
+    label {
+        color: #94fff5;
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+</style>
+
+
+<div class="row nw-pad-top-mb">
+    <div class="col-md-12 text-right btn-help-wrap">
+
+        @Html.ActionLink("Citizen Charter Guidelines", "OnlineHelp", new { controller = "Property", area="Customer" }, new { target = "_blank" })
+
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3 dsh-btn">
+        <div class="row dsh-btn-rw">
+            <div class="col-md-4 col-sm-4 col-xs-12 home-btns-spce">
+                <a class="dashbrd-btn icn-property link-prop-detail" href="#" id="linkPropertyDetail">My Property</a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 home-btns-spce nw-spce-top-desk">
+                <a class="dashbrd-btn icn-payment link-prop-detail" href="#" id="linkPropertyPayment">Payment History</a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 home-btns-spce">
+                <a class="dashbrd-btn icn-jal-payment link-prop-detail" href="#" id="linkNoidaJal">Noida Jal</a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 home-btns-spce">
+                <a class="dashbrd-btn icn-service-req link-prop-detail" href="#" id="linkServiceHistory">Property Services</a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 home-btns-spce">
+                <a class="dashbrd-btn icn-litigation link-prop-detail" href="#" id="linkLitigationHistory">Litigation History</a>
+            </div>
+
+            @*<div class="col-md-4 col-sm-4 col-xs-12 home-btns-spce">
+                <a class="dashbrd-btn icn-remarks link-prop-detail" href="#" id="linkRemarks">Documents</a>
+            </div>*@
+
+            <div class="col-md-4 col-sm-4 col-xs-12 home-btns-spce">
+                <a class="dashbrd-btn icn-notices link-prop-detail" href="#" id="linkNotices">Notices</a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 home-btns-spce">
+                <a class="dashbrd-btn icn-service-req link-prop-detail" href="#" id="link-property-History">Property History</a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 home-btns-spce">
+                <a class="dashbrd-btn icn-chnge-pwd link-prop-detail" href="#" id="linkChangePassword">Change Password</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+
+        @*<div class="row adv-srch-bx">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <h1 class="gridtitle adv-srch-title">
+                        Service Request
+                    </h1>
+                </div>
+            </div>
+            <div class="row" style="padding:0 15px;">
+                <div class="col-md-12 col-sm-12 col-xs-12 service-req-bx-new" style="padding-top:15px;">
+                    @{ Html.RenderPartial("_ServiceRequest", @Model);}
+                </div>
+            </div>
+        </div>*@
+        <input type="hidden" id="hdnRegistrationID" value="@Model.PropertyModel.RegistrationId" />
+        <input type="hidden" id="hdnPropertyCategory" value="@Model.PropertyModel.DepartmentId" />
+        @*<input type="hidden" id="hdnregID" value=@Request.QueryString["flag"] />*@
+        
+    </div>
+
+
+
+</div>
+
+<script type="text/javascript">
+
+    var id = '@Session["RegistrationId"]';
+
+    //$('.link-prop-detail').click(function () {
+    //    alert($('.icn-property').text());
+    //    window.location.href = "/Customer/index?id=" + id;
+    //});
+
+    $('#linkPropertyDetail').click(function () {
+        window.location.href = "/Customer/Property/index";
+        @*window.location.href = "/Customer/CitizenPropertyDetail?id=" + '@NoidaAuthority.PMS.Common.CommonHelper.Encode(Convert.ToString(Session["RegistrationID"]))';*@
+    });
+    $('#linkPropertyPayment').click(function() {
+        window.location.href = "/Customer/Property/Payment";
+        //window.location.href = "/Customer/PaymentDetail?id=" + id;
+    });
+    $('#linkNoidaJal').click(function() {
+        //window.location.href = "/Customer/JalPaymentDetail?id=" + id;
+        window.location.href = "/Customer/Property/NoidaJal";
+    });
+    $('#linkServiceHistory').click(function() {
+        window.location.href = "/Customer/Property/Services";
+        @*window.location.href = "/Customer/ServiceRequest?id=" + '@NoidaAuthority.PMS.Common.CommonHelper.Encode(Convert.ToString(Session["RegistrationID"]))';*@
+    });
+    $('#linkLitigationHistory').click(function() {
+        //window.location.href = "/Customer/LitigationHistory?id=" + id;
+        window.location.href = "/Customer/Property/Litigation";
+    });
+    $('#linkRemarks').click(function() {
+        //window.location.href = "/Customer/CitizenRemarks?id=" + id;
+        window.location.href = "/Customer/Property/Documents";
+    });
+    $('#linkNotices').click(function() {
+        window.location.href = "/Customer/Property/Notices";
+    });
+    $('#link-property-History').click(function () {
+        window.location.href = "/Customer/Property/History";
+    });
+
+    $('#linkChangePassword').click(function() {
+        window.location.href = "/Account/ChangePassword";
+    });
+
+
+
+
+</script>

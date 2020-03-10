@@ -1,0 +1,734 @@
+﻿@model NoidaAuthority.PMS.Entity.UserViewModel
+@using Kendo.Mvc.UI
+@using System.Web.Optimization
+@using NoidaAuthority.PMS.Common
+@{
+    ViewBag.Title = "Register Property";
+    Layout = "~/Views/Shared/_Blank.cshtml";
+    //Layout = null;
+}
+
+<link href="~/Content/kendo/2014.2.716/kendo.common.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2014.2.716/kendo.mobile.all.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.11.2.min.js"></script>
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<script src="~/Scripts/kendo.aspnetmvc.min.js"></script>
+<script src="~/Scripts/kendo/2014.2.716/kendo.all.min.js"></script>
+<script src="~/Scripts/kendo/2014.2.716/kendo.core.min.js"></script>
+
+
+<style type="text/css">
+    .col-md-4 {
+        margin-top: 0;
+    }
+
+    #step2 {
+        display: none;
+    }
+
+    #step3 {
+        display: none;
+    }
+
+    #next_button {
+        /*display: none;*/
+    }
+
+    .resend-otp:hover {
+        color: blue;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    #loginPad {
+        padding-top: 40px;
+    }
+
+    @@media screen and (max-width: 767px) {
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    @@media screen and (min-width:992px) and (max-width: 1199px) {
+        .col-md-offset-1 {
+            margin-left: 0;
+        }
+
+        .col-md-10 {
+            width: 100%;
+        }
+    }
+
+    @@media screen and (min-width:768px) and (max-width: 991px) {
+        #BlockDropdown {
+            display: block;
+            max-width: 120px;
+            z-index: 9999;
+        }
+    }
+
+    @@media screen and (max-width: 767px) {
+        #BlockDropdown {
+            display: inline-block;
+            max-width: 120px;
+            z-index: 9999;
+        }
+    }
+
+    ul li {
+        background: #00c097;
+    }
+
+    .col-register {
+        padding-top: 10px;
+    }
+    .form-control{
+        height:30px;
+        border-radius:0;
+        display: inline;
+        width: 100%;
+    }
+    .k-dropdown-wrap{
+        padding: 0.15em 1.9em 0 0;
+        border: 1px solid #ccc;
+    }
+    tr{
+        padding-bottom:4px;
+    }
+</style>
+
+@*<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>*@
+
+
+@using (Html.BeginForm("RegisterCustomer", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(m=>m.DepartmentId)
+
+    <div class="row">
+        <div class="col-lg-12" style="background:rgb(0, 161, 130) none repeat scroll 0 0; width:100%; height:60px; padding-left:10px; box-sizing:border-box">
+            <img src="~/Content/Images/logo-noida-small.png" />
+            <label style="float:right; color:#fff; font-size:24px;vertical-align:middle;padding-top:9px;">Register New Customer</label>
+        </div>
+    </div>
+
+    <div class="row panel" id="step1" style="padding-bottom:8px;">
+        <div class="col-md-6 col-register">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span style="color: red; font-size: x-small">*</span>
+                    <label>Registration Id</label> 
+                    <img title="Please enter your Registration Id." src="~/Content/Images/information16.png" />
+                    @Html.TextBoxFor(m => m.RegistrationId, new { @class = "form-control", @maxlength = "8", @minlength = "8", onkeypress = "return IsNumeric(event);" })
+                    <br />
+                    @Html.ValidationMessageFor(m => m.RegistrationId, "", new { @class = "red" })
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span style="color: red; font-size: x-small">*</span><label>UserName</label>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @readonly = "true" })
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span style="color: red; font-size: x-small">*</span> 
+                    <label>First Name</label>
+                    <img title="Please enter your First Name." src="~/Content/Images/information16.png" />
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @maxlength = "100", @minlength = "2" })
+                    <br />
+                    @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "red" })
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span style="color: red; font-size: x-small">*</span>
+                    <label>Last Name</label> 
+                    <img title="Please enter your Last Name." src="~/Content/Images/information16.png" />
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @maxlength = "100", @minlength = "2" })
+                    <br />
+                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "red" })
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span style="color: red; font-size: x-small">*</span>
+                    <label>Mobile No</label> 
+                    <img title="Please enter your Mobile Number." src="~/Content/Images/information16.png" />
+                    @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control", @maxlength = "10", onkeypress = "return IsNumeric(event);" })
+                    <br />
+                    @Html.ValidationMessageFor(m => m.MobileNo, "", new { @class = "red" })
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label>Email</label> <img title="Please enter your Email Id." src="~/Content/Images/information16.png" />
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    <br />
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "red" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-register">
+            <div class="row">
+                @Html.HiddenFor(m => m.RandomKeyValue, new { @id = "hdn-captcha" })
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row nw-inline-controls">
+                        <div class="col-md-4 col-sm-4 nw-no-padding">
+                            <span style="color: red; font-size: x-small">*</span>
+                            <label>Sector</label> 
+                            <img title="Please select Sector from the dropdown." src="~/Content/Images/information16.png" />
+                            @(Html.Kendo().DropDownListFor(model => model.Sector)
+                            .DataTextField("Text")
+                            .DataValueField("Value")
+                            .Filter("contains")
+                            .OptionLabel("---select---")
+                            .DataSource(dataSource => dataSource.Read(read => read.Action("GetSectorList", "Account", new { area = "" })))
+                            .HtmlAttributes(new { style = "width:95%;" })
+                            )
+                        </div>
+                        <div class="col-md-4 col-sm-4 nw-no-padding">
+                            <span style="color: red; font-size: x-small">*</span>
+                            <label>Block</label> 
+                            <img title="Please select Block from the dropdown." src="~/Content/Images/information16.png" />
+                            @(Html.Kendo().DropDownListFor(model => model.Block)
+                            .DataTextField("Text")
+                            .DataValueField("Value")
+                            .Filter("contains")
+                            .OptionLabel("---select---")
+                            .DataSource(dataSource => dataSource.Read(read => read.Action("GetBlockList", "Account", new { area = "" })))
+                            .HtmlAttributes(new { style = "width:95%;" })
+                            )
+                        </div>
+                        <div class="col-md-4 col-sm-4 nw-no-padding">
+                            <div class="nw-inline-lbl">
+                                <span style="color: red; font-size: x-small">*</span>
+                                <label>Plot No</label>
+                                <img title="Please enter Plot/Shop/Flat No." src="~/Content/Images/information16.png" />
+                            </div>
+                            @Html.TextBoxFor(m => m.PlotNo, new { @class = "form-control", @maxlength = "6" })
+                            <br />
+                            @Html.ValidationMessageFor(m => m.PlotNo, "", new { @class = "red" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span style="color: red; font-size: x-small">*</span>
+                    <label>Security Question</label> 
+                    <img title="Please select Security Question." src="~/Content/Images/information16.png" />
+                    @(Html.Kendo().DropDownListFor(model => model.SecurityQuestion)
+                            .DataTextField("Value")
+                            .DataValueField("Value")
+                            .OptionLabel("---select---")
+                            .DataSource(dataSource => dataSource.Read(read => read.Action("GetSecurityQuestionList", "Account", new { area = "" })))
+                            .HtmlAttributes(new { style = "width:100%;" })
+                    )
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <span style="color: red; font-size: x-small">*</span>
+                    <label>Security Answer</label> 
+                    <img title="Please enter Answer." src="~/Content/Images/information16.png" />
+                    @Html.TextBoxFor(m => m.SecurityAnswer, new { @class = "form-control", @maxlength = "50", @minlength = "2" })
+                    <br />
+                    @Html.ValidationMessageFor(m => m.SecurityAnswer, "", new { @class = "red" })
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px;">
+                    <div class="row">
+                        <div class="col-md-12 nw-no-padding">
+                            <span style="color: red; font-size: x-small">*</span>
+                            <label>Upload File-Customer Id</label> 
+                            <img title="Please select your Id prrof that you want to upload for verification." src="~/Content/Images/information16.png" />
+                        </div>
+                        <div class="col-md-6 col-sm-6 nw-no-padding">
+                            @(Html.Kendo().DropDownListFor(model => model.CustomerIdType)
+                                .DataTextField("Text")
+                                .DataValueField("Value")
+                                .OptionLabel("---select Your ID---")
+                                .DataSource(dataSource => dataSource.Read(read => read.Action("GetMiscellaneousTypeList", "Account", new { area = "" }).Data("FilterParamI")))
+                                .HtmlAttributes(new { style = "width:95%;" })
+                            )
+                        </div>
+                        <div class="col-md-6 col-sm-6 nw-no-padding">
+                            <input style="max-width:180px;" type="file" onchange="UploadFileSelection()" id="CustomerIdFile" name="fileI" />
+                            <span class="nw-upld-help-txt">Only jpg, png and gif files up to 50KB is allowed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-md-12 nw-no-padding">
+                            <span style="color: red; font-size: x-small">*</span>
+                            <label>Upload File-Authority Letter</label> 
+                            <img title="Please select Authority Type Letter that you want to upload for verification." src="~/Content/Images/information16.png" />
+                        </div>
+                        <div class="col-md-6 col-sm-6 nw-no-padding">
+                            @(Html.Kendo().DropDownListFor(model => model.NALetterType)
+                                .DataTextField("Text")
+                                .DataValueField("Value")
+                                .OptionLabel("---select Letter Type---")
+                                .DataSource(dataSource => dataSource.Read(read => read.Action("GetMiscellaneousTypeList", "Account", new { area = "" }).Data("FilterParamII")))
+                                .HtmlAttributes(new { style = "width:95%;" })
+                            )
+                        </div>
+                        <div class="col-md-6 col-sm-6 nw-no-padding">
+                            <input style="max-width:180px;" type="file" id="AuthorityLetter" onchange="AuthorityLetterSelection()" name="fileII" />
+                            <span class="nw-upld-help-txt">Only jpg, png and gif files up to 50KB is allowed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="nw-inline-lbl"><span style="color: red; font-size: x-small">*</span><label>Enter Captcha</label> <img title="Please enter below captcha." src="~/Content/Images/information16.png" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 nw-no-padding">
+                            @Html.TextBoxFor(m => m.Captcha, new { @class = "form-control captcha-bg", @maxlength = "50", @minlength = "2", @readonly = "readonly" })
+                        </div>
+                        <div class="col-md-6 nw-no-padding">
+                            @Html.TextBoxFor(m => m.InputCaptcha, new { @class = "form-control", @maxlength = "10", @minlength = "4", @placeholder = "Enter Captcha key" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12" style="padding-top:12px;">
+            <div class="row">
+                <div class="col-md-6  text-center">
+                    @Html.ActionLink("Login here", "Login", new { Controller = "Account", area = "" }, htmlAttributes: new { @class="k-button"})
+                </div>
+                <div class="col-md-6" style="text-align:right;">
+                    <input type="button" style="display:inline-block; width:auto;padding:6px 30px;background:#382772;font-weight:700;color:#fff;" class="k-button" id="next-btn" value="Continue" />
+                </div>
+            </div>
+            @*<input type="button" style="display:inline-block; width:auto;padding:6px 30px;background:#382772;font-weight:700;color:#fff;" class="k-button" id="next-btn" value="Continue" />*@
+        </div>
+    </div>
+
+
+    <div class="row panel" id="step2" style="padding:45px 0; ">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <label><b>Enter OTP here</b></label>
+                <input type="hidden" id="hdn-otp" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-1">
+                <input type="text" id="text-otp" class="form-control" />
+            </div>
+            <div class="col-sm-5">
+                <input type="button" style="height: 34px;width: 120px;" class="btn btn-primary btn-block" id="btn-otp-submit" value="Verify OTP" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <a class="resend-otp k-button" onclick="ResendOTP();">Resend OTP</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row panel" id="step3" style="min-height:250px;">
+        <div class="col-md-12 col-step-3">
+            <p style="padding-top:50px;">
+                <b>Congratulations!</b> <br />
+                    Your Registration Process has been completed successfully. Thanks for registering with us.
+                    Now Authority will verify your detail and you will get the confirmation on your registered Email Id and Mobile Number.               
+            </p>
+        </div>
+        <div class="col-md-12 col-step-3" style="text-align:center;padding-top:40px;">
+            <a href="#" onclick="location.href='@Url.Action("Login","Account")'">Go To Login Page</a>
+        </div>
+    </div>
+
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#next-btn').click(function () {
+            $('#next-btn').prop('disabled', true);
+            if (ValidateInputFields()) {
+                $('#step1').css("display", "none");
+                $('#step2').show();
+                GenerateOTP();
+            }
+            else {
+                $('#next-btn').prop('disabled', false);
+            }
+            //$('#step1').css("display", "none");
+            //$('#step2').show();
+        });
+
+        $('#btn-otp-submit').click(function () {
+            if ($('#hdn-otp').val() != "") {
+                if ($('#text-otp').val() == $('#hdn-otp').val()) {
+                    $('#step2').css("display", "none");
+                    $('#step3').show();
+                    $('.col-step-3').css("display", "none");
+                    SubmitRegisterForm();
+                }
+                else {
+                    alert("Incorrect OTP. Please enter again.");
+                    return false;
+                }
+            }
+            else {
+                alert("Some error occurred. Please try again after some time.");
+            }
+
+            //$('#step1').css("display", "none");
+            //$('#step2').css("display", "none");
+            //$('#step3').show();
+        });
+
+        $('#RegistrationId').blur(function () {
+            ValidateRegistrationId();
+            // $('#UserName').val(RegistrationId);
+        })
+
+    });
+
+    var specialKeys = new Array();
+    specialKeys.push(8); //Backspace
+    function IsNumeric(e) {
+        var keyCode = e.which ? e.which : e.keyCode
+        var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+        if (ret == false)
+            return false;
+    }
+
+    function FilterParamI() {
+        return { FilterType: "IdType" }
+    }
+
+    function FilterParamII() {
+        return { FilterType: "LetterType" }
+    }
+
+    function GenerateOTP() {
+        var mobileNo = $("#MobileNo").val();
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ MobileNo: mobileNo, ActionType: "OTP" }),
+            url: '/Account/SendOTPOnMobileAndEmail',
+            success: function (result) {
+                if (result.ReturnTypeId == '@ReturnType.Success') {
+                    $('#hdn-otp').val(result.OTP);
+                    $('#step2').css("display", "block");
+                    $('#step1').css("display", "none");
+                    alert("OTP has been sent to your Mobile number");
+                }
+                else {
+                    $('#step1').css("display", "block");
+                    $('#step2').css("display", "none");
+                    alert("Provider failed to send OTP");
+                }
+            },
+            error: function (ajaxRequest, strError) {
+                //alert(ajaxRequest.responseText);
+            }
+        });
+    }
+
+    function ResendOTP() {
+        $('.resend-otp').css("disabled", "disabled");
+        var mobileNo = $("#MobileNo").val();
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ MobileNo: mobileNo, ActionType: "OTP" }),
+            url: '/Account/SendOTPOnMobileAndEmail',
+            success: function (result) {
+                if (result.ReturnTypeId == '@ReturnType.Success') {
+                    $('#hdn-otp').val(result.OTP);
+                    $('#step2').css("display", "block");
+                    $('#step1').css("display", "none");
+                    alert("OTP has been sent to your Mobile number");
+                }
+                else {
+                    $('.resend-otp').css("disabled", false);
+                }
+            },
+            error: function (objAjaxRequest, strError) {
+                //var respText = objAjaxRequest.responseText;
+                //alert(respText);
+                //alert(strError);
+            }
+        });
+    }
+
+    function SubmitRegisterForm() {
+        var formData = new FormData($('form').get(0));
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: false, // Not to set any content header
+            processData: false, // Not to process data
+            data: formData,
+            url: '/Account/RegisterCustomer',
+            success: function (result) {
+                if (result == '@ReturnType.Saved') {
+                    $('#step1').css("display", "none");
+                    $('#step2').css("display", "none");
+                    $('#step3').show();
+                    $('.col-step-3').show();
+                    alert("Data saved succesfully");
+                }
+                if (result == '@ReturnType.None') {
+                    $('#step1').show();
+                    $('#step2').css("display", "none");
+                    $('#step3').css("display", "none");
+                    $('.col-step-3').css("display", "none");
+                    alert("Provider failed to save information");
+                }
+            },
+            error: function (ajaxRequest, strError) {
+                alertify.error("Network error, try again later");
+            }
+        });
+    }
+
+    function ValidateRegistrationId() {
+        var RegistrationId = $("#RegistrationId").val();
+        $.ajax({
+            url: "/Account/ValidateRegistrationId",
+            type: 'POST',
+            dataType: 'json',
+            data: { RegistrationId: RegistrationId },
+            success: function (result) {
+                if (result.ActionTypeId == '@ReturnType.Exist') {
+                    alert("Registration Id: " + RegistrationId + " already registered.");
+                    $("#RegistrationId").val('');
+                }
+                else if (result.ActionTypeId == '@ReturnType.NotAllotted') {
+                    alert("Registration Id not exist.");
+                }
+                else if (result.ActionTypeId == '@ReturnType.Allotted') {
+                    $('#UserName').val(RegistrationId);
+                    $('#Sector').data("kendoDropDownList").value(result.SectorName);
+                    $('#Block').data("kendoDropDownList").value(result.BlockName);
+                    $('#PlotNo').val(result.PlotNo);
+                    $('#DepartmentId').val(result.DepartmentId);
+                }
+            }
+        });
+    }
+
+    function ValidateInputFields() {
+        var flag = true;
+        var RegistrationId = $("#RegistrationId").val();
+        var UserName = $("#UserName").val().trim();
+        var securityCode = $("#Captcha").val();
+
+        if (RegistrationId == '' || RegistrationId.length != 8) {
+            alert("Please enter Registration Id");
+            flag = false;
+        }
+        else if ($('#Sector').val().trim() == '') {
+            alert("Please select Sector");
+            flag = false;
+        }
+        else if ($('#Block').val().trim() == '') {
+            alert("Please select Block");
+            flag = false;
+        }
+        else if ($('#PlotNo').val().trim() == '') {
+            alert("Please enter Plot/Shop/Flat No.");
+            flag = false;
+        }
+        else if ($('#FirstName').val().trim() == '') {
+            alert("Please enter First Name");
+            flag = false;
+        }
+        else if ($('#LastName').val().trim() == '') {
+            alert("Please enter Last Name");
+            flag = false;
+        }
+        else if ($("#SecurityQuestion").val() == '') {
+            alert("Please select Security Question.");
+            flag = false;
+        }
+        else if ($("#SecurityAnswer").val() == "") {
+            alert("Please enter Answer");
+            flag = false;
+        }
+        else if ($("#CustomerIdType").val() == "") {
+            alert("Please select Customer Id type");
+            flag = false;
+        }
+        else if ($("#CustomerIdFile").val() == "") {
+            alert("Please select Customer Id file");
+            flag = false;
+        }
+        else if ($("#NALetterype").val() == "") {
+            alert("Please select letter type");
+            flag = false;
+        }
+        else if ($("#AuthorityLetter").val() == "") {
+            alert("Please select letter file");
+            flag = false;
+        }
+        else if (securityCode != $("#InputCaptcha").val()) {
+            alert("Please enter correct captcha key !.");
+            flag = false;
+        }
+        return flag;
+    }
+
+    function CheckIdFileSize() {
+        var idfile = document.getElementById('CustomerIdFile');
+        var fileSize = idfile.files[0].size;
+        var sizeInKB = fileSize / 1024
+        if (sizeInKB > 50) {
+            alert("Please select Customer Id File of max 50 KB");
+            return false;
+        }
+    }
+
+    function CheckLetterFileSize() {
+        var letter = document.getElementById('AuthorityLetter');
+        var letterSize = letter.files[0].size;
+        var sizeInKB = letterSize / 1024
+        if (sizeInKB > 50) {
+            alert("Please select Authority Letter File of max 50 KB");
+            return false;
+        }
+    }
+
+    function IsValidEmailAddress(emailAddress) {
+        var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        return pattern.test(emailAddress);
+    }
+
+    function AuthorityLetterSelection() {
+        var letter = $("#AuthorityLetter").val();
+        var letterType = letter.split('.');
+        if (letterType[1] == "jpg" || letterType[1] == "png" || letterType[1] == "jpeg") {
+            var letterSize = letter.files[0].size;
+            var sizeInKB = letterSize / 1024
+            if (sizeInKB > 50) {
+                alert("Please select Authority Letter File of max 50 KB");
+                $('#AuthorityLetter').val('');
+                return false;
+            }
+            if ($("#NALetterType").val() == "") {
+                alert("Please select Letter Type");
+                return false;
+            }
+        }
+        else {
+            alert("Only jpg, png and gif files are allowed");
+            $('#AuthorityLetter').val('');
+            return false;
+        }
+    }
+
+    function UploadFileSelection() {
+        var IdFile = $("#CustomerIdFile").val();
+        var fileType = IdFile.split('.');
+        if (fileType[1] == "jpg" || fileType[1] == "png" || fileType[1] == "gif" || fileType[1] == "jpeg") {
+            var fileSize = IdFile.files[0].size;
+            var sizeInKB = fileSize / 1024
+            if (sizeInKB > 50) {
+                alert("Please select Customer Id File of max 50 KB");
+                $('#CustomerIdFile').val('');
+                return false;
+            }
+            if ($("#CustomerIdType").val() == "") {
+                alert("Please select upload file");
+                return false;
+            }
+        }
+        else {
+            alert("Only jpg, png and gif files are allowed");
+            $('#CustomerIdFile').val('');
+            return false;
+        }
+    }
+
+    //var OTPVal;
+
+
+    //function PopulateDDLValues(options, divSelector) {
+    //    var optionString = "<li><span id=\"\">-Select-</span></li>";
+
+    //    $.each(options, function (i, item) {
+    //        optionString += '<li><span id="' + item.value + '">' + item.label + '</span></li>'
+    //    });
+    //    $(divSelector + " ul.dropdown-menu").html(optionString);
+
+    //    $(divSelector).data("value", "11");
+    //    $(divSelector).find('.dropdown-toggle').html('-Select-' + ' <span class="caret"></span>');
+    //}
+
+    //function AttachDDLOnClick(divSelector) {
+    //    $(divSelector + " .dropdown-menu li span").click(function () {
+    //        var selText = $(this).text();
+    //        $(this).parents('.btn-group').data("value", $(this).attr("id"));
+    //        $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+    //    });
+    //}
+
+    //function SetFilterDefaultValueOnLoad(qsName, divSelector) {
+    //    var qsValue = getQueryStringByName(qsName);
+    //    if (qsValue != "")
+    //        SetDropdownValue(qsValue, divSelector)
+    //}
+
+    //function SetDropdownValue(value, divSelector) {
+    //    var selectedOption = $(divSelector).find('ul.dropdown-menu li span[id="' + value + '"]')
+    //    if (selectedOption.length) {
+    //        $(divSelector).data("value", value);
+    //        $(divSelector).find('.dropdown-toggle').html(selectedOption.text() + ' <span class="caret"></span>');
+    //    }
+    //}
+
+    //function getQueryStringByName(name) {
+    //    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    //    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    //        results = regex.exec(location.search);
+    //    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    //}
+
+    //function GetDropdownData(requestUrl, successFuntion) {
+    //    jQuery.support.cors = true;
+    //    $.ajax({
+    //        url: requestUrl,
+    //        type: 'GET',
+    //        dataType: 'json',
+    //        success: function (data) {
+    //            successFuntion(data);
+    //        },
+    //        error: function (x, y, z) {
+    //            //alert(x + '\n' + y + '\n' + z);
+    //        }
+    //    });
+    //}
+
+    //$(document).ready(function () {
+    //    GetDropdownData("/api/common/List?name=sc", function (data) {
+    //        PopulateDDLValues(data, 'div#SectorDropdown');
+    //        AttachDDLOnClick('div#SectorDropdown')
+    //        $("div#SectorDropdown ul.dropdown-menu li span").click(function () {
+    //            var selectedVal = $(this).attr("id");
+    //            $("#Sector").val(selectedVal);
+    //            var optionString = "<li><span id=\"0\">Select</span></li>";
+    //            if (selectedVal != "0") {
+    //                GetDropdownData("/api/common/List?name=bk&id=" + selectedVal, function (data) {
+    //                    PopulateDDLValues(data, 'div#BlockDropdown');
+    //                    AttachDDLOnClick('div#BlockDropdown')
+    //                    SetFilterDefaultValueOnLoad('0', 'div#BlockDropdown');
+
+    //                    $("div#BlockDropdown ul.dropdown-menu li span").on("click", function () {
+    //                        var selectedVal = $(this).attr("id");
+    //                        $("#Block").val(selectedVal);
+    //                    });
+    //                });
+    //            }
+    //            else {
+    //                PopulateDDLValues([], 'div#propertyBlockDropdown');
+    //            }
+    //        });
+    //    });
+    //});
+</script>

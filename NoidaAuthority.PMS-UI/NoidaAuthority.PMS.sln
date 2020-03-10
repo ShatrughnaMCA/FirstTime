@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoidaAuthority.PMS.Web", "NoidaAuthority.PMS.Web\NoidaAuthority.PMS.Web.csproj", "{662AC6B0-9FCD-45CD-B7BA-223E2F764946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoidaAuthority.PMS.Common", "NoidaAuthority.PMS.Common\NoidaAuthority.PMS.Common.csproj", "{95B2A921-929A-4B7D-A9C1-39006BE91FFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoidaAuthority.PMS.Entity", "NoidaAuthority.PMS.Entity\NoidaAuthority.PMS.Entity.csproj", "{D664ED8D-DBB2-4F25-AB29-D402EE64E495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoidaAuthority.PMS.Repository", "NoidaAuthority.PMS.Repository\NoidaAuthority.PMS.Repository.csproj", "{AE58DD35-D7A5-4BC8-AD93-5BF2A57FC87E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoidaAuthority.PMS.Service", "NoidaAuthority.PMS.Service\NoidaAuthority.PMS.Service.csproj", "{9E39A72D-4FBF-4883-A439-3BF67E192862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoidaAuthority.PMS.Context", "NoidaAuthority.PMS.Context\NoidaAuthority.PMS.Context.csproj", "{EDD13AD4-9CAC-41AF-AF0D-7AF047AD131E}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://nst-2013tfs.svam.com:8080/tfs/nst_prod_pis
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = NoidaAuthority.PMS.Common\\NoidaAuthority.PMS.Common.csproj
+		SccProjectName1 = NoidaAuthority.PMS.Common
+		SccLocalPath1 = NoidaAuthority.PMS.Common
+		SccProjectUniqueName2 = NoidaAuthority.PMS.Entity\\NoidaAuthority.PMS.Entity.csproj
+		SccProjectName2 = NoidaAuthority.PMS.Entity
+		SccLocalPath2 = NoidaAuthority.PMS.Entity
+		SccProjectUniqueName3 = NoidaAuthority.PMS.Repository\\NoidaAuthority.PMS.Repository.csproj
+		SccProjectName3 = NoidaAuthority.PMS.Repository
+		SccLocalPath3 = NoidaAuthority.PMS.Repository
+		SccProjectUniqueName4 = NoidaAuthority.PMS.Service\\NoidaAuthority.PMS.Service.csproj
+		SccProjectName4 = NoidaAuthority.PMS.Service
+		SccLocalPath4 = NoidaAuthority.PMS.Service
+		SccProjectUniqueName5 = NoidaAuthority.PMS.Web\\NoidaAuthority.PMS.Web.csproj
+		SccProjectName5 = NoidaAuthority.PMS.Web
+		SccLocalPath5 = NoidaAuthority.PMS.Web
+		SccProjectUniqueName6 = NoidaAuthority.PMS.Context\\NoidaAuthority.PMS.Context.csproj
+		SccProjectName6 = NoidaAuthority.PMS.Context
+		SccLocalPath6 = NoidaAuthority.PMS.Context
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{662AC6B0-9FCD-45CD-B7BA-223E2F764946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{662AC6B0-9FCD-45CD-B7BA-223E2F764946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{662AC6B0-9FCD-45CD-B7BA-223E2F764946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{662AC6B0-9FCD-45CD-B7BA-223E2F764946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95B2A921-929A-4B7D-A9C1-39006BE91FFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95B2A921-929A-4B7D-A9C1-39006BE91FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95B2A921-929A-4B7D-A9C1-39006BE91FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95B2A921-929A-4B7D-A9C1-39006BE91FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D664ED8D-DBB2-4F25-AB29-D402EE64E495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D664ED8D-DBB2-4F25-AB29-D402EE64E495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D664ED8D-DBB2-4F25-AB29-D402EE64E495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D664ED8D-DBB2-4F25-AB29-D402EE64E495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE58DD35-D7A5-4BC8-AD93-5BF2A57FC87E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE58DD35-D7A5-4BC8-AD93-5BF2A57FC87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE58DD35-D7A5-4BC8-AD93-5BF2A57FC87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE58DD35-D7A5-4BC8-AD93-5BF2A57FC87E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E39A72D-4FBF-4883-A439-3BF67E192862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E39A72D-4FBF-4883-A439-3BF67E192862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E39A72D-4FBF-4883-A439-3BF67E192862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E39A72D-4FBF-4883-A439-3BF67E192862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDD13AD4-9CAC-41AF-AF0D-7AF047AD131E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDD13AD4-9CAC-41AF-AF0D-7AF047AD131E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDD13AD4-9CAC-41AF-AF0D-7AF047AD131E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDD13AD4-9CAC-41AF-AF0D-7AF047AD131E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

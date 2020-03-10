@@ -1,0 +1,1850 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entity;
+@{
+    ViewBag.Title = "PropertyDetail";
+}
+
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<script src="~/Scripts/bootstrap-tabcollapse.js"></script>
+<style>
+    .view-docs {
+        color: blue;
+        text-decoration: underline;
+    }
+
+        .view-docs:hover {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+</style>
+<div class="tabbable" id="divProperty">
+    <ul class="nav nav-tabs content-tabs" id="ulProperty" role="tablist">
+        <li class="active" role="tab" data-toggle="tab"><a href="#one" data-toggle="tab"><i class="glyphicon glyphicon-home" style="color:#00c097;"></i>&nbsp;&nbsp;Property</a></li>
+        <li><a href="#two" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-briefcase" style="color:#00c097;"></i>&nbsp;&nbsp;Documents</a></li>
+        <li id="tabTransfer"><a href="#three" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-transfer" style="color:#00c097;"></i>&nbsp;&nbsp;Transfer Details</a></li>
+        <li id="tabPayment" role="tab" data-toggle="tab"><a href="#four" data-toggle="tab"><i class="glyphicon glyphicon-credit-card" style="color:#00c097;"></i>&nbsp;&nbsp;Payment</a></li>
+        <li><a href="#five" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-credit-card" style="color:#00c097;"></i>&nbsp;&nbsp;Jal Payment Details</a></li>
+        <li><a href="#six" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-list-alt" style="color:#00c097;"></i>&nbsp;&nbsp;Service Request</a></li>
+        <li><a href="#seven" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-time" style="color:#00c097;"></i>&nbsp;&nbsp;Litigation History</a></li>
+        <li><a href="#eight" role="tab" data-toggle="tab"><i class="" style="color:#00c097;"></i>&nbsp;&nbsp;Remarks</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="one">
+            <!--Added Page-->
+            <div id="PropertyDetailContainerDiv" data-registrationid="@Model.RegistrationId">
+                <div id="divPropertyDetailHeader">
+                    <h4 class="PropertyDetailHeader">Property Details <strong>(Registration No:@Model.RegistrationNo)</strong></h4>
+                </div>
+
+                <div class="tblPropertyDetails" id="divPropertyDetails">
+                    <div class="tblPropertyDetailsRow">
+                        <div class="tblPropertyDetailsCellWidth">Allottee Name:</div>
+                        <div class="tblPropertyDetailsCell"><label id="lblName">@Model.Name </label> </div>
+                        <div class="tblPropertyDetailsCellWidth">Original Allottee:</div>
+                        <div class="tblPropertyDetailsCell">
+                            @{
+                                if (!string.IsNullOrEmpty(Model.TransferCase))
+                                {
+                                    if (Model.TransferCase.Equals("No"))
+                                    {
+                                        <label id="lbl">No</label>
+                                        <script type="text/javascript">
+                                            $('#tabTransfer').show();
+                                            //$('#tabPayment').hide();
+                                        </script>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">Yes</label>
+                                        <script type="text/javascript">
+                                            $('#tabTransfer').hide();
+                                        </script>
+
+                                    }
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+
+                    </div>
+
+                    <div class="tblPropertyDetailsRowColor">
+                        @*<div class="tblPropertyDetailsCellWidth">Property Number:</div>
+                            <div class="tblPropertyDetailsCell">
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.PropertyNumber))
+                                    {
+                                        <label id="lbl">@Model.PropertyNumber</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Property Category:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.PropertyCategory))
+                                {
+                                    <label id="lbl">@Model.PropertyCategory</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        <div class="tblPropertyDetailsCellWidth">Payment Due:</div>
+                        <div class="tblPropertyDetailsCell">
+                            @{
+                                if (!string.IsNullOrEmpty(Model.PaymentDue))
+                                {
+                                    <label id="lbl" style="color:red">@Model.PaymentDue</label>
+    <a href="#"
+       type="submit"
+       id="runReport"
+       target="_blank"
+       onclick="GetAllAmount();">
+        Print Challan
+    </a>
+                                }
+                                else
+                                {
+                                    <label id="lbl">0.00</label>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="tblPropertyDetailsRow">
+                        @*<div class="tblPropertyDetailsCellWidth">Property Category:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.PropertyCategory))
+                                    {
+                                        <label id="lbl">@Model.PropertyCategory</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Plot/Flat/Shop No:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.PlotNumber))
+                                {
+                                    <label id="lbl">@Model.PlotNumber</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        <div class="tblPropertyDetailsCellWidth">Last Payment Date:</div>
+                        <div class="tblPropertyDetailsCell">
+                            <label id="lbl">@Model.LastPaymentDate</label>
+                        </div>
+                    </div>
+                    <div class="tblPropertyDetailsRowColor">
+                        @*<div class="tblPropertyDetailsCellWidth">Plot Number:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.PlotNumber))
+                                    {
+                                        <label id="lbl">@Model.PlotNumber</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Sector:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.Sector))
+                                {
+                                    <label id="lbl">@Model.Sector</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        <div class="tblPropertyDetailsCellWidth">Next Payment Due Date:</div>
+                        <div class="tblPropertyDetailsCell">
+                            <label id="lbl">@Model.NextPaymentDueDate</label>
+                        </div>
+
+                    </div>
+                    <div class="tblPropertyDetailsRow">
+                        @*<div class="tblPropertyDetailsCellWidth">Sector:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.Sector))
+                                    {
+                                        <label id="lbl">@Model.Sector</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Block:</div>
+                        <div class="tblPropertyDetailsCell"><label id="lbl">@Model.Block</label></div>
+                        <div class="tblPropertyDetailsCellWidth">Allotment Date:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.AlottmentDate))
+                                {
+                                    <label id="lbl">@Model.AlottmentDate</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                            @{
+                                if (!string.IsNullOrEmpty(Model.Allotment_Doc))
+                                {
+                                    @*<a href="@Url.Content(Model.Allotment_Doc)" target="_blank" id="Allotment" class="propertyDetailsA">Allotment</a>*@
+                                }}
+
+
+                        </div>
+                        @*<div class="tblPropertyDetailsCellWidth">Payment Schedule:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.PaymentSchedule))
+                                    {
+                                        if (Model.PaymentSchedule.Equals("Yes"))
+                                        {
+                                            <label id="lbl">@Model.PaymentSchedule</label>
+                                            @*<a href="#" id="PaymentSchedule" class="propertyDetailsA">Payment Schedule</a>
+                                        }
+                                        else
+                                        {
+
+                                            <label id="lbl">No outstanding payment</label>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">No outstanding payment</label>
+                                    }
+                                }
+                            </div>*@
+                    </div>
+                    <div class="tblPropertyDetailsRowColor">
+                        @*<div class="tblPropertyDetailsCellWidth">Block:</div>
+                            <div class="tblPropertyDetailsCell"><label id="lbl">@Model.Block</label></div>*@
+                        <div class="tblPropertyDetailsCellWidth">
+                            Area (In Sq.Mtr.):
+                        </div>
+                        <div class="tblPropertyDetailsCell">
+                            @{
+                                if (!string.IsNullOrEmpty(Model.Area))
+                                {
+                                    <label id="lbl">@Model.Area</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+
+                        <div class="tblPropertyDetailsCellWidth">Possession Date:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.PossessionDate))
+                                {
+                                    <label id="lbl">@Model.PossessionDate</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        @*<div class="tblPropertyDetailsCellWidth">Allotment Date:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.AlottmentDate))
+                                    {
+                                        <label id="lbl">@Model.AlottmentDate</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.Allotment_Doc))
+                                    {
+                                        @*<a href="@Url.Content(Model.Allotment_Doc)" target="_blank" id="Allotment" class="propertyDetailsA">Allotment</a>
+                                    }}
+
+
+                            </div>*@
+                    </div>
+                    <div class="tblPropertyDetailsRow">
+                        @*<div class="tblPropertyDetailsCellWidth">Area (In Sq.Mtr.):</div>
+                            <div class="tblPropertyDetailsCell">
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.Area))
+                                    {
+                                        <label id="lbl">@Model.Area</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">
+                            Scheme:
+                        </div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.Scheme))
+                                {
+                                    <label id="lbl">@Model.Scheme</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+
+                        <div class="tblPropertyDetailsCellWidth">Building Plan Approved:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.BuildingPlanApproved))
+                                {
+                                    <label id="lbl">@Model.BuildingPlanApproved</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                            @{
+                                if (!string.IsNullOrEmpty(Model.BuildingPlan_Doc))
+                                {
+                                    @*<a href="@Url.Content(Model.BuildingPlan_Doc)" target="_blank" id="BuildingPlan" class="propertyDetailsA">Building Plan</a>*@
+                                }}
+
+                        </div>
+                        @*<div class="tblPropertyDetailsCellWidth">Possession Date:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.PossessionDate))
+                                    {
+                                        <label id="lbl">@Model.PossessionDate</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                    </div>
+                    <div class="tblPropertyDetailsRowColor">
+                        @*<div class="tblPropertyDetailsCellWidth">Sector:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.Scheme))
+                                    {
+                                        <label id="lbl">@Model.Scheme</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Status:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.Status))
+                                {
+                                    <label id="lbl">@Model.Status</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        <div class="tblPropertyDetailsCellWidth">Construction Completed:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.ConstructionCompleted))
+                                {
+                                    <label id="lbl">@Model.ConstructionCompleted</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        @*<div class="tblPropertyDetailsCellWidth">Building Plan Approved:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.BuildingPlanApproved))
+                                    {
+                                        <label id="lbl">@Model.BuildingPlanApproved</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.BuildingPlan_Doc))
+                                    {
+                                        @*<a href="@Url.Content(Model.BuildingPlan_Doc)" target="_blank" id="BuildingPlan" class="propertyDetailsA">Building Plan</a>
+                                    }}
+
+                            </div>*@
+                    </div>
+                    <div class="tblPropertyDetailsRow">
+                        @*<div class="tblPropertyDetailsCellWidth">Status:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.Status))
+                                    {
+                                        <label id="lbl">@Model.Status</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Rate Per Sq. Mtr:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (Model.RatePerSqMtr > 0)
+                                {
+                                    <span>&#8377</span>  <label id="lbl">@Model.RatePerSqMtr</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        <div class="tblPropertyDetailsCellWidth">Registry Date:</div>
+                        <div class="tblPropertyDetailsCell">
+                            @{
+                                if (!string.IsNullOrEmpty(Model.RegistryDate))
+                                {
+                                    <label id="lbl">@Model.RegistryDate</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.Leasedeed_Doc))
+                                {
+                                    @*<a href="@Url.Content(Model.Leasedeed_Doc)" target="_blank" id="LeaseDeed" class="propertyDetailsA">Registry Deed</a>*@
+                                }}
+
+                        </div>
+                        @*<div class="tblPropertyDetailsCellWidth">Construction Completed:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.ConstructionCompleted))
+                                    {
+                                        <label id="lbl">@Model.ConstructionCompleted</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                    </div>
+                    <div class="tblPropertyDetailsRowColor">
+                        @*<div class="tblPropertyDetailsCellWidth">Rate Per Sq. Mtr:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (Model.RatePerSqMtr > 0)
+                                    {
+                                        <span>&#8377</span>  <label id="lbl">@Model.RatePerSqMtr</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Floor Area Ratio:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (Model.FloorAreaRatio > 0)
+                                {
+                                    <label id="lbl">@Model.FloorAreaRatio</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+
+                            }
+                        </div>
+                        <div class="tblPropertyDetailsCellWidth">No Dues Certificate issued:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.NoDuesCertificateIssued))
+                                {
+                                    <label id="lbl">@Model.NoDuesCertificateIssued</label>
+                                    if (Model.NoDuesCertificateIssued.Equals("Yes"))
+                                    {
+                                        if (!string.IsNullOrEmpty(Model.No_Dues_Doc))
+                                        {
+                                            @*<a href="@Url.Content(Model.No_Dues_Doc)" target="_blank" id="BuildingPlan" class="propertyDetailsA">No Dues</a>*@
+
+                                        }
+                                        <script type="text/javascript">
+                                            //$('#tabPayment').hide();
+                                        </script>
+                                    }
+                                    else
+                                    {
+                                        <script type="text/javascript">
+                                            //$('#tabPayment').show();
+                                        </script>
+                                    }
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+
+                            }
+
+
+                        </div>
+                        @*<div class="tblPropertyDetailsCellWidth">Registry Date:</div>
+                            <div class="tblPropertyDetailsCell">
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.RegistryDate))
+                                    {
+                                        <label id="lbl">@Model.RegistryDate</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.Leasedeed_Doc))
+                                    {
+                                        @*<a href="@Url.Content(Model.Leasedeed_Doc)" target="_blank" id="LeaseDeed" class="propertyDetailsA">Registry Deed</a>
+                                    }}
+
+                            </div>*@
+                    </div>
+                    <div class="tblPropertyDetailsRow">
+                        @*<div class="tblPropertyDetailsCellWidth">Floor Area Ratio:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (Model.FloorAreaRatio > 0)
+                                    {
+                                        <label id="lbl">@Model.FloorAreaRatio</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Customer Address:</div>
+                        <div class="tblPropertyDetailsCell">
+                            @{
+                                if (!string.IsNullOrEmpty(Model.CustomerAddress))
+                                {
+                                    <label id="lbl">@Model.CustomerAddress</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        @{
+                            if (!string.IsNullOrEmpty(Model.PropertyCategory))
+                            {
+                                if (Model.PropertyCategory.ToLower() == "institutional" || Model.PropertyCategory.ToLower() == "commercial" || Model.PropertyCategory.ToLower() == "industrial")
+                                {
+                                    <div class="tblPropertyDetailsCellWidth">Rent Permission:</div>
+                                    <div class="tblPropertyDetailsCell">
+                                        @{
+                                    if (!string.IsNullOrEmpty(Model.RentPermission))
+                                    {
+                                        <label id="lbl">@Model.RentPermission</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="tblPropertyDetailsCellWidth"></div>
+                                    <div class="tblPropertyDetailsCell">
+                                        <label id="lbl"></label>
+                                    </div>
+                                }
+
+                            }
+                        }
+                        @*<div class="tblPropertyDetailsCellWidth">No Dues Certificate issued:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.NoDuesCertificateIssued))
+                                    {
+                                        <label id="lbl">@Model.NoDuesCertificateIssued</label>
+                                        if (Model.NoDuesCertificateIssued.Equals("Yes"))
+                                        {
+                                            if (!string.IsNullOrEmpty(Model.No_Dues_Doc))
+                                            {
+                                                @*<a href="@Url.Content(Model.No_Dues_Doc)" target="_blank" id="BuildingPlan" class="propertyDetailsA">No Dues</a>
+
+                                            }
+                                            <script type="text/javascript">
+                                                $('#tabPayment').hide();
+                                            </script>
+                                        }
+                                        else
+                                        {
+                                            <script type="text/javascript">
+                                                $('#tabPayment').show();
+                                            </script>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+
+                                }
+
+
+                            </div>*@
+                    </div>
+                    <div class="tblPropertyDetailsRowColor">
+                        @*<div class="tblPropertyDetailsCellWidth">Customer Address:</div>
+                            <div class="tblPropertyDetailsCell">
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.CustomerAddress))
+                                    {
+                                        <label id="lbl">@Model.CustomerAddress</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Mortgage Permission:</div>
+                        <div class="tblPropertyDetailsCell">
+                            @{
+                                if (!string.IsNullOrEmpty(Model.MortgagePermission))
+                                {
+                                    <label id="lbl">@Model.MortgagePermission</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        <div class="tblPropertyDetailsCellWidth">Mobile: </div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.Mobile))
+                                {
+                                    <label id="lbl">@Model.Mobile</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        @*<div class="tblPropertyDetailsCellWidth">Rent Permission:</div>
+                            <div class="tblPropertyDetailsCell">
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.RentPermission))
+                                    {
+                                        <label id="lbl">@Model.RentPermission</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                    </div>
+                    <div class="tblPropertyDetailsRow">
+                        @*<div class="tblPropertyDetailsCellWidth">Mobile: </div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.Mobile))
+                                    {
+                                        <label id="lbl">@Model.Mobile</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Phone Number:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.PhoneNo))
+                                {
+                                    <label id="lbl">@Model.PhoneNo</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        <div class="tblPropertyDetailsCellWidth">Any Litigation:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.LegalPreceedings))
+                                {
+                                    if (Model.LegalPreceedings.Equals("Yes"))
+                                    {
+                                        <label id="lbl">@Model.LegalPreceedings</label>
+                                        @*<a href="#" id="legalHistory" class="propertyDetailsA">Legal History</a>*@
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">No</label>
+                                    }
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        @*<div class="tblPropertyDetailsCellWidth">Mortgage Permission:</div>
+                            <div class="tblPropertyDetailsCell">
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.MortgagePermission))
+                                    {
+                                        <label id="lbl">@Model.MortgagePermission</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                    </div>
+                    <div class="tblPropertyDetailsRowColor">
+                        @*<div class="tblPropertyDetailsCellWidth">Phone Number:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.PhoneNo))
+                                    {
+                                        <label id="lbl">@Model.PhoneNo</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Email ID:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.EmailId))
+                                {
+                                    <label id="lbl">@Model.EmailId</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        <div class="tblPropertyDetailsCellWidth">JAL Connection:</div>
+                        <div class="tblPropertyDetailsCell">
+
+                            @{
+                                if (!string.IsNullOrEmpty(Model.JalConnection))
+                                {
+                                    if (Model.JalConnection.Equals("Yes"))
+                                    {
+                                        <label id="lbl">@Model.JalConnection</label>
+                                        @*<a href="#" id="JALDetails" class="propertyDetailsA">JAL Payment History</a>*@
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">No</label>
+                                    }
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        @*<div class="tblPropertyDetailsCellWidth">Any Litigation:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.LegalPreceedings))
+                                    {
+                                        if (Model.LegalPreceedings.Equals("Yes"))
+                                        {
+                                            <label id="lbl">@Model.LegalPreceedings</label>
+                                            @*<a href="#" id="legalHistory" class="propertyDetailsA">Legal History</a>
+                                        }
+                                        else
+                                        {
+                                            <label id="lbl">No</label>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                    </div>
+                    <div class="tblPropertyDetailsRow">
+                        @*<div class="tblPropertyDetailsCellWidth">Email ID:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.EmailId))
+                                    {
+                                        <label id="lbl">@Model.EmailId</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                        <div class="tblPropertyDetailsCellWidth">Extension Given:</div>
+                        <div class="tblPropertyDetailsCell">
+                            @{
+                                if (!string.IsNullOrEmpty(Model.ExtensionGiven))
+                                {
+                                    <label id="lbl">@Model.ExtensionGiven</label>
+                                }
+                                else
+                                {
+                                    <label id="lbl">NA</label>
+                                }
+                            }
+                        </div>
+                        @{
+                            if (!string.IsNullOrEmpty(Model.PropertyCategory))
+                            {
+                                if (Model.PropertyCategory.ToLower() == "institutional" || Model.PropertyCategory.ToLower() == "commercial" || Model.PropertyCategory.ToLower() == "industrial")
+                                {
+                                    <div class="tblPropertyDetailsCellWidth">Functional Date:</div>
+                                    <div class="tblPropertyDetailsCell">
+
+                                        @{
+                                    if (!string.IsNullOrEmpty(Model.FunctionalDate))
+                                    {
+                                        <label id="lbl">@Model.FunctionalDate</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                        }
+                                        @{
+                                    if (!string.IsNullOrEmpty(Model.FunctionalDate))
+                                    {
+                                        <a href="@Url.Content("~/Documents/FunctionalCertificate/" + Model.RegistrationId + ".jpg")" target="_blank" id="FunctionalCertificate" class="propertyDetailsA">Functional Certificate</a>
+                                    }}
+
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="tblPropertyDetailsCellWidth"></div>
+                                    <div class="tblPropertyDetailsCell">
+                                        <label id="lbl"></label>
+                                    </div>
+                                }
+
+                            }
+                        }
+
+                        @*<div class="tblPropertyDetailsCellWidth">Functional Date:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.FunctionalDate))
+                                    {
+                                        <label id="lbl">@Model.FunctionalDate</label>
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.FunctionalDate))
+                                    {
+                                        <a href="@Url.Content("~/Documents/FunctionalCertificate/" + Model.RegistrationId + ".jpg")" target="_blank" id="FunctionalCertificate" class="propertyDetailsA">Functional Certificate</a>
+                                    }}
+
+                            </div>*@
+                        @*<div class="tblPropertyDetailsCellWidth">JAL Connection:</div>
+                            <div class="tblPropertyDetailsCell">
+
+                                @{
+                                    if (!string.IsNullOrEmpty(Model.JalConnection))
+                                    {
+                                        if (Model.JalConnection.Equals("Yes"))
+                                        {
+                                            <label id="lbl">@Model.JalConnection</label>
+                                            @*<a href="#" id="JALDetails" class="propertyDetailsA">JAL Payment History</a>
+                                        }
+                                        else
+                                        {
+                                            <label id="lbl">No</label>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <label id="lbl">NA</label>
+                                    }
+                                }
+                            </div>*@
+                    </div>
+                </div>
+
+                <div style="width:100%; padding-top:15px">
+                    @if (Convert.ToInt32(Session["RoleId"]) == 5) { }
+                    else
+                    {
+                        <button type="button" id="addRemark" style="display:block; margin:0 auto" class="btn btn-success">Add Remark</button>
+                    }
+                </div>
+                <br />
+                @*<h4>Attachment Details</h4>
+                    <div id="AttachmentDetails">
+                    </div>
+                    <br />*@
+                @*<h4>Transfer Details</h4>
+                        @{
+                            if (!string.IsNullOrEmpty(Model.TransferCase))
+                            {
+                                <div id="TransferHistoryGrid">
+                                </div>
+                                @*if (Model.TransferCase.Equals("No"))
+                            {
+                                <div id="TransferHistoryGrid">
+                                </div>
+                            }
+                            else
+                            {
+                                <div>No Records</div>
+                            }
+                    }
+                    }*@
+                @*<h4>Payment History</h4>
+                    <div id="PaymentHistoryGrid">
+                    </div>
+                    <br />*@
+                @*<h4>Property Documents List</h4>
+                    <div id="PropertyDocumentsGrid">
+
+                    </div>
+                    <br />*@
+
+                @*<h4>Jal Detail History</h4>
+                    <div id="JalDetailGrid">
+                        @*There are no complaints against this property.
+                    </div>
+                    <br />*@
+
+                @*<h4>Complaint/Service Request History</h4>
+                    <div id="ComplainHistoryGrid">
+                        @*There are no complaints against this property.
+                    </div>
+                    <br />
+                    <h4>Legal History</h4>
+                    <div id="LegalHistoryGrid">
+
+                    </div>*@
+                <div style="width:100%; padding-top:0;">
+                    @*<button type="button" id="addRemark" style="display:block;" class="btn btn-success">Print Details</button>*@
+                </div>
+            </div>
+            <!--End Added Page-->
+            <div id="propertiesSessionCourt">
+            </div>
+        </div>
+        <div class="tab-pane fade" id="two">
+            <div id="divPropertyDetailHeader">
+                <h4 class="PropertyDetailHeader">Attachment Details</h4>
+            </div>
+            <br />
+            @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+            <br />
+            <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+            <div style="display:none" id="AttachmentDetails">
+            </div>
+            <div id="DocumentDetails">
+            </div>
+            @(Html.Kendo().Window().Visible(false)
+                   .Name("IDWindow")
+           .Title("Document")
+           .Modal(true)
+           .Content(@<text>
+            <div style="width:100%" id="windowDiv">
+                <iframe id="ifrmViewPdf" style="width:800px; height:500px;"></iframe>
+            </div>
+        </text>)
+                                .Actions(actions => actions.Close())
+            )
+
+            <br />
+        </div>
+        <div class="tab-pane fade" id="three">
+            <div id="divPropertyDetailHeader">
+                <h4 class="PropertyDetailHeader">Transfer Details</h4>
+            </div>
+            <br />
+            @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+            <br />
+            <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+            <div id="TransferHistoryGrid">
+            </div>
+            <br />
+        </div>
+        <div class="tab-pane fade" id="four">
+            <table>
+                <tr>
+                    <td style="width:100%">
+                        <div id="divPropertyDetailHeader">
+                            <h4 class="PropertyDetailHeader">Payment Schedule</h4>
+                        </div>
+                        <br />
+                        @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td style=" vertical-align:top; width:100%">
+                        @{
+                            if (!string.IsNullOrEmpty(Model.TransferCase))
+                            {
+                                <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+                                <div id="PaymentScheduleGrid"></div>
+                                @*if (Model.PaymentSchedule.Equals("Yes"))
+                                    {
+                                        <div id="PaymentScheduleGrid" style="width:98%"></div>
+                                    }
+                                    else
+                                    {
+                                        <div>No outstanding payment</div>
+                                    }*@
+                            }
+                        }
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="width:100%">
+                        <br />
+                        <div id="divPropertyDetailHeader">
+                            <h4 class="PropertyDetailHeader">Payment Details</h4>
+                        </div>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top; width:100%">
+                        @{
+                            if (!string.IsNullOrEmpty(Model.TransferCase))
+                            {
+                                <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+                                <div id="PaymentDetailGrid"></div>
+                                @*if (Model.PaymentSchedule.Equals("Yes"))
+                                    {
+                                        <div id="PaymentDetailGrid" style="width:98%"></div>
+                                    }
+                                    else
+                                    {
+                                        <div>No outstanding payment</div>
+                                    }*@
+                            }
+                        }
+                    </td>
+                </tr>
+            </table>
+            <div id="propertiesHighCourt">
+            </div>
+        </div>
+        <div class="tab-pane fade" id="five">
+            <div id="divPropertyDetailHeader">
+                <h4 class="PropertyDetailHeader">Jal Detail History</h4>
+            </div>
+            <br />
+            @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+            <br />
+            <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+            <div id="JalDetailGrid">
+            </div>
+            <br />
+        </div>
+        <div class="tab-pane fade" id="six">
+            <div id="divPropertyDetailHeader">
+                <h4 class="PropertyDetailHeader">Complaint/Service Request History</h4>
+            </div>
+            <br />
+            @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+            <br />
+            <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+            <div id="ComplainHistoryGrid">
+            </div>
+            <br />
+        </div>
+        <div class="tab-pane fade" id="seven">
+            <div id="divPropertyDetailHeader">
+                <h4 class="PropertyDetailHeader">Litigation History</h4>
+            </div>
+            <br />
+            @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+            <br />
+            <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+            <div id="LegalHistoryGrid">
+            </div>
+            <br />
+        </div>
+        <div class="tab-pane fade" id="eight">
+            <div id="divPropertyDetailHeader">
+                <h4 class="PropertyDetailHeader">Remarks</h4>
+            </div>
+            <br />
+            <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+            <div id="RemarksGrid">
+            </div>
+            @*<div class="k-grid-content">
+                    @(Html.Kendo().Grid<RemarksModel>()
+                       .Name("FeedbackGrid")
+                      .Columns(columns =>
+                      {
+                          columns.Bound(p => p.id).Visible(false);
+                          columns.Bound(p => p.regNo).Width(150).Title("Registration No.").ClientTemplate("#{#<a href='/Property/PropertyDetail/#=regNo#'>#=regNo#</a>#}#");
+                          columns.Bound(p => p.remarks).Width(150).Title("Remarks");
+                          columns.Bound(p => p.date).Width(150).Title("Date").Format("{0:dd/MM/yyyy}");
+                      })
+                               .Pageable(pageable =>
+                                            {
+                                                pageable.Refresh(true);
+                                                pageable.PageSizes(new int[] { 20, 50, 100 });
+                                                pageable.Messages(messages => messages.Empty("No Records found"));
+                                            }).Groupable()
+                                       .Filterable(f => f.Operators(o => o.ForString(fs =>
+                                                      {
+                                                          fs.Clear().Contains("Contains");
+                                                          fs.DoesNotContain("Does not contain");
+                                                          fs.IsEqualTo("Equal to");
+                                                          fs.IsNotEqualTo("Not equal to");
+                                                          fs.StartsWith("Starts with");
+                                                          fs.EndsWith("Ends with");
+                                                      })))
+                                                 .Sortable().AutoBind(true)
+                                          .DataSource(dataSource => dataSource
+                                             .Ajax()
+                                            .ServerOperation(true) // paging, sorting, filtering and grouping will be applied client-side
+                                                   .Read("Remarks_Read", "Property")
+                                          )
+                    )
+                </div>*@
+        </div>
+    </div>
+</div>
+<div id="PopupContainerDiv">
+
+    @*<div id="myModalPaymentSchedule" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width:70%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Payment Schedule</h4>
+                    </div>
+                    <div class="modal-body">
+                        Allottee Name: <label>@Model.Name</label><br />
+                        Registration No: <label> @Model.RegistrationNo</label><br />
+                        Property No: <label> @Model.PropertyNumber</label><br />
+                        Total Installments: <label> @Model.NoOfInstallments</label><br />
+                        Total Amount Paid: <span>&#8377</span> <label> @Model.TotalAmountPaid</label><br />
+                        Total Amount Due: <span>&#8377</span> <label> @Model.TotalAmountDue</label><br />
+                        <div id="PaymentScheduleGrid"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    @*<div id="myModalLegalHistory" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width:80%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Legal History</h4>
+                    </div>
+                    <div class="modal-body">
+                        Allottee Name: <label>@Model.Name</label><br />
+                        Registration No: <label> @Model.RegistrationNo</label><br />
+                        <div id="LegalHistoryGrid">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+
+    @*<div id="myModalTransferHistory" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width:85%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Property Transfer History</h4>
+                    </div>
+                    <div class="modal-body">
+                        Registration No: <label> @Model.RegistrationNo</label><br />
+                        <div id="TransferHistoryGrid">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    @*<div id="myModalDocs" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width:85%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Property Transfer History</h4>
+                    </div>
+                    <div class="modal-body">
+                        Registration No: <label> @Model.RegistrationNo</label><br />
+                        <div id="TransferHistoryGrid">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    @*<div id="myModalJALDetails" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width:70%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"> JAL Payment History</h4>
+                    </div>
+                    <div class="modal-body">
+                        Consumer Name: <label>@Model.Name</label><br />
+                        Registration No: <label> @Model.RegistrationNo</label><br />
+                        Property Number: <label> @Model.PropertyNumber</label><br />
+                        <div id="JalDetailGrid">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+</div>
+<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:550px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Remarks</h4>
+            </div>
+            <div class="modal-body">
+
+                Consumer Name: <label>@Model.Name</label><br />
+                Property Number: <label>@Model.PropertyNumber</label><br />
+                <span style="vertical-align:top">Comments:</span><div style="display:inline-block">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" id="textRemark" style="width:300px; height:100px"></textarea>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="fdsubmit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var RegistrationID = $("div#PropertyDetailContainerDiv").data("registrationid");
+        //$("#PaymentSchedule").click(function () {
+        //    $("#myModalPaymentSchedule").modal('show');
+        //});
+        $("#legalHistory").click(function () {
+            $("#myModalLegalHistory").modal('show');
+        });
+        //$("#TransferHistory").click(function () {
+        //    $("#myModalTransferHistory").modal('show');
+        //});
+        $("#JALDetails").click(function () {
+            $("#myModalJALDetails").modal('show');
+        });
+
+        $("div#PaymentScheduleGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetPaymentSchedule/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#PaymentScheduleGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        //{ title: 'PropertyNo', field: 'PropertyNo' },
+                        { title: 'Payment Due Date', field: 'paymentScheduleDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Principal Amt(&#8377)', field: 'ScheduleAmount', format: "{0:#,0.00}" },
+                        { title: 'Interest Amt(&#8377)', field: 'ScheduleAmount', format: "{0:#,0.00}" },
+                        { title: 'Payment Status', field: 'PaymentStatus', template: '#=Getstatus(PaymentStatus)#' }]
+        });
+        $("div#PaymentDetailGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetPaymentDetails/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#PaymentDetailGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        //{ title: 'PropertyNo', field: 'PropertyNo' },
+                        { title: 'Receiving Date', field: 'DepositDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Receiving Amt(&#8377)', field: 'AmountPaid', format: "{0:#,0.00}" },
+                         { title: 'Receipt No.', field: 'ChallanId' },
+                       { title: 'Receipt Head.', field: 'ReceiptHead' },
+            ]
+        });
+        $("div#LegalHistoryGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetLegalHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#LegalHistoryGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        //{ title: 'Registration ID', field: 'RegistrationId' },
+                        { title: 'Case No.', field: 'CASENO' },
+                        { title: 'Year', field: 'YEAR', width: 50 },
+                        { title: 'Court', field: 'COURT' },
+                        { title: 'Parties', field: 'PARTIES' },
+                        { title: 'Department', field: 'DEPTT' },
+                        { title: 'Description', field: 'DESCRIPTION' },
+                        { title: 'Advocate Details', field: 'ADVOCATEDETAILS' },
+                        { title: 'Stay', field: 'STAY', width: 50 },
+                        { title: 'Filed', field: 'filedFlag', width: 60 },
+                        { title: 'Date', field: 'DATE', type: "date", format: "{0:dd-MMM-yyyy}", width: 100 },
+                        { title: 'Narrative', field: 'NARRATIVEYES_NO', width: 70 }
+            ]
+        });
+
+        $("div#RemarksGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/Remarks_Read/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#RemarksGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+        { title: 'Registration No.', field: 'regNo' },
+                        //{ title: 'Year', field: 'YEAR', width: 50 },
+                        { title: 'Remarks', field: 'remarks' },
+                        //{ title: 'Parties', field: 'PARTIES' },
+                        //{ title: 'Department', field: 'DEPTT' },
+                        //{ title: 'Description', field: 'DESCRIPTION' },
+                        //{ title: 'Advocate Details', field: 'ADVOCATEDETAILS' },
+                        //{ title: 'Stay', field: 'STAY', width: 50 },
+                        //{ title: 'Filed', field: 'filedFlag', width: 60 },
+                        { title: 'Date', field: 'date', type: "date", format: "{0:dd-MMM-yyyy}", width: 100 },
+                        //{ title: 'Narrative', field: 'NARRATIVEYES_NO', width: 70 }
+            ]
+        });
+        $("div#TransferHistoryGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetTransferHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#TransferHistoryGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            norecord: true,
+            columns: [
+                        { title: 'From', field: 'OwnerName' },
+                        { title: 'To', field: 'TransfereeName' },
+                        { title: 'Scheduled Amt (&#8377)', field: 'SellingCost', format: "{0:#,0.00}" },
+                        { title: 'Amount (&#8377)', field: 'Amount', format: "{0:#,0.00}", width: 120 },
+                         { title: 'Mutation Date', field: 'MutationDate', type: "date", format: "{0:dd-MMM-yyyy}", width: 100 },
+                        { title: 'Allotment Date', field: 'AllotmentDate', type: "date", format: "{0:dd-MMM-yyyy}", width: 120 },
+                        { title: 'Transfer Date', field: 'TransferdeedDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+            ]
+        });
+        $("div#JalDetailGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetJalDetailsPaymentHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#JalDetailGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Consumer No', field: 'ConsumerNumber' },
+                        { title: 'Bill Amt (&#8377/Sq. Mtr)', field: 'BillAmt', format: "{0:#,0.00}" },
+                        { title: 'Paid Amt (&#8377/Sq. Mtr)', field: 'PaidAmount', format: "{0:#,0.00}" },
+                        { title: 'Surcharge (&#8377/Sq. Mtr)', field: 'Surcharge', format: "{0:#,0.00}" },
+                        { title: 'Payment Date', field: 'PaymentDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Bill From', field: 'BLFrom', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Bill To', field: 'BLTo', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Due Date', field: 'DueDate', type: "date", format: "{0:dd-MMM-yyyy}" }
+            ]
+        });
+        //$("div#PaymentHistoryGrid").kendoGrid({
+        //    dataSource: {
+        //        type: "json",
+        //        transport: {
+        //            read: "/Property/GetPropertyPaymentHistory/" + RegistrationID
+        //        },
+        //        pageSize: 5
+        //    },
+        //    //height: 250,
+        //    //filterable: true,
+        //    //groupable: true,
+        //    sortable: true,
+        //    pageable: {
+        //        refresh: true,
+        //        pageSizes: true,
+        //        buttonCount: 5
+        //    },
+        //    columns: [
+        //            { title: 'Amount Paid(&#8377)', field: 'AmountPaid', format: "{0:#,0.00}" },
+        //            { title: 'Depositor Name', field: 'DepositorName' },
+        //            { title: 'Deposit Date', field: 'DepositDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+        //             { title: 'Head', field: 'ReceiptHead' },
+        //            { title: 'Bank', field: 'BankId' },
+        //            { title: 'Challan ID', field: 'ChallanId' }
+        //    ]
+        //});
+
+        $("div#PropertyDocumentsGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetPropertyDocuments/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Name', field: 'Name' },
+                        { title: 'Document Link', field: 'Url', template: '<a href="#=Url#" target="_blank">Click Here</a>' },
+            ]
+        });
+
+        // Added by Kd
+
+        $("div#ComplainHistoryGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetPropertyComplainHistory/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#ComplainHistoryGrid'));
+            },
+            filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            requestStart: function () {
+
+                kendo.ui.progress($("div#ComplainHistoryGrid"), false);
+            },
+            requestEnd: function () {
+                kendo.ui.progress($("div#ComplainHistoryGrid"), true);
+            },
+            columns: [
+                { title: 'Registration ID', type: 'number', field: 'RegistrationId' },
+                { title: 'Complaint No', type: 'number', field: 'Complaint_No', width: 100 },
+                 { title: 'Subject', field: 'Nature_Subject', },
+                { title: 'Created Date', field: 'Submission_Date', type: "date", format: "{0:dd-MMM-yyyy}" },
+                  { title: 'Due Date', field: 'Exp_Delivery_Date', type: "date", format: "{0:dd-MMM-yyyy}" },
+                { title: 'Department', field: 'Department' },
+                 { title: 'Location', field: 'Complaint_Location' },
+                { title: 'Citizen Name', field: 'Citizen_Name' },
+                { title: 'Mobile', type: 'number', field: 'Citizen_Mobile', width: 90 },
+                { title: 'Status', field: 'Disposal_Status', width: 90 },
+
+            ]
+        });
+
+        // End
+
+        $("div#AttachmentDetails").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetPropertyAttachmentDetails/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#AttachmentDetails'));
+            },
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Document Name', field: 'DocumentName' },
+                        { title: 'Document', field: 'PathName', template: '<a href="#=PathName#" target="_blank">Click Here</a>' }
+            ],
+            noRecords: true,
+        });
+
+        $("div#DocumentDetails").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetDocumentDetails/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                DisplayNoResultsFound($('#DocumentDetails'));
+            },
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        { title: 'Document Name', field: 'DocumentName' },
+    { field: 'PathName', hidden: true },
+    { title: 'Document', field: 'PathName', template: '<a onclick="javascript:OpenFile(this);" class="view-docs" >Click Here</a>' }
+            ],
+            noRecords: true,
+        });
+
+    });
+
+    function OpenFile(row) {        
+        $("#windowDiv").empty();
+        var tr = $(row).parent().parent();
+        var link = $(tr).children("td:eq(1)").text();
+        $("#windowDiv").append($('<iframe src='+link+' style="width:800px; height:500px;"></iframe>'));
+        $("#IDWindow").data("kendoWindow").center();
+        $("#IDWindow").data("kendoWindow").open();
+    }
+    $("#addRemark").click(function () {
+
+        $("#feedbackModal").modal('show');
+        $("#message-text").val("");
+    });
+
+
+    $("#fdsubmit").click(function () {
+        var RegistrationID = $("div#PropertyDetailContainerDiv").data("registrationid");
+        var remark = $.trim($("#textRemark").val());
+        if (remark == '') {
+            alert("Please enter Remarks");
+            return false;
+        }
+        $("#feedbackModal").modal('hide');
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ registrationId: RegistrationID, remark: remark }),
+            url: '/Property/SaveRemark',
+            success: function (result) {
+                if (result == true) {
+                    alert("Remark saved successfully");
+                    $("#textRemark").val('');
+                    $("#RemarksGrid").data("kendoGrid").dataSource.read();
+                }
+            },
+            error: function (obj) {
+            }
+        });
+    });
+
+</script>
+
+<script type="text/javascript">
+    function Getstatus(status) {
+        if (status == "Due") {
+            return "<b style='color:red'>" + status + "</b>";
+        }
+        else {
+            return status;
+        }
+    }
+
+    function DisplayNoResultsFound(grid) {
+        // Get the number of Columns in the grid
+        var dataSource = grid.data("kendoGrid").dataSource;
+        var colCount = grid.find('.k-grid-header colgroup > col').length;
+
+        // If there are no results place an indicator row
+        if (dataSource._view.length == 0) {
+            grid.find('.k-grid-content tbody')
+                .append('<tr class="kendo-data-row"><td colspan="' + colCount + '" style="text-align:center">No Results Found!</td></tr>');
+        }
+    }
+</script>
+<script>
+    $(document).ready(function () {
+
+        setCurrentTab('prop')
+        // if the tabs are in wide columns on larger viewports
+        //$('.content-tabs').tabCollapse();
+
+        // initialize tab function
+        $('.nav-tabs a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+
+        // slide to top of panel-group accordion
+        $('.panel-group').on('shown.bs.collapse', function () {
+            var panel = $(this).find('.in');
+            $('html, body').animate({
+                scrollTop: panel.offset().top + (-60)
+            }, 500);
+        });
+
+    });
+
+    function ChallanViewPrint(RegistrationID, Amount) {
+        $.ajax({
+            url: '@(Url.Action("ChallanPrint", "Property"))',
+            type: 'POST',
+            data: { RegistrationID: RegistrationID, Amount: Amount },
+            contenttype: "application/json; charset=utf-8",
+            success: function () {
+                //alert("Yes");
+            },
+            error: function () {
+                //alert("No");
+            }
+        });
+    }
+    $(function () {
+        $('a[data-auto-download]').each(function () {
+            //alert("KK");
+            var $this = $(this);
+            setTimeout(function () {
+                window.location = $this.attr('href');
+            }, 2000);
+        });
+    });
+
+    function GetAllAmount() {
+        var r = confirm("Do you want to make full payment?");
+        if (r == true) {
+            var src = "@Html.Raw(Url.Action("ChallanPrint", "Property", new { RegistrationId = @Model.RegistrationId.ToString(), flag = 1 }))";
+            $("#runReport").attr("href", src);
+        } else {
+            var src = "@Html.Raw(Url.Action("ChallanPrint", "Property", new { RegistrationId = @Model.RegistrationId.ToString(), flag = 0 }))";
+            $("#runReport").attr("href", src);
+        }
+    }
+</script>

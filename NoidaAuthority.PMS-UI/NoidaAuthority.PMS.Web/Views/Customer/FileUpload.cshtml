@@ -1,0 +1,103 @@
+﻿@model NoidaAuthority.PMS.Entity.CitizenServiceRequest
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+@using NoidaAuthority.PMS.Entity;
+@using NoidaAuthority.PMS.Common;
+@{
+    ViewBag.Title = "FileUpload";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<style>
+    .k-button.k-upload-button{
+        border-radius:0;
+        margin:0px;
+        padding:3px 20px; 
+    }
+    .k-upload-sync{
+        border-radius:0;
+        padding-bottom:0;
+    }
+    .k-upload-files{
+        margin-bottom:0;
+    }
+</style>
+
+@using (Html.BeginForm("UploadFiles", "Customer", FormMethod.Post, new { id = "userform", name = "userform", enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.ServiceRequestId);
+    @Html.HiddenFor(m => m.Registration_No);
+    
+    <div class="col-md-12" id="divFileUpload">
+        <div class="row">
+            <div class="col-md-12 divPropertyDetailHeader">
+                <h4 class="inline">Upload Files</h4>
+                <span class="pull-right RID-txt">(Registration No: @Model.Registration_No)</span>
+            </div>           
+        </div>
+        <div class="row" style="margin-top:25px;">
+            <div class="col-md-3">
+                <label class="nw-lbl-lft">Request Id:</label>
+            </div>
+            <div class="col-md-3">
+                <label class="nw-lbl-rht">@Model.ServiceRequestId</label>
+            </div>
+            <div class="col-md-3"><label class="nw-lbl-lft">Service Name:</label></div>
+            <div class="col-md-3"><label class="nw-lbl-rht">@Model.ServiceName</label></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label class="nw-lbl-lft">Name:</label>
+            </div>
+            <div class="col-md-3">
+                <label class="nw-lbl-rht">@Model.Name</label>
+            </div>
+            <div class="col-md-3"><label class="nw-lbl-lft">Property Number:</label></div>
+            <div class="col-md-3"><label class="nw-lbl-rht">@Model.Property_No</label></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label class="nw-lbl-lft">Upload File:</label>
+            </div>
+            <div class="col-md-9" style="">
+                @(Html.Kendo().Upload().Name("files"))
+            </div>
+        </div>
+        
+        @*<div class="row" style="padding: 0 10px 20px;">
+            @if (ViewBag.uploadhtml != string.Empty)
+            {
+                <div class="col-md-12 nw-upload-wrap UploadDocuments">
+                    <div class="row" style="padding: 0 10px;">
+                       
+                    </div>
+                    <p style="padding:10px 10px 20px; color:#000">Please attach relevant documents for required Services. All documents are mandatory. If attached documents are not relevant, your service request will be rejected. </p>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div id="single">
+                        <div class="grid-service-tbl">
+                            <div class="gServiceTableRow">
+                                <div class="gServiceTableHead"><strong>Serial #</strong></div>
+                                <div class="gServiceTableHead"><strong>ID</strong></div>
+                                <div class="gServiceTableHead"><strong>Choose File</strong></div>
+
+                            </div>
+                            @Html.Raw(ViewBag.uploadhtml)
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>*@
+        <div class="row" style="margin-top:15px;">
+            <div class="col-md-12" style="text-align:right;">
+                <input type="submit" id="btnSubmit" class="k-button" value="Upload" style="border-radius:0;padding:4px 18px;"/>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,196 @@
+2018-08-06 00:19:40,467 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-06 00:19:41,133 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-06 00:19:50,044 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-06 00:19:57,311 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-06 00:19:57,532 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-06 00:19:58,417 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-06 00:19:58,435 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-06 00:19:58,624 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-06 00:19:58,738 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : smangla@svam.com.
+2018-08-06 00:19:58,742 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : smangla@svam.com.
+2018-08-06 00:20:26,241 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:20:26,558 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:20:28,452 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:20:29,194 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:20:32,889 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:20:33,567 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:20:35,263 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: PropertyDetail on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:21:14,278 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: PropertyDetail on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:21:14,388 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Controller Exception
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at NoidaAuthority.PMS.Web.Areas.Administration.Controllers.PropertyController.PropertyDetail(Nullable`1 id) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Areas\Administration\Controllers\PropertyController.cs:line 137
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+2018-08-06 00:21:14,436 => ERROR NoidaAuthority.PMS.Common.Logger.LogService.LogError():96 - Global Exception
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at NoidaAuthority.PMS.Web.Areas.Administration.Controllers.PropertyController.PropertyDetail(Nullable`1 id) in d:\TFSProjects\NST_PROD_PIS\Code\NoidaAuthority.PMS-UI\NoidaAuthority.PMS.Web\Areas\Administration\Controllers\PropertyController.cs:line 137
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2018-08-06 00:23:43,487 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:23:43,488 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:23:44,666 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:23:45,206 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:24:26,388 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:24:26,815 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:24:28,179 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: PropertyDetail on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:32:16,671 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-06 00:32:17,013 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-06 00:32:28,198 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-06 00:32:29,080 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: CheckEmailAddress on Controller: Account For User : .
+2018-08-06 00:32:34,684 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-06 00:32:34,685 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-06 00:32:35,300 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Login on Controller: Account For User : .
+2018-08-06 00:32:36,820 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Login on Controller: Account For User : .
+2018-08-06 00:32:36,894 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Home For User : smangla@svam.com.
+2018-08-06 00:32:36,896 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Home For User : smangla@svam.com.
+2018-08-06 00:32:45,205 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Index on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:32:45,426 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Index on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:32:53,628 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:32:54,354 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:41,041 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:41,703 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetProperties on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:43,373 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: PropertyDetail on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:33:46,337 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: PropertyDetail on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:33:49,519 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:52,127 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:52,535 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetRentingHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:53,853 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetRentingHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:54,000 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:54,939 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:55,022 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:55,602 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:55,673 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetFunctionalHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:56,261 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetFunctionalHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:56,281 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:56,285 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:56,319 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:33:56,439 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:34:12,935 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferHistory on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:34:13,704 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferHistory on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:34:13,743 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetLegalHistory on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:34:13,828 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetLegalHistory on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:34:13,857 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Remarks_Read on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:34:13,965 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Remarks_Read on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:34:14,003 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetJalDetailsPaymentHistory on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:34:14,199 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetJalDetailsPaymentHistory on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:34:14,746 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMortgageHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:34:15,344 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMortgageHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:34:15,459 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetExtensionHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:34:15,704 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetExtensionHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:21,311 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: PropertyDetail on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:39:25,110 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: PropertyDetail on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:39:37,520 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:38,083 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:38,164 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetRentingHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:38,370 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetRentingHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:38,533 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:38,736 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:39,006 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:39,241 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:39,526 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetFunctionalHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:39,810 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetFunctionalHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:41,845 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferHistory on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:39:41,967 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferHistory on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:39:56,300 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMortgageHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:56,491 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMortgageHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:56,515 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetLegalHistory on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:39:56,611 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetLegalHistory on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:39:56,628 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Remarks_Read on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:39:56,723 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Remarks_Read on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:39:56,747 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetJalDetailsPaymentHistory on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:39:56,959 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetJalDetailsPaymentHistory on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:39:58,450 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:58,595 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:58,947 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetExtensionHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:59,181 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetExtensionHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:59,451 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:39:59,945 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:41:50,924 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: PropertyDetail on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:41:55,987 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: PropertyDetail on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:42:06,191 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetMortgageHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:06,407 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetMortgageHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:06,709 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetRentingHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:06,947 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetRentingHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:07,052 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:07,253 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:07,499 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:07,758 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetCICHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:08,024 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetFunctionalHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:08,263 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetFunctionalHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:09,755 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetExtensionHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:09,978 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetExtensionHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:22,741 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:22,828 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:23,787 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetLegalHistory on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:42:23,880 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetLegalHistory on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:42:23,924 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:24,019 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:24,415 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:24,550 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetTransferHistoryByIdAsDataSource on Controller: Property For User : smangla@svam.com.
+2018-08-06 00:42:24,572 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: GetJalDetailsPaymentHistory on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:42:24,784 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: GetJalDetailsPaymentHistory on Controller: Property For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:42:24,958 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executing Action: Remarks_Read on Controller: Property  For User : smangla@svam.com Given Route: 10000013.
+2018-08-06 00:42:25,038 => DEBUG NoidaAuthority.PMS.Common.Logger.LogService.LogDebug():46 - Executed Action: Remarks_Read on Controller: Property For User : smangla@svam.com Given Route: 10000013.

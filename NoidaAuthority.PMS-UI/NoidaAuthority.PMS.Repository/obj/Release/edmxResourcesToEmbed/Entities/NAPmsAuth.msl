@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NOIDANEWModelStoreContainer" CdmEntityContainer="NOIDANEWEntities">
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="NOIDANEWModel.Menu">
+        <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+          <ScalarProperty Name="MenuType" ColumnName="MenuType" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_Menu_Mapping">
+      <EntityTypeMapping TypeName="NOIDANEWModel.Role_Menu_Mapping">
+        <MappingFragment StoreEntitySet="Role_Menu_Mapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_Users">
+      <EntityTypeMapping TypeName="NOIDANEWModel.Role_Users">
+        <MappingFragment StoreEntitySet="Role_Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="NOIDANEWModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NAcustomers">
+      <EntityTypeMapping TypeName="NOIDANEWModel.NAcustomer">
+        <MappingFragment StoreEntitySet="NAcustomer">
+          <ScalarProperty Name="AuthorityLetterType" ColumnName="AuthorityLetterType" />
+          <ScalarProperty Name="CustomerIdFileType" ColumnName="CustomerIdFileType" />
+          <ScalarProperty Name="AuthorityLetter" ColumnName="AuthorityLetter" />
+          <ScalarProperty Name="CustomerIdFileName" ColumnName="CustomerIdFileName" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PropertyNo" ColumnName="PropertyNo" />
+          <ScalarProperty Name="RegistrationId" ColumnName="RegistrationId" />
+          <ScalarProperty Name="AllotteeName" ColumnName="AllotteeName" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_property">
+      <EntityTypeMapping TypeName="NOIDANEWModel.view_property">
+        <MappingFragment StoreEntitySet="view_property">
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="PLDVLAND_USE_SUBTYPE_ID" ColumnName="PLDVLAND_USE_SUBTYPE_ID" />
+          <ScalarProperty Name="mobile_no" ColumnName="mobile_no" />
+          <ScalarProperty Name="ConstructionPeriodAllowed" ColumnName="ConstructionPeriodAllowed" />
+          <ScalarProperty Name="Prop_Type" ColumnName="Prop_Type" />
+          <ScalarProperty Name="PlotNumber" ColumnName="PlotNumber" />
+          <ScalarProperty Name="AllotmentStatusId" ColumnName="AllotmentStatusId" />
+          <ScalarProperty Name="AllotmentStatus" ColumnName="AllotmentStatus" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="PRDDMUTATION_DATE" ColumnName="PRDDMUTATION_DATE" />
+          <ScalarProperty Name="PRDDPOSSESSION_DATE" ColumnName="PRDDPOSSESSION_DATE" />
+          <ScalarProperty Name="PRDDREGISTRY_DONE_DATE" ColumnName="PRDDREGISTRY_DONE_DATE" />
+          <ScalarProperty Name="PRDVPRODUCT_NAME" ColumnName="PRDVPRODUCT_NAME" />
+          <ScalarProperty Name="PRDDACTUAL_FUNCTIONAL_DATE" ColumnName="PRDDACTUAL_FUNCTIONAL_DATE" />
+          <ScalarProperty Name="PRDDALLOTMENT_DATE" ColumnName="PRDDALLOTMENT_DATE" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="AreaSqm" ColumnName="AreaSqm" />
+          <ScalarProperty Name="PLDRACTUAL_LAND_AREA" ColumnName="PLDRACTUAL_LAND_AREA" />
+          <ScalarProperty Name="PRDVSUCC_MUT_TRANS_FLAG" ColumnName="PRDVSUCC_MUT_TRANS_FLAG" />
+          <ScalarProperty Name="PRDVREGIST_APPLICANT_ADDRESS" ColumnName="PRDVREGIST_APPLICANT_ADDRESS" />
+          <ScalarProperty Name="PRDVAPPLICANT_FATHER_NAME" ColumnName="PRDVAPPLICANT_FATHER_NAME" />
+          <ScalarProperty Name="PRDVREGIST_APPLICANT_NAME" ColumnName="PRDVREGIST_APPLICANT_NAME" />
+          <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
+          <ScalarProperty Name="PLDVLAND_USE_TYPE_ID" ColumnName="PLDVLAND_USE_TYPE_ID" />
+          <ScalarProperty Name="PLDVDISP_PROP_SUBTYPE_ID" ColumnName="PLDVDISP_PROP_SUBTYPE_ID" />
+          <ScalarProperty Name="PLDVDISP_PROP_TYPE_ID" ColumnName="PLDVDISP_PROP_TYPE_ID" />
+          <ScalarProperty Name="SECTOR" ColumnName="SECTOR" />
+          <ScalarProperty Name="PLDVSUBSCHEME_ID" ColumnName="PLDVSUBSCHEME_ID" />
+          <ScalarProperty Name="PLDVSECTOR_ID" ColumnName="PLDVSECTOR_ID" />
+          <ScalarProperty Name="BLOCK" ColumnName="BLOCK" />
+          <ScalarProperty Name="PLDIPROPERTY_NO" ColumnName="PLDIPROPERTY_NO" />
+          <ScalarProperty Name="PLDIPROPERTY_ID" ColumnName="PLDIPROPERTY_ID" />
+          <ScalarProperty Name="PRDVREGISTRATION_ID" ColumnName="PRDVREGISTRATION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Feedback">
+      <EntityTypeMapping TypeName="NOIDANEWModel.Customer_Feedback">
+        <MappingFragment StoreEntitySet="Customer_Feedback">
+          <ScalarProperty Name="Request_Status" ColumnName="Request_Status" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Service_Request" ColumnName="Service_Request" />
+          <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+          <ScalarProperty Name="Registration_No" ColumnName="Registration_No" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CitizenService_Master">
+      <EntityTypeMapping TypeName="NOIDANEWModel.CitizenService_Master">
+        <MappingFragment StoreEntitySet="CitizenService_Master">
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="service_id" ColumnName="service_id" />
+          <ScalarProperty Name="Deptt_Id" ColumnName="Deptt_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_ServiceRequest">
+      <EntityTypeMapping TypeName="NOIDANEWModel.Customer_ServiceRequest">
+        <MappingFragment StoreEntitySet="Customer_ServiceRequest">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Request_Status" ColumnName="Request_Status" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Property_No" ColumnName="Property_No" />
+          <ScalarProperty Name="Registration_No" ColumnName="Registration_No" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LookupDepartments">
+      <EntityTypeMapping TypeName="NOIDANEWModel.LookupDepartment">
+        <MappingFragment StoreEntitySet="LookupDepartment">
+          <ScalarProperty Name="ConstructionPeriodAllowed" ColumnName="ConstructionPeriodAllowed" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Property_Remarks">
+      <EntityTypeMapping TypeName="NOIDANEWModel.Property_Remarks">
+        <MappingFragment StoreEntitySet="Property_Remarks">
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Registration_No" ColumnName="Registration_No" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="NOIDANEWModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="IsFirstTimeActivated" ColumnName="IsFirstTimeActivated" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="IsRejected" ColumnName="IsRejected" />
+          <ScalarProperty Name="Property" ColumnName="Property" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="Sector" ColumnName="Sector" />
+          <ScalarProperty Name="OTP" ColumnName="OTP" />
+          <ScalarProperty Name="CustomerLetterType" ColumnName="CustomerLetterType" />
+          <ScalarProperty Name="CustomerLetterFileName" ColumnName="CustomerLetterFileName" />
+          <ScalarProperty Name="CustomerIdFileType" ColumnName="CustomerIdFileType" />
+          <ScalarProperty Name="CustomerIdFileName" ColumnName="CustomerIdFileName" />
+          <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="LastPasswordChangeDate" ColumnName="LastPasswordChangeDate" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Pasword" ColumnName="Pasword" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetPropertyPaymentHistoryByRegistrationId" FunctionName="NOIDANEWModel.Store.sp_GetPropertyPaymentHistoryByRegistrationId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NOIDANEWModel.sp_GetPropertyPaymentHistoryByRegistrationId_Result">
+          <ScalarProperty Name="PropertyNo" ColumnName="PropertyNo" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+          <ScalarProperty Name="ChallanId" ColumnName="ChallanId" />
+          <ScalarProperty Name="DepositDate" ColumnName="DepositDate" />
+          <ScalarProperty Name="ReceiptHead" ColumnName="ReceiptHead" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="DepositorName" ColumnName="DepositorName" />
+          <ScalarProperty Name="RegistrationId" ColumnName="RegistrationId" />
+          <ScalarProperty Name="ReceiptHead1" ColumnName="ReceiptHead1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,59 @@
+﻿@using Kendo.Mvc.UI
+@{
+    ViewBag.Title = "ManageCitizenRequests";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+<link href="/Content/kendo/2014.2.716/kendo.common.min.css" rel="stylesheet" />
+<link href="/Content/kendo/2014.2.716/kendo.default.min.css" rel="stylesheet" />
+<script src="/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<table>
+    <tr>
+        <td colspan="2">
+            <div class="col-lg-10 col-md-12 col-sm-12 col-md-offset-0s col-lg-offset-1">
+                @*<div class="row">
+                        <div class="col-md-12">
+                            <div class="row rw-spce">
+                                <div class="col-md-6 col-sm-6 col-xs-12"><h1 class="gridTitle">Manage Citizen Requests</h1></div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 mandatory"></div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="col-md-12 blnk-rw"></div>
+                <div class="k-grid-content">
+
+                    @(Html.Kendo().Grid<NoidaAuthority.PMS.Entity.CitizenRequestsModel>()
+        .Name("gridCitizenReq")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.RId).Title("Registration Id").Width(40);//.ClientTemplate("<a href='" + "/Property/PropertyRegistration/ViewGPA/" + "?RId=#= RId #&Type=#=GPAType#'" + ">#=RId#</a>");
+            columns.Bound(c => c.RefNo).Title("Reference Number").Width(40);
+            columns.Bound(c => c.ReqDate).Title("Request Date").Width(50).Format("{0:dd/MM/yyyy}");
+            //columns.Bound(c => c.SLA).Title("SLA (In Days)").Width(35);
+            columns.Bound(c => c.ServiceName).Title("Service Name").Width(60);
+            //columns.Bound(c => c.RId).Title("Action").Width(25).ClientTemplate("<a href='" + "ViewRequestDetails/#= Id #" + "'>View</a>");
+        })
+        .Sortable()
+        .Filterable()
+                .Resizable(resize => resize.Columns(true))
+        .Pageable(pageable => pageable
+                                               .Enabled(true)
+                                               .Refresh(true)
+                                               .PageSizes(true)
+                                            ).AutoBind(true)
+        .DataSource(dataSource => dataSource
+        .Ajax()
+        .Model(model => model.Id(c => c.RId))
+        .ServerOperation(false)
+        .Read(read => read.Action("GetCitizenRequests", "Customer"))
+        .PageSize(20)
+        )
+                    )
+                </div>
+        </td>
+    </tr>
+</table>
+@*</div>*@
+@*</div>
+        </div>
+    </div>*@
+

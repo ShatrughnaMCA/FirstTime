@@ -1,0 +1,307 @@
+﻿@using Kendo.Mvc.UI;
+@using System.Web.Optimization
+@using NoidaAuthority.PMS.Entities;
+@using NoidaAuthority.PMS.Common;
+
+@{
+    ViewBag.Title = "Manage Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<script src="~/Scripts/kendo.aspnetmvc.min.js"></script>
+
+<style>
+    .k-window div.k-window-content {
+        overflow: hidden;
+    }
+
+    div#UserListGrid .k-grid-content {
+        min-height: 50px;
+        max-height: 600px;
+    }
+
+    #new-employee{
+       padding: 3px 20px;
+       font-size: 14px;
+       border-radius: 0;
+       background: #00a182;
+       color:#fff;
+    }
+    .k-grid td.col-lock {
+        padding: 0;
+        margin: 0;
+    }
+    .k-grid-content{
+        overflow-y:hidden;
+    }
+     .k-grid td .btn {
+        width: 100%;
+        border-radius: 0;
+        padding: 7px 0;
+    }
+
+    .btn{
+        font-weight:bold;
+        background:#fff;
+    }
+
+    .view-docs {
+        color: blue;
+        text-decoration: underline;
+    }
+
+        .view-docs:hover {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+</style>
+
+<div class="container-content">
+    <div class="col-md-12">
+        <div class="col-md-12 divPropertyDetailHeader" style="margin-bottom:0px;padding:0;">
+            <h4 class="inline">Manage Employees</h4>
+            <span class="pull-right RID-txt">
+                <a id="new-employee" class="k-button" href="/Administration/Admin/Employee" target="_blank">Register Employee</a>
+            </span>
+        </div>
+    </div>
+
+    <div class="col-md-12 k-grid-content">
+        @(Html.Kendo().Grid<NoidaAuthority.PMS.Entity.UserViewModel>()
+            .Name("UserListGrid")
+            .Columns(columns =>
+                {
+                    //columns.Bound(p => p.UserName).Width(150).Title("Username/Email").ClientTemplate("<a href='/Administration/Admin/Employee' target='_blank'>#=UserName#</a>");
+                    columns.Bound(p => p.UserName).Width(150).Title("User Name");
+                    columns.Bound(p => p.FullName).Width(180).Title("Name").HtmlAttributes(new { @class = "longTextPopup" });
+                    columns.Bound(p => p.RoleName).Width(100).Title("Role");
+                    //columns.Bound(p => p.StatusId).Width(100).Title("Status").ClientTemplate("#if(IsActive = 1 && StatusId = 1){#<text class='txt-reject'>Active</text>#}else{#<text class='txt-reject'>Deactive</text>#}#");//("#= Status ? '<text>Active</text>' : '<text>Deactivated</text>' #");
+                    //columns.Bound(p => p.IsLockedOut).Width(100).Title("Locked").ClientTemplate("#= IsLockedOut ? '<text>Yes</text>' : '<text>No</text>' #");
+                    columns.Bound(p => p.IsLocked).Width(80).Title("Action").ClientTemplate("<input type='button' value='#if(IsLocked == true){# Unlock #} else{# Lock #}#' onclick='javascript:LockUnLockCustomer(this);' class='btn btn-default btn-bg'>").HtmlAttributes(new { @class = "col-lock" });
+                    //columns.Bound(p => p.UserId).Width(100).Title("Action").ClientTemplate("#if(Status == false || Status == null){#<input type='button' value='Activate' onclick='javascript:SendPassword(this);' class='btn btn-default btn-bg'>#} else {#<input type='button' value='DeActivate' onclick='javascript:DeactivateUser(this);' class='btn btn-default btn-bg'>#}#").HtmlAttributes(new { @class = "col-lock" });
+                    columns.Bound(p => p.StatusId).Width(100).Title("Action").Width(100).ClientTemplate("#if((IsActive == false)){if((StatusId != 1)){#<input type='button' value='Activate' onclick='javascript:SendPassword(#=UserName#);' class='btn btn-default btn-bg'>#}else {#<input type='button' value='DeActivate' onclick='javascript:DeactivateUser(#=UserName#);' class='btn btn-default btn-bg'>#}}else{#<input type='button' value='Deactivate' onclick='javascript:DeactivateUser(#=UserName#);' class='btn btn-default btn-bg' />#}#").HtmlAttributes(new { @class = "col-lock" });
+                    columns.Bound(p => p.Email).Title("Reset Password").Width(100).ClientTemplate("#if(StatusId != 2){#<input type='button' value='Reset Password' onclick='javascript:SendPassword(#=UserName#);' class='btn btn-default btn-bg'>#}else{#<input type='button' value='Rejected' class='btn btn-red' />#}#").HtmlAttributes(new { @class = "col-lock"});
+                })
+                //.ClientDetailTemplateId("template")
+                .Pageable(pageable => pageable.Enabled(true).Refresh(true).PageSizes(true))
+                .Filterable().Sortable().Resizable(r => r.Columns(true))    
+                .DataSource(dataSource => dataSource
+                        .Ajax().ServerOperation(false) // paging, sorting, filtering and grouping will be applied client-side
+                        .Read("GetRegisteredEmployeeList", "Admin", new { area = "Administration" })
+                        .Sort(sort=>sort.Add(c=>c.CreatedOn).Descending())
+                        .Events(events => events.Error("error_handler"))
+                )
+        )
+    </div>
+    <script id="template" type="text/kendo-tmpl">
+        @(Html.Kendo().Grid<NoidaAuthority.PMS.Entity.UserViewModel>()
+            .Name("grid_#=UserName#") // template expression, to be evaluated in the master context
+            .Columns(columns =>
+            {
+                columns.Bound(c => c.Email).HeaderHtmlAttributes(new { @class = "col-sub-grid" });
+                columns.Bound(c => c.MobileNo).HeaderHtmlAttributes(new { @class = "col-sub-grid" });
+                columns.Bound(c => c.CustomerIdType).HeaderHtmlAttributes(new { @class = "col-sub-grid" });//.ClientTemplate("\\#= ShipAddress \\#"); // escaped template expression, to be evaluated in the child/detail context
+                columns.Bound(c => c.NALetterType).HeaderHtmlAttributes(new { @class = "col-sub-grid" });
+                columns.Bound(p => p.IsRejected).Title("Action").Width(100).ClientTemplate("#if(IsRejected == false){#<input type='button' value='Reject' onclick='javascript:OpenRemarksPopUp(#=UserName#);' class='btn btn-default btn-bg'>#}#").HeaderHtmlAttributes(new { @class = "col-sub-grid" });
+                columns.Bound(p => p.CustomerIdName).Hidden(true);
+                columns.Bound(p => p.NALetterName).Hidden(true);
+            })
+            .DataSource(dataSource => dataSource
+            .Ajax().Read(read => read.Action("GetRegisteredEmployeeList", "Admin", new { area = "Administration", UserName = "#=UserName#" }))
+            )
+            .ToClientTemplate()
+        )
+    </script>
+    <script>
+        function dataBound() {
+            this.expandRow(this.tbody.find("tr.k-master-row").first());
+        }
+    </script>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#UserListGrid").kendoTooltip({
+            filter: "td.longTextPopup",
+            content: function (e) {
+                var element = e.target;
+                if (element.is("td.longTextPopup")) {
+                    return element.html();
+                }
+            },
+            position: "top",
+            width: 120,
+        });
+    });
+
+    var specialKeys = new Array();
+    specialKeys.push(8); //Backspace
+    function IsAlphaNumeric(e) {
+        var keyCode = e.which ? e.which : e.keyCode
+        var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+        if (ret == false)
+            return false;
+    }
+    var specialKeys1 = new Array();
+    specialKeys1.push(8); //Backspace
+    function IsAlpha(e) {
+        var keyCode = e.which ? e.which : e.keyCode
+        var ret = ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 65 && keyCode <= 90) || (keyCode >= 97 && keyCode <= 122) || (keyCode == 32) || specialKeys.indexOf(keyCode) != -1);
+        if (ret == false)
+            return false;
+    }
+
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+    function DeactivateUser(row) {
+        var flag = confirm('Are you sure you want to Activate/DeActivate User?');
+        if (flag == true) {
+            var tr = $(row).parent().parent();
+            var username = $(tr).children("td:eq(0)").text();
+            UpdateCustomerInfo(username, "ActiveDeactive");
+        }
+    }
+
+    function LockUnLockCustomer(row) {
+        var flag = confirm('Are you sure you want to change status of Customer?');
+        if (flag == true) {
+            var tr = $(row).parent().parent();
+            var username = $(tr).children("td:eq(0)").text();
+            UpdateCustomerInfo(username, "LockUnlock");
+        }
+    }
+
+    function UpdateCustomerInfo(username, action) {
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ UserName: username, ActionType: action }),
+            url: '/Administration/Admin/TakeActionOnUserByType',
+            success: function (result) {
+                if (result == '@ReturnType.Locked') {
+                    alert("User Locked successfully.");
+                }
+                else if (result == '@ReturnType.Unlock') {
+                    alert("User Unlocked successfully.");
+                }
+                if (result == '@ReturnType.Active') {
+                    alert("User Activated successfully.");
+                }
+                else if (result == '@ReturnType.NotActive') {
+                    alert("User Deactivated successfully.");
+                }
+                else if (result == '@ReturnType.Rejected') {
+                    alert("User Rejected successfully.");
+                }
+                $("#UserListGrid").data("kendoGrid").dataSource.read();
+            },
+            error: function (obj) {
+            }
+        });
+    }
+
+    function SendPassword(row) {
+        var flag = confirm("Are you sure to set/reset password?");
+        if (flag) {
+            var tr = $(row).parent().parent();
+            var username = $(tr).children("td:eq(0)").text();
+            $.ajax({
+                dataType: 'json',
+                type: 'Post',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ UserName: username }),
+                url: '/Administration/Admin/SendPassword',
+                success: function (result) {
+                    alert("User activated successfully.");
+                    $("#UserListGrid").data("kendoGrid").dataSource.read();
+                },
+                error: function (obj) {
+                }
+            });
+        }
+    }
+
+
+    function OpenCustomerFileForAdmin(row) {
+        var tr = $(row).parent().parent();
+        var link = $(tr).children("td:eq(7)").text();
+        $("#IDWindowLink").attr("src", link);
+        $("#IDWindow").data("kendoWindow").center();
+        $("#IDWindow").data("kendoWindow").open();
+    }
+
+    function OpenLetterFileForAdmin(row) {
+        var tr = $(row).parent().parent();
+        var link = $(tr).children("td:eq(8)").text();
+        $("#LetterWindowLink").attr("src", link);
+        $("#LetterWindow").data("kendoWindow").center();
+        $("#LetterWindow").data("kendoWindow").open();
+    }
+
+    function OpenCustomerFile(row) {
+        var tr = $(row).parent().parent();
+        var link = $(tr).children("td:eq(10)").text();
+        $("#IDWindowLink").attr("src", link);
+        $("#IDWindow").data("kendoWindow").center();
+        $("#IDWindow").data("kendoWindow").open();
+    }
+
+    function OpenLetterFile(row) {
+        var tr = $(row).parent().parent();
+        var link = $(tr).children("td:eq(11)").text();
+        $("#LetterWindowLink").attr("src", link);
+        $("#LetterWindow").data("kendoWindow").center();
+        $("#LetterWindow").data("kendoWindow").open();
+    }
+
+    //function LockUnLockCustomer(row) {
+    //    var tr = $(row).parent().parent();
+    //    var Status = $(tr).children("td:eq(14)").text();
+    //    var Statustext = "Unlock";
+    //    if (Status == 'false') { Statustext = "Lock" } else { Statustext = "Unlock" }
+    //    var deActivateUser = confirm('Are you sure you want to ' + Statustext + ' Customer?');
+    //    if (deActivateUser == true) {
+    //        var email = $(tr).children("td:eq(1)").text();
+    //        $.ajax({
+    //            dataType: 'json',
+    //            type: 'Post',
+    //            contentType: 'application/json; charset=utf-8',
+    //            data: JSON.stringify({ email: email }),
+    //            url: 'Administration/Admin/LockUnLockCustomer',
+    //            success: function (result) {
+    //                if (result == true) {
+    //                    alert("User Locked successfully.");
+    //                } else { alert("User Unlocked successfully."); }
+    //                $("#CustomerListGrid").data("kendoGrid").dataSource.read();
+    //            },
+    //            error: function (obj) {
+    //            }
+    //        });
+    //    }
+    //}
+
+
+</script>
+
+

@@ -1,0 +1,413 @@
+﻿@model NoidaAuthority.PMS.Entity.CICModel
+@using Kendo.Mvc.UI;
+
+
+<div class="">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="row">
+            <div class="col-md-6 no-padding">
+                <div class="row nw-kendo-select">
+                    <div class="col-md-6">
+                        @Html.Label("Change In Constitution", htmlAttributes: new { @class = "nw-lbl-lft required" })
+                    </div>
+                    <div class="col-md-6">
+                        @(Html.Kendo().DropDownListFor(model => model.Change_Type)
+                      .DataTextField("text")
+                      .DataValueField("id")
+                      .OptionLabel("Select")
+                      .DataSource(source =>
+                      {
+                          source.Read(read =>
+                          {
+                              read.Action("GetChangeType", "Customer");
+                          });
+                      })
+                    .HtmlAttributes(new { style = "width:100%;" })
+                        )
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 no-padding">
+                <div class="row">
+                    <div class="col-md-6">
+                        @*@Html.Label("CIC Charge (INR)", htmlAttributes: new { @class = "nw-lbl-lft" })*@
+                    </div>
+                    <div class="col-md-6">
+                        @Html.HiddenFor(m => m.CIC_Charge)
+                        @*@Html.TextBoxFor(m => m.CIC_Charge, htmlAttributes: new { @class = "nw-lbl-rht nw-txt-bx-spce", @maxlength = "16" })
+                        @Html.HiddenFor(m => m.CIC_Charge, htmlAttributes: new { @id = "hdnCICCharges" })*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+
+    }
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#changeInDirector').hide();
+        $('#changeInFirmName').hide();
+        $('#changeInProduct').hide();
+        $('#Change_Type').change(function () {
+            var changeType = $('#Change_Type').val();
+            HideShowSection(changeType);
+        });
+        $('#btnAdd').click(function(){
+            if(ValidateDirectors())
+                SaveCIC();
+        });
+        $('#btnAddFirmName').click(function(){            
+            if(ValidateDirectors())
+                SaveCICFirmName();
+        });
+
+        $('#btnAddFirmProduct').click(function(){            
+            if(ValidateDirectors())
+                SaveForFirmProduct();
+        });
+
+        $('#btnAdd1').click(function(){
+            ShowUploadDoc();
+        });  
+        
+        $('#btnCICDServiceSubmit').click(function () {
+            if ($('#Change_Type').val() == 1) {
+                //change in director
+                var grid = $('#gridCIC').data("kendoGrid");
+                var totalRecords = grid.dataSource.total();
+                if (totalRecords == 0) {
+                    alertify.error("Please enter atleast one record in directors/shareholders.");
+                    return false;
+                }
+                else{
+                    $('#divAcknowledgementModal').modal('show');
+                    //ShowUploadDoc();
+                }
+            }
+            if ($('#Change_Type').val() == 2) {
+                //change in farm
+                //if(CheckFileSize())
+                    SaveCICFirmName();
+            }
+            if ($('#Change_Type').val() == 4) {
+                //change in product
+                //if(CheckFileSize())
+                    SaveForFirmProduct();
+            }
+        });
+    });
+
+
+
+    function HideShowSection(cType)
+    {
+        if((cType==@NoidaAuthority.PMS.Common.Contants.ChangeInDirector))
+        {
+            $('#changeInDirector').show();
+            $('#changeInFirmName').hide();
+            $('#changeInProduct').hide();
+            $("#gridCIC").data("kendoGrid").dataSource.read();
+        }
+        else if((cType==@NoidaAuthority.PMS.Common.Contants.ChangeInFirmName))
+        {
+            $('#changeInDirector').hide();
+            $('#changeInFirmName').show();
+            $('#changeInProduct').hide();
+            //GetOldDetails(cType);
+        }
+        else if((cType==@NoidaAuthority.PMS.Common.Contants.ChangeInProduct))
+        {
+            $('#changeInDirector').hide();
+            $('#changeInFirmName').hide();
+            $('#changeInProduct').show();
+            //GetOldDetails(cType);
+        }
+        else{
+            $("#Change_Type").data("kendoDropDownList").value(0);
+            $('#changeInDirector').hide();
+            $('#changeInFirmName').hide();
+            $('#changeInProduct').hide();
+        }
+    }
+
+    function SaveCIC()
+    {
+        var directorShare=$('#Director_Share').val();
+        var grid = $("#gridCIC").data("kendoGrid");
+        var data = grid.dataSource._data;
+        if (parseFloat(directorShare) > 100) {
+            alertify.error("Sum of Shares can't exceed 100%");
+            return false;
+        }
+        var sum = 0;
+        $.each(data, function (p, row) {
+            sum = sum + parseFloat(row.Director_Share);
+        });
+        sum =sum+ parseFloat(directorShare);
+        if (sum > 100) {
+            alertify.error("Sum of Shares can't exceed 100%");
+            return false;
+        }
+        if (sum <= 100) {
+            var data = grid.dataSource._data;
+            var changetype=$('#Change_Type').val();
+            var ciccharge=$('#CIC_Charge').val();
+            var directorName=$('#Director_Name').val();
+            var type=$('#Type').val();
+            var rid = $("#Registration_No").val();
+            var registrationno = $("#ServiceRequestId").val();
+            var desc = $("#Description").val();
+            $.ajax({
+                dataType: 'json',
+                type: 'Post',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({rid:rid,registrationno:registrationno,directorShare:directorShare, changetype:changetype, ciccharge:ciccharge, directorName:directorName, desc: desc, type:type }),
+                url: '/Customer/SaveCIC',
+                success: function (result) {
+                    if (result == true) {
+                        alertify.success("Directors added Successfully");
+                        $('#Director_Name').val("");
+                        $('#Director_Share').val("");
+                        $('#hdnCICCharges').val($('#CIC_Charge').val());
+                        $("#Type").data("kendoDropDownList").value(0);
+                        $("#gridCIC").data("kendoGrid").dataSource.read();
+                        //ShowUploadDoc();
+                    }
+                },
+                error: function (objAjaxRequest, strError) {
+                    var respText = objAjaxRequest.responseText;
+                    //alert(respText);
+                }
+            });
+        }
+    }
+
+    function SaveCICFirmName()
+    {       
+        var newFirmStatus=$('#NewFirmStatus').val();
+        var newFirmName=$('#NewFirmName').val();
+        var ciccharge=$('#CIC_Charge').val();
+        var rid = $("#Registration_No").val();
+        var registrationno = $("#ServiceRequestId").val();
+        var desc = $("#Description").val();
+        if(newFirmStatus==""){
+            alertify.error("Please select firm status.");
+            return false;
+        }
+        if(newFirmName==""){
+            alertify.error("Please enter firm name.");
+            return false;
+        }
+        else{
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({rid:rid,registrationno:registrationno, newFirmStatus:newFirmStatus, newFirmName:newFirmName, desc: desc, ciccharge:ciccharge }),
+            url: '/Customer/SaveCICFirmName',
+            success: function (result) {
+                alertify.success("Firm Name added Successfully");
+
+                $('#divAcknowledgementModal').modal('show');
+
+                $("#NewFirmStatus").data("kendoDropDownList").value(0);
+                $('#NewFirmName').val("");
+                $('#CIC_Charge').val("");
+                
+                //$('#userform').submit();
+                //ShowUploadDoc();
+            },
+            error: function (objAjaxRequest, strError) {
+                var respText = objAjaxRequest.responseText;
+                //alert(respText);
+            }
+        });
+        }
+        
+    }
+
+    function SaveForFirmProduct()
+    {
+        var newFirmProduct=$('#NewFirmProduct').val();
+        var ciccharge=$('#CIC_Charge').val();
+        var rid = $("#Registration_No").val();
+        var registrationno = $("#ServiceRequestId").val();
+        var desc = $("#Description").val();
+        if(newFirmProduct ==  ""){
+            alertify.error("Please enter new product name.");
+            return false;
+        }
+        else{
+        $.ajax({
+            dataType: 'json',
+            type: 'Post',
+            contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({rid:rid,registrationno:registrationno, newFirmProduct:newFirmProduct, desc: desc, ciccharge:ciccharge }),
+            url: '/Customer/SaveForFirmProduct',
+            success: function (result) {
+                alertify.success("Firm Product added Successfully");
+
+                $('#divAcknowledgementModal').modal('show');
+
+                $('#NewFirmProduct').val("");
+                $('#CIC_Charge').val("");
+                
+                //$('#userform').submit();
+                //ShowUploadDoc();
+            },
+            error: function (objAjaxRequest, strError) {
+                var respText = objAjaxRequest.responseText;
+                //alert(respText);
+            }
+        });
+    }
+    }
+
+    function ValidateDirectors()
+    {
+        var bflag=false;
+        var changetype=$('#Change_Type').val();
+        var ck_name =  /^[a-zA-Z ]*$/g;
+        var changetype=$('#Change_Type').val();
+        if(changetype=="")
+        {
+            alertify.error("Please select Change In Constitution");
+            bflag=false;
+        }
+        if((changetype==@NoidaAuthority.PMS.Common.Contants.ChangeInDirector))
+        {
+            var type=$('#Type').val();
+            var directorName=$('#Director_Name').val().trim();
+            var director_Share=$('#Director_Share').val().trim();
+            if(directorName=="")
+            {
+                alertify.error("Please enter Director Name");
+                bflag=false;
+            }
+            else if (!ck_name.test(directorName)) {
+                alertify.error("Plese enter char in the Director Name.");
+                bflag=false;
+            }
+            else if(director_Share=="")
+            {
+                alertify.error("Please enter Director Share");
+                bflag=false;
+            }
+            else if(isNaN(director_Share))
+            {
+                alertify.error("Please enter a number.");
+                bflag=false;
+            }
+            else if(type=="")
+            {
+                alertify.error("Please select Type");
+                bflag=false;
+            }
+            else{
+                if (director_Share >= 0 && director_Share <= 99999) {
+                    $('#Director_Share').val(parseFloat($('#Director_Share').val()).toFixed(2));
+                    bflag=true;
+                }
+                else {
+                    alertify.error("Share should be of digits [5,2]");
+                    $('#Director_Share').Focus();
+                    bflag= false;
+                }
+
+            }
+            return bflag;
+        }
+        else if((changetype==@NoidaAuthority.PMS.Common.Contants.ChangeInFirmName))
+        {
+            var newFirmStatus=$('#NewFirmStatus').val();
+            var newFirmName=$('#NewFirmName').val().trim();
+            if(newFirmStatus=="")
+            {
+                alertify.error("Please select New Firm Status");
+                bflag=false;
+            }
+            else if(newFirmName=="")
+            {
+                alertify.error("Please enter New Firm Name");
+                bflag=false;
+            }
+            else if (!ck_name.test(newFirmName)) {
+                alertify.error("Plese enter char in Firm Name.");
+                bflag=false;
+            }
+            else{
+                bflag=true;
+            }
+            return bflag;
+        }
+        else if((changetype==@NoidaAuthority.PMS.Common.Contants.ChangeInProduct))
+        {
+            var newFirmProduct=$('#NewFirmProduct').val().trim();
+            if(newFirmProduct=="")
+            {
+                alertify.error("Please enter New Firm Product");
+                bflag=false;
+            }
+            else if (!ck_name.test(newFirmProduct)) {
+                alertify.error("Plese enter char in New Firm Product.");
+                bflag=false;
+            }
+            else{
+                bflag=true;
+            }
+            return bflag;
+        }
+    }
+
+    function RemoveRecord(row) {
+        var tr = $(row).parent().parent();
+        var dirID = $(tr).children("td:eq(4)").text();
+        var bflag = false;
+        if (confirm("Are you sure? You want to remove this record.")) {
+            $.ajax({
+                dataType: 'json',
+                type: 'Post',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ dirID: dirID }),
+                url: '/Customer/RemoveRecord',
+                success: function (result) {
+                    if (result == true) {
+                        bflag = true;
+                        $("#gridCIC").data("kendoGrid").dataSource.read();
+                        alertify.success("Record deleted successfully.");
+                    }
+                    else {
+                        bflag = false;
+                        alertify.error("Some error occured. Please try again later.");
+                    }
+                },
+                error: function (objAjaxRequest, strError) {
+                    var respText = objAjaxRequest.responseText;
+                    bflag = false;
+                    //alertify.error("Some error occured. Please try again later.");
+                    //alert(respText);
+                }
+            });
+        }
+        return bflag;
+    }
+
+    function ValidateCICDirectors()
+    {       
+        var gridCIC = $("#gridCIC").data("kendoGrid").dataSource.data();
+        if(gridCIC.length==0)
+        {
+            alertify.error("Please enter atleast one record in grid.");
+            bflag=false;
+        }
+        else{
+            bflag=true;
+        }
+        return bflag;
+    }
+</script>

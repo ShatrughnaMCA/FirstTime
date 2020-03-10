@@ -1,0 +1,105 @@
+﻿@model NoidaAuthority.PMS.Entity.ServiceRequestViewModel
+@using Kendo.Mvc.UI;
+@using Kendo.Mvc.Extensions;
+@using NoidaAuthority.PMS.Common;
+
+
+@using (Html.BeginForm("PayOnlineForServices", "Payment", new { area = "Customer" }, FormMethod.Post, new { enctype = "multipart/form-data", id = "paymentform" }))
+{
+    <div id="div-payment">
+        <div class="row form-group">
+            <div class="col-md-12">
+                <h2>Pay Online</h2>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>TransactionId</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.TransactionId, htmlAttributes: new { @class = "k-textbox", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Amount</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.Amount, htmlAttributes: new { @class = "k-textbox", style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>Name</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.FirstName, htmlAttributes: new { @class = "k-textbox", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Product Info</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.ProductInfo, htmlAttributes: new { @class = "k-textbox", style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <label>Mobile</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.MobileNo, htmlAttributes: new { @class = "k-textbox", style = "width:100%" })
+            </div>
+            <div class="col-md-2">
+                <label>Email</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.OnlinePaymentModel.Email, htmlAttributes: new { @class = "k-textbox", style = "width:100%" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-12" style="text-align:right;">
+                @Html.HiddenFor(model => model.OnlinePaymentModel.BankId, htmlAttributes: new { @value = "2" })
+                <input type="submit" value="Pay Now" id="btn-pay-online" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<script>
+    @{
+        if (TempData["Success"] != null || TempData["Success"] == "")
+        {
+            @:alertify.success('Payment completed successfully');
+        }
+    }
+</script>
+
+<script>
+    //$("#btn-pay-online").click(function () {
+    //    var payment = {
+    //        TransactionId: $("input[name='OnlinePaymentModel.TransactionId']").val(),
+    //        Amount: $("input[name='OnlinePaymentModel.Amount']").val(),
+    //        FirstName: $("input[name='OnlinePaymentModel.FirstName']").val(),
+    //        ProductInfo: $("input[name='OnlinePaymentModel.ProductInfo']").val(),
+    //        Mobile: $("input[name='OnlinePaymentModel.Mobile']").val(),
+    //        Email: $("input[name='OnlinePaymentModel.Email']").val(),
+    //        BankId : 2
+    //    };
+    //    $.ajax({
+    //        dataType: 'json',
+    //        type: 'Post',
+    //        contentType: 'application/json; charset=utf-8',
+    //        //data: JSON.stringify(payment),
+    //        data: JSON.stringify({model : payment}),
+    //        url: '/Customer/Payment/PayOnlineForServices',
+    //        success: function (result) {
+    //            //$("#divPaymentwindow").data("kendoWindow").close();
+    //            //$("#divChallanBody").html(result);
+    //            //$("#divPrintChallan").modal('show');
+    //        },
+    //        error: function (objAjaxRequest, strError) {
+    //            var respText = objAjaxRequest.responseText;
+    //            alertify.error("Some Error in save database.");
+    //        }
+    //    });
+    //});
+</script>

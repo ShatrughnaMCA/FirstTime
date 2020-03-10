@@ -1,0 +1,16 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+@{
+    ViewBag.Title = "PropertyDetail";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div>
+    <input type="hidden" id="hdnRegistrationID" value="@Model.RegistrationId" />
+    <input type="hidden" id="hdnPropertyCategory" value="@Model.PropertyCategory" />
+    <input type="hidden" id="hdnregID" value=@Request.QueryString["flag"] />
+    <input type="hidden" id="hdnflag" value=@Request.QueryString["Pflag"] />
+</div>
+
+@{Html.RenderPartial("_CitizenPropertyDetail", @Model);}

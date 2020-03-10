@@ -1,0 +1,317 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+
+<link href="~/Content/CSS/easy-responsive-tabs.css" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.default.min.css")" rel="stylesheet" />
+<script src="~/Scripts/kendo/2014.2.716/kendo.web.min.js"></script>
+<script src="~/Scripts/jquery.ba-hashchange.js"></script>
+<style type="text/css">
+    .modal-dialog {
+        padding-top: 15%;
+    }
+    #PaymentScheduleGrid{
+        overflow-y:hidden;
+        /*padding:0 30px 0 30px;*/
+    }
+</style>
+
+<div class="row" id="PropertyDetailContainerDiv" data-registrationid="@Model.RegistrationId">
+    <div class="col-md-12">
+        <div class="row" style="padding:0 10px 20px;">
+            <div class="col-md-12 divPropertyDetailHeader">
+                <h4 class="inline">Payment Schedule</h4>
+                <span class="pull-right RID-txt">(Registration No: @Model.RegistrationNo)</span>
+                <input type="hidden" id="hdnRegNo" value="@Model.RegistrationNo" />
+                <input type="hidden" id="hdnPropType" value="@Model.PropertyCategory" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="@Url.Action("ChallanPrint", "Property", new { RegistrationId = @Model.RegistrationId.ToString() })"
+                   type="submit"
+                   id="runPaymentReport"
+                   target="_blank"
+                   onclick="GetAllAmount();">
+                </a>
+            </div>
+            <div class="col-md-12">
+                @{ Html.RenderPartial("PropertyBasicInfo", @Model);}
+            </div>
+            <div class="col-md-12">
+                @{
+                    if (!string.IsNullOrEmpty(Model.TransferCase))
+                    {
+                        <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+                        <div id="PaymentScheduleGrid" class="k-grid-content" style="overflow-y:hidden;"></div>
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="divPropertyDetailHeader">
+                <h4 class="inline">Payment Details</h4>
+            </div>
+            <div class="col-md-12">
+                @{
+                    if (!string.IsNullOrEmpty(Model.TransferCase))
+                    {
+                        <div data-role="droptarget" class="k-grouping-header">Drag a column header and drop it here to group by that column</div>
+                        <div id="PaymentHistoryGrid" style="overflow-y:hidden"></div>
+                    }
+                }
+            </div>
+        </div>      
+    </div>
+
+    <div class="col-md-12 no-padding">
+        <div class="row">
+            @*<div class="col-md-12" id="divPropertyDetailHeader">
+                <h4 class="inline">Payment Details</h4>
+            </div>*@
+
+            <div class="col-md-12">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Payment Mode</h4>
+            </div>
+            <div class="modal-body">
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="radOnline" checked="checked" value="radOnline"> Online
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="radOffline" value="radOffline"> Offline
+                </label>
+                <br />
+                <br />
+                <div id="dvFullOrPartial" style="display:none">
+                    <div class="row">
+                        <div class="col-md-3"><label>Payment Type</label></div>
+                        <div class="col-md-6">
+                            <select id="ddlPaymentType" onchange="PaymentTypeSelection(this)">
+                                <option value="0">Full</option>
+                                <option value="1">Partial</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div id="dvAmount" style="display:none">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-3"><label>Enter Amount</label></div>
+                            <div class="col-md-6"><input type="text" id="txtAmount" /></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="hdnScheduleId" />
+                <button type="button" id="btnClose" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="btnGo" class="btn btn-primary">Go</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        BindPaymentSchedule();
+        BindPaymentHistory();
+    });
+    function GetAllAmount() {
+        var r = confirm("Do you want to make full payment?");
+        if (r == true) {
+            var src = "@Html.Raw(Url.Action("ChallanPrint", "Property", new { RegistrationId = @Model.RegistrationId.ToString(), flag = 1 }))";
+            $("#runReport").attr("href", src);
+        } else {
+            var src = "@Html.Raw(Url.Action("ChallanPrint", "Property", new { RegistrationId = @Model.RegistrationId.ToString(), flag = 0 }))";
+            $("#runReport").attr("href", src);
+        }
+    }
+    function redirectToPayment(iSchudleId) {
+        $('#hdnScheduleId').val(iSchudleId);
+        $('#myModal').modal('show');
+    }
+
+    function BindPaymentHistory() {
+
+        var RegistrationID = $("div#PropertyDetailContainerDiv").data("registrationid");
+
+        $("div#PaymentHistoryGrid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: "/Property/GetPaymentDetails/" + RegistrationID
+                },
+                pageSize: 5
+            },
+            dataBound: function () {
+                //DisplayNoResultsFound($('#PaymentDetailGrid'));
+            },
+            //height: 250,
+            //filterable: true,
+            //groupable: true,
+            sortable: true,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                        //{ title: 'PropertyNo', field: 'PropertyNo' },
+                        { title: 'Receiving Date', field: 'DepositDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                        { title: 'Receiving Amt(&#8377)', field: 'AmountPaid', format: "{0:#,0.00}" },
+                            { title: 'Receipt No.', field: 'ChallanId' },
+                        { title: 'Receipt Head.', field: 'ReceiptHead' },
+            ]
+        });
+    }
+    function onDataBound(arg) {
+        //alert("Grid data bound:" + $(".payNowLink").length);;
+        //$(".payNowLink").click(function () {
+        //    var SchduleId = $(this).data('abc');
+        //    pymntSchduleId = $(this).data('abc');
+        //    $(".scheduleID").text(SchduleId);
+        //    //alert($(".scheduleID").text());
+        //    var ID = $(this).data('date');
+        //    var ID = $.datepicker.formatDate('dd-M-yy', new Date(ID));
+        //    $(".date").text(ID);
+        //    var IDY = $(this).data('amount');
+        //    $(".payMent").text(IDY);
+        //    //alert($(".payMent").text());
+
+        //    $("#myModalPaymentData").modal('show');
+
+        //});
+    }
+    function BindPaymentSchedule() {
+        //var RegistrationID = $("div#PropertyDetailContainerDiv").data("registrationid");
+        var RegistrationID = $("#hdnRegistrationID").val();
+        if ($("div#PaymentScheduleGrid").length)// $("div#PaymentScheduleGrid").length
+        {
+
+            $("#PaymentScheduleGrid").kendoGrid({
+                dataSource: {
+                    type: "json",
+                    transport: {
+                        read: "/Customer/GetPaymentSchedule/" + RegistrationID
+                    },
+                    pageSize: 10
+                },
+                //height: 250,
+                //filterable: true,
+                //groupable: true,
+                dataBound: onDataBound,
+                sortable: true,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                },
+                columns: [
+                    //{ title: 'PropertyNo', field: 'PropertyNo' },
+                    { title: 'Payment Schedule Date', field: 'paymentScheduleDate', type: "date", format: "{0:dd-MMM-yyyy}" },
+                    { title: '', field: 'ScheduleAmount', format: "{0:#,0.00}", headerTemplate: 'Scheduled Amount (&#8377)' },
+                    { title: 'PaymentScheduleId', field: 'PaymentScheduleId', hidden: true },
+
+                        {
+                            title: 'Payment Status', field: 'PaymentStatus', type: "string", template: '# if(PaymentStatus == "Due") { #' +
+                                                '<span>#= PaymentStatus # <span data-abc="#= PaymentScheduleId #" data-amount="#= ScheduleAmount #" data-date="#= paymentScheduleDate #" onclick="redirectToPayment(#=PaymentScheduleId#)" class="payNowLink">Pay Now</span></span>' +
+                                                    '# } else { #' +
+                                                    "  " + '<span>#= PaymentStatus # </span>' +
+                                                        '# } #'
+                        }
+
+
+                ],
+            });
+        }
+    }
+
+    function PaymentTypeSelection(a) {
+        if ($(a).val() == 0) {
+            $('#dvAmount').css('display', 'none');
+        }
+        else {
+            $('#dvAmount').css('display', 'block');
+        }
+    }
+    function ResetValues() {
+        $("#txtAmount").val('')
+        $("#ddlPaymentType").prop('selectedIndex', 0);
+        $("#radOnline").prop("checked", true);
+        $('#dvAmount').css('display', 'none');
+        $('#dvFullOrPartial').css('display', 'none');
+    }
+    $('#btnClose').click(function () {
+        ResetValues();
+    });
+    $('#btnGo').click(function () {
+        var iSchudleId = $('#hdnScheduleId').val();
+        var selectedValue = $("#radOffline").is(":checked");
+        var regId = $('#hdnRegistrationID').val();
+        var partialAmount = $("#txtAmount").val();
+        var ddlPaymentType = $('#ddlPaymentType').val();
+        if (selectedValue == false) {
+            $('#myModal').modal('hide');
+            window.location.href = '../../Payment/Details?registationId=' + regId + '&scheduleId=' + iSchudleId;
+        }
+        else {
+            if (ddlPaymentType == 0) {
+                $('#myModal').modal('hide');
+                $("#radOnline").attr('checked', true);
+                window.open('../../Property/ChallanPrint?RegistrationId=' + @Model.RegistrationId.ToString() + '&flag=' + 1 + '&partAmount=' + 0, '_blank');
+                ResetValues();
+            }
+            else {
+                if (partialAmount == "") {
+                    alert("Please enter Amount.");
+                    return false;
+                }
+                else if (isNaN(partialAmount)) {
+                    alert("Please enter digits only.");
+                    $("#txtAmount").val('')
+                    return false;
+                }
+                else {
+                    if (partialAmount <= 0) {
+                        alert("Please enter amount greater than zero(0).");
+                        $("#txtAmount").val('')
+                        return false;
+                    }
+                    $('#myModal').modal('hide');
+                    $("#radOnline").attr('checked', true);
+                    window.open('../../Property/ChallanPrintFullOrPartial?RegistrationId=' + @Model.RegistrationId.ToString() + '&flag=' + 0 + '&partAmount=' + partialAmount, '_blank');
+                    ResetValues();
+                }
+            }
+        }
+    })
+
+    $('input[type=radio]').click(function () {
+        if ($(this).val() == "radOffline") {
+            $('#dvFullOrPartial').css('display', 'block');
+
+        }
+        else {
+            $('#dvFullOrPartial').css('display', 'none');
+        }
+    });
+
+</script>

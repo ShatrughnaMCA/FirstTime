@@ -1,0 +1,78 @@
+﻿@model NoidaAuthority.PMS.Web.Models.PropertyDetail
+@using Kendo.Mvc.UI;
+@using NoidaAuthority.PMS.Entities;
+@{
+    //ViewBag.Title = "Citizen";
+    ViewBag.Title = "Noida Authority";
+    //Layout = "~/Views/Shared/_CitizenLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-control{
+        border-radius:0;
+    }
+    
+</style>
+
+
+<div id="addServiceRequest">
+    <div class="row form-group divPropertyDetailHeader" style="padding-bottom:5px;">
+        <div class="col-md-6">
+            <h3> Service Request </h3>
+        </div>
+        <div class="col-md-6 text-right">
+            @Html.ActionLink("Citizen Charter Guidelines", "OnlineHelp", new { controller = "Customer" }, new { target = "_blank" })
+        </div>
+    </div>
+    <div class="row">
+        @{ Html.RenderPartial("_ServiceRequest_Employee", @Model);}
+    </div>
+    <div class="row">
+        <input type="hidden" id="hdnRegistrationID" value="@Model.RegistrationId" />
+        <input type="hidden" id="hdnPropertyCategory" value="@Model.PropertyCategory" />
+        <input type="hidden" id="hdnregID" value=@Request.QueryString["flag"] />
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    var id = '@Session["RegistrationID"]';
+
+    //$('.link-prop-detail').click(function () {
+    //    alert($('.icn-property').text());
+    //    window.location.href = "/Customer/index?id=" + id;
+    //});
+
+    $('#linkPropertyDetail').click(function () {
+        //window.location.href = "/Customer/index?id=" + id + "&Pflag=" + "D";
+        window.location.href = "/Customer/CitizenPropertyDetail?id=" + '@NoidaAuthority.PMS.Common.Helpers.CommonHelper.Encode(Convert.ToString(Session["RegistrationID"]))';
+    });
+    $('#linkPropertyPayment').click(function() {
+        //window.location.href = "/Customer/index?id=" + id + "&Pflag=" + "P";
+        window.location.href = "/Customer/PaymentDetail?id=" + id;
+    });
+    $('#linkNoidaJal').click(function() {
+        window.location.href = "/Customer/JalPaymentDetail?id=" + id;
+    });
+    $('#linkServiceHistory').click(function() {
+        //window.location.href = "/Customer/index?id=" + id;
+        window.location.href = "/Customer/ServiceRequest?id=" + '@NoidaAuthority.PMS.Common.Helpers.CommonHelper.Encode(Convert.ToString(Session["RegistrationID"]))';
+    });
+    $('#linkLitigationHistory').click(function() {
+        window.location.href = "/Customer/LitigationHistory?id=" + id;
+    });
+    $('#linkRemarks').click(function() {
+        window.location.href = "/Customer/CitizenRemarks?id=" + id;
+    });
+    $('#linkNotices').click(function() {
+        window.location.href = "/Customer/index?id=" + id;
+    });
+    $('#linkChangePassword').click(function() {
+        window.location.href = "/Account/ChangePassword";
+    });
+
+
+
+
+</script>

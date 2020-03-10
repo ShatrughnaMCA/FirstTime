@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NOIDANEWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuId" Type="Int32" Nullable="false" />
+    <Property Name="ParentMenuId" Type="Int32" Nullable="false" />
+    <Property Name="MenuType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role_Menu_Mapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Role_Menu_Mapping_Roles" FromRole="Role_Menu_Mapping" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Role_Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Role_Users_Users" FromRole="Role_Users" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Role_Menu_Mapping" Relationship="Self.FK_Role_Menu_Mapping_Roles" FromRole="Roles" ToRole="Role_Menu_Mapping" />
+    <NavigationProperty Name="Role_Users" Relationship="Self.FK_Role_Users_Users" FromRole="Roles" ToRole="Role_Users" />
+  </EntityType>
+  <Association Name="FK_Role_Menu_Mapping_Roles">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Role_Menu_Mapping" Type="Self.Role_Menu_Mapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Role_Menu_Mapping">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Users_Users">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Role_Users" Type="Self.Role_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Role_Users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NOIDANEWEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Menus" EntityType="Self.Menu" />
+    <EntitySet Name="Role_Menu_Mapping" EntityType="Self.Role_Menu_Mapping" />
+    <EntitySet Name="Role_Users" EntityType="Self.Role_Users" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <AssociationSet Name="FK_Role_Menu_Mapping_Roles" Association="Self.FK_Role_Menu_Mapping_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Role_Menu_Mapping" EntitySet="Role_Menu_Mapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Users_Users" Association="Self.FK_Role_Users_Users">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Role_Users" EntitySet="Role_Users" />
+    </AssociationSet>
+    <EntitySet Name="NAcustomers" EntityType="NOIDANEWModel.NAcustomer" />
+    <EntitySet Name="view_property" EntityType="NOIDANEWModel.view_property" />
+    <EntitySet Name="Customer_Feedback" EntityType="NOIDANEWModel.Customer_Feedback" />
+    <EntitySet Name="CitizenService_Master" EntityType="NOIDANEWModel.CitizenService_Master" />
+    <EntitySet Name="Customer_ServiceRequest" EntityType="NOIDANEWModel.Customer_ServiceRequest" />
+    <EntitySet Name="LookupDepartments" EntityType="NOIDANEWModel.LookupDepartment" />
+    <EntitySet Name="Property_Remarks" EntityType="NOIDANEWModel.Property_Remarks" />
+    <EntitySet Name="Users" EntityType="NOIDANEWModel.User" />
+    <FunctionImport Name="sp_GetPropertyPaymentHistoryByRegistrationId" ReturnType="Collection(NOIDANEWModel.sp_GetPropertyPaymentHistoryByRegistrationId_Result)">
+      <Parameter Name="RegistrationId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="NAcustomer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Guid" Nullable="false" />
+    <Property Name="AllotteeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RegistrationId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PropertyNo" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="IsLockedOut" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="CustomerIdFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorityLetter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerIdFileType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorityLetterType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="view_property">
+    <Key>
+      <PropertyRef Name="PRDVREGISTRATION_ID" />
+      <PropertyRef Name="BLOCK" />
+      <PropertyRef Name="PropertyType" />
+      <PropertyRef Name="AreaSqm" />
+      <PropertyRef Name="AreaId" />
+      <PropertyRef Name="STATUS" />
+      <PropertyRef Name="AllotmentStatus" />
+      <PropertyRef Name="AllotmentStatusId" />
+    </Key>
+    <Property Name="PRDVREGISTRATION_ID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PLDIPROPERTY_ID" Type="Int32" />
+    <Property Name="PLDIPROPERTY_NO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BLOCK" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PLDVSECTOR_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PLDVSUBSCHEME_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SECTOR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PLDVDISP_PROP_TYPE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PLDVDISP_PROP_SUBTYPE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PLDVLAND_USE_TYPE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PropertyType" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="PRDVREGIST_APPLICANT_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PRDVAPPLICANT_FATHER_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PRDVREGIST_APPLICANT_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PRDVSUCC_MUT_TRANS_FLAG" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PLDRACTUAL_LAND_AREA" Type="Double" />
+    <Property Name="AreaSqm" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="AreaId" Type="Int32" Nullable="false" />
+    <Property Name="PRDDALLOTMENT_DATE" Type="DateTime" Precision="0" />
+    <Property Name="PRDDACTUAL_FUNCTIONAL_DATE" Type="DateTime" Precision="0" />
+    <Property Name="PRDVPRODUCT_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PRDDREGISTRY_DONE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="PRDDPOSSESSION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="PRDDMUTATION_DATE" Type="DateTime" Precision="0" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="AllotmentStatus" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="AllotmentStatusId" Type="Int32" Nullable="false" />
+    <Property Name="PlotNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Prop_Type" Type="Int32" />
+    <Property Name="ConstructionPeriodAllowed" Type="Int32" />
+    <Property Name="mobile_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PLDVLAND_USE_SUBTYPE_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Expr1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Customer_Feedback">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Registration_No" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Feedback" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Service_Request" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Modified_By" Type="Int32" />
+    <Property Name="Request_Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CitizenService_Master">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Deptt_Id" Type="Int32" />
+    <Property Name="service_id" Type="Int32" />
+    <Property Name="ServiceName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Customer_ServiceRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Registration_No" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Property_No" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="ServiceId" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Modified_By" Type="Int32" />
+    <Property Name="Request_Status" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LookupDepartment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ConstructionPeriodAllowed" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Property_Remarks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Registration_No" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Pasword" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="IsLockedOut" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="LastPasswordChangeDate" Type="DateTime" Precision="3" />
+    <Property Name="PropertyId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="DeptId" Type="Int32" />
+    <Property Name="CustomerIdFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerIdFileType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerLetterFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerLetterType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OTP" Type="Int32" />
+    <Property Name="Sector" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Block" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Property" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsRejected" Type="Boolean" />
+    <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsFirstTimeActivated" Type="Boolean" />
+    <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Question" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Answer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="sp_GetPropertyPaymentHistoryByRegistrationId_Result">
+    <Property Type="String" Name="PropertyNo" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="BankId" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ChallanId" Nullable="true" />
+    <Property Type="DateTime" Name="DepositDate" Nullable="true" />
+    <Property Type="String" Name="ReceiptHead" Nullable="true" MaxLength="255" />
+    <Property Type="Double" Name="AmountPaid" Nullable="true" />
+    <Property Type="String" Name="DepositorName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="RegistrationId" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="ReceiptHead1" Nullable="true" MaxLength="255" />
+  </ComplexType>
+</Schema>
